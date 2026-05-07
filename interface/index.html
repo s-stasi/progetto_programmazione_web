@@ -9,9 +9,7 @@
 </head>
 
 <body>
-
   <div class="layout-container">
-
     <header class="header">
       <h1>Lido Sole & Sabbia</h1>
     </header>
@@ -26,9 +24,7 @@
           <li><a href="#">Contatti</a></li>
         </ul>
       </nav>
-
       <hr class="divisore">
-
       <div class="cerca">
         <h2>Cerca Ombrellone</h2>
         <input type="text" id="search-input" placeholder="Es. Settore A...">
@@ -39,14 +35,14 @@
     <main class="corpo-pagina">
       <section class="booking-section">
         <h2>Prenota il tuo posto al sole</h2>
-        <p>Seleziona una data per visualizzare gli ombrelloni disponibili sulla mappa.</p>
+        <p>Visualizzazione in tempo reale degli ombrelloni.</p>
 
         <div class="date-picker-container">
           <label for="data-prenotazione">Giorno della prenotazione:</label>
           <input type="date" id="data-prenotazione">
         </div>
 
-        <div id="area-mappa" class="nascosto">
+        <div id="area-mappa">
           <div class="legenda">
             <div class="item"><span class="badge libero"></span> Disponibile</div>
             <div class="item"><span class="badge occupato"></span> Occupato</div>
@@ -55,15 +51,15 @@
 
           <div class="spiaggia-container">
             <div class="mare">MARE</div>
-            <div id="griglia-spiaggia" class="spiaggia-grid">
-            </div>
+            <div id="griglia-spiaggia">
+              </div>
           </div>
 
           <div id="info-selezione" class="nascosto">
             <div class="card-conferma">
               <h3>Dettaglio Selezione</h3>
               <p id="dettaglio-testo">Seleziona un ombrellone sulla mappa.</p>
-              <button class="btn-conferma">Procedi al Contratto</button>
+              <button class="btn-conferma" style="padding: 10px; background: #2ecc71; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">Procedi al Contratto</button>
             </div>
           </div>
         </div>
@@ -71,82 +67,98 @@
     </main>
 
     <footer class="footer">
-      <p>&copy; 2026 - Lido Sole & Sabbia - Info contatti - Privacy Policy</p>
+      <p>&copy; 2026 - Lido Sole & Sabbia</p>
     </footer>
-
   </div>
 
   <script>
     const inputData = document.getElementById('data-prenotazione');
-    const areaMappa = document.getElementById('area-mappa');
     const grigliaSpiaggia = document.getElementById('griglia-spiaggia');
     const infoSelezione = document.getElementById('info-selezione');
     const dettaglioTesto = document.getElementById('dettaglio-testo');
 
-    // Imposta data odierna e limite minimo
     const oggi = new Date().toISOString().split('T')[0];
     inputData.value = oggi;
     inputData.min = oggi;
 
-    // Gestione cambio data: ora chiama la funzione DATABASE
-    inputData.addEventListener('change', () => {
-      if (inputData.value) {
-        areaMappa.classList.remove('nascosto');
-        recuperaOmbrelloni(); // <--- CHIAMA IL DATABASE
-      }
-    });
+    // Caricamento automatico all'avvio
+    window.addEventListener('load', recuperaOmbrelloni);
+    inputData.addEventListener('change', recuperaOmbrelloni);
 
-    // FUNZIONE CHE INTERROGA IL DATABASE TRAMITE PHP
     async function recuperaOmbrelloni() {
-      grigliaSpiaggia.innerHTML = "<p>Caricamento mappa in corso...</p>";
-      infoSelezione.classList.add('nascosto');
-
+      grigliaSpiaggia.innerHTML = "<p>Caricamento mappa...</p>";
+      
       try {
-        const risposta = await fetch('/php/get_umbrellas.php');
-        if (!risposta.ok) throw new Error("Database non raggiungibile");
+        // Percorso assoluto richiesto
+        const risposta = await fetch('http://treuominiemezzo.altervista.org/php/get_umbrellas.php');
+        if (!risposta.ok) throw new Error("Errore nel recupero dati");
 
-        const datiVeri = await risposta.json();
-        disegnaMappaReale(datiVeri);
-      } catch (errore) {
-        console.warn("Modalità simulazione attiva per struttura 5 settori/15 file/30 posti");
-        disegnaMappaSimulata();
+        const dati = await risposta.json();
+
+        // 1. ORDINAMENTO RIGOROSO: Settore -> Fila -> Posto
+        dati.sort((a, b) => {
+          if (a.settore !== b.settore) return a.settore - b.settore;
+          if (a.numero_fila !== b.numero_fila) return a.numero_fila - b.numero_fila;
+          return a.numero_ordine - b.numero_ordine;
+        });
+
+        disegnaMappa(dati);
+      } catch (err) {
+        grigliaSpiaggia.innerHTML = `<p style="color:red">Errore: ${err.message}</p>`;
       }
     }
 
-    // DISEGNA LA MAPPA CON I DATI DAL DB
-    function disegnaMappaSimulata() {
+    function disegnaMappa(ombrelloni) {
       grigliaSpiaggia.innerHTML = "";
+      const lettereSettori = { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E' };
 
-      const sectors = ['A', 'B', 'C', 'D', 'E']; // 5 Settori
-      const rowsCount = 15;
-      const seatsPerRow = 30;
+      // Raggruppamento per settore
+      const settoriMap = {};
+      ombrelloni.forEach(o => {
+        if (!settoriMap[o.settore]) settoriMap[o.settore] = [];
+        settoriMap[o.settore].push(o);
+      });
 
-      sectors.forEach(settore => {
-        for (let f = 1; f <= rowsCount; f++) {
-          for (let p = 1; p <= seatsPerRow; p++) {
-            const el = document.createElement('div');
-            const isOccupato = Math.random() < 0.2; // 20% occupati casualmente
+      // Creazione visiva dei settori
+      Object.keys(settoriMap).sort().forEach(numSettore => {
+        const lettera = lettereSettori[numSettore] || numSettore;
+        const lista = settoriMap[numSettore];
 
-            el.className = `ombrellone ${isOccupato ? 'occupato' : 'libero'}`;
-            el.innerHTML = `<span>${p}</span>`;
-            el.title = `Settore ${settore} - Fila ${f} - Posto ${p}`;
+        const container = document.createElement('div');
+        container.className = 'settore-container';
 
-            if (!isOccupato) {
-              el.addEventListener('click', () => {
-                selezioneInterattiva({
-                  numero_ordine: p,
-                  settore: settore,
-                  numero_fila: f
-                }, el);
-              });
-            }
-            grigliaSpiaggia.appendChild(el);
-          }
-        }
+        const header = document.createElement('div');
+        header.className = 'settore-header';
+        header.textContent = `SETTORE ${lettera}`;
+        container.appendChild(header);
+
+        const grid = document.createElement('div');
+        grid.className = 'spiaggia-grid';
+
+        lista.forEach(o => {
+          const dot = document.createElement('div');
+          dot.className = 'ombrellone libero';
+          dot.title = `Codice: ${lettera}.${o.numero_fila}.${o.numero_ordine}`;
+
+          dot.addEventListener('click', () => {
+            document.querySelectorAll('.ombrellone').forEach(d => d.classList.remove('selezionato'));
+            dot.classList.add('selezionato');
+            
+            infoSelezione.classList.remove('nascosto');
+            dettaglioTesto.innerHTML = `
+              Hai scelto: <strong>${lettera}.${o.numero_fila}.${o.numero_ordine}</strong><br>
+              Tipologia: ${o.tipologia_nome || 'Standard'}<br>
+              Data: ${inputData.value}
+            `;
+          });
+
+          grid.appendChild(dot);
+        });
+
+        container.appendChild(grid);
+        grigliaSpiaggia.appendChild(container);
       });
     }
-
   </script>
 </body>
-
 </html>

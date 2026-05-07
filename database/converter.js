@@ -54,11 +54,12 @@ writeInserts('Cliente', ['codice', 'nome', 'cognome', 'dataNascita', 'indirizzo'
 // 2. Tipologia (Static data)
 console.log('Converting Types...');
 // Assuming you have the umbrellaTypes array from previous steps
+// Sostituisci questo blocco nel tuo converter.js
 const types = [
-  { codice: 'Standard1', nome: 'Standard 1', descrizione: 'Ombrellone classico con due lettini.' },
-  { codice: 'Standard2', nome: 'Standard 2', descrizione: 'Ombrellone classico con due sdraio.' },
-  { codice: 'Standard3', nome: 'Standard 3', descrizione: 'Ombrellone classico con due lettini e una sdraio.' },
-  { codice: 'Standard4', nome: 'Standard 4', descrizione: 'Gazebo completo.' }
+  { codice: 'Base', nome: 'Ombrellone Base', descrizione: 'Ombrellone + 2 lettini.' },
+  { codice: 'VIP', nome: 'Ombrellone VIP', descrizione: 'Fila fronte mare con ombrellone + due lettini.' },
+  { codice: 'Gazebo', nome: 'Gazebo Executive', descrizione: 'Gazebo con privacy.' },
+  { codice: 'Disabile', nome: 'Gazebo Disabili', descrizione: 'Accesso facilitato passerella.' }
 ];
 writeInserts('Tipologia', ['codice', 'nome', 'descrizione'], types);
 

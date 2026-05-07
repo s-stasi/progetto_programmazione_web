@@ -5,10 +5,10 @@ faker.seed(123);
 
 // The types provided in your request
 const umbrellaTypes = [
-  { "codice": "Standard1", "nome": "Standard 1", "descrizione": "Ombrellone classico con due lettini." },
-  { "codice": "Standard2", "nome": "Standard 2", "descrizione": "Ombrellone classico con due sdraio." },
-  { "codice": "Standard3", "nome": "Standard 3", "descrizione": "Ombrellone classico con due lettini e una sdraio." },
-  { "codice": "Standard4", "nome": "Standard 4", "descrizione": "Gazebo completo." }
+  { "codice": "Base", "nome": "Ombrellone Base", "descrizione": "Ombrellone + 2 lettini." },
+  { "codice": "VIP", "nome": "Ombrellone VIP", "descrizione": "Fila fronte mare con ombrellone + due lettini." },
+  { "codice": "Gazebo", "nome": "Gazebo Executive", "descrizione": "Gazebo con privacy." },
+  { "codice": "Disabile", "nome": "Gazebo Disabili", "descrizione": "Accesso facilitato passerella." }
 ];
 
 /**
@@ -17,28 +17,40 @@ const umbrellaTypes = [
 function generateUmbrellas() {
   const umbrellas = [];
   const sectorsCount = 5;
-  const rowsCount = 15;
-  const seatsPerRow = 30;
-  
+  const rowsCount = 10;   // <-- Ridotto a 10 file
+  const seatsPerRow = 20; // <-- Ridotto a 20 posti
+
   let currentId = 1;
 
   for (let s = 1; s <= sectorsCount; s++) {
     for (let r = 1; r <= rowsCount; r++) {
       for (let p = 1; p <= seatsPerRow; p++) {
-        // Randomly assign one of the four types
-        const randomType = faker.helpers.arrayElement(umbrellaTypes);
+
+
+        let tipoAssegnato = "Base"; // Default: Standard 
+
+        // the first 2 rows of sectors A,B,C are VIP
+        if (s <= 3 && r <= 2) {
+          tipoAssegnato = "VIP";
+        }
+        // the last 2 rows of sectors D,E are GAZEBO
+        if (s >= 4 && r >= 9) {
+          tipoAssegnato = "Gazebo";
+        }
+
+        if (r === 10 && (p === 10 || p === 11)) tipoAssegnato = "Disabile";
 
         umbrellas.push({
           id: currentId++,
           id_settore: s,
           numFila: r,
           numPostoFile: p,
-          tipologia: randomType.codice
+          tipologia: tipoAssegnato
         });
       }
     }
   }
-  
+
   return umbrellas;
 }
 

@@ -1,578 +1,578 @@
 [
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2025-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2025-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2025-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2025-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2025-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2025-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2025-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2025-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2025-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2025-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2025-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2025-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2025-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2025-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2025-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2025-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2025-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2025-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2025-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2025-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2025-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2025-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2025-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2025-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2025-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2025-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2025-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2025-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2025-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2025-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2025-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2025-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2025-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2025-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2025-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2025-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2025-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2025-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2025-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2025-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2025-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2025-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2025-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2025-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2025-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2025-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2025-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2025-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2025-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2025-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2025-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2025-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2025-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2025-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2025-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2025-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2025-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2025-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2025-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2025-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2025-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2025-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2025-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2025-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2025-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2025-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2025-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2025-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2025-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2025-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2025-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2025-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2026-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2026-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2026-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2026-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2026-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2026-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2026-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2026-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2026-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2026-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2026-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2026-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2026-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2026-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2026-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2026-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2026-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2026-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2026-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2026-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2026-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2026-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2026-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2026-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2026-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2026-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2026-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2026-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2026-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2026-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2026-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2026-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2026-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2026-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2026-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2026-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2026-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2026-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2026-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2026-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2026-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2026-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2026-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2026-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2026-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2026-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2026-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2026-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2026-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2026-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2026-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2026-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2026-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2026-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2026-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2026-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2026-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2026-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2026-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2026-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2026-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2026-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2026-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2026-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2026-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2026-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2026-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2026-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2026-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2026-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2026-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2026-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2027-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2027-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2027-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2027-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2027-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2027-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2027-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2027-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2027-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2027-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2027-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2027-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2027-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2027-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2027-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2027-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2027-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2027-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2027-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2027-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2027-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2027-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2027-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2027-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2027-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2027-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2027-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2027-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2027-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2027-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2027-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2027-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2027-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2027-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2027-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2027-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2027-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2027-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2027-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2027-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2027-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2027-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2027-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2027-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2027-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2027-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2027-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2027-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2027-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2027-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2027-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2027-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2027-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2027-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2027-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2027-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2027-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2027-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2027-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2027-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2027-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2027-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2027-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2027-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2027-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2027-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2027-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2027-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2027-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2027-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2027-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2027-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2028-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2028-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2028-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2028-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Low-2028-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Low-2028-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2028-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2028-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2028-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2028-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-Mid-2028-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Mid-2028-M"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2028-D"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2028-D"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2028-W"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2028-W"
   },
   {
-    "codTipologia": "Standard1",
-    "codTariffa": "TAR-Standard1-High-2028-M"
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-High-2028-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2028-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2028-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2028-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2028-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Low-2028-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Low-2028-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2028-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2028-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2028-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2028-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-Mid-2028-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Mid-2028-M"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2028-D"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2028-D"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2028-W"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2028-W"
   },
   {
-    "codTipologia": "Standard2",
-    "codTariffa": "TAR-Standard2-High-2028-M"
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-High-2028-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2028-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2028-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2028-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2028-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Low-2028-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Low-2028-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2028-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2028-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2028-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2028-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-Mid-2028-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Mid-2028-M"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2028-D"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2028-D"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2028-W"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2028-W"
   },
   {
-    "codTipologia": "Standard3",
-    "codTariffa": "TAR-Standard3-High-2028-M"
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-High-2028-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2028-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2028-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2028-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2028-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Low-2028-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Low-2028-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2028-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2028-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2028-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2028-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-Mid-2028-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Mid-2028-M"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2028-D"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2028-D"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2028-W"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2028-W"
   },
   {
-    "codTipologia": "Standard4",
-    "codTariffa": "TAR-Standard4-High-2028-M"
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-High-2028-M"
   }
 ]
