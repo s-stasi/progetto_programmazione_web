@@ -6,6 +6,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lido Sole & Sabbia - Prenotazioni</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Piccola aggiunta per gestire i campi data nella sidebar */
+    .booking-config {
+      margin-top: 15px;
+    }
+
+    .booking-config label {
+      display: block;
+      font-size: 0.85em;
+      color: #D4AC0D;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+
+    .booking-config select,
+    .booking-config input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    .nascosto {
+      display: none !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -20,11 +46,37 @@
         <ul>
           <li><a href="#">Home</a></li>
           <li><a href="#">Tariffe</a></li>
-          <li><a href="index.html" class="active">Prenota</a></li>
+          <li>
+            <a href="index.html" class="active">Prenota</a>
+            <ul class="submenu-prenota">
+              <li>
+                <label>Tipo:</label>
+                <select id="tipo-prenotazione" onchange="cambiaModalitaData()">
+                  <option value="giornaliero">Giornaliero</option>
+                  <option value="multi">Più giorni</option>
+                  <option value="mensile">Mensile</option>
+                </select>
+              </li>
+              <li id="wrapper-data-inizio">
+                <label id="label-inizio">Data:</label>
+                <input type="date" id="data-inizio" onchange="recuperaOmbrelloni()">
+              </li>
+              <li id="wrapper-data-fine" class="nascosto">
+                <label>Al:</label>
+                <input type="date" id="data-fine" onchange="recuperaOmbrelloni()">
+              </li>
+              <li id="wrapper-mese" class="nascosto">
+                <label>Mese:</label>
+                <select id="select-mese" onchange="recuperaOmbrelloni()">
+                </select>
+              </li>
+            </ul>
+          </li>
           <li><a href="#">Contatti</a></li>
         </ul>
       </nav>
       <hr class="divisore">
+
       <div class="cerca">
         <h2>Cerca Ombrellone</h2>
         <input type="text" id="search-input" placeholder="Es. Settore A...">
@@ -34,32 +86,28 @@
 
     <main class="corpo-pagina">
       <section class="booking-section">
-        <h2>Prenota il tuo posto al sole</h2>
-        <p>Visualizzazione in tempo reale degli ombrelloni.</p>
-
-        <div class="date-picker-container">
-          <label for="data-prenotazione">Giorno della prenotazione:</label>
-          <input type="date" id="data-prenotazione">
-        </div>
+        <h2>Mappa Disponibilità</h2>
+        <p>I posti mostrati come disponibili sono liberi per <strong>tutto</strong> il periodo selezionato.</p>
 
         <div id="area-mappa">
           <div class="legenda">
             <div class="item"><span class="badge libero"></span> Disponibile</div>
             <div class="item"><span class="badge occupato"></span> Occupato</div>
-            <div class="item"><span class="badge selezionato"></span> Tua selezione</div>
+            <div class="item"><span class="badge disabile"></span> Disabili</div>
           </div>
 
           <div class="spiaggia-container">
             <div class="mare">MARE</div>
-            <div id="griglia-spiaggia">
-              </div>
+            <div id="griglia-spiaggia"></div>
           </div>
 
           <div id="info-selezione" class="nascosto">
             <div class="card-conferma">
               <h3>Dettaglio Selezione</h3>
-              <p id="dettaglio-testo">Seleziona un ombrellone sulla mappa.</p>
-              <button class="btn-conferma" style="padding: 10px; background: #2ecc71; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">Procedi al Contratto</button>
+              <p id="dettaglio-testo"></p>
+              <button class="btn-conferma"
+                style="padding: 10px; background: #2ecc71; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; font-weight: bold;">Procedi
+                al Contratto</button>
             </div>
           </div>
         </div>
@@ -72,36 +120,78 @@
   </div>
 
   <script>
-    const inputData = document.getElementById('data-prenotazione');
+    const dataInizioInput = document.getElementById('data-inizio');
+    const dataFineInput = document.getElementById('data-fine');
+    const tipoPrenotazione = document.getElementById('tipo-prenotazione');
     const grigliaSpiaggia = document.getElementById('griglia-spiaggia');
     const infoSelezione = document.getElementById('info-selezione');
     const dettaglioTesto = document.getElementById('dettaglio-testo');
 
-    const oggi = new Date().toISOString().split('T')[0];
-    inputData.value = oggi;
-    inputData.min = oggi;
+    // Inizializzazione
+    dataInizioInput.value = new Date().toISOString().split('T')[0];
+    const dataFine = new Date();
+    dataFine.setDate(dataFine.getDate() + 1);
 
-    // Caricamento automatico all'avvio
+    dataFineInput.value = dataFine.toISOString().split('T')[0];
+
     window.addEventListener('load', recuperaOmbrelloni);
-    inputData.addEventListener('change', recuperaOmbrelloni);
+
+    // Gestione visibilità campi data
+    function cambiaModalitaData() {
+      const modalita = tipoPrenotazione.value;
+
+      // Reset visibilità
+      document.getElementById('wrapper-data-inizio').classList.add('nascosto');
+      document.getElementById('wrapper-data-fine').classList.add('nascosto');
+      document.getElementById('wrapper-mese').classList.add('nascosto');
+
+      if (modalita === 'giornaliero') {
+        document.getElementById('wrapper-data-inizio').classList.remove('nascosto');
+        document.getElementById('label-inizio').innerText = "Data:";
+      } else if (modalita === 'multi') {
+        document.getElementById('wrapper-data-inizio').classList.remove('nascosto');
+        document.getElementById('wrapper-data-fine').classList.remove('nascosto');
+        document.getElementById('label-inizio').innerText = "Dal:";
+      } else if (modalita === 'mensile') {
+        document.getElementById('wrapper-mese').classList.remove('nascosto');
+      }
+
+      recuperaOmbrelloni();
+    }
+
+    function popolaMesi() {
+      const selectMese = document.getElementById('select-mese');
+      const nomiMesi = [
+        "Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
+        "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"
+      ];
+
+      // Otteniamo il mese corrente (0-11) per impostarlo come predefinito
+      const meseCorrente = new Date().getMonth();
+
+      nomiMesi.forEach((mese, indice) => {
+        const opt = document.createElement('option');
+        opt.value = indice + 1; // Valore numerico (1-12)
+        opt.textContent = mese;
+
+        // Imposta Luglio (indice 6) o il mese corrente come selezionato
+        if (indice === 6) opt.selected = true;
+
+        selectMese.appendChild(opt);
+      });
+    }
+
+    // Chiama la funzione all'avvio
+    popolaMesi();
 
     async function recuperaOmbrelloni() {
       grigliaSpiaggia.innerHTML = "<p>Caricamento mappa...</p>";
-      
       try {
-        // Percorso assoluto richiesto
-        const risposta = await fetch('http://treuominiemezzo.altervista.org/php/get_umbrellas.php');
+        const url = "http://treuominiemezzo.altervista.org/php/get_umbrellas.php";
+        const risposta = await fetch(url);
         if (!risposta.ok) throw new Error("Errore nel recupero dati");
-
         const dati = await risposta.json();
-
-        // 1. ORDINAMENTO RIGOROSO: Settore -> Fila -> Posto
-        dati.sort((a, b) => {
-          if (a.settore !== b.settore) return a.settore - b.settore;
-          if (a.numero_fila !== b.numero_fila) return a.numero_fila - b.numero_fila;
-          return a.numero_ordine - b.numero_ordine;
-        });
-
+        dati.sort((a, b) => a.settore - b.settore || a.numero_fila - b.numero_fila || a.numero_ordine - b.numero_ordine);
         disegnaMappa(dati);
       } catch (err) {
         grigliaSpiaggia.innerHTML = `<p style="color:red">Errore: ${err.message}</p>`;
@@ -111,54 +201,64 @@
     function disegnaMappa(ombrelloni) {
       grigliaSpiaggia.innerHTML = "";
       const lettereSettori = { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E' };
-
-      // Raggruppamento per settore
       const settoriMap = {};
+
       ombrelloni.forEach(o => {
         if (!settoriMap[o.settore]) settoriMap[o.settore] = [];
         settoriMap[o.settore].push(o);
       });
 
-      // Creazione visiva dei settori
-      Object.keys(settoriMap).sort().forEach(numSettore => {
-        const lettera = lettereSettori[numSettore] || numSettore;
-        const lista = settoriMap[numSettore];
-
+      Object.keys(settoriMap).sort().forEach(sIdx => {
+        const lettera = lettereSettori[sIdx];
         const container = document.createElement('div');
         container.className = 'settore-container';
-
-        const header = document.createElement('div');
-        header.className = 'settore-header';
-        header.textContent = `SETTORE ${lettera}`;
-        container.appendChild(header);
+        container.innerHTML = `<div class="settore-header">SETTORE ${lettera}</div>`;
 
         const grid = document.createElement('div');
         grid.className = 'spiaggia-grid';
 
-        lista.forEach(o => {
+        settoriMap[sIdx].forEach(o => {
           const dot = document.createElement('div');
-          dot.className = 'ombrellone libero';
-          dot.title = `Codice: ${lettera}.${o.numero_fila}.${o.numero_ordine}`;
+          dot.className = 'ombrellone';
+
+          const isDisabile =
+            (lettera === 'A' && o.numero_fila == 10 && o.numero_ordine == 20) ||
+            (lettera === 'B' && o.numero_fila == 10 && o.numero_ordine == 20) ||
+            (lettera === 'C' && o.numero_fila == 10 && o.numero_ordine == 20) ||
+            (lettera === 'D' && o.numero_fila == 10 && o.numero_ordine == 20) ||
+            (lettera === 'E' && o.numero_fila == 10 && o.numero_ordine == 1) ||
+            (o.tipologia_nome && o.tipologia_nome.toLowerCase().includes("disabile"));
+
+          if (isDisabile) dot.classList.add('disabile');
+          if (o.occupato) dot.classList.add('occupato');
+
+          dot.title = `${lettera}.${o.numero_fila}.${o.numero_ordine}`;
 
           dot.addEventListener('click', () => {
-            document.querySelectorAll('.ombrellone').forEach(d => d.classList.remove('selezionato'));
-            dot.classList.add('selezionato');
-            
-            infoSelezione.classList.remove('nascosto');
-            dettaglioTesto.innerHTML = `
-              Hai scelto: <strong>${lettera}.${o.numero_fila}.${o.numero_ordine}</strong><br>
-              Tipologia: ${o.tipologia_nome || 'Standard'}<br>
-              Data: ${inputData.value}
-            `;
-          });
+            if (!dot.classList.contains('occupato')) {
+              document.querySelectorAll('.ombrellone').forEach(d => d.classList.remove('selezionato'));
+              dot.classList.add('selezionato');
+              infoSelezione.classList.remove('nascosto');
 
+              let tipoDaMostrare = o.tipologia_nome || "Base";
+              if (sIdx <= 3 && o.numero_fila <= 2) tipoDaMostrare = "VIP (Fronte Mare)";
+              if (sIdx >= 4 && o.numero_fila >= 9) tipoDaMostrare = "Gazebo Executive";
+              if (isDisabile) tipoDaMostrare = "Posto Riservato Disabili";
+
+              dettaglioTesto.innerHTML = `
+                Hai scelto: <strong>${lettera}.${o.numero_fila}.${o.numero_ordine}</strong><br>
+                Tipologia: <strong>${tipoDaMostrare}</strong><br>
+                Periodo: <strong>${tipoPrenotazione.value.toUpperCase()}</strong>
+              `;
+            }
+          });
           grid.appendChild(dot);
         });
-
         container.appendChild(grid);
         grigliaSpiaggia.appendChild(container);
       });
     }
   </script>
 </body>
+
 </html>

@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background-color: #FEF9E7;
     color: #1C1C1C;
     overflow-x: hidden;
@@ -22,7 +22,6 @@ body {
         "sidebar corpo"
         "footer  footer";
     min-height: 100vh;
-    width: 100vw;
 }
 
 .header {
@@ -42,7 +41,7 @@ body {
 
 .corpo-pagina {
     grid-area: corpo;
-    background-color: #FFFFFF;
+    background-color: #FEF9E7;
     padding: 30px;
 }
 
@@ -59,7 +58,6 @@ body {
     font-size: 13px;
     color: #D4AC0D;
     text-transform: uppercase;
-    letter-spacing: 1px;
     margin-bottom: 15px;
 }
 
@@ -68,7 +66,19 @@ body {
 .navigazione ul li a { text-decoration: none; color: #333; font-weight: 500; }
 .navigazione ul li a.active { color: #D4AC0D; }
 
-.divisore { border: 0; height: 1px; background: #e0e0e0; margin: 20px 0; }
+.submenu-prenota {
+    list-style: none;
+    padding: 10px 10px 10px 15px;
+    margin-top: 5px;
+    background: rgba(244, 208, 63, 0.05);
+    border-left: 2px solid #F4D03F;
+    border-radius: 0 5px 5px 0;
+}
+.submenu-prenota li { margin-bottom: 12px; }
+.submenu-prenota label { display: block; font-size: 0.7em; color: #856404; text-transform: uppercase; font-weight: bold; margin-bottom: 3px; }
+.submenu-prenota select, .submenu-prenota input {
+    width: 100%; font-size: 0.8em; padding: 5px; border: 1px solid #d4c59f; border-radius: 3px; background: white;
+}
 
 .cerca input {
     width: 100%;
@@ -88,36 +98,38 @@ body {
     cursor: pointer;
 }
 
-/* --- GRIGLIA SETTORI (3 SOPRA, 2 SOTTO) --- */
+/* --- GRIGLIA SETTORI 3+2 CON PASSERELLE ESTERNE --- */
 #griglia-spiaggia {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* 6 colonne base per gestire i sottomultipli 2 e 3 */
-    gap: 15px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 40px; /* Spazio passerella tra i settori */
     width: 100%;
     margin-top: 20px;
+    padding: 20px;
+    background-color: #e6d9b7; /* Colore sabbia passerella */
+    border-radius: 12px;
 }
 
-/* Settori A, B, C (occupano 2 colonne ciascuno = 3 blocchi in una riga) */
 .settore-container:nth-child(1),
 .settore-container:nth-child(2),
 .settore-container:nth-child(3) {
     grid-column: span 2;
 }
 
-/* Settori D, E (occupano 3 colonne ciascuno = 2 blocchi in una riga) */
 .settore-container:nth-child(4),
 .settore-container:nth-child(5) {
     grid-column: span 3;
 }
 
 .settore-container {
-    border: 1px solid #ddd;
+    background-color: #FEF9E7;
+    padding: 15px;
     border-radius: 8px;
-    background-color: #fcf8ee;
-    padding: 12px;
+    border: 1px solid #d4c59f;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
 .settore-header {
@@ -127,50 +139,53 @@ body {
     border-bottom: 2px solid #D4AC0D;
     width: 100%;
     text-align: center;
-    padding-bottom: 5px;
 }
 
-/* GRIGLIA OMBRELLONI (30 COLONNE) */
+/* GRIGLIA OMBRELLONI 10x20 PULITA */
 .spiaggia-grid {
     display: grid;
-    grid-template-columns: repeat(30, 1fr); 
-    gap: 2px;
+    grid-template-columns: repeat(20, 1fr); 
+    gap: 4px;
 }
 
-/* IL DOT (8px) */
+/* --- COLORI DOT OMBRELLONE --- */
 .ombrellone {
-    width: 8px !important;
-    height: 8px !important;
+    width: 12px !important;
+    height: 12px !important;
     border-radius: 50%;
-    background-color: #3498db;
     cursor: pointer;
     transition: transform 0.2s;
+    background-color: #F4D03F; /* Giallo Polenta (Disponibile) */
 }
 
-.ombrellone span { display: none; }
+/* Stati */
+.ombrellone.occupato {
+    background-color: #7F8C8D !important; /* Grigio */
+    cursor: not-allowed;
+}
 
-.ombrellone:hover {
-    transform: scale(2.5);
-    box-shadow: 0 0 5px rgba(0,0,0,0.4);
-    z-index: 10;
+.ombrellone.disabile {
+    background-color: #85C1E9 !important; /* Azzurro */
 }
 
 .ombrellone.selezionato {
-    background-color: #f1c40f;
-    transform: scale(2.5);
-    box-shadow: 0 0 5px rgba(0,0,0,0.6);
+    transform: scale(2.2);
+    outline: 2px solid #2c3e50;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    z-index: 10;
 }
 
-.ombrellone.occupato { background-color: #e74c3c; cursor: not-allowed; }
+.ombrellone:hover {
+    transform: scale(1.8);
+}
 
 /* MARE E LEGENDA */
 .mare {
     background-color: #a7d8f5;
-    color: white;
+    color: black;
     text-align: center;
-    padding: 8px;
+    padding: 10px;
     font-weight: bold;
-    border-radius: 5px;
     letter-spacing: 5px;
 }
 
@@ -182,10 +197,11 @@ body {
 }
 
 .legenda .item { display: flex; align-items: center; gap: 5px; }
-.badge { width: 10px; height: 10px; border-radius: 50%; }
-.badge.libero { background: #3498db; }
-.badge.occupato { background: #e74c3c; }
-.badge.selezionato { background: #f1c40f; }
+.badge { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+
+.badge.libero { background: #F4D03F; }
+.badge.occupato { background: #7F8C8D; }
+.badge.disabile { background: #85C1E9; }
 
 .card-conferma {
     margin-top: 25px;
@@ -194,3 +210,5 @@ body {
     border-radius: 8px;
     background: #f4fff8;
 }
+
+.nascosto { display: none; }
