@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lido Sole & Sabbia - Prenotazioni</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <div class="layout-container">
+    <header class="header">
+      <h1>Lido Sole & Sabbia</h1>
+    </header>
+
+    <aside class="sidebar">
+      <nav class="navigazione">
+        <h2>Navigazione</h2>
+        <ul>
+          <li><a href="#" onclick="cambiaSezione('home', this)" class="nav-link">Home</a></li>
+          <li><a href="#" onclick="cambiaSezione('tariffe', this)" class="nav-link">Tariffe</a></li>
+          <li>
+            <a href="#" onclick="cambiaSezione('prenota', this)" class="nav-link active">Prenota</a>
+            <div id="date-submenu" class="submenu-prenota">
+              <div class="date-field">
+                <label>Da:</label>
+                <input type="date" id="data-inizio" onchange="gestisciCambioData()">
+              </div>
+              <div class="date-field">
+                <label>Al:</label>
+                <input type="date" id="data-fine" onchange="gestisciCambioData()">
+              </div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="cerca-box" class="cerca" style="margin-top: 20px;">
+        <h2>Cerca Ombrellone</h2>
+        <input type="text" id="search-input" placeholder="Es. A.1.10"
+          style="width:100%; padding:8px; border-radius:4px; border:1px solid #ccc;">
+      </div>
+    </aside>
+
+    <!-- HOME PAGE DEL SITO DA STRUTTURARE (immagine, luogo, contatti)-->
+    <main class="corpo-pagina">
+      <section id="sezione-home" class="sezione-dinamica">
+        <h2>Home</h2>
+        <p>Benvenuti al Lido Sole & Sabbia.</p>
+      </section>
+
+      <!-- SEZIONE TARIFFE (mostrare 4 card con le 4 tipologie di tariffe basic e gli eventuali sovrapprezzi)-->
+      <section id="sezione-tariffe" class="sezione-dinamica">
+        <h2>Tariffe</h2>
+        <p>Consulta il listino prezzi stagionale.</p>
+      </section>
+
+      <!-- SEZIONE PRENOTAZIONE: mappa della spiaggia con possibilità di selezionare il posto disponibile nelle date scelte -->
+      <section id="sezione-prenota" class="sezione-dinamica attiva">
+        <h2>Mappa Disponibilità</h2>
+        <div class="legenda">
+          <div class="item"><span class="badge libero"></span> Disponibile</div>
+          <div class="item"><span class="badge occupato"></span> Occupato</div>
+          <div class="item"><span class="badge disabile"></span> Disabili</div>
+        </div>
+
+        <div class="striscia-mare">MARE</div>
+        <div id="griglia-spiaggia"></div>
+
+        <div id="info-selezione" class="nascosto"
+          style="margin-top:30px; padding:20px; border:1px solid #F4D03F; background:#fffdf5; border-radius:8px;">
+          <h3>Dettaglio Selezione</h3>
+          <p id="dettaglio-testo"></p>
+          <button
+            style="margin-top:15px; padding:10px 20px; background:#2ecc71; color:white; border:none; border-radius:4px; cursor:pointer; font-weight:bold;">Conferma</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 - Lido Sole & Sabbia</p>
+    </footer>
+  </div>
+
+  <script>
+    function cambiaSezione(id, link) {
+      document.querySelectorAll('.sezione-dinamica').forEach(s => s.classList.remove('attiva'));
+      document.getElementById('sezione-' + id).classList.add('attiva');
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+
+      const displayPrenota = (id === 'prenota') ? 'block' : 'none';
+      document.getElementById('date-submenu').style.display = displayPrenota;
+      document.getElementById('cerca-box').style.display = displayPrenota;
+    }
+
+    const dataInizioInput = document.getElementById('data-inizio');
+    const dataFineInput = document.getElementById('data-fine');
+
+    window.addEventListener('load', () => {
+      const oggi = new Date();
+      dataInizioInput.value = oggi.toISOString().split('T')[0];
+      const domani = new Date(oggi);
+      domani.setDate(domani.getDate() + 1);
+      dataFineInput.value = domani.toISOString().split('T')[0];
+      recuperaOmbrelloni();
+    });
+
+    function gestisciCambioData() {
+      if (dataInizioInput.value > dataFineInput.value) {
+        dataFineInput.value = dataInizioInput.value;
+      }
+      recuperaOmbrelloni();
+    }
+
+    async function recuperaOmbrelloni() {
+      const griglia = document.getElementById('griglia-spiaggia');
+      griglia.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>Caricamento...</p>";
+      try {
+        const url = `http://treuominiemezzo.altervista.org/php/get_umbrellas.php?inizio=${dataInizioInput.value}&fine=${dataFineInput.value}`;
+        const r = await fetch(url);
+        if (!r.ok) throw new Error();
+        const dati = await r.json();
+        disegnaMappa(dati);
+      } catch (e) {
+        griglia.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:red;'>Errore nel recupero dati dal database.</p>";
+      }
+    }
+
+    function disegnaMappa(ombrelloni) {
+      const griglia = document.getElementById('griglia-spiaggia');
+      const infoSelezione = document.getElementById('info-selection'); // Assicurati che l'ID sia corretto
+      const dettaglioTesto = document.getElementById('dettaglio-testo');
+
+      griglia.innerHTML = "";
+      const lettere = { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E' };
+      const settori = {};
+
+      ombrelloni.forEach(o => {
+        if (!settori[o.settore]) settori[o.settore] = [];
+        settori[o.sector || o.settore].push(o);
+      });
+
+      Object.keys(settori).sort().forEach(sIdx => {
+        const lettera = lettere[sIdx];
+        const cont = document.createElement('div');
+        cont.className = 'settore-container';
+        cont.innerHTML = `<div class="settore-header">SETTORE ${lettera}</div>`;
+
+        const g = document.createElement('div');
+        g.className = 'spiaggia-grid';
+
+        settori[sIdx].sort((a, b) => a.numero_fila - b.numero_fila || a.numero_ordine - b.numero_ordine).forEach(o => {
+          const dot = document.createElement('div');
+          dot.className = 'ombrellone';
+
+          if (o.occupato == 1) dot.classList.add('occupato');
+
+          const isDisabile = (lettera === 'A' && o.numero_fila == 10 && o.numero_ordine == 20) ||
+            (lettera === 'B' && o.numero_fila == 10 && o.numero_ordine == 20) ||
+            (lettera === 'C' && o.numero_fila == 10 && o.numero_ordine == 20) ||
+            (lettera === 'D' && o.numero_fila == 10 && o.numero_ordine == 20) ||
+            (lettera === 'E' && o.numero_fila == 10 && o.numero_ordine == 1);
+
+          if (isDisabile || (o.tipologia_nome && o.tipologia_nome.includes("Disabile"))) {
+            dot.classList.add('disabile');
+          }
+
+          dot.onclick = async () => {
+            if (dot.classList.contains('occupato')) return;
+
+            // 1. Determina il tipo (VIP, Gazebo, ecc.)
+            let tipo = (sIdx <= 3 && o.numero_fila <= 2) ? "VIP" : (sIdx >= 4 && o.numero_fila >= 9) ? "Gazebo" : "Base";
+            if (dot.classList.contains('disabile')) tipo = "Disabile";
+
+            // 2. Chiedi il prezzo al server (PHP) passando le date e il tipo
+            // Il server cercherà nel DB la tariffa corretta generata dal tuo script Node.js
+            try {
+              const response = await fetch(`http://tuo-sito.it/php/get_prezzo_finito.php?tipo=${tipo}&inizio=${dataInizioInput.value}&fine=${dataFineInput.value}`);
+              const datiPrezzo = await response.json();
+
+              document.getElementById('info-selezione').classList.remove('nascosto');
+              document.getElementById('dettaglio-testo').innerHTML = `
+            Posto: <strong>${lettera}.${o.numero_fila}.${o.numero_ordine}</strong> (${tipo})<br>
+            Prezzo per il periodo: <strong style="color:green;">€ ${datiPrezzo.totale}</strong>
+        `;
+            } catch (e) {
+              console.error("Errore recupero prezzo");
+            }
+          };
+          g.appendChild(dot);
+        });
+        cont.appendChild(g);
+        griglia.appendChild(cont);
+      });
+    }
+
+    // Ricerca da tastiera
+    document.getElementById('search-input').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = e.target.value.toUpperCase();
+        document.querySelectorAll('.ombrellone').forEach(d => {
+          if (d.title === val || d.getAttribute('title') === val) {
+            d.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            d.click();
+          }
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

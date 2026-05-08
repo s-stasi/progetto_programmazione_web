@@ -1,102 +1,60 @@
-import { faker } from '@faker-js/faker';
-import * as fs from 'fs';
+// --- CONFIGURAZIONE PER TEST MASSIVO ---
+const NUMERO_CLIENTI = 100;      // Più clienti per simulare realtà
+const NUMERO_CONTRATTI = 500;   // Aumentiamo drasticamente le prenotazioni
+const ANNI_DA_COPRIRE = [2025, 2026, 2027, 2028]; //
 
-faker.seed(123);
+function generaDatiMassivi() {
+    const contratti = [];
+    const vendite = [];
+    const disponibilita = [];
 
-/**
- * Utility function to safely load and parse JSON files
- */
-function loadJsonFile(fileName) {
-  try {
-    const data = fs.readFileSync(fileName, 'utf8');
-    return JSON.parse(data);
-  } catch (error) {
-    console.error(`Error reading ${fileName}:`, error);
-    process.exit(1);
-  }
-}
-
-// Loading existing datasets
-const customers = loadJsonFile('customers_mock.json');
-const umbrellas = loadJsonFile('umbrellas_data.json');
-const tariffs = loadJsonFile('tariffs_2025_2028.json');
-
-const CONTRACTS_TO_GENERATE = 5000;
-
-function generateTransactionsWithIntegrity() {
-  const contracts = [];
-  const availabilityDays = [];
-  const umbrellasSold = [];
-  const occupiedSlots = new Set();
-  
-  let currentContractId = 1;
-
-  for (let i = 0; i < CONTRACTS_TO_GENERATE; i++) {
-    // Pick real entities from the loaded files
-    const randomCustomer = faker.helpers.arrayElement(customers);
-    const randomUmbrella = faker.helpers.arrayElement(umbrellas);
-    
-    // Pick a tariff compatible with the umbrella's type
-    const compatibleTariffs = tariffs.filter(t => t.codice.includes(randomUmbrella.tipologia));
-    if (compatibleTariffs.length === 0) continue;
-    
-    const selectedTariff = faker.helpers.arrayElement(compatibleTariffs);
-    
-    // Logic for booking duration based on the selected tariff
-    const duration = selectedTariff.tipo === 'Giornaliera' ? 1 : (selectedTariff.numMinGiorni || 7);
-    const startDate = new Date(selectedTariff.dataInizio);
-    
-    // Check if the umbrella is free for the duration of the tariff
-    let canBook = true;
-    const bookingDates = [];
-
-    for (let d = 0; d < duration; d++) {
-      const currentDate = new Date(startDate);
-      currentDate.setDate(currentDate.getDate() + d);
-      const dateStr = currentDate.toISOString().split('T')[0];
-      
-      if (occupiedSlots.has(`${randomUmbrella.id}_${dateStr}`)) {
-        canBook = false;
-        break;
-      }
-      bookingDates.push(dateStr);
-    }
-
-    if (canBook) {
-      // Create the Contract
-      contracts.push({
-        numProgr: currentContractId,
-        data: selectedTariff.dataInizio, // Contract signed at the start of season/tariff
-        importo: selectedTariff.prezzo,
-        stipulatoDa: randomCustomer.code // Using the real Primary Key from JSON
-      });
-
-      for (const dateStr of bookingDates) {
-        occupiedSlots.add(`${randomUmbrella.id}_${dateStr}`);
+    for (let i = 1; i <= NUMERO_CONTRATTI; i++) {
+        const idCliente = Math.floor(Math.random() * NUMERO_CLIENTI) + 1;
+        const anno = ANNI_DA_COPRIRE[Math.floor(Math.random() * ANNI_DA_COPRIRE.length)];
         
-        availabilityDays.push({
-          idOmbrellone: randomUmbrella.id,
-          data: dateStr
-        });
+        // Simuliamo prenotazioni estive (Alta Stagione)
+        const meseStart = 6; // Luglio
+        const giornoStart = Math.floor(Math.random() * 20) + 1;
+        const durata = Math.floor(Math.random() * 14) + 1; // Prenotazioni da 1 a 15 giorni
 
-        umbrellasSold.push({
-          idOmbrellone: randomUmbrella.id,
-          data: dateStr,
-          contratto: currentContractId
-        });
-      }
-      currentContractId++;
+        const dataInizio = new Date(anno, meseStart, giornoStart);
+        const dataFine = new Date(dataInizio);
+        dataFine.setDate(dataInizio.getDate() + durata);
+
+        // Formattazione date YYYY-MM-DD
+        const strInizio = dataInizio.toISOString().split('T')[0];
+        const strFine = dataFine.setDate ? dataFine.toISOString().split('T')[0] : strInizio;
+
+        const contratto = {
+            id: i,
+            idCliente: idCliente,
+            dataInizio: strInizio,
+            dataFine: strFine,
+            importo: 0 // Calcolato poi dal sistema o lasciato a 0 per test
+        };
+        contratti.push(contratto);
+
+        // --- ASSEGNAZIONE OMBRELLI (Coinvolgimento multiplo) ---
+        // Assegniamo da 1 a 3 ombrelloni per ogni contratto per riempire la spiaggia
+        const quantiOmbrelloni = Math.floor(Math.random() * 3) + 1;
+        for (let j = 0; j < quantiOmbrelloni; j++) {
+            const idOmbrellone = Math.floor(Math.random() * 1000) + 1; //
+            
+            vendite.push({
+                idContratto: i,
+                idOmbrellone: idOmbrellone
+            });
+
+            // Popoliamo la tabella giorno_disponibilita per ogni singolo giorno della prenotazione
+            let dataCorrente = new Date(dataInizio);
+            while (dataCorrente <= dataFine) {
+                disponibilita.push({
+                    idOmbrellone: idOmbrellone,
+                    data: dataCorrente.toISOString().split('T')[0]
+                });
+                dataCorrente.setDate(dataCorrente.getDate() + 1);
+            }
+        }
     }
-  }
-
-  return { contracts, availabilityDays, umbrellasSold };
+    return { contratti, vendite, disponibilita };
 }
-
-const output = generateTransactionsWithIntegrity();
-
-// Saving finalized transaction data
-fs.writeFileSync('final_contracts.json', JSON.stringify(output.contracts, null, 2));
-fs.writeFileSync('final_availability.json', JSON.stringify(output.availabilityDays, null, 2));
-fs.writeFileSync('final_sales.json', JSON.stringify(output.umbrellasSold, null, 2));
-
-console.log(`Generated ${output.contracts.length} consistent contracts referencing existing IDs.`);

@@ -1,0 +1,962 @@
+[
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2025-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2025-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2025-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2025-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2025-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2025-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2025-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2025-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2025-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2025-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2025-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2025-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2025-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2025-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2025-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2025-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2025-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2025-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2025-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2025-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2025-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2025-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2025-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2025-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2025-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2025-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2025-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2025-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2025-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2025-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2025-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2025-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2025-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2025-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2025-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2025-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2025-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2025-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2025-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2025-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2025-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2025-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2025-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2025-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2025-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2025-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2025-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2025-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2025-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2025-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2025-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2025-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2025-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2025-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2025-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2025-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2025-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2025-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2025-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2025-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2026-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2026-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2026-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2026-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2026-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2026-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2026-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2026-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2026-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2026-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2026-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2026-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2026-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2026-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2026-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2026-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2026-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2026-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2026-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2026-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2026-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2026-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2026-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2026-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2026-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2026-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2026-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2026-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2026-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2026-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2026-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2026-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2026-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2026-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2026-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2026-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2026-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2026-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2026-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2026-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2026-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2026-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2026-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2026-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2026-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2026-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2026-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2026-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2026-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2026-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2026-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2026-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2026-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2026-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2026-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2026-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2026-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2026-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2026-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2026-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2027-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2027-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2027-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2027-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2027-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2027-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2027-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2027-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2027-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2027-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2027-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2027-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2027-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2027-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2027-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2027-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2027-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2027-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2027-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2027-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2027-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2027-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2027-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2027-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2027-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2027-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2027-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2027-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2027-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2027-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2027-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2027-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2027-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2027-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2027-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2027-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2027-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2027-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2027-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2027-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2027-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2027-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2027-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2027-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2027-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2027-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2027-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2027-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2027-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2027-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2027-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2027-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2027-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2027-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2027-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2027-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2027-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2027-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2027-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2027-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2028-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2028-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2028-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2028-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2028-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2028-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2028-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2028-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Alta-2028-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2028-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2028-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Media-2028-LONG"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2028-D"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2028-MID"
+  },
+  {
+    "codTipologia": "Base",
+    "codTariffa": "TAR-Base-Bassa-2028-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2028-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2028-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2028-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2028-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2028-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2028-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2028-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2028-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Alta-2028-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2028-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2028-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Media-2028-LONG"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2028-D"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2028-MID"
+  },
+  {
+    "codTipologia": "VIP",
+    "codTariffa": "TAR-VIP-Bassa-2028-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2028-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2028-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2028-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2028-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2028-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2028-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2028-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2028-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Alta-2028-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2028-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2028-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Media-2028-LONG"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2028-D"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2028-MID"
+  },
+  {
+    "codTipologia": "Gazebo",
+    "codTariffa": "TAR-Gazebo-Bassa-2028-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2028-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2028-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2028-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2028-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2028-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2028-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2028-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2028-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Alta-2028-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2028-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2028-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Media-2028-LONG"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2028-D"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2028-MID"
+  },
+  {
+    "codTipologia": "Disabile",
+    "codTariffa": "TAR-Disabile-Bassa-2028-LONG"
+  }
+]

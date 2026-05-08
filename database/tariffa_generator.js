@@ -1,98 +1,94 @@
 import * as fs from 'fs';
 
-// The umbrella types we defined earlier
-const umbrellaTypes = ["Standard1", "Standard2", "Standard3", "Standard4"];
+// 1. DEFINIZIONE TIPOLOGIE (Allineate al tuo database)
+const umbrellaTypes = ["Base", "VIP", "Gazebo", "Disabile"];
 
-// Defining seasons using only month and day to allow dynamic year injection
+// 2. DEFINIZIONE STAGIONI (Dal tuo quaderno)
 const seasons = [
-  { name: "Low", startDay: "05-01", endDay: "06-15", multiplier: 1 },
-  { name: "Mid", startDay: "06-16", endDay: "07-31", multiplier: 1.5 },
-  { name: "High", startDay: "08-01", endDay: "08-31", multiplier: 2.2 }
+  { name: "Bassa", startDay: "01-01", endDay: "03-31", multiplier: 0.7 },   // Gennaio - Marzo
+  { name: "Media", startDay: "04-01", endDay: "05-31", multiplier: 1.2 },   // Aprile - Maggio
+  { name: "Alta",  startDay: "06-01", endDay: "09-30", multiplier: 2.2 },   // Giugno - Settembre
+  { name: "Media", startDay: "10-01", endDay: "10-31", multiplier: 1.2 },   // Ottobre
+  { name: "Bassa", startDay: "11-01", endDay: "12-31", multiplier: 0.7 }    // Novembre - Dicembre
 ];
 
-// Base daily prices for the starting year (2025)
+// 3. PREZZI BASE 2025 (Tariffe giornaliere di riferimento)
 const basePrices2025 = {
-  "Standard1": 15.00,
-  "Standard2": 18.00,
-  "Standard3": 22.00,
-  "Standard4": 45.00
+  "Base": 20.00,      // Standard
+  "VIP": 35.00,       // VIP (1° e 2° fila)
+  "Gazebo": 90.00,    // Gazebo (ultime file)
+  "Disabile": 15.00   // Posto Disabili
 };
 
-/**
- * Generates Tariffs and the N:M relation table TipologiaTariffa spanning multiple years
- */
 function generateMultiYearTariffsAndRelations(startYear, endYear) {
   const tariffs = [];
   const typeTariffRelations = [];
-  const annualInflationRate = 1.03; // 3% price increase per year
+  const annualInflationRate = 1.03; // Inflazione 3% annuo
 
   for (let year = startYear; year <= endYear; year++) {
-    // Calculate the inflation multiplier relative to the base year (2025)
     const inflationMultiplier = Math.pow(annualInflationRate, year - startYear);
 
     for (const type of umbrellaTypes) {
-      for (const season of seasons) {
-        // Calculate the base daily price for this year and season
-        const currentYearBasePrice = basePrices2025[type] * inflationMultiplier;
-        const finalDailyPrice = currentYearBasePrice * season.multiplier;
+      const basePriceInflated = basePrices2025[type] * inflationMultiplier;
 
-        // Construct dynamic start and end dates
+      for (const season of seasons) {
+        const finalDailyPrice = basePriceInflated * season.multiplier;
         const startDate = `${year}-${season.startDay}`;
         const endDate = `${year}-${season.endDay}`;
 
-        // 1. Daily Tariff (Giornaliera)
-        // Included the year in the code to ensure the Primary Key is unique
+        // --- APPLICAZIONE SCAGLIONI DI SCONTO (Dal quaderno) ---
+
+        // 1. Fascia Giornaliera (1-7 giorni) -> Sconto 7% (Moltiplicatore 0.93)
         const dailyCode = `TAR-${type}-${season.name}-${year}-D`;
-        tariffs.push({
-          codice: dailyCode,
-          prezzo: Number(finalDailyPrice.toFixed(2)),
-          dataInizio: startDate,
-          dataFine: endDate,
-          tipo: 'Giornaliera',
-          numMinGiorni: null
+        const priceD = finalDailyPrice * 0.93;
+        tariffs.push({ 
+          codice: dailyCode, 
+          prezzo: Number(priceD.toFixed(2)), 
+          dataInizio: startDate, 
+          dataFine: endDate, 
+          tipo: 'Giornaliera', 
+          numMinGiorni: 1 
         });
         typeTariffRelations.push({ codTipologia: type, codTariffa: dailyCode });
 
-        // 2. Weekly Subscription (Abbonamento - 7 days)
-        const weeklyCode = `TAR-${type}-${season.name}-${year}-W`;
-        tariffs.push({
-          codice: weeklyCode,
-          prezzo: Number((finalDailyPrice * 6).toFixed(2)), // 6 days price for 7 days access
-          dataInizio: startDate,
-          dataFine: endDate,
-          tipo: 'Abbonamento',
-          numMinGiorni: 7
+        // 2. Fascia Media (8-20 giorni) -> Sconto 10% (Moltiplicatore 0.90)
+        const midCode = `TAR-${type}-${season.name}-${year}-MID`;
+        const priceMid = finalDailyPrice * 0.90;
+        tariffs.push({ 
+          codice: midCode, 
+          prezzo: Number(priceMid.toFixed(2)), 
+          dataInizio: startDate, 
+          dataFine: endDate, 
+          tipo: 'Abbonamento', 
+          numMinGiorni: 8 
         });
-        typeTariffRelations.push({ codTipologia: type, codTariffa: weeklyCode });
+        typeTariffRelations.push({ codTipologia: type, codTariffa: midCode });
 
-        // 3. Monthly Subscription (Abbonamento - 30 days)
-        const monthlyCode = `TAR-${type}-${season.name}-${year}-M`;
-        tariffs.push({
-          codice: monthlyCode,
-          prezzo: Number((finalDailyPrice * 22).toFixed(2)), // 22 days price for full month
-          dataInizio: startDate,
-          dataFine: endDate,
-          tipo: 'Abbonamento',
-          numMinGiorni: 30
+        // 3. Fascia Lunga (> 20 giorni) -> Sconto 15% (Moltiplicatore 0.85)
+        const longCode = `TAR-${type}-${season.name}-${year}-LONG`;
+        const priceLong = finalDailyPrice * 0.85;
+        tariffs.push({ 
+          codice: longCode, 
+          prezzo: Number(priceLong.toFixed(2)), 
+          dataInizio: startDate, 
+          dataFine: endDate, 
+          tipo: 'Abbonamento', 
+          numMinGiorni: 21 
         });
-        typeTariffRelations.push({ codTipologia: type, codTariffa: monthlyCode });
+        typeTariffRelations.push({ codTipologia: type, codTariffa: longCode });
       }
     }
   }
-
   return { tariffs, typeTariffRelations };
 }
 
-// Generate data from 2025 to 2028
+// Generazione dati 2025-2028
 const data = generateMultiYearTariffsAndRelations(2025, 2028);
 
-// Exporting to JSON files
-try {
-  fs.writeFileSync('tariffs_2025_2028.json', JSON.stringify(data.tariffs, null, 2));
-  fs.writeFileSync('tipologia_tariffa_2025_2028.json', JSON.stringify(data.typeTariffRelations, null, 2));
-  
-  console.log(`Successfully generated ${data.tariffs.length} total tariffs across 4 years.`);
-  console.log(`Successfully generated ${data.typeTariffRelations.length} N:M relations.`);
-} catch (error) {
-  console.error('Error saving files:', error);
-}
+// Scrittura file JSON pronti per l'importazione
+fs.writeFileSync('tariffs_aggiornate.json', JSON.stringify(data.tariffs, null, 2));
+fs.writeFileSync('tipologia_tariffa_aggiornata.json', JSON.stringify(data.typeTariffRelations, null, 2));
+
+console.log("Generazione completata!");
+console.log("- Generata tabella 'tariffa' con scaglioni 1, 8, 21 giorni.");
+console.log("- Applicati sconti 5%, 7% e 10% come da quaderno.");
