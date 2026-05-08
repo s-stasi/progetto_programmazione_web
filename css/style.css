@@ -1,214 +1,132 @@
 /* --- RESET E BASE --- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; background-color: #FEF9E7; color: #1C1C1C; overflow-x: hidden; }
 
-body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #FEF9E7;
-    color: #1C1C1C;
-    overflow-x: hidden;
-}
-
-/* --- LAYOUT PRINCIPALE --- */
 .layout-container {
     display: grid;
     grid-template-columns: 280px 1fr;
     grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-        "header  header"
-        "sidebar corpo"
-        "footer  footer";
+    grid-template-areas: 
+        "header header" 
+        "sidebar corpo" 
+        "footer footer";
     min-height: 100vh;
 }
 
-.header {
-    grid-area: header;
-    background-color: #F4D03F;
-    padding: 20px;
-    text-align: center;
-    border-bottom: 2px solid #D4AC0D;
-}
+.header { grid-area: header; background: #F4D03F; padding: 20px; text-align: center; border-bottom: 2px solid #D4AC0D; }
+.sidebar { grid-area: sidebar; background: #FEF9E7; padding: 25px 20px; border-right: 1px solid #f0e6d2; }
+.corpo-pagina { grid-area: corpo; background: #FEF9E7; padding: 30px; }
+.footer { grid-area: footer; background: #F4D03F; padding: 15px; text-align: center; font-size: 0.9em; }
 
-.sidebar {
-    grid-area: sidebar;
-    background-color: #FEF9E7;
-    padding: 25px 20px;
-    border-right: 1px solid #f0e6d2;
-}
-
-.corpo-pagina {
-    grid-area: corpo;
-    background-color: #FEF9E7;
-    padding: 30px;
-}
-
-.footer {
-    grid-area: footer;
-    background-color: #F4D03F;
-    padding: 15px;
-    text-align: center;
-    font-size: 0.9em;
-}
-
-/* --- SIDEBAR COMPONENTS --- */
-.navigazione h2, .cerca h2 {
-    font-size: 13px;
-    color: #D4AC0D;
-    text-transform: uppercase;
-    margin-bottom: 15px;
-}
-
+/* --- NAVIGAZIONE E SIDEBAR --- */
+.navigazione h2, .cerca h2 { font-size: 13px; color: #D4AC0D; text-transform: uppercase; margin-bottom: 15px; }
 .navigazione ul { list-style: none; }
 .navigazione ul li { margin-bottom: 10px; }
-.navigazione ul li a { text-decoration: none; color: #333; font-weight: 500; }
-.navigazione ul li a.active { color: #D4AC0D; }
+.navigazione ul li a { text-decoration: none; color: #333; font-weight: 500; display: block; padding: 5px 0; }
+.navigazione ul li a.active { color: #D4AC0D; font-weight: bold; }
 
-.submenu-prenota {
-    list-style: none;
-    padding: 10px 10px 10px 15px;
-    margin-top: 5px;
-    background: rgba(244, 208, 63, 0.05);
-    border-left: 2px solid #F4D03F;
-    border-radius: 0 5px 5px 0;
-}
-.submenu-prenota li { margin-bottom: 12px; }
-.submenu-prenota label { display: block; font-size: 0.7em; color: #856404; text-transform: uppercase; font-weight: bold; margin-bottom: 3px; }
-.submenu-prenota select, .submenu-prenota input {
-    width: 100%; font-size: 0.8em; padding: 5px; border: 1px solid #d4c59f; border-radius: 3px; background: white;
-}
+/* Sottoparagrafi Date nella Sidebar */
+.submenu-prenota { margin-left: 15px; margin-top: 5px; }
+.date-field { margin-bottom: 12px; }
+.date-field label { display: block; font-size: 0.75em; color: #856404; text-transform: uppercase; font-weight: bold; margin-bottom: 4px; }
+.date-field input { width: 100%; font-size: 0.9em; padding: 6px; border: 1px solid #ccc; border-radius: 4px; }
 
-.cerca input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 8px;
-}
-
-.cerca button {
-    width: 100%;
-    padding: 8px;
-    background: #D4AC0D;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+/* --- STRISCIA DI MARE --- */
+.striscia-mare {
+    background-color: #5DADE2; /* Azzurro Mare */
+    color: black;
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    border-radius: 12px 12px 0 0;
+    margin-bottom: 0;
+    border: 2px solid #2E86C1;
+    border-bottom: none;
 }
 
-/* --- GRIGLIA SETTORI 3+2 CON PASSERELLE ESTERNE --- */
+/* --- GRIGLIA SPIAGGIA (STRUTTURA SCREENSHOT) --- */
 #griglia-spiaggia {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 40px; /* Spazio passerella tra i settori */
-    width: 100%;
-    margin-top: 20px;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 20px;
     padding: 20px;
-    background-color: #e6d9b7; /* Colore sabbia passerella */
-    border-radius: 12px;
+    background-color: #e0d4b3; /* Colore sabbia */
+    border-radius: 0 0 12px 12px;
+    border: 2px solid #d4c59f;
 }
 
-.settore-container:nth-child(1),
-.settore-container:nth-child(2),
-.settore-container:nth-child(3) {
-    grid-column: span 2;
+/* Settori A, B, C (Sopra - 2 colonne ciascuno su 6) */
+.settore-container:nth-child(1), 
+.settore-container:nth-child(2), 
+.settore-container:nth-child(3) { 
+    grid-column: span 2; 
 }
 
-.settore-container:nth-child(4),
-.settore-container:nth-child(5) {
-    grid-column: span 3;
+/* Settori D, E (Sotto - 3 colonne ciascuno su 6) */
+.settore-container:nth-child(4), 
+.settore-container:nth-child(5) { 
+    grid-column: span 3; 
 }
 
-.settore-container {
-    background-color: #FEF9E7;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #d4c59f;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+.settore-container { 
+    background: #FEF9E7; 
+    padding: 15px; 
+    border-radius: 8px; 
+    border: 1px solid #d4c59f; 
+    text-align: center; 
 }
 
 .settore-header {
     font-weight: bold;
-    color: #555;
     margin-bottom: 10px;
-    border-bottom: 2px solid #D4AC0D;
-    width: 100%;
-    text-align: center;
+    color: #856404;
+    font-size: 0.9em;
 }
 
-/* GRIGLIA OMBRELLONI 10x20 PULITA */
-.spiaggia-grid {
-    display: grid;
+.spiaggia-grid { 
+    display: grid; 
     grid-template-columns: repeat(20, 1fr); 
-    gap: 4px;
+    gap: 3px; 
+    margin-top: 10px; 
 }
 
-/* --- COLORI DOT OMBRELLONE --- */
-.ombrellone {
-    width: 12px !important;
-    height: 12px !important;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.2s;
-    background-color: #F4D03F; /* Giallo Polenta (Disponibile) */
+/* OMBRELLONI (PALLINI) */
+.ombrellone { 
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%; 
+    cursor: pointer; 
+    background-color: #F4D03F; /* Giallo (Libero) */
+    border: 1px solid rgba(0,0,0,0.1); 
+    transition: 0.2s; 
 }
 
-/* Stati */
-.ombrellone.occupato {
-    background-color: #7F8C8D !important; /* Grigio */
-    cursor: not-allowed;
+.ombrellone.occupato { 
+    background-color: #7F8C8D !important; /* Grigio (Occupato) */
+    cursor: not-allowed; 
+    opacity: 0.6; 
 }
 
-.ombrellone.disabile {
-    background-color: #85C1E9 !important; /* Azzurro */
+.ombrellone.disabile { 
+    background-color: #85C1E9 !important; /* Azzurro (Disabile) */
 }
 
-.ombrellone.selezionato {
-    transform: scale(2.2);
-    outline: 2px solid #2c3e50;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    z-index: 10;
+.ombrellone.selezionato { 
+    transform: scale(2.5); 
+    outline: 2px solid #2c3e50; 
+    z-index: 10; 
 }
 
-.ombrellone:hover {
-    transform: scale(1.8);
-}
-
-/* MARE E LEGENDA */
-.mare {
-    background-color: #a7d8f5;
-    color: black;
-    text-align: center;
-    padding: 10px;
-    font-weight: bold;
-    letter-spacing: 5px;
-}
-
-.legenda {
-    display: flex;
-    gap: 15px;
-    margin: 15px 0;
-    font-size: 0.85em;
-}
-
-.legenda .item { display: flex; align-items: center; gap: 5px; }
-.badge { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-
+/* LEGENDA */
+.legenda { display: flex; gap: 15px; margin-bottom: 20px; font-size: 0.85em; }
+.badge { width: 12px; height: 12px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 5px; }
 .badge.libero { background: #F4D03F; }
 .badge.occupato { background: #7F8C8D; }
 .badge.disabile { background: #85C1E9; }
 
-.card-conferma {
-    margin-top: 25px;
-    padding: 15px;
-    border: 2px solid #2ecc71;
-    border-radius: 8px;
-    background: #f4fff8;
-}
-
-.nascosto { display: none; }
+/* UTILITY */
+.nascosto { display: none !important; }
+.sezione-dinamica { display: none; }
+.sezione-dinamica.attiva { display: block; }

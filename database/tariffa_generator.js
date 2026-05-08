@@ -1,54 +1,94 @@
 import * as fs from 'fs';
 
+// 1. DEFINIZIONE TIPOLOGIE (Allineate al tuo database)
 const umbrellaTypes = ["Base", "VIP", "Gazebo", "Disabile"];
 
+// 2. DEFINIZIONE STAGIONI (Dal tuo quaderno)
 const seasons = [
-  { name: "Low", startDay: "05-01", endDay: "06-15", multiplier: 1 },
-  { name: "Mid", startDay: "06-16", endDay: "07-31", multiplier: 1.5 },
-  { name: "High", startDay: "08-01", endDay: "08-31", multiplier: 2.2 }
+  { name: "Bassa", startDay: "01-01", endDay: "03-31", multiplier: 0.7 },   // Gennaio - Marzo
+  { name: "Media", startDay: "04-01", endDay: "05-31", multiplier: 1.2 },   // Aprile - Maggio
+  { name: "Alta",  startDay: "06-01", endDay: "09-30", multiplier: 2.2 },   // Giugno - Settembre
+  { name: "Media", startDay: "10-01", endDay: "10-31", multiplier: 1.2 },   // Ottobre
+  { name: "Bassa", startDay: "11-01", endDay: "12-31", multiplier: 0.7 }    // Novembre - Dicembre
 ];
 
+// 3. PREZZI BASE 2025 (Tariffe giornaliere di riferimento)
 const basePrices2025 = {
-  "Base": 18.00,
-  "VIP": 25.00,
-  "Gazebo": 60.00,
-  "Disabile": 40.00
+  "Base": 20.00,      // Standard
+  "VIP": 35.00,       // VIP (1° e 2° fila)
+  "Gazebo": 90.00,    // Gazebo (ultime file)
+  "Disabile": 15.00   // Posto Disabili
 };
 
 function generateMultiYearTariffsAndRelations(startYear, endYear) {
   const tariffs = [];
   const typeTariffRelations = [];
-  const annualInflationRate = 1.03;
+  const annualInflationRate = 1.03; // Inflazione 3% annuo
 
   for (let year = startYear; year <= endYear; year++) {
     const inflationMultiplier = Math.pow(annualInflationRate, year - startYear);
 
     for (const type of umbrellaTypes) {
-      const basePrice = basePrices2025[type] * inflationMultiplier;
+      const basePriceInflated = basePrices2025[type] * inflationMultiplier;
 
       for (const season of seasons) {
-        const finalDailyPrice = basePrice * season.multiplier;
+        const finalDailyPrice = basePriceInflated * season.multiplier;
         const startDate = `${year}-${season.startDay}`;
         const endDate = `${year}-${season.endDay}`;
 
+        // --- APPLICAZIONE SCAGLIONI DI SCONTO (Dal quaderno) ---
+
+        // 1. Fascia Giornaliera (1-7 giorni) -> Sconto 7% (Moltiplicatore 0.93)
         const dailyCode = `TAR-${type}-${season.name}-${year}-D`;
-        tariffs.push({ codice: dailyCode, prezzo: Number(finalDailyPrice.toFixed(2)), dataInizio: startDate, dataFine: endDate, tipo: 'Giornaliera', numMinGiorni: null });
+        const priceD = finalDailyPrice * 0.93;
+        tariffs.push({ 
+          codice: dailyCode, 
+          prezzo: Number(priceD.toFixed(2)), 
+          dataInizio: startDate, 
+          dataFine: endDate, 
+          tipo: 'Giornaliera', 
+          numMinGiorni: 1 
+        });
         typeTariffRelations.push({ codTipologia: type, codTariffa: dailyCode });
 
-        const weeklyCode = `TAR-${type}-${season.name}-${year}-W`;
-        tariffs.push({ codice: weeklyCode, prezzo: Number((finalDailyPrice * 6).toFixed(2)), dataInizio: startDate, dataFine: endDate, tipo: 'Abbonamento', numMinGiorni: 7 });
-        typeTariffRelations.push({ codTipologia: type, codTariffa: weeklyCode });
+        // 2. Fascia Media (8-20 giorni) -> Sconto 10% (Moltiplicatore 0.90)
+        const midCode = `TAR-${type}-${season.name}-${year}-MID`;
+        const priceMid = finalDailyPrice * 0.90;
+        tariffs.push({ 
+          codice: midCode, 
+          prezzo: Number(priceMid.toFixed(2)), 
+          dataInizio: startDate, 
+          dataFine: endDate, 
+          tipo: 'Abbonamento', 
+          numMinGiorni: 8 
+        });
+        typeTariffRelations.push({ codTipologia: type, codTariffa: midCode });
 
-        const monthlyCode = `TAR-${type}-${season.name}-${year}-M`;
-        tariffs.push({ codice: monthlyCode, prezzo: Number((finalDailyPrice * 22).toFixed(2)), dataInizio: startDate, dataFine: endDate, tipo: 'Abbonamento', numMinGiorni: 30 });
-        typeTariffRelations.push({ codTipologia: type, codTariffa: monthlyCode });
+        // 3. Fascia Lunga (> 20 giorni) -> Sconto 15% (Moltiplicatore 0.85)
+        const longCode = `TAR-${type}-${season.name}-${year}-LONG`;
+        const priceLong = finalDailyPrice * 0.85;
+        tariffs.push({ 
+          codice: longCode, 
+          prezzo: Number(priceLong.toFixed(2)), 
+          dataInizio: startDate, 
+          dataFine: endDate, 
+          tipo: 'Abbonamento', 
+          numMinGiorni: 21 
+        });
+        typeTariffRelations.push({ codTipologia: type, codTariffa: longCode });
       }
     }
   }
   return { tariffs, typeTariffRelations };
 }
 
+// Generazione dati 2025-2028
 const data = generateMultiYearTariffsAndRelations(2025, 2028);
-fs.writeFileSync('tariffs_2025_2028.json', JSON.stringify(data.tariffs, null, 2));
-fs.writeFileSync('tipologia_tariffa_2025_2028.json', JSON.stringify(data.typeTariffRelations, null, 2));
-console.log("Tariffe aggiornate!");
+
+// Scrittura file JSON pronti per l'importazione
+fs.writeFileSync('tariffs_aggiornate.json', JSON.stringify(data.tariffs, null, 2));
+fs.writeFileSync('tipologia_tariffa_aggiornata.json', JSON.stringify(data.typeTariffRelations, null, 2));
+
+console.log("Generazione completata!");
+console.log("- Generata tabella 'tariffa' con scaglioni 1, 8, 21 giorni.");
+console.log("- Applicati sconti 5%, 7% e 10% come da quaderno.");

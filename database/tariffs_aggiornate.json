@@ -1,0 +1,1922 @@
+[
+  {
+    "codice": "TAR-Base-Bassa-2025-D",
+    "prezzo": 13.02,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Bassa-2025-MID",
+    "prezzo": 12.6,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Bassa-2025-LONG",
+    "prezzo": 11.9,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Media-2025-D",
+    "prezzo": 22.32,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Media-2025-MID",
+    "prezzo": 21.6,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Media-2025-LONG",
+    "prezzo": 20.4,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Alta-2025-D",
+    "prezzo": 40.92,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Alta-2025-MID",
+    "prezzo": 39.6,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Alta-2025-LONG",
+    "prezzo": 37.4,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Media-2025-D",
+    "prezzo": 22.32,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Media-2025-MID",
+    "prezzo": 21.6,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Media-2025-LONG",
+    "prezzo": 20.4,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Bassa-2025-D",
+    "prezzo": 13.02,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Bassa-2025-MID",
+    "prezzo": 12.6,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Bassa-2025-LONG",
+    "prezzo": 11.9,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2025-D",
+    "prezzo": 22.79,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2025-MID",
+    "prezzo": 22.05,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2025-LONG",
+    "prezzo": 20.82,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Media-2025-D",
+    "prezzo": 39.06,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Media-2025-MID",
+    "prezzo": 37.8,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Media-2025-LONG",
+    "prezzo": 35.7,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Alta-2025-D",
+    "prezzo": 71.61,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Alta-2025-MID",
+    "prezzo": 69.3,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Alta-2025-LONG",
+    "prezzo": 65.45,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Media-2025-D",
+    "prezzo": 39.06,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Media-2025-MID",
+    "prezzo": 37.8,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Media-2025-LONG",
+    "prezzo": 35.7,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2025-D",
+    "prezzo": 22.79,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2025-MID",
+    "prezzo": 22.05,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2025-LONG",
+    "prezzo": 20.82,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2025-D",
+    "prezzo": 58.59,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2025-MID",
+    "prezzo": 56.7,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2025-LONG",
+    "prezzo": 53.55,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2025-D",
+    "prezzo": 100.44,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2025-MID",
+    "prezzo": 97.2,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2025-LONG",
+    "prezzo": 91.8,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2025-D",
+    "prezzo": 184.14,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2025-MID",
+    "prezzo": 178.2,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2025-LONG",
+    "prezzo": 168.3,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2025-D",
+    "prezzo": 100.44,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2025-MID",
+    "prezzo": 97.2,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2025-LONG",
+    "prezzo": 91.8,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2025-D",
+    "prezzo": 58.59,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2025-MID",
+    "prezzo": 56.7,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2025-LONG",
+    "prezzo": 53.55,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2025-D",
+    "prezzo": 9.77,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2025-MID",
+    "prezzo": 9.45,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2025-LONG",
+    "prezzo": 8.92,
+    "dataInizio": "2025-01-01",
+    "dataFine": "2025-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Media-2025-D",
+    "prezzo": 16.74,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Media-2025-MID",
+    "prezzo": 16.2,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Media-2025-LONG",
+    "prezzo": 15.3,
+    "dataInizio": "2025-04-01",
+    "dataFine": "2025-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2025-D",
+    "prezzo": 30.69,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2025-MID",
+    "prezzo": 29.7,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2025-LONG",
+    "prezzo": 28.05,
+    "dataInizio": "2025-06-01",
+    "dataFine": "2025-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Media-2025-D",
+    "prezzo": 16.74,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Media-2025-MID",
+    "prezzo": 16.2,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Media-2025-LONG",
+    "prezzo": 15.3,
+    "dataInizio": "2025-10-01",
+    "dataFine": "2025-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2025-D",
+    "prezzo": 9.77,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2025-MID",
+    "prezzo": 9.45,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2025-LONG",
+    "prezzo": 8.92,
+    "dataInizio": "2025-11-01",
+    "dataFine": "2025-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Bassa-2026-D",
+    "prezzo": 13.41,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Bassa-2026-MID",
+    "prezzo": 12.98,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Bassa-2026-LONG",
+    "prezzo": 12.26,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Media-2026-D",
+    "prezzo": 22.99,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Media-2026-MID",
+    "prezzo": 22.25,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Media-2026-LONG",
+    "prezzo": 21.01,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Alta-2026-D",
+    "prezzo": 42.15,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Alta-2026-MID",
+    "prezzo": 40.79,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Alta-2026-LONG",
+    "prezzo": 38.52,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Media-2026-D",
+    "prezzo": 22.99,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Media-2026-MID",
+    "prezzo": 22.25,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Media-2026-LONG",
+    "prezzo": 21.01,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Bassa-2026-D",
+    "prezzo": 13.41,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Bassa-2026-MID",
+    "prezzo": 12.98,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Bassa-2026-LONG",
+    "prezzo": 12.26,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2026-D",
+    "prezzo": 23.47,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2026-MID",
+    "prezzo": 22.71,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2026-LONG",
+    "prezzo": 21.45,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Media-2026-D",
+    "prezzo": 40.23,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Media-2026-MID",
+    "prezzo": 38.93,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Media-2026-LONG",
+    "prezzo": 36.77,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Alta-2026-D",
+    "prezzo": 73.76,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Alta-2026-MID",
+    "prezzo": 71.38,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Alta-2026-LONG",
+    "prezzo": 67.41,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Media-2026-D",
+    "prezzo": 40.23,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Media-2026-MID",
+    "prezzo": 38.93,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Media-2026-LONG",
+    "prezzo": 36.77,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2026-D",
+    "prezzo": 23.47,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2026-MID",
+    "prezzo": 22.71,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2026-LONG",
+    "prezzo": 21.45,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2026-D",
+    "prezzo": 60.35,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2026-MID",
+    "prezzo": 58.4,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2026-LONG",
+    "prezzo": 55.16,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2026-D",
+    "prezzo": 103.45,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2026-MID",
+    "prezzo": 100.12,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2026-LONG",
+    "prezzo": 94.55,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2026-D",
+    "prezzo": 189.66,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2026-MID",
+    "prezzo": 183.55,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2026-LONG",
+    "prezzo": 173.35,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2026-D",
+    "prezzo": 103.45,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2026-MID",
+    "prezzo": 100.12,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2026-LONG",
+    "prezzo": 94.55,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2026-D",
+    "prezzo": 60.35,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2026-MID",
+    "prezzo": 58.4,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2026-LONG",
+    "prezzo": 55.16,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2026-D",
+    "prezzo": 10.06,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2026-MID",
+    "prezzo": 9.73,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2026-LONG",
+    "prezzo": 9.19,
+    "dataInizio": "2026-01-01",
+    "dataFine": "2026-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Media-2026-D",
+    "prezzo": 17.24,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Media-2026-MID",
+    "prezzo": 16.69,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Media-2026-LONG",
+    "prezzo": 15.76,
+    "dataInizio": "2026-04-01",
+    "dataFine": "2026-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2026-D",
+    "prezzo": 31.61,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2026-MID",
+    "prezzo": 30.59,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2026-LONG",
+    "prezzo": 28.89,
+    "dataInizio": "2026-06-01",
+    "dataFine": "2026-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Media-2026-D",
+    "prezzo": 17.24,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Media-2026-MID",
+    "prezzo": 16.69,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Media-2026-LONG",
+    "prezzo": 15.76,
+    "dataInizio": "2026-10-01",
+    "dataFine": "2026-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2026-D",
+    "prezzo": 10.06,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2026-MID",
+    "prezzo": 9.73,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2026-LONG",
+    "prezzo": 9.19,
+    "dataInizio": "2026-11-01",
+    "dataFine": "2026-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Bassa-2027-D",
+    "prezzo": 13.81,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Bassa-2027-MID",
+    "prezzo": 13.37,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Bassa-2027-LONG",
+    "prezzo": 12.62,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Media-2027-D",
+    "prezzo": 23.68,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Media-2027-MID",
+    "prezzo": 22.92,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Media-2027-LONG",
+    "prezzo": 21.64,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Alta-2027-D",
+    "prezzo": 43.41,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Alta-2027-MID",
+    "prezzo": 42.01,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Alta-2027-LONG",
+    "prezzo": 39.68,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Media-2027-D",
+    "prezzo": 23.68,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Media-2027-MID",
+    "prezzo": 22.92,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Media-2027-LONG",
+    "prezzo": 21.64,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Bassa-2027-D",
+    "prezzo": 13.81,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Bassa-2027-MID",
+    "prezzo": 13.37,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Bassa-2027-LONG",
+    "prezzo": 12.62,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2027-D",
+    "prezzo": 24.17,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2027-MID",
+    "prezzo": 23.39,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2027-LONG",
+    "prezzo": 22.09,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Media-2027-D",
+    "prezzo": 41.44,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Media-2027-MID",
+    "prezzo": 40.1,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Media-2027-LONG",
+    "prezzo": 37.87,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Alta-2027-D",
+    "prezzo": 75.97,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Alta-2027-MID",
+    "prezzo": 73.52,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Alta-2027-LONG",
+    "prezzo": 69.44,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Media-2027-D",
+    "prezzo": 41.44,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Media-2027-MID",
+    "prezzo": 40.1,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Media-2027-LONG",
+    "prezzo": 37.87,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2027-D",
+    "prezzo": 24.17,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2027-MID",
+    "prezzo": 23.39,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2027-LONG",
+    "prezzo": 22.09,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2027-D",
+    "prezzo": 62.16,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2027-MID",
+    "prezzo": 60.15,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2027-LONG",
+    "prezzo": 56.81,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2027-D",
+    "prezzo": 106.56,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2027-MID",
+    "prezzo": 103.12,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2027-LONG",
+    "prezzo": 97.39,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2027-D",
+    "prezzo": 195.35,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2027-MID",
+    "prezzo": 189.05,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2027-LONG",
+    "prezzo": 178.55,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2027-D",
+    "prezzo": 106.56,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2027-MID",
+    "prezzo": 103.12,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2027-LONG",
+    "prezzo": 97.39,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2027-D",
+    "prezzo": 62.16,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2027-MID",
+    "prezzo": 60.15,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2027-LONG",
+    "prezzo": 56.81,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2027-D",
+    "prezzo": 10.36,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2027-MID",
+    "prezzo": 10.03,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2027-LONG",
+    "prezzo": 9.47,
+    "dataInizio": "2027-01-01",
+    "dataFine": "2027-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Media-2027-D",
+    "prezzo": 17.76,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Media-2027-MID",
+    "prezzo": 17.19,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Media-2027-LONG",
+    "prezzo": 16.23,
+    "dataInizio": "2027-04-01",
+    "dataFine": "2027-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2027-D",
+    "prezzo": 32.56,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2027-MID",
+    "prezzo": 31.51,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2027-LONG",
+    "prezzo": 29.76,
+    "dataInizio": "2027-06-01",
+    "dataFine": "2027-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Media-2027-D",
+    "prezzo": 17.76,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Media-2027-MID",
+    "prezzo": 17.19,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Media-2027-LONG",
+    "prezzo": 16.23,
+    "dataInizio": "2027-10-01",
+    "dataFine": "2027-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2027-D",
+    "prezzo": 10.36,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2027-MID",
+    "prezzo": 10.03,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2027-LONG",
+    "prezzo": 9.47,
+    "dataInizio": "2027-11-01",
+    "dataFine": "2027-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Bassa-2028-D",
+    "prezzo": 14.23,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Bassa-2028-MID",
+    "prezzo": 13.77,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Bassa-2028-LONG",
+    "prezzo": 13,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Media-2028-D",
+    "prezzo": 24.39,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Media-2028-MID",
+    "prezzo": 23.6,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Media-2028-LONG",
+    "prezzo": 22.29,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Alta-2028-D",
+    "prezzo": 44.71,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Alta-2028-MID",
+    "prezzo": 43.27,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Alta-2028-LONG",
+    "prezzo": 40.87,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Media-2028-D",
+    "prezzo": 24.39,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Media-2028-MID",
+    "prezzo": 23.6,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Media-2028-LONG",
+    "prezzo": 22.29,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Base-Bassa-2028-D",
+    "prezzo": 14.23,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Base-Bassa-2028-MID",
+    "prezzo": 13.77,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Base-Bassa-2028-LONG",
+    "prezzo": 13,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2028-D",
+    "prezzo": 24.9,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2028-MID",
+    "prezzo": 24.09,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2028-LONG",
+    "prezzo": 22.76,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Media-2028-D",
+    "prezzo": 42.68,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Media-2028-MID",
+    "prezzo": 41.31,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Media-2028-LONG",
+    "prezzo": 39.01,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Alta-2028-D",
+    "prezzo": 78.25,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Alta-2028-MID",
+    "prezzo": 75.73,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Alta-2028-LONG",
+    "prezzo": 71.52,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Media-2028-D",
+    "prezzo": 42.68,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Media-2028-MID",
+    "prezzo": 41.31,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Media-2028-LONG",
+    "prezzo": 39.01,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2028-D",
+    "prezzo": 24.9,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2028-MID",
+    "prezzo": 24.09,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-VIP-Bassa-2028-LONG",
+    "prezzo": 22.76,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2028-D",
+    "prezzo": 64.02,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2028-MID",
+    "prezzo": 61.96,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2028-LONG",
+    "prezzo": 58.52,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2028-D",
+    "prezzo": 109.75,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2028-MID",
+    "prezzo": 106.21,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2028-LONG",
+    "prezzo": 100.31,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2028-D",
+    "prezzo": 201.21,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2028-MID",
+    "prezzo": 194.72,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Alta-2028-LONG",
+    "prezzo": 183.91,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2028-D",
+    "prezzo": 109.75,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2028-MID",
+    "prezzo": 106.21,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Media-2028-LONG",
+    "prezzo": 100.31,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2028-D",
+    "prezzo": 64.02,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2028-MID",
+    "prezzo": 61.96,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Gazebo-Bassa-2028-LONG",
+    "prezzo": 58.52,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2028-D",
+    "prezzo": 10.67,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2028-MID",
+    "prezzo": 10.33,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2028-LONG",
+    "prezzo": 9.75,
+    "dataInizio": "2028-01-01",
+    "dataFine": "2028-03-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Media-2028-D",
+    "prezzo": 18.29,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Media-2028-MID",
+    "prezzo": 17.7,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Media-2028-LONG",
+    "prezzo": 16.72,
+    "dataInizio": "2028-04-01",
+    "dataFine": "2028-05-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2028-D",
+    "prezzo": 33.54,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2028-MID",
+    "prezzo": 32.45,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Alta-2028-LONG",
+    "prezzo": 30.65,
+    "dataInizio": "2028-06-01",
+    "dataFine": "2028-09-30",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Media-2028-D",
+    "prezzo": 18.29,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Media-2028-MID",
+    "prezzo": 17.7,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Media-2028-LONG",
+    "prezzo": 16.72,
+    "dataInizio": "2028-10-01",
+    "dataFine": "2028-10-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2028-D",
+    "prezzo": 10.67,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Giornaliera",
+    "numMinGiorni": 1
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2028-MID",
+    "prezzo": 10.33,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 8
+  },
+  {
+    "codice": "TAR-Disabile-Bassa-2028-LONG",
+    "prezzo": 9.75,
+    "dataInizio": "2028-11-01",
+    "dataFine": "2028-12-31",
+    "tipo": "Abbonamento",
+    "numMinGiorni": 21
+  }
+]
