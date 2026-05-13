@@ -117,13 +117,13 @@
       const griglia = document.getElementById('griglia-spiaggia');
       griglia.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>Caricamento...</p>";
       try {
-        const url = `http://treuominiemezzo.altervista.org/php/get_umbrellas.php?inizio=${dataInizioInput.value}&fine=${dataFineInput.value}`;
+        const url = `../php/get_umbrellas.php?inizio=${dataInizioInput.value}&fine=${dataFineInput.value}`;
         const r = await fetch(url);
         if (!r.ok) throw new Error();
         const dati = await r.json();
         disegnaMappa(dati);
       } catch (e) {
-        griglia.innerHTML = "<p style='grid-column: 1/-1; text-align:center; color:red;'>Errore nel recupero dati dal database.</p>";
+        griglia.innerHTML = `<p style='grid-column: 1/-1; text-align:center; color:red;'>Errore tecnico: ${e.message}</p>`;
       }
     }
 
@@ -176,7 +176,7 @@
             // 2. Chiedi il prezzo al server (PHP) passando le date e il tipo
             // Il server cercherà nel DB la tariffa corretta generata dal tuo script Node.js
             try {
-              const response = await fetch(`http://tuo-sito.it/php/get_prezzo_finito.php?tipo=${tipo}&inizio=${dataInizioInput.value}&fine=${dataFineInput.value}`);
+              const response = await fetch(`../php/get_prezzo_finito.php?tipo=${tipo}&inizio=${dataInizioInput.value}&fine=${dataFineInput.value}`);
               const datiPrezzo = await response.json();
 
               document.getElementById('info-selezione').classList.remove('nascosto');

@@ -1,16 +1,17 @@
 <?php
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *'); // Per permettere le chiamate dal tuo PC locale
-
+require_once('config.php');
 // Connessione al database
-$servername = "localhost";
-$username = "tuo_username";
-$password = "tuo_password";
-$dbname = "my_treuominiemezzo";
+// $servername = "localhost";
+// $username = "tuo_username";
+// $password = "tuo_password";
+// $dbname = "my_treuominiemezzo";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if ($conn->connect_error) {
+    http_response_code(500);
     die(json_encode(["error" => "Connessione fallita"]));
 }
 

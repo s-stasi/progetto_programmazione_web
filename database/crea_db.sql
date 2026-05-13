@@ -13,7 +13,7 @@ DROP TABLE IF EXISTS Cliente;
 -- 2. Independent Tables
 
 CREATE TABLE Cliente (
-  codice INT PRIMARY KEY,
+  codice INT PRIMARY KEY AUTO_INCREMENT,
   nome VARCHAR(100) NOT NULL,
   cognome VARCHAR(100) NOT NULL,
   dataNascita DATE,

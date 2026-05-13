@@ -14,27 +14,44 @@ if ($conn->connect_error) {
     die(json_encode(["error" => "Connessione fallita: " . $conn->connect_error]));
 }
 
+// 1. Recupero parametri GET passati dal frontend (con fallback a oggi)
+$inizio = $_GET['inizio'] ?? date('Y-m-d');
+$fine = $_GET['fine'] ?? date('Y-m-d');
+
 $sql = "SELECT 
             o.id AS id_ombrellone, 
             o.settore, 
             o.numFila AS numero_fila, 
             o.numPostoFila AS numero_ordine, 
-            t.nome AS tipologia_nome 
+            t.nome AS tipologia_nome,
+            CASE 
+                WHEN EXISTS (
+                    SELECT 1 
+                    FROM OmbrelloneVenduto ov 
+                    WHERE ov.idOmbrellone = o.id 
+                    AND ov.data BETWEEN ? AND ?
+                ) THEN 1 
+                ELSE 0 
+            END AS occupato
         FROM Ombrellone o 
         JOIN Tipologia t ON o.tipologia = t.codice";
 
-$result = $conn->query($sql);
-
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ss", $inizio, $fine);
+$stmt->execute();
+$result = $stmt->get_result();
 if ($result) {
     $ombrelloni = [];
     while($row = $result->fetch_assoc()) {
         $ombrelloni[] = $row;
     }
+    // Sputa fuori il JSON per l'interfaccia
     echo json_encode($ombrelloni);
 } else {
     http_response_code(500);
     echo json_encode(["error" => "Errore Database: " . $conn->error]);
 }
 
+$stmt->close();
 $conn->close();
 ?>
