@@ -1,4 +1,11 @@
     <aside class="sidebar">
+      <div class="navigazione">
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="index.php">Mappa Operativa</a></li>
+        <li><a href="ricerca_ombrelloni.php">Ricerca Ombrelloni</a></li>
+        </ul>
+</div>
       <nav class="navigazione">
         <h2>Dashboard</h2>
         <ul>
