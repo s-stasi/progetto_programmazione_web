@@ -12,6 +12,7 @@
   <nav class="navigazione">
     <h2>Dashboard</h2>
     <ul>
+          <li><a href="ricerca_ombrelloni.php">Ricerca Ombrelloni</a></li>
       <li><a href="clienti.php" class="nav-link <?php echo ($currentPage == 'clienti.php') ? 'active' : ''; ?>">Gestione Clienti</a></li>
       <li><a href="tariffe.php" class="nav-link <?php echo ($currentPage == 'tariffe.php') ? 'active' : ''; ?>">Listino Tariffe</a></li>
       <li><a href="contratti.php" class="nav-link <?php echo ($currentPage == 'contratti.php') ? 'active' : ''; ?>">Contratti</a></li>
