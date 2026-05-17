@@ -3,8 +3,8 @@
 
 <main class="corpo-pagina">
   <div class="table-header">
-    <h2>Contract Management</h2>
-    <button class="btn-primary" onclick="alert('Proceed to Operational Map to create a new contract')">New Reservation</button>
+    <h2>Gestione Contratti</h2>
+    <button class="btn-primary" onclick="alert('Proceed to Operational Map to create a new contract')">Nuova Prenotazione</button>
   </div>
 
   <div class="table-container">
@@ -12,10 +12,10 @@
       <thead>
         <tr>
           <th>Prog. #</th>
-          <th>Date</th>
-          <th>Client</th>
-          <th>Total Amount</th>
-          <th>Actions</th>
+          <th>Data</th>
+          <th>Cliente</th>
+          <th>Totale</th>
+          <th>Azioni</th>
         </tr>
       </thead>
       <tbody>
@@ -26,12 +26,24 @@
         if ($conn->connect_error) {
           echo "<tr><td colspan='5' style='color:red;'>Database connection failed: " . $conn->connect_error . "</td></tr>";
         } else {
-          // Fetch contracts with client details using a join
           $sql = "SELECT c.numProgr, c.data, c.importo, cl.nome, cl.cognome 
                   FROM Contratto c
                   JOIN Cliente cl ON c.stipulatoDa = cl.codice
-                  ORDER BY c.data DESC, c.numProgr DESC 
-                  LIMIT 50";
+                  WHERE 1=1";
+
+          $da = $_GET['data_da'] ?? '';
+          $a = $_GET['data_a'] ?? '';
+
+          if (!empty($da)) {
+            $safeDa = $conn->real_escape_string($da);
+            $sql .= " AND c.data >= '{$safeDa}'";
+          }
+          if (!empty($a)) {
+            $safeA = $conn->real_escape_string($a);
+            $sql .= " AND c.data <= '{$safeA}'";
+          }
+
+          $sql .= " ORDER BY c.data, c.numProgr LIMIT 50";
           
           $result = $conn->query($sql);
 
@@ -55,13 +67,17 @@
               
               // Action buttons
               echo "<td>
-                      <button class='btn-edit'>View Details</button>
-                      <button class='btn-delete' onclick='deleteContract(" . ($row['numProgr'] ?? 0) . ")'>Cancel</button>
+                      <button class='btn-edit'>
+                        <span class='material-symbols-outlined' style='font-size: 18px;'>edit</span>
+                      </button>
+                      <button class='btn-delete' onclick='deleteContract(" . ($row['numProgr'] ?? 0) . ")'>
+                        <span class='material-symbols-outlined' style='font-size: 18px;'>delete</span>
+                      </button>
                     </td>";
               echo "</tr>";
             }
           } else {
-            echo "<tr><td colspan='5' style='text-align: center; padding: 20px;'>No contracts found in the database.</td></tr>";
+            echo "<tr><td colspan='5' style='text-align: center; padding: 20px;'>Nessun contratto trovato nel database.</td></tr>";
           }
           $conn->close();
         }
@@ -73,7 +89,7 @@
 
 <script>
   async function deleteContract(id) {
-    if (!confirm(`Are you sure you want to cancel contract #${id}? This will free up the associated umbrellas.`)) {
+    if (!confirm(`Sei sicuro di voler cancellare il contratto #${id}? Questo libererà gli ombrelloni associati.`)) {
       return;
     }
 
@@ -88,7 +104,7 @@
         alert("ERROR: " + result.message);
       }
     } catch (e) {
-      alert("Technical error during contract cancellation");
+      alert("Errore tecnico durante la cancellazione del contratto");
       console.error(e);
     }
   }

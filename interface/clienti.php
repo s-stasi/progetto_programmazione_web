@@ -3,30 +3,30 @@
 
 <main class="corpo-pagina">
   <div class="table-header">
-    <h2>Client Management</h2>
-    <button class="btn-primary" onclick="openAddModal()">+ Add New Client</button>
+    <h2>Gestione clienti</h2>
+    <button class="btn-primary" onclick="openAddModal()">+ Aggiungi clienti</button>
   </div>
 
   <div id="addClientModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3>New Client</h3>
+        <h3>Nuovo Cliente</h3>
         <span onclick="closeAddModal()" style="cursor:pointer; font-weight:bold;">&times;</span>
       </div>
       <form id="addClientForm" onsubmit="saveClient(event)">
         <div class="form-group">
-          <label>First Name</label>
+          <label>Nome</label>
           <input type="text" name="firstName" required>
         </div>
         <div class="form-group">
-          <label>Last Name</label>
+          <label>Cognome</label>
           <input type="text" name="lastName" required>
         </div>
         <div class="form-group">
-          <label>Date of Birth</label>
+          <label>Data di Nascita</label>
           <input type="date" name="dob">
         </div>
-        <button type="submit" class="btn-primary" style="width:100%">Save Client</button>
+        <button type="submit" class="btn-primary" style="width:100%">Salva Cliente</button>
       </form>
     </div>
   </div>
@@ -34,25 +34,25 @@
   <div id="editClientModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
-        <h3>Edit Client</h3>
+        <h3>Modifica Cliente</h3>
         <span onclick="closeEditModal()" style="cursor:pointer; font-weight:bold;">&times;</span>
       </div>
       <form id="editClientForm" onsubmit="updateClient(event)">
         <input type="hidden" id="editClientId" name="clientId">
         
         <div class="form-group">
-          <label>First Name</label>
+          <label>Nome</label>
           <input type="text" id="editFirstName" name="firstName" required>
         </div>
         <div class="form-group">
-          <label>Last Name</label>
+          <label>Cognome</label>
           <input type="text" id="editLastName" name="lastName" required>
         </div>
         <div class="form-group">
-          <label>Date of Birth</label>
+          <label>Data di Nascita</label>
           <input type="date" id="editDob" name="dob">
         </div>
-        <button type="submit" class="btn-edit" style="width:100%">Update Client</button>
+        <button type="submit" class="btn-edit" style="width:100%">Aggiorna Cliente</button>
       </form>
     </div>
   </div>
@@ -62,19 +62,56 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Birth Date</th>
-          <th>Actions</th>
+          <th>Nome</th>
+          <th>Cognome</th>
+          <th>Data di Nascita</th>
+          <th>Azioni</th>
         </tr>
       </thead>
       <tbody>
         <?php
         require_once('../php/config.php');
         $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        
         if (!$conn->connect_error) {
-          $sql = "SELECT codice, nome, cognome, dataNascita FROM Cliente ORDER BY codice DESC LIMIT 50";
+          $recordsPerPage = 50;
+          $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
+          if ($page < 1) $page = 1;
+          
+          $offset = ($page - 1) * $recordsPerPage;
+
+          $whereClause = "WHERE 1=1";
+          $searchCognome = $_GET['search_cognome'] ?? '';
+          if (!empty($searchCognome)) {
+            $safeSearch = $conn->real_escape_string($searchCognome);
+            $whereClause .= " AND cognome LIKE '%{$safeSearch}%'";
+          }
+
+          $searchNome = $_GET['search_nome'] ?? '';
+          if (!empty($searchNome)) {
+            $safeSearch = $conn->real_escape_string($searchNome);
+            $whereClause .= " AND nome LIKE '%{$safeSearch}%'";
+          }
+
+          $data_nascita = $_GET['data_nascita'] ?? '';
+          if (!empty($data_nascita)) {
+            $safe_data_nascita = $conn->real_escape_string($data_nascita);
+            $whereClause .= " AND dataNascita = '{$safe_data_nascita}'";
+          }
+
+          $countSql = "SELECT COUNT(*) as total FROM Cliente $whereClause";
+          $countResult = $conn->query($countSql);
+          $totalRecords = $countResult->fetch_assoc()['total'];
+          $totalPages = ceil($totalRecords / $recordsPerPage);
+
+          $sql = "SELECT codice, nome, cognome, dataNascita 
+                  FROM Cliente 
+                  $whereClause 
+                  ORDER BY codice 
+                  LIMIT $recordsPerPage OFFSET $offset";
+                  
           $result = $conn->query($sql);
+          
           if ($result && $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
               $id = $row['codice'];
@@ -89,22 +126,48 @@
                       <td>{$cognome}</td>
                       <td>{$dataFormattata}</td>
                       <td>
-                        <button class='btn-edit' onclick='openEditModal({$id}, \"{$nome}\", \"{$cognome}\", \"{$dataNascita}\")'>Edit</button>
-                        <button class='btn-delete' onclick='deleteClient({$id})'>Delete</button>
+                        <button class='btn-edit' onclick='openEditModal({$id}, \"{$nome}\", \"{$cognome}\", \"{$dataNascita}\")'>
+                          <span class='material-symbols-outlined' style='font-size: 18px;'>edit</span>
+                        </button>
+                        <button class='btn-delete' onclick='deleteClient({$id})'>
+                          <span class='material-symbols-outlined' style='font-size: 18px;'>delete</span>
+                        </button>
                       </td>
                     </tr>";
             }
+          } else {
+            echo "<tr><td colspan='5' style='text-align: center; padding: 20px;'>No clients found.</td></tr>";
           }
           $conn->close();
         }
         ?>
       </tbody>
     </table>
+    </table>
+    
+    <?php if (isset($totalPages) && $totalPages > 1): ?>
+      <div class="pagination">
+        <?php
+        $queryParams = $_GET;
+        
+        $queryParams['page'] = $page - 1;
+        $prevUrl = '?' . http_build_query($queryParams);
+        $prevClass = ($page <= 1) ? 'disabled' : '';
+        echo "<a href='{$prevUrl}' class='{$prevClass}'>&laquo; Previous</a>";
+        
+        echo "<span class='current-page'>Page {$page} of {$totalPages}</span>";
+        
+        $queryParams['page'] = $page + 1;
+        $nextUrl = '?' . http_build_query($queryParams);
+        $nextClass = ($page >= $totalPages) ? 'disabled' : '';
+        echo "<a href='{$nextUrl}' class='{$nextClass}'>Next &raquo;</a>";
+        ?>
+      </div>
+    <?php endif; ?>
   </div>
 </main>
 
 <script>
-  // --- ADD MODAL LOGIC ---
   const addModal = document.getElementById('addClientModal');
   function openAddModal() { addModal.style.display = 'block'; }
   function closeAddModal() { addModal.style.display = 'none'; }
@@ -119,17 +182,14 @@
     } catch (e) { alert("Technical error"); }
   }
 
-  // --- EDIT MODAL LOGIC ---
   const editModal = document.getElementById('editClientModal');
   
   function openEditModal(id, nome, cognome, dataNascita) {
-    // Populate the form fields
     document.getElementById('editClientId').value = id;
     document.getElementById('editFirstName').value = nome;
     document.getElementById('editLastName').value = cognome;
     document.getElementById('editDob').value = dataNascita;
     
-    // Show the modal
     editModal.style.display = 'block';
   }
   
@@ -145,7 +205,6 @@
     } catch (e) { alert("Technical error"); }
   }
 
-  // --- DELETE LOGIC ---
   async function deleteClient(id) {
     if (!confirm(`Delete client #${id}?`)) return;
     try {

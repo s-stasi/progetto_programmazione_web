@@ -2,36 +2,24 @@
 <?php include 'components/sidebar.php'; ?>
 
 <main class="corpo-pagina">
-  <h2>Operational Map</h2>
-  
-  <div style="display: flex; gap: 15px; margin-bottom: 20px; background: #fff; padding: 15px; border-radius: 8px; border: 1px solid #d4c59f;">
-    <div class="date-field">
-      <label>From:</label>
-      <input type="date" id="start-date" onchange="handleDateChange()">
-    </div>
-    <div class="date-field">
-      <label>To:</label>
-      <input type="date" id="end-date" onchange="handleDateChange()">
-    </div>
+  <h2>Mappa Spiaggia</h2>
+
+  <div class="legenda" style="margin-top: 15px;">
+    <div class="item"><span class="badge libero"></span> Disponibile</div>
+    <div class="item"><span class="badge occupato"></span> Occupato</div>
+    <div class="item"><span class="badge disabile"></span> Disabili</div>
   </div>
 
-  <div class="legenda">
-    <div class="item"><span class="badge libero"></span> Available</div>
-    <div class="item"><span class="badge occupato"></span> Occupied</div>
-    <div class="item"><span class="badge disabile"></span> Disabled</div>
-  </div>
-
-  <div class="striscia-mare">SEA</div>
+  <div class="striscia-mare">MARE</div>
   <div id="griglia-spiaggia"></div>
 
 </main>
 
 <script>
-  // DOM Elements for date filtering
   const startDateInput = document.getElementById('start-date');
   const endDateInput = document.getElementById('end-date');
+  const mapForm = document.getElementById('form-filtri-mappa');
 
-  // Initialize dates on page load and trigger first fetch
   window.addEventListener('load', () => {
     const today = new Date();
     startDateInput.value = today.toISOString().split('T')[0];
@@ -43,15 +31,18 @@
     fetchUmbrellas();
   });
 
-  // Ensure start date is not greater than end date
-  function handleDateChange() {
-    if (startDateInput.value > endDateInput.value) {
-      endDateInput.value = startDateInput.value;
-    }
-    fetchUmbrellas();
+  if (mapForm) {
+    mapForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      if (startDateInput.value > endDateInput.value) {
+        endDateInput.value = startDateInput.value;
+      }
+      
+      fetchUmbrellas();
+    });
   }
 
-  // Fetch availability data from the PHP API
   async function fetchUmbrellas() {
     const grid = document.getElementById('griglia-spiaggia');
     grid.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>Loading...</p>";
@@ -79,33 +70,28 @@
     const letters = { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E' };
     const sectors = {};
 
-    // Group umbrellas by sector
     umbrellas.forEach(u => {
       if (!sectors[u.settore]) sectors[u.settore] = [];
       sectors[u.settore].push(u);
     });
 
-    // Render each sector
     Object.keys(sectors).sort().forEach(sectorId => {
       const letter = letters[sectorId];
       const container = document.createElement('div');
       container.className = 'settore-container';
-      container.innerHTML = `<div class="settore-header">SECTOR ${letter}</div>`;
+      container.innerHTML = `<div class="settore-header">SETTORE ${letter}</div>`;
 
       const beachGrid = document.createElement('div');
       beachGrid.className = 'spiaggia-grid';
 
-      // Sort umbrellas by row and seat, then render dots
       sectors[sectorId].sort((a, b) => a.numero_fila - b.numero_fila || a.numero_ordine - b.numero_ordine).forEach(u => {
         const dot = document.createElement('div');
         dot.className = 'ombrellone';
         
-        // Mark as occupied if the API returns 1
         if (u.occupato == 1) {
           dot.classList.add('occupato');
         }
 
-        // Hardcoded logic for disabled spots based on previous setup
         const isDisabled = (letter === 'A' && u.numero_fila == 10 && u.numero_ordine == 20) ||
                            (letter === 'B' && u.numero_fila == 10 && u.numero_ordine == 20) ||
                            (letter === 'C' && u.numero_fila == 10 && u.numero_ordine == 20) ||
@@ -116,9 +102,7 @@
           dot.classList.add('disabile');
         }
 
-        // Add a tooltip to show the exact spot code on hover
         dot.title = `${letter}.${u.numero_fila}.${u.numero_ordine}`;
-        
         beachGrid.appendChild(dot);
       });
       

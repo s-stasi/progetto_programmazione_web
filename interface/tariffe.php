@@ -3,20 +3,20 @@
 
 <main class="corpo-pagina">
   <div class="table-header">
-    <h2>Tariff Management</h2>
-    <button class="btn-primary" onclick="alert('Form in arrivo!')">+ Add New Tariff</button>
+    <h2>Gestione Tariffe</h2>
+    <button class="btn-primary" onclick="alert('Form in arrivo!')">+ Aggiungi Tariffa</button>
   </div>
 
   <div class="table-container">
     <table class="gestionale-table">
       <thead>
         <tr>
-          <th>Code</th>
-          <th>Start Date</th>
-          <th>End Date</th>
-          <th>Min. Days</th>
-          <th>Price (€)</th>
-          <th>Actions</th>
+          <th>Codice</th>
+          <th>Data D'inizio</th>
+          <th>Data di Fine</th>
+          <th>Min. Giorni</th>
+          <th>Prezzo (€)</th>
+          <th>Azioni</th>
         </tr>
       </thead>
       <tbody>
@@ -28,7 +28,7 @@
           echo "<tr><td colspan='6' style='color:red;'>Database connection failed: " . $conn->connect_error . "</td></tr>";
         } else {
           // Fetch tariffs ordering by date (newest first) and then by minimum days
-          $sql = "SELECT codice, dataInizio, dataFine, numMinGiorni, prezzo FROM Tariffa ORDER BY dataInizio DESC, numMinGiorni ASC LIMIT 50";
+          $sql = "SELECT codice, dataInizio, dataFine, numMinGiorni, prezzo FROM Tariffa ORDER BY dataInizio, numMinGiorni ASC LIMIT 50";
           $result = $conn->query($sql);
 
           if ($result && $result->num_rows > 0) {
@@ -55,13 +55,17 @@
               
               // Action buttons
               echo "<td>
-                      <button class='btn-edit'>Edit</button>
-                      <button class='btn-delete' onclick='deleteTariff(\"" . htmlspecialchars($row['codice'] ?? '') . "\")'>Delete</button>
+                      <button class='btn-edit'>
+                        <span class='material-symbols-outlined' style='font-size: 18px;'>edit</span>
+                      </button>
+                      <button class='btn-delete' onclick='deleteTariff(\"" . htmlspecialchars($row['codice'] ?? '') . "\")'>
+                        <span class='material-symbols-outlined' style='font-size: 18px;'>delete</span>
+                      </button>
                     </td>";
               echo "</tr>";
             }
           } else {
-            echo "<tr><td colspan='6' style='text-align: center; padding: 20px;'>No tariffs found in the database.</td></tr>";
+            echo "<tr><td colspan='6' style='text-align: center; padding: 20px;'>Nessuna tariffa trovata nel database.</td></tr>";
           }
           $conn->close();
         }
@@ -74,7 +78,7 @@
 <script>
   // Placeholder function for future delete API
   function deleteTariff(code) {
-    if (confirm(`Are you sure you want to delete tariff ${code}?`)) {
+    if (confirm(`Sei sicuro di voler cancellare la tariffa ${code}?`)) {
       alert("API di cancellazione da implementare!");
       // Logic for deleting will go here
     }
