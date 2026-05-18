@@ -1,177 +1,138 @@
-/* --- RESET E BASE --- */
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', sans-serif; background-color: #FEF9E7; color: #1C1C1C; overflow-x: hidden; }
+/* ==========================================================================
+   1. RESET E REGOLE BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #FEF9E7;
+  color: #1C1C1C;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   2. LAYOUT STRUTTURALE (GRID RESPONSIVA)
+   ========================================================================== */
 .layout-container {
-    display: grid;
-    grid-template-columns: 280px 1fr;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas: 
-        "header header" 
-        "sidebar corpo" 
-        "footer footer";
-    height: 100vh;
-    overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(180px, 20%) 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar corpo"
+    "footer footer";
+  height: 100vh;
+  overflow: hidden;
 }
 
-.header { grid-area: header; background: #F4D03F; padding: 10px; text-align: center; border-bottom: 2px solid #D4AC0D; }
-
-.sidebar { 
-  grid-area: sidebar; 
-  background: #FEF9E7; 
-  padding: 25px 20px; 
-  border-right: 1px solid #f0e6d2; 
-  overflow-y: auto;
+.header {
+  grid-area: header;
+  background: #F4D03F;
+  padding: clamp(6px, 0.8vw, 12px) 15px;
+  text-align: center;
+  border-bottom: 2px solid #D4AC0D;
 }
 
-.corpo-pagina { grid-area: corpo; background: #FEF9E7; padding: 30px; overflow-y: auto;}
-.footer { grid-area: footer; background: #F4D03F; padding: 15px; text-align: center; font-size: 0.9em; }
-
-/* --- NAVIGAZIONE E SIDEBAR --- */
-.navigazione h2, .cerca h2 { font-size: 13px; color: #D4AC0D; text-transform: uppercase; margin-bottom: 15px; }
-.navigazione ul { list-style: none; }
-.navigazione ul li { margin-bottom: 10px; }
-.navigazione ul li a { text-decoration: none; color: #333; font-weight: 500; display: block; padding: 5px 0; }
-.navigazione ul li a.active { color: #D4AC0D; font-weight: bold; }
-
-/* Sottoparagrafi Date nella Sidebar */
-.submenu-prenota { margin-left: 15px; margin-top: 5px; }
-.date-field { margin-bottom: 12px; }
-.date-field label { display: block; font-size: 0.75em; color: #856404; text-transform: uppercase; font-weight: bold; margin-bottom: 4px; }
-.date-field input { width: 100%; font-size: 0.9em; padding: 6px; border: 1px solid #ccc; border-radius: 4px; }
-
-/* --- STRISCIA DI MARE --- */
-.striscia-mare {
-    background-color: #5DADE2; /* Azzurro Mare */
-    color: black;
-    text-align: center;
-    padding: 15px;
-    font-weight: bold;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    border-radius: 12px 12px 0 0;
-    margin-bottom: 0;
-    border: 2px solid #2E86C1;
-    border-bottom: none;
+.header h1, .header {
+  font-size: clamp(16px, 1.6vw, 22px);
+  font-weight: bold;
+  color: #1C1C1C;
 }
 
-/* --- GRIGLIA SPIAGGIA (STRUTTURA SCREENSHOT) --- */
-#griglia-spiaggia {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); 
-    gap: 20px;
-    padding: 20px;
-    background-color: #e0d4b3; /* Colore sabbia */
-    border-radius: 0 0 12px 12px;
-    border: 2px solid #d4c59f;
-}
-
-/* Settori A, B, C (Sopra - 2 colonne ciascuno su 6) */
-.settore-container:nth-child(1), 
-.settore-container:nth-child(2), 
-.settore-container:nth-child(3) { 
-    grid-column: span 2; 
-}
-
-/* Settori D, E (Sotto - 3 colonne ciascuno su 6) */
-.settore-container:nth-child(4), 
-.settore-container:nth-child(5) { 
-    grid-column: span 3; 
-}
-
-.settore-container { 
-    background: #FEF9E7; 
-    padding: 15px; 
-    border-radius: 8px; 
-    border: 1px solid #d4c59f; 
-    text-align: center; 
-}
-
-.settore-header {
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #856404;
-    font-size: 0.9em;
-}
-
-.spiaggia-grid { 
-    display: grid; 
-    grid-template-columns: repeat(20, 1fr); 
-    gap: 3px; 
-    margin-top: 10px; 
-}
-
-/* OMBRELLONI (PALLINI) */
-.ombrellone { 
-    width: 10px; 
-    height: 10px; 
-    border-radius: 50%; 
-    cursor: pointer; 
-    background-color: #F4D03F; /* Giallo (Libero) */
-    border: 1px solid rgba(0,0,0,0.1); 
-    transition: 0.2s; 
-}
-
-.ombrellone.occupato { 
-    background-color: #7F8C8D !important; /* Grigio (Occupato) */
-    cursor: not-allowed; 
-    opacity: 0.6; 
-}
-
-.ombrellone.disabile { 
-    background-color: #85C1E9 !important; /* Azzurro (Disabile) */
-}
-
-.ombrellone.selezionato { 
-    transform: scale(2.5); 
-    outline: 2px solid #2c3e50; 
-    z-index: 10; 
-}
-
-/* LEGENDA */
-.legenda { display: flex; gap: 15px; margin-bottom: 20px; font-size: 0.85em; }
-.badge { width: 12px; height: 12px; border-radius: 50%; display: inline-block; vertical-align: middle; margin-right: 5px; }
-.badge.libero { background: #F4D03F; }
-.badge.occupato { background: #7F8C8D; }
-.badge.disabile { background: #85C1E9; }
-
-/* UTILITY */
-.nascosto { display: none !important; }
-.sezione-dinamica { display: none; }
-.sezione-dinamica.attiva { display: block; }
-
-/* --- TABELLE GESTIONALI --- */
-.table-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.table-container { background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #d4c59f; overflow-x: auto; }
-.gestionale-table { width: 100%; border-collapse: collapse; text-align: left; }
-.gestionale-table th, .gestionale-table td { padding: 12px; border-bottom: 1px solid #eee; }
-.gestionale-table th { border-bottom: 2px solid #F4D03F; color: #856404; text-transform: uppercase; font-size: 0.85em; }
-
-/* BOTTONI */
-.btn-primary { background: #2ecc71; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; }
-.btn-edit { background: #3498db; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9em; }
-.btn-delete { background: #e74c3c; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9em; margin-left: 5px; }
-
-/* --- MODAL STYLES --- */
-.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
-.modal-content { background: white; margin: 10% auto; padding: 25px; width: 400px; border-radius: 8px; border: 1px solid #d4c59f; }
-.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-.form-group { margin-bottom: 15px; }
-.form-group label { display: block; font-size: 0.8em; font-weight: bold; margin-bottom: 5px; color: #856404; }
-.form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
-
-/* --- SIDEBAR SPLIT --- */
-.sidebar { 
-  grid-area: sidebar; 
-  background: #FEF9E7; 
-  padding: 25px 20px; 
-  border-right: 1px solid #f0e6d2; 
+.sidebar {
+  grid-area: sidebar;
+  background: #FEF9E7;
+  padding: 20px 12px;
+  border-right: 1px solid #f0e6d2;
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow-y: auto;
 }
 
-.navigazione { flex-shrink: 0; }
+.corpo-pagina {
+  grid-area: corpo;
+  background: #FEF9E7;
+  padding: 2vw;
+  overflow-y: auto;
+}
+
+.footer {
+  grid-area: footer;
+  background: #F4D03F;
+  padding: clamp(8px, 1vw, 15px) 15px;
+  text-align: center;
+  font-size: clamp(11px, 0.85vw, 13px);
+}
+
+/* ==========================================================================
+   3. NAVIGAZIONE E SIDEBAR (COMPRESI FILTRI ED ACCORDION)
+   ========================================================================== */
+.navigazione h2,
+.cerca h2 {
+  font-size: clamp(11px, 1.1vw, 13px);
+  color: #D4AC0D;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+
+.navigazione ul {
+  list-style: none;
+}
+
+.navigazione ul li {
+  margin-bottom: 10px;
+}
+
+.navigazione ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  display: block;
+  padding: 5px 0;
+  font-size: clamp(13px, 1.2vw, 15px);
+  transition: color 0.2s;
+}
+
+.navigazione ul li a.active {
+  color: #D4AC0D;
+  font-weight: bold;
+}
+
+.submenu-prenota {
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.date-field {
+  margin-bottom: 12px;
+}
+
+.date-field label {
+  display: block;
+  font-size: clamp(10px, 1vw, 12px);
+  color: #856404;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.date-field input {
+  width: 100%;
+  font-size: clamp(12px, 1.1vw, 14px);
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.navigazione {
+  flex-shrink: 0;
+}
 
 .sidebar-filters {
   margin-top: 30px;
@@ -182,20 +143,196 @@ body { font-family: 'Segoe UI', sans-serif; background-color: #FEF9E7; color: #1
   flex-direction: column;
 }
 
-.filters-form { display: flex; flex-direction: column; height: 100%; }
-.filters-container { flex-grow: 1; overflow-y: auto; }
+.filters-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
-/* --- ACCORDION --- */
-details.filter-group { margin-bottom: 15px; background: #fff; border: 1px solid #d4c59f; border-radius: 6px; padding: 10px; }
-summary.filter-title { font-weight: bold; color: #856404; cursor: pointer; outline: none; }
-.filter-content { margin-top: 15px; display: flex; flex-direction: column; gap: 10px; }
-.filter-content label { font-size: 0.85em; color: #555; display: flex; flex-direction: column; gap: 4px; }
-.filter-content input { padding: 6px; border: 1px solid #ccc; border-radius: 4px; }
+.filters-container {
+  flex-grow: 1;
+  overflow-y: auto;
+}
 
-/* --- APPLY BUTTON --- */
+details.filter-group {
+  margin-bottom: 15px;
+  background: #fff;
+  border: 1px solid #d4c59f;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+summary.filter-title {
+  font-weight: bold;
+  color: #856404;
+  cursor: pointer;
+  outline: none;
+  font-size: clamp(12px, 1.1vw, 14px);
+}
+
+.filter-content {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-content label {
+  color: #555;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: clamp(11px, 1vw, 13px);
+}
+
+.filter-content input {
+  padding: 6px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: clamp(11px, 1vw, 13px);
+}
+
+/* ==========================================================================
+   4. VISTA GRIGLIA SPIAGGIA (MAPPA SIMMETRICA ED IN SCALA)
+   ========================================================================== */
+.striscia-mare {
+  background-color: #5DADE2;
+  color: black;
+  text-align: center;
+  padding: 1vw;
+  font-weight: bold;
+  font-size: clamp(0.8em, 1.5vw, 1.2em);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  border-radius: 12px 12px 0 0;
+  border: 2px solid #2E86C1;
+  border-bottom: none;
+}
+
+#griglia-spiaggia {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5vw;
+  padding: 20px;
+  background-color: #e0d4b3;
+  border-radius: 0 0 12px 12px;
+  border: 2px solid #d4c59f;
+  width: 100%;
+}
+
+.settore-container:nth-child(1),
+.settore-container:nth-child(2),
+.settore-container:nth-child(3) {
+  grid-column: span 2;
+}
+
+.settore-container:nth-child(4) { 
+  grid-column: 2 / span 2; 
+}
+
+.settore-container:nth-child(5) { 
+  grid-column: 4 / span 2; 
+}
+
+.settore-container {
+  background: #FEF9E7;
+  padding: 15px 10px;
+  border-radius: 8px;
+  border: 1px solid #d4c59f;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.settore-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #856404;
+  font-size: clamp(0.7em, 1.2vw, 0.9em);
+  width: 100%;
+}
+
+.spiaggia-grid {
+  display: grid;
+  grid-template-columns: repeat(20, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.ombrellone {
+  width: 100%;
+  max-width: 12px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #F4D03F;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+  display: block;
+  margin: 0 auto;
+}
+
+.ombrellone.occupato {
+  background-color: #e63128 !important;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.ombrellone.disabile {
+  background-color: #85857a !important;
+}
+
+.ombrellone.selezionato {
+  transform: scale(1.6);
+  outline: 2px solid #2c3e50;
+  z-index: 10;
+}
+
+.legenda {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 0.85em;
+}
+
+.badge {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.badge.libero { background: #F4D03F; }
+.badge.occupato { background: #e63128; }
+.badge.disabile { background: #85857a; }
+
+/* ==========================================================================
+   5. TABELLE GESTIONALI E BLOCCHI DI RICERCA
+   ========================================================================== */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ricerca-titolo {
+  color: #856404;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. BOTTONI E COMPONENTI INTERFACCIA (UI)
+   ========================================================================== */
 .btn-apply {
-  background: #e67e22;
-  color: white;
+  background: #F4D03F;
+  color: black;
   border: none;
   padding: 10px 15px;
   border-radius: 4px;
@@ -205,41 +342,383 @@ summary.filter-title { font-weight: bold; color: #856404; cursor: pointer; outli
   margin-top: 15px;
 }
 
-/* --- PAGINATION --- */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 20px;
-  padding: 10px;
+/* ==========================================================================
+   7. FINESTRE MODALI BASE
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-.pagination a {
-  padding: 8px 12px;
-  background: #fff;
+/* ==========================================================================
+   8. CLASSI DI UTILITY
+   ========================================================================== */
+.testo-centrato {
+  text-align: center;
+}
+
+/* ==========================================================================
+    9. COMPONENTI POP UP STILE iOS
+   ========================================================================== */
+.modal-ios {
+  background: #FEF9E7;
+  margin: 5% auto;
+  width: 400px;
+  border-radius: 20px;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-ios-box-occupato {
+  background: #FEF9E7;
+  margin: 10% auto;
+  padding: 25px;
+  width: 400px;
+  border-radius: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   border: 1px solid #d4c59f;
-  color: #856404;
-  text-decoration: none;
-  border-radius: 4px;
+}
+
+.ios-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+}
+
+.ios-header h3 {
+  cursor: default;
+}
+
+.ios-header .close-modal {
+  cursor: pointer;
+  font-size: 22px;
+  color: black;
+  font-weight: 300;
+}
+
+.ios-info-box {
+  margin-bottom: 18px;
+}
+
+.ios-input-transparent {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+  outline: none;
+}
+
+.ios-row-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #FEF9E7;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.ios-date-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ios-date-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ios-date-field input[type="date"] {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  padding: 0;
+  width: auto;
+}
+
+.ios-price-box {
+  text-align: right;
+  border-left: 1px solid #d1d1d6;
+  padding-left: 15px;
+}
+
+.ios-divider {
+  border: 0;
+  border-top: 1px solid #d4c59f;
+  margin: 20px 0;
+}
+
+.modal-profile-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: #FEF9E7;
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.ios-input-group {
+  border-bottom: 1px solid #856404;
+  padding-bottom: 8px;
+}
+
+.ios-input-group input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  outline: none;
+  padding: 0;
+}
+
+.row-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.field-half {
+  width: 50% !important;
+}
+
+.field-left-border {
+  border-left: 1px solid #856404 !important;
+  padding-left: 10px !important;
+}
+
+.inline-field {
+  display: flex;
+  align-items: center;
+}
+
+.inline-field input[type="date"] {
+  width: 100%;
+  font-family: inherit;
+}
+
+.field-no-border {
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+.ios-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-ios-primary {
+  background: #D4AC0D;
+  color: black;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(212, 172, 13, 0.25);
+}
+
+.ios-occupato-info {
+  margin-bottom: 20px;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.txt-status-occupato {
+  color: #e63128;
   font-weight: bold;
 }
 
-.pagination a:hover {
-  background: #F4D03F;
+.ios-vertical-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.pagination span.current-page {
-  padding: 8px 12px;
-  background: #e67e22;
-  color: white;
-  border-radius: 4px;
-  font-weight: bold;
+.ios-vertical-actions button {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
 }
 
-.pagination a.disabled {
-  pointer-events: none;
-  background: #eee;
-  color: #aaa;
-  border-color: #ddd;
+.btn-ios-action-change {
+  background: #D4AC0D;
+  color: black;
+}
+
+.btn-ios-action-delete {
+  background: #e74c3c;
+  color: black;
+}
+
+.btn-ios-action-dismiss {
+  background: #e5e5ea;
+  color: #000;
+}
+
+/* --- Classi di Utility Colore e Font iOS --- */
+.txt-oro-main {
+  color: #D4AC0D !important;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Modificato: rimosso text-transform uppercase e alzato a 16px */
+.txt-info-ombrellone-large {
+  font-size: 16px !important;
+  font-weight: 600;
+}
+
+.txt-oro-sub {
+  color: #D4AC0D !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Nuova: aggiunta per i campi Dal/Al inline orizzontali */
+.txt-oro-sub-inline {
+  color: #D4AC0D !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Nuova: rende la tipologia più piccola e normale */
+.txt-tipologia-small {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+/* Nuova: impostato a grigio scuro (#333333) per scritte stabili e prompt input */
+.txt-grigio-medium {
+  color: #333333 !important;
+  font-weight: 500;
+}
+
+/* Nuova: per le scritte delle label fisse (es. Nascita) */
+.txt-grigio-medium-label {
+  color: #333333 !important;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Nuova: per i valori monetari e scritte chiave in grigio scuro */
+.txt-grigio-bold {
+  color: #333333 !important;
+  font-weight: 700 !important;
+}
+
+.ios-price-value.txt-grigio-bold {
+  font-size: 22px;
+  color: #333333 !important;
+}
+
+.ios-input-group input::placeholder {
+  color: #8e8e93;
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   10. MEDIA QUERIES PER SCHERMI PICCOLI
+   ========================================================================== */
+@media (max-width: 900px) {
+  .layout-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas:
+      "header"
+      "sidebar"
+      "corpo"
+      "footer";
+    height: auto;
+    overflow: unset;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid #f0e6d2;
+    height: auto;
+    overflow-y: visible;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 15px 20px;
+  }
+
+  .navigazione h2, .cerca h2 { font-size: 12px; }
+  .navigazione ul li a { font-size: 14px; }
+  .date-field label { font-size: 11px; }
+  .date-field input { font-size: 13px; }
+  summary.filter-title { font-size: 13px; }
+  .filter-content label { font-size: 12px; }
+
+  .sidebar-filters {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    border-left: 2px dashed #d4c59f;
+    padding-left: 20px;
+    flex-grow: 0;
+  }
+
+  .filters-form {
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .filters-container {
+    display: flex;
+    gap: 10px;
+    overflow-y: visible;
+  }
+
+  details.filter-group {
+    margin-bottom: 0;
+  }
+
+  .btn-apply {
+    margin-top: 0;
+  }
+
+  .corpo-pagina {
+    height: auto;
+    overflow-y: visible;
+    padding: 20px;
+  }
+
+  .header {
+    padding: 8px 10px;
+  }
+  .header h1, .header {
+    font-size: 15px;
+  }
+  .footer {
+    padding: 10px;
+    font-size: 11px;
+  }
 }
