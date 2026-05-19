@@ -9,7 +9,6 @@ if ($conn->connect_error) {
     die("Connessione fallita: " . $conn->connect_error);
 }
 
-
 $filtro_settore = $_GET['settore'] ?? '';
 $filtro_fila = $_GET['fila'] ?? '';
 
@@ -30,16 +29,16 @@ $sql .= " ORDER BY o.settore, o.numFila, o.numPostoFila";
 $result = $conn->query($sql);
 ?>
 
-<main class="corpo-pagina">
+<main class="page-body">
   <div class="table-header">
-      <h2 style="color: #856404; text-transform: uppercase;">Ricerca Ombrelloni</h2>
+      <h2 class="ricerca-titolo">Ricerca Ombrelloni</h2>
   </div>
 
-  <div style="background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #d4c59f; margin-bottom: 20px;">
-      <form method="GET" action="ricerca_ombrelloni.php" style="display: flex; gap: 15px; align-items: flex-end;">
-          <div class="form-group" style="margin-bottom: 0;">
+  <div class="ricerca-box">
+      <form method="GET" action="ricercaombrelloni.php" class="form-ricerca-inline">
+          <div class="form-group">
               <label>Settore:</label>
-              <select name="settore" style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+              <select name="settore">
                   <option value="">Tutti</option>
                   <option value="1" <?= $filtro_settore == '1' ? 'selected' : '' ?>>Settore A</option>
                   <option value="2" <?= $filtro_settore == '2' ? 'selected' : '' ?>>Settore B</option>
@@ -48,12 +47,12 @@ $result = $conn->query($sql);
                   <option value="5" <?= $filtro_settore == '5' ? 'selected' : '' ?>>Settore E</option>
               </select>
           </div>
-          <div class="form-group" style="margin-bottom: 0;">
+          <div class="form-group">
               <label>Numero Fila:</label>
-              <input type="number" name="fila" value="<?= htmlspecialchars($filtro_fila) ?>" placeholder="Es. 1" style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+              <input type="number" name="fila" value="<?= htmlspecialchars($filtro_fila) ?>" placeholder="Es. 1">
           </div>
           <button type="submit" class="btn-primary">Cerca</button>
-          <a href="ricerca_ombrelloni.php" style="padding: 10px; text-decoration: none; color: #e74c3c; font-weight: bold;">Resetta</a>
+          <a href="ricercaombrelloni.php" class="btn-reset">Resetta</a>
       </form>
   </div>
 
@@ -79,7 +78,11 @@ $result = $conn->query($sql);
                       ?>
                       <tr>
                           <td><strong>#<?= $row['id'] ?></strong></td>
-                          <td><?= $lettera_settore ?></td>
+                          <td>
+                              <a href="ricercaombrelloni.php?settore=<?= $row['settore'] ?>">
+                                  <?= $lettera_settore ?>
+                              </a>
+                          </td>
                           <td><?= $row['numFila'] ?></td>
                           <td><?= $row['numPostoFila'] ?></td>
                           <td><?= $row['nome_tipologia'] ?></td>
@@ -90,7 +93,7 @@ $result = $conn->query($sql);
                   <?php endwhile; ?>
               <?php else: ?>
                   <tr>
-                      <td colspan="6" style="text-align: center;">Nessun ombrellone trovato con questi filtri.</td>
+                      <td colspan="6" class="center-text">Nessun ombrellone trovato con questi filtri.</td>
                   </tr>
               <?php endif; ?>
           </tbody>
@@ -100,8 +103,7 @@ $result = $conn->query($sql);
 
 <script>
 function vediDettagli(id) {
-    
-    alert("Funzionalità dettagli per l'ombrellone ID " + id + " in arrivo!");
+    window.location.href = "gestione_prenotazione.php?id_ombrellone=" + id;
 }
 </script>
 

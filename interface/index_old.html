@@ -14,7 +14,7 @@
     </header>
 
     <aside class="sidebar">
-      <nav class="navigazione">
+      <nav class="navigation">
         <h2>Navigazione</h2>
         <ul>
           <li><a href="#" onclick="cambiaSezione('home', this)" class="nav-link">Home</a></li>
@@ -43,7 +43,7 @@
     </aside>
 
     <!-- HOME PAGE DEL SITO DA STRUTTURARE (immagine, luogo, contatti)-->
-    <main class="corpo-pagina">
+    <main class="page-body">
       <section id="sezione-home" class="sezione-dinamica">
         <h2>Home</h2>
         <p>Benvenuti al Lido Sole & Sabbia.</p>
@@ -58,14 +58,14 @@
       <!-- SEZIONE PRENOTAZIONE: mappa della spiaggia con possibilità di selezionare il posto disponibile nelle date scelte -->
       <section id="sezione-prenota" class="sezione-dinamica attiva">
         <h2>Mappa Disponibilità</h2>
-        <div class="legenda">
-          <div class="item"><span class="badge libero"></span> Disponibile</div>
+        <div class="legend">
+          <div class="item"><span class="badge free"></span> Disponibile</div>
           <div class="item"><span class="badge occupato"></span> Occupato</div>
           <div class="item"><span class="badge disabile"></span> Disabili</div>
         </div>
 
-        <div class="striscia-mare">MARE</div>
-        <div id="griglia-spiaggia"></div>
+        <div class="sea">MARE</div>
+        <div id="grid"></div>
 
         <div id="info-selezione" class="nascosto"
           style="margin-top:30px; padding:20px; border:1px solid #F4D03F; background:#fffdf5; border-radius:8px;">
@@ -114,7 +114,7 @@
     }
 
     async function recuperaOmbrelloni() {
-      const griglia = document.getElementById('griglia-spiaggia');
+      const griglia = document.getElementById('grid');
       griglia.innerHTML = "<p style='grid-column: 1/-1; text-align:center;'>Caricamento...</p>";
       try {
         const url = `../php/get_umbrellas.php?inizio=${dataInizioInput.value}&fine=${dataFineInput.value}`;
@@ -128,7 +128,7 @@
     }
 
     function disegnaMappa(ombrelloni) {
-      const griglia = document.getElementById('griglia-spiaggia');
+      const griglia = document.getElementById('grid');
       const infoSelezione = document.getElementById('info-selection'); // Assicurati che l'ID sia corretto
       const dettaglioTesto = document.getElementById('dettaglio-testo');
 
@@ -144,11 +144,11 @@
       Object.keys(settori).sort().forEach(sIdx => {
         const lettera = lettere[sIdx];
         const cont = document.createElement('div');
-        cont.className = 'settore-container';
-        cont.innerHTML = `<div class="settore-header">SETTORE ${lettera}</div>`;
+        cont.className = 'sector-container';
+        cont.innerHTML = `<div class="sector-header">SETTORE ${lettera}</div>`;
 
         const g = document.createElement('div');
-        g.className = 'spiaggia-grid';
+        g.className = 'beach';
 
         settori[sIdx].sort((a, b) => a.numero_fila - b.numero_fila || a.numero_ordine - b.numero_ordine).forEach(o => {
           const dot = document.createElement('div');
