@@ -1,0 +1,152 @@
+/* ==========================================================================
+   1. STRUTTURA DELLA TABELLA GESTIONALE
+   ========================================================================== */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.ricerca-titolo {
+  color: var(--ocra);
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.table-container {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-light);
+  overflow-x: auto;
+}
+
+.gestionale-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.gestionale-table th, 
+.gestionale-table td {
+  padding: 12px;
+  border-bottom: 1px solid var(--separator);
+}
+
+.gestionale-table th {
+  border-bottom: 2px solid var(--primary);
+  color: var(--ocra);
+  text-transform: uppercase;
+  font-size: 0.85em;
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   2. BOTTONI DI AZIONE GESTIONALI
+   ========================================================================== */
+.btn-primary {
+  background: #2ecc71; /* Verde standard per inserimento felice */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #27ae60;
+}
+
+.btn-edit {
+  background: #3498db; /* Azzurro per modifica */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.2s;
+}
+
+.btn-edit:hover {
+  background: #2980b9;
+}
+
+.btn-delete {
+  background: var(--delete-btn); /* Rosso dalla palette per eliminazione */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  margin-left: 5px;
+  transition: background 0.2s;
+}
+
+.btn-delete:hover {
+  background: #c0392b;
+}
+
+.btn-apply {
+  background: #e67e22; /* Arancione pulsante applica filtri */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.btn-apply:hover {
+  background: #d35400;
+}
+
+/* ==========================================================================
+   3. PAGINAZIONE DELLA TABELLA
+   ========================================================================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.pagination a {
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid var(--primary-light);
+  color: var(--ocra);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+
+.pagination a:hover {
+  background: var(--primary);
+  color: var(--text);
+}
+
+.pagination span.current-page {
+  padding: 8px 12px;
+  background: #e67e22;
+  color: white;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.pagination a.disabled {
+  pointer-events: none;
+  background: #eee;
+  color: #aaa;
+  border-color: #ddd;
+}
