@@ -15,95 +15,194 @@
   <div class="sea">MARE</div>
   <div id="grid"></div>
 
-  <div id="modal-free" class="modal">
-    <div class="modal-content modal-ios">
-      <div class="modal-header ios-header">
-        <h3 class="txt-oro-main">PRENOTA</h3>
-        <span class="close-modal" onclick="chiediConfermaChiusura('modal-free')">&times;</span>
-      </div>
-      
-      <form id="form-nuova-prenotazione" method="POST" action="../php/inserisci_prenotazione.php">
-        <input type="hidden" id="p-id-ombrellone" name="id_ombrellone">
-        
-        <div class="ios-info-box">
-          <div id="info-posizione-ombrellone" class="txt-info-ombrellone-large txt-oro-sub"></div>
-          <input type="text" id="p-tipologia" readonly class="ios-input-transparent txt-tipologia-small txt-grigio-medium">
-        </div>
+ <div id="modal-booking" class="modal">
+  <div class="modal-content modal-ios">
 
-        <div class="ios-row-container">
-          <div class="ios-date-inputs">
-            <div class="ios-date-field">
-              <span class="ios-label txt-oro-sub-inline">Dal:</span>
-              <input type="date" id="p-inizio" name="data_inizio" required class="txt-grigio-medium">
-            </div>
-            <div class="ios-date-field">
-              <span class="ios-label txt-oro-sub-inline">Al:</span>
-              <input type="date" id="p-fine" name="data_fine" required class="txt-grigio-medium">
-            </div>
-          </div>
-          <div class="ios-price-box">
-            <div class="ios-price-label txt-oro-sub">Costo</div>
-            <div id="prezzo-calcolato" class="ios-price-value txt-grigio-bold">0.00 €</div>
-          </div>
-        </div>
+    <div class="modal-header ios-header">
+      <h2 id="booking-modal-title" class="txt-oro-main">
+        PRENOTAZIONE
+      </h2>
 
-        <hr class="ios-divider">
-
-        <div class="modal-profile-box">
-          <div class="profile-box-title txt-oro-sub">Dati Cliente</div>
-          
-          <div class="ios-input-group row-fields">
-            <input type="text" name="nome" placeholder="Nome" required class="field-half txt-grigio-medium">
-            <input type="text" name="cognome" placeholder="Cognome" required class="field-half field-left-border txt-grigio-medium">
-          </div>
-          
-          <div class="ios-input-group inline-field">
-            <span class="ios-label txt-grigio-medium-label">Nascita:</span>
-            <input type="date" name="data_nascita" required class="txt-grigio-medium">
-          </div>
-
-          <div class="ios-input-group">
-            <input type="email" name="email" placeholder="Indirizzo Email" required class="txt-grigio-medium">
-          </div>
-
-          <div class="ios-input-group">
-            <input type="tel" name="telefono" placeholder="Numero di Telefono" required class="txt-grigio-medium">
-          </div>
-
-          <div class="ios-input-group field-no-border">
-            <input type="text" name="indirizzo_casa" placeholder="Indirizzo di Casa" required class="txt-grigio-medium">
-          </div>
-        </div>
-
-        <div class="ios-actions">
-          <button type="submit" class="btn-ios-primary">Conferma Prenotazione</button>
-        </div>
-      </form>
+      <span class="close-modal" onclick="chiudiModal('modal-booking')">
+        &times;
+      </span>
     </div>
+
+    <form id="form-booking" method="POST" action="../php/inserisci_prenotazione.php">
+
+      <input type="hidden" id="p-id-ombrellone" name="id_ombrellone">
+      <input type="hidden" id="p-id-prenotazione" name="id_prenotazione">
+
+      <div id="info-codice-ombrellone" class="ios-subtitle"></div>
+
+      <div class="ios-type-badge">
+        <span id="p-tipologia-testo"></span>
+      </div>
+
+      <div class="ios-row-container">
+
+        <div class="ios-date-inputs">
+
+          <div class="ios-date-field">
+            <span class="ios-date-label">Da:</span>
+
+            <input
+              type="date"
+              id="p-inizio"
+              name="data_inizio"
+              required
+            >
+          </div>
+
+          <div class="ios-date-field">
+            <span class="ios-date-label">Al:</span>
+
+            <input
+              type="date"
+              id="p-fine"
+              name="data_fine"
+              required
+            >
+          </div>
+
+        </div>
+
+        <div class="ios-price-box">
+
+          <span class="ios-price-label">
+            Costo
+          </span>
+
+          <div id="prezzo-calcolato" class="ios-price-value">
+            0.00 €
+          </div>
+
+        </div>
+
+      </div>
+
+      <hr class="ios-divider">
+
+      <div class="modal-profile-box">
+
+        <div class="ios-input-group row-fields">
+
+          <input
+            type="text"
+            id="p-nome"
+            name="nome"
+            placeholder="Nome"
+            required
+            class="field-half"
+          >
+
+          <input
+            type="text"
+            id="p-cognome"
+            name="cognome"
+            placeholder="Cognome"
+            required
+            class="field-half"
+          >
+
+        </div>
+
+        <div class="ios-input-group">
+          <input
+            type="email"
+            id="p-email"
+            name="email"
+            placeholder="Email"
+            required
+          >
+        </div>
+
+        <div class="ios-input-group ios-input-last">
+          <input
+            type="tel"
+            id="p-telefono"
+            name="telefono"
+            placeholder="Telefono"
+            required
+          >
+        </div>
+
+      </div>
+
+      <div class="ios-actions">
+
+        <button
+          type="submit"
+          id="btn-submit-booking"
+          class="btn-ios-action btn-ios-gold"
+        >
+          Conferma
+        </button>
+
+        <button
+          type="button"
+          id="btn-trigger-delete"
+          class="btn-ios-action btn-ios-danger"
+          style="display: none;"
+        >
+          Elimina Prenotazione
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+<div id="modal-delete-confirm" class="modal">
+
+  <div class="modal-content modal-ios modal-delete">
+
+    <div class="modal-header ios-header ios-header-center">
+
+      <h2 class="txt-oro-main delete-title">
+        Annulla Prenotazione
+      </h2>
+
+    </div>
+
+    <div class="delete-text">
+
+      Sei sicuro di voler eliminare la prenotazione
+      dell'ombrellone
+
+      <strong id="del-codice"></strong>
+
+      a nome di
+
+      <strong id="del-cliente"></strong>?
+
+    </div>
+
+    <div class="ios-actions ios-actions-row">
+
+      <button
+        id="btn-conferma-eliminazione"
+        class="btn-ios-action btn-ios-danger"
+      >
+        Sì, Elimina
+      </button>
+
+      <button
+        type="button"
+        class="btn-ios-action btn-ios-cancel"
+        onclick="chiudiModal('modal-delete-confirm')"
+      >
+        No
+      </button>
+
+    </div>
+
   </div>
 
-  <div id="modal-reserved" class="modal">
-    <div class="modal-content modal-ios-box-occupato">
-      <div class="modal-header ios-header">
-        <h3 id="titolo-modal-occupato">Gestione Prenotazione</h3>
-        <span class="close-modal" onclick="chiudiModal('modal-occupato')">&times;</span>
-      </div>
-      
-      <div class="ios-reserved-info">
-        <p><strong>Stato:</strong> <span class="txt-status-occupato">Occupato</span></p>
-        <p id="info-prenotazione-corrente">Caricamento dettagli della prenotazione...</p>
-      </div>
-
-      <div class="ios-vertical-actions">
-        <button id="btn-vai-modifica" class="btn-ios-action-change">
-            Modifica Dettagli Prenotazione
-        </button>
-        <button id="btn-vai-elimina" class="btn-ios-action-delete">
-            Elimina / Cancella Prenotazione
-        </button>
-      </div>
-    </div>
-  </div>
+</div>
 </main>
 
 <script>
@@ -212,74 +311,82 @@
     return `${parti[2]}/${parti[1]}/${parti[0]}`;
   }
 
-  function apriGestioneDot(u, letter) {
-    const fila = u.numero_fila || u.numFila || 'N/D';
-    const posto = u.numero_ordine || u.numPostoFila || 'N/D';
+  // Gestione dinamica dei Popup
+  function apriPopupUnico(u, letter, fila, posto) {
+    const oggi = new Date().toISOString().split('T')[0];
+    const codiceOmbrellone = `${letter}.${fila}.${posto}`;
+
+    // Reset Form ed Elementi Comuni
+    document.getElementById('p-id-ombrellone').value = u.id;
+    document.getElementById('info-codice-ombrellone').innerText = `OMBRELLONE ${codiceOmbrellone}`;
+    document.getElementById('p-tipologia-testo').innerText = u.tipologia_nome || 'Standard';
+    
+    const pInizio = document.getElementById('p-inizio');
+    const pFine = document.getElementById('p-fine');
+    const form = document.getElementById('form-booking');
+    const btnDelete = document.getElementById('btn-trigger-delete');
+
+    const calcolaPrezzo = () => {
+      if (pFine.value < pInizio.value) pFine.value = pInizio.value;
+      const diffDays = Math.ceil(Math.abs(new Date(pFine.value) - new Date(pInizio.value)) / (1000 * 60 * 60 * 24)) + 1;
+      document.getElementById('prezzo-calcolato').innerText = `${(diffDays * (u.prezzo_giornaliero ?? 15.00)).toFixed(2)} €`;
+    };
+
+    pInizio.oninput = calcolaPrezzo;
+    pFine.oninput = calcolaPrezzo;
 
     if (u.occupato == 1) {
-      document.getElementById('titolo-modal-reserved').innerText = `Ombrellone ${letter}.${fila}.${posto}`;
-      document.getElementById('info-prenotazione-corrente').innerHTML = `
-        <strong>Cliente:</strong> ${u.cliente_nome ?? 'N/D'}<br>
-        <strong>Periodo:</strong> dal ${formattaDataItaliana(startDateInput.value)} al ${formattaDataItaliana(endDateInput.value)}
-      `;
-      
-      document.getElementById('btn-vai-modifica').onclick = () => {
-          window.location.href = `gestione_prenotazione.php?azione=modifica&id_ombrellone=${u.id}&inizio=${startDateInput.value}&fine=${endDateInput.value}`;
+      // MODALITÀ: MODIFICA PRENOTAZIONE ESISTENTE
+      document.getElementById('booking-modal-title').innerText = "MODIFICA PRENOTAZIONE";
+      form.action = "../php/modifica_prenotazione.php"; 
+      btnDelete.style.display = "block"; // Mostra il tasto elimina
+
+      // Assegna ID prenotazione e precompila i dati esistenti ricevuti dal DB
+      document.getElementById('p-id-prenotazione').value = u.id_prenotazione || "";
+      pInizio.value = u.data_inizio || getStartDateVal();
+      pFine.value = u.data_fine || getEndDateVal();
+      document.getElementById('p-nome').value = u.cliente_nome || "";
+      document.getElementById('p-cognome').value = u.cliente_cognome || "";
+      document.getElementById('p-email').value = u.cliente_email || "";
+      document.getElementById('p-telefono').value = u.cliente_telefono || "";
+
+      // Setup Evento click sul tasto "Elimina" -> Apre il popup piccolo
+      btnDelete.onclick = () => {
+        document.getElementById('del-codice').innerText = codiceOmbrellone;
+        document.getElementById('del-cliente').innerText = `${u.cliente_nome ?? ''} ${u.cliente_cognome ?? ''}`.trim() || "N/D";
+        
+        document.getElementById('btn-conferma-eliminazione').onclick = () => {
+          window.location.href = `../php/elimina_prenotazione.php?id_prenotazione=${u.id_prenotazione}&id_ombrellone=${u.id}`;
+        };
+        
+        chiudiModal('modal-booking');
+        apriModal('modal-delete-confirm');
       };
-      document.getElementById('btn-vai-elimina').onclick = () => {
-          if(confirm("Sei sicuro di voler cancellare questa prenotazione?")) {
-              window.location.href = `../php/elimina_prenotazione.php?id_ombrellone=${u.id}&inizio=${startDateInput.value}&fine=${endDateInput.value}`;
-          }
-      };
-      document.getElementById('modal-occupato').style.display = 'block';
+
     } else {
-      document.getElementById('info-posizione-ombrellone').innerText = `OMBRELLONE ${letter} • FILA ${fila} • POSTO ${posto}`;
+      // MODALITÀ: NUOVA PRENOTAZIONE (DEFAULT OGGI)
+      document.getElementById('booking-modal-title').innerText = "PRENOTA OMBRELLONE";
+      form.action = "../php/inserisci_prenotazione.php";
+      btnDelete.style.display = "none"; // Nasconde il tasto elimina
+
+      // Imposta le date di default su "Oggi" come richiesto
+      pInizio.value = oggi;
+      pFine.value = oggi;
+      form.reset(); // Svuota i vecchi campi utente compilati
+      
+      // Ri-assegna l'id dell'ombrellone appena resettato dal form.reset()
       document.getElementById('p-id-ombrellone').value = u.id;
-      document.getElementById('p-tipologia').value = u.tipologia_nome || u.nome_tipologia || 'Standard';
-      
-      document.getElementById('p-inizio').value = startDateInput.value;
-      document.getElementById('p-fine').value = endDateInput.value;
-      
-      calcolaPrezzoAutomatico(u.prezzo_giornaliero ?? 15.00);
-      
-      const pInizio = document.getElementById('p-inizio');
-      const pFine = document.getElementById('p-fine');
-      
-      const aggiornaPrezzo = () => {
-          if (pFine.value < pInizio.value) pFine.value = pInizio.value;
-          calcolaPrezzoAutomatico(u.prezzo_giornaliero ?? 15.00);
-      };
-      
-      pInizio.oninput = aggiornaPrezzo;
-      pFine.oninput = aggiornaPrezzo;
-      document.getElementById('modal-free').style.display = 'block';
     }
+
+    calcolaPrezzo();
+    apriModal('modal-booking');
   }
 
-  function chiudiModal(id) {
-    document.getElementById(id).style.display = 'none';
-  }
-  
-  function chiediConfermaChiusura(id) {
-    if (confirm("Sei sicuro di voler tornare indietro? I dati inseriti andranno perduti.")) {
-        chiudiModal(id);
-    }
-  }
-
-  function calcolaPrezzoAutomatico(prezzoGiornaliero) {
-    const dataInizio = new Date(document.getElementById('p-inizio').value);
-    const dataFine = new Date(document.getElementById('p-fine').value);
-    if (isNaN(dataInizio) || (!isNaN(dataFine) && dataFine < dataInizio)) {
-        document.getElementById('prezzo-calcolato').innerText = "0.00 €";
-        return;
-    }
-    const diffTime = Math.abs(dataFine - dataInizio);
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
-    document.getElementById('prezzo-calcolato').innerText = `${(diffDays * prezzoGiornaliero).toFixed(2)} €`;
-  }
+  function apriModal(id) { document.getElementById(id).classList.add('show'); }
+  function chiudiModal(id) { document.getElementById(id).classList.remove('show'); }
 
   window.onclick = function(event) {
-    if (event.target.className === 'modal') event.target.style.display = "none";
+    if (event.target.classList.contains('modal')) event.target.classList.remove('show');
   }
 </script>
 

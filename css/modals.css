@@ -1,343 +1,322 @@
 /* ==========================================================================
-   1. BASE MODAL WINDOWS & iOS STYLE POP-UPS
+   1. OVERLAY E CONTENITORE SCHERMO INTERO
    ========================================================================== */
+
 .modal {
   display: none;
   position: fixed;
+  inset: 0;
   z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
 }
+
+.modal.show {
+  display: flex;
+}
+
+/* ==========================================================================
+   2. STRUTTURA POPUP
+   ========================================================================== */
 
 .modal-ios {
+  width: 100%;
+  max-width: 420px;
   background: var(--background);
-  margin: 5% auto;
-  width: 400px;
   border-radius: 20px;
-  padding: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  border: none;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.modal-ios-reserved-box {
-  background: var(--background);
-  margin: 10% auto;
-  padding: 25px;
-  width: 400px;
-  border-radius: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  border: 1px solid var(--primary-light);
+#modal-delete-confirm .modal-ios {
+  max-width: 320px;
 }
+
+.modal-delete {
+  text-align: center;
+}
+
+/* ==========================================================================
+   3. ANIMAZIONE
+   ========================================================================== */
+
+@keyframes modalFadeIn {
+
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+/* ==========================================================================
+   4. HEADER E TITOLI
+   ========================================================================== */
 
 .ios-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.ios-header-center {
+  justify-content: center;
   border-bottom: none;
-  margin-bottom: 15px;
   padding-bottom: 0;
 }
 
-.ios-header h3 {
-  cursor: default;
+.ios-header h2 {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin: 0;
 }
 
-.ios-header .close-modal {
-  cursor: pointer;
-  font-size: 22px;
-  color: var(--text);
+.txt-oro-main {
+  color: var(--ocra);
+}
+
+.delete-title {
+  font-size: 16px;
+  color: var(--status-reserved);
+}
+
+.close-modal {
+  font-size: 26px;
   font-weight: 300;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s;
 }
 
-.ios-info-box {
-  margin-bottom: 18px;
+.close-modal:hover {
+  color: var(--text);
 }
 
-.ios-input-transparent {
-  background: transparent;
-  border: none;
-  padding: 0;
-  width: 100%;
-  outline: none;
+/* ==========================================================================
+   5. INFO OMBRELLONE
+   ========================================================================== */
+
+.ios-subtitle {
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
+
+.ios-type-badge {
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  padding: 6px 12px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.ios-type-badge span {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. DATE E PREZZO
+   ========================================================================== */
 
 .ios-row-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--background);
-  padding: 12px 16px;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  gap: 15px;
 }
 
 .ios-date-inputs {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
+  flex-grow: 1;
 }
 
 .ios-date-field {
   display: flex;
   align-items: center;
-  gap: 8px;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
+
+.ios-date-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  min-width: 30px;
+  font-weight: 500;
 }
 
 .ios-date-field input[type="date"] {
-  border: none;
-  background: transparent;
-  font-size: 15px;
-  font-family: inherit;
-  outline: none;
-  padding: 0;
-  width: auto;
-}
-
-.ios-price-box {
-  text-align: right;
-  border-left: 1px solid #d1d1d6;
-  padding-left: 15px;
-}
-
-.ios-divider {
-  border: 0;
-  border-top: 1px solid var(--primary-light);
-  margin: 20px 0;
-}
-
-.modal-profile-box {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: var(--background);
-  padding: 14px 16px;
-  border-radius: 12px;
-  margin-bottom: 25px;
-}
-
-.ios-input-group {
-  border-bottom: 1px solid var(--ocra);
-  padding-bottom: 8px;
-}
-
-.ios-input-group input {
   width: 100%;
   border: none;
   background: transparent;
-  font-size: 15px;
+  font-size: 14px;
+  color: var(--text);
+  font-family: inherit;
   outline: none;
-  padding: 0;
+}
+
+.ios-price-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ios-price-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.ios-price-value {
+  color: var(--primary);
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   7. DIVIDER
+   ========================================================================== */
+
+.ios-divider {
+  border: 0;
+  border-top: 1px solid var(--separator);
+  margin: 20px 0;
+}
+
+/* ==========================================================================
+   8. INPUTS
+   ========================================================================== */
+
+.modal-profile-box {
+  background: transparent;
+  border-radius: 14px;
+  padding: 4px 14px;
+}
+
+.ios-input-group {
+  border-bottom: 1px solid var(--separator);
+  padding: 10px 0;
+}
+
+.ios-input-last {
+  border-bottom: none;
 }
 
 .row-fields {
   display: flex;
-  gap: 10px;
+  gap: 15px;
 }
 
 .field-half {
-  width: 50% !important;
+  width: 50%;
 }
 
-.field-left-border {
-  border-left: 1px solid var(--ocra) !important;
-  padding-left: 10px !important;
-}
-
-.inline-field {
-  display: flex;
-  align-items: center;
-}
-
-.inline-field input[type="date"] {
+.modal-profile-box input[type="text"],
+.modal-profile-box input[type="email"],
+.modal-profile-box input[type="tel"] {
   width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  color: var(--text);
   font-family: inherit;
+  outline: none;
 }
 
-.field-no-border {
-  border-bottom: none;
-  padding-bottom: 4px;
+.modal-profile-box input::placeholder {
+  color: #c7c7cc;
 }
+
+/* ==========================================================================
+   9. PULSANTI
+   ========================================================================== */
 
 .ios-actions {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  width: 100%;
 }
 
-.btn-ios-primary {
-  background: var(--confirm-btm);
-  color: var(--text);
+.ios-actions-row {
+  flex-direction: row;
+}
+
+.btn-ios-action {
+  width: 100%;
   border: none;
   padding: 14px;
-  border-radius: 12px;
-  font-size: 17px;
-  font-weight: 600;
-  cursor: pointer;
-  width: 100%;
-  box-shadow: 0 4px 12px rgba(212, 172, 13, 0.25);
-}
-
-.ios-reserved-info {
-  margin-bottom: 20px;
-  font-size: 0.95em;
-  line-height: 1.5;
-}
-
-.txt-status-reserved {
-  color: var(--status-reserved);
-  font-weight: bold;
-}
-
-.ios-vertical-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.ios-vertical-actions button {
-  width: 100%;
-  border: none;
-  padding: 12px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn-ios-action-change {
-  background: var(--confirm-btm);
-  color: var(--text);
-}
-
-.btn-ios-action-delete {
-  background: var(--delete-btn);
-  color: var(--text);
-}
-
-.btn-ios-action-dismiss {
-  background: var(--return-btn);
-  color: var(--text);
-}
-
-/* --- iOS Color and Font Utility Classes --- */
-.txt-gold-main {
-  color: var(--primary-dark) !important;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
-
-.txt-info-umbrella-large {
-  font-size: 16px !important;
-  font-weight: 600;
-}
-
-.txt-gold-sub {
-  color: var(--primary-dark) !important;
-  font-size: 13px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.txt-gold-sub-inline {
-  color: var(--primary-dark) !important;
-  font-size: 15px;
-  font-weight: 600;
-}
-
-.txt-type-small {
-  font-size: 14px !important;
-  font-weight: 400 !important;
-}
-
-.txt-grey-medium {
-  color: #333333 !important; /* Kept fixed for structural iOS contrast */
-  font-weight: 500;
-}
-
-.txt-grey-medium-label {
-  color: #333333 !important;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.txt-grey-bold {
-  color: #333333 !important;
-  font-weight: 700 !important;
-}
-
-.ios-price-value.txt-grey-bold {
-  font-size: 22px;
-  color: #333333 !important;
-}
-
-.ios-input-group input::placeholder {
-  color: var(--text-muted);
-  opacity: 0.7;
-}
-
-/* --- iOS Alert/Confirmation Pop-ups --- */
-.modal-ios-alert {
-  background: var(--background);
-  margin: 15% auto;
-  width: 300px;
   border-radius: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  padding: 0;
-}
-
-.ios-alert-body {
-  padding: 20px 16px;
-  text-align: center;
-}
-
-.ios-alert-body .alert-title {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.ios-alert-body .alert-text {
-  font-size: 13px;
-  line-height: 1.4;
-}
-
-.ios-alert-actions {
-  display: flex;
-  border-top: 1px solid var(--primary-light);
-}
-
-.ios-alert-actions button {
-  flex: 1;
-  background: transparent;
-  border: none;
-  padding: 12px 8px;
   font-size: 16px;
-  font-family: inherit;
-  cursor: pointer;
-  text-align: center;
-  outline: none;
-}
-
-.btn-alert-dismiss {
-  color: #007aff !important; /* Native iOS blue for neutral dismiss action */
-  font-weight: 400;
-  border-right: 1px solid var(--primary-light) !important;
-}
-
-.btn-alert-danger {
-  color: var(--delete-btn) !important;
   font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-align: center;
 }
 
-.ios-alert-actions button:active {
-  background-color: rgba(0, 0, 0, 0.05);
+.btn-ios-gold {
+  background: var(--primary);
+  color: black;
+}
+
+.btn-ios-gold:hover {
+  background: var(--ocra);
+}
+
+.btn-ios-danger {
+  background: var(--delete-btn);
+  color: black;
+}
+
+.btn-ios-danger:hover {
+  background: var(--status-reserved);
+}
+
+.btn-ios-cancel {
+  background: var(--return-btn);
+  color: black;
+}
+
+.btn-ios-cancel:hover {
+  background: #d1d1d6;
+}
+
+/* ==========================================================================
+   10. TESTO ELIMINAZIONE
+   ========================================================================== */
+
+.delete-text {
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.4;
+  color: var(--text);
 }
