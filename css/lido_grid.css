@@ -1,0 +1,134 @@
+/* ==========================================================================
+   1. BEACH GRID VIEW (SYMMETRIC AND SCALED MAP)
+   ========================================================================== */
+.sea {
+  background-color: var(--sea-color);
+  color: var(--text);
+  text-align: center;
+  padding: 1vw;
+  font-weight: bold;
+  font-size: clamp(0.8em, 1.5vw, 1.2em);
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  border-radius: 12px 12px 0 0;
+  border: 2px solid var(--sea-border);
+  border-bottom: none;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5vw;
+  padding: 20px;
+  background-color: var(--beach-color);
+  border-radius: 0 0 12px 12px;
+  border: 2px solid var(--primary-light);
+  width: 100%;
+}
+
+.sector-container:nth-child(1),
+.sector-container:nth-child(2),
+.sector-container:nth-child(3) {
+  grid-column: span 2;
+}
+
+.sector-container:nth-child(4) { 
+  grid-column: 2 / span 2; 
+}
+
+.sector-container:nth-child(5) { 
+  grid-column: 4 / span 2; 
+}
+
+.sector-container {
+  background: var(--background);
+  padding: 15px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-light);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.sector-header {
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--ocra);
+  font-size: clamp(0.7em, 1.2vw, 0.9em);
+  width: 100%;
+}
+
+.beach {
+  display: grid;
+  grid-template-columns: repeat(20, minmax(0, 1fr));
+  gap: 2px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.umbrella {
+  width: 100%;
+  max-width: 12px;
+  aspect-ratio: 1 / 1;
+  height: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--status-free);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+  display: block;
+  margin: 0 auto;
+}
+
+.umbrella.reserved {
+  background-color: var(--status-reserved) !important;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.umbrella.disable {
+  background-color: var(--status-disable) !important;
+}
+
+.umbrella.selected {
+  transform: scale(1.6);
+  outline: 2px solid #2c3e50; /* Left dark to pop out on selection */
+  z-index: 10;
+}
+
+.legend {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 0.85em;
+}
+
+.badge {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.badge.free { background: var(--status-free); }
+.badge.reserved { background: var(--status-reserved); }
+.badge.disable { background: var(--status-disable); }
+
+/* ==========================================================================
+   2. MANAGEMENT TABLES AND SEARCH BLOCKS
+   ========================================================================== */
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+/*.search-title {
+  color: var(--ocra);
+  text-transform: uppercase;
+}*/

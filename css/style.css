@@ -54,7 +54,7 @@ body {
   overflow-y: auto;
 }
 
-.corpo-pagina {
+.page-body {
   grid-area: corpo;
   background: #FEF9E7;
   padding: 2vw;
@@ -72,7 +72,7 @@ body {
 /* ==========================================================================
    3. NAVIGAZIONE E SIDEBAR (COMPRESI FILTRI ED ACCORDION)
    ========================================================================== */
-.navigazione h2,
+.navigation h2,
 .cerca h2 {
   font-size: clamp(11px, 1.1vw, 13px);
   color: #D4AC0D;
@@ -81,15 +81,15 @@ body {
   white-space: nowrap;
 }
 
-.navigazione ul {
+.navigation ul {
   list-style: none;
 }
 
-.navigazione ul li {
+.navigation ul li {
   margin-bottom: 10px;
 }
 
-.navigazione ul li a {
+.navigation ul li a {
   text-decoration: none;
   color: #333;
   font-weight: 500;
@@ -99,7 +99,7 @@ body {
   transition: color 0.2s;
 }
 
-.navigazione ul li a.active {
+.navigation ul li a.active {
   color: #D4AC0D;
   font-weight: bold;
 }
@@ -130,7 +130,7 @@ body {
   border-radius: 4px;
 }
 
-.navigazione {
+.navigation {
   flex-shrink: 0;
 }
 
@@ -195,7 +195,7 @@ summary.filter-title {
 /* ==========================================================================
    4. VISTA GRIGLIA SPIAGGIA (MAPPA SIMMETRICA ED IN SCALA)
    ========================================================================== */
-.striscia-mare {
+.sea {
   background-color: #5DADE2;
   color: black;
   text-align: center;
@@ -209,7 +209,7 @@ summary.filter-title {
   border-bottom: none;
 }
 
-#griglia-spiaggia {
+#grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 1.5vw;
@@ -220,21 +220,21 @@ summary.filter-title {
   width: 100%;
 }
 
-.settore-container:nth-child(1),
-.settore-container:nth-child(2),
-.settore-container:nth-child(3) {
+.sector-container:nth-child(1),
+.sector-container:nth-child(2),
+.sector-container:nth-child(3) {
   grid-column: span 2;
 }
 
-.settore-container:nth-child(4) { 
+.sector-container:nth-child(4) { 
   grid-column: 2 / span 2; 
 }
 
-.settore-container:nth-child(5) { 
+.sector-container:nth-child(5) { 
   grid-column: 4 / span 2; 
 }
 
-.settore-container {
+.sector-container {
   background: #FEF9E7;
   padding: 15px 10px;
   border-radius: 8px;
@@ -246,7 +246,7 @@ summary.filter-title {
   min-width: 0;
 }
 
-.settore-header {
+.sector-header {
   font-weight: bold;
   margin-bottom: 10px;
   color: #856404;
@@ -254,7 +254,7 @@ summary.filter-title {
   width: 100%;
 }
 
-.spiaggia-grid {
+.beach {
   display: grid;
   grid-template-columns: repeat(20, minmax(0, 1fr));
   gap: 2px;
@@ -292,7 +292,7 @@ summary.filter-title {
   z-index: 10;
 }
 
-.legenda {
+.legend {
   display: flex;
   gap: 15px;
   margin-bottom: 20px;
@@ -308,7 +308,7 @@ summary.filter-title {
   margin-right: 5px;
 }
 
-.badge.libero { background: #F4D03F; }
+.badge.free { background: #F4D03F; }
 .badge.occupato { background: #e63128; }
 .badge.disabile { background: #85857a; }
 
@@ -359,7 +359,7 @@ summary.filter-title {
 /* ==========================================================================
    8. CLASSI DI UTILITY
    ========================================================================== */
-.testo-centrato {
+.center-text {
   text-align: center;
 }
 
@@ -669,8 +669,8 @@ summary.filter-title {
     padding: 15px 20px;
   }
 
-  .navigazione h2, .cerca h2 { font-size: 12px; }
-  .navigazione ul li a { font-size: 14px; }
+  .navigation h2, .cerca h2 { font-size: 12px; }
+  .navigation ul li a { font-size: 14px; }
   .date-field label { font-size: 11px; }
   .date-field input { font-size: 13px; }
   summary.filter-title { font-size: 13px; }
@@ -705,7 +705,7 @@ summary.filter-title {
     margin-top: 0;
   }
 
-  .corpo-pagina {
+  .page-body {
     height: auto;
     overflow-y: visible;
     padding: 20px;

@@ -1,0 +1,343 @@
+/* ==========================================================================
+   1. BASE MODAL WINDOWS & iOS STYLE POP-UPS
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-ios {
+  background: var(--background);
+  margin: 5% auto;
+  width: 400px;
+  border-radius: 20px;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-ios-reserved-box {
+  background: var(--background);
+  margin: 10% auto;
+  padding: 25px;
+  width: 400px;
+  border-radius: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  border: 1px solid var(--primary-light);
+}
+
+.ios-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: none;
+  margin-bottom: 15px;
+  padding-bottom: 0;
+}
+
+.ios-header h3 {
+  cursor: default;
+}
+
+.ios-header .close-modal {
+  cursor: pointer;
+  font-size: 22px;
+  color: var(--text);
+  font-weight: 300;
+}
+
+.ios-info-box {
+  margin-bottom: 18px;
+}
+
+.ios-input-transparent {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: 100%;
+  outline: none;
+}
+
+.ios-row-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--background);
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.ios-date-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ios-date-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ios-date-field input[type="date"] {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+  padding: 0;
+  width: auto;
+}
+
+.ios-price-box {
+  text-align: right;
+  border-left: 1px solid #d1d1d6;
+  padding-left: 15px;
+}
+
+.ios-divider {
+  border: 0;
+  border-top: 1px solid var(--primary-light);
+  margin: 20px 0;
+}
+
+.modal-profile-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--background);
+  padding: 14px 16px;
+  border-radius: 12px;
+  margin-bottom: 25px;
+}
+
+.ios-input-group {
+  border-bottom: 1px solid var(--ocra);
+  padding-bottom: 8px;
+}
+
+.ios-input-group input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  outline: none;
+  padding: 0;
+}
+
+.row-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.field-half {
+  width: 50% !important;
+}
+
+.field-left-border {
+  border-left: 1px solid var(--ocra) !important;
+  padding-left: 10px !important;
+}
+
+.inline-field {
+  display: flex;
+  align-items: center;
+}
+
+.inline-field input[type="date"] {
+  width: 100%;
+  font-family: inherit;
+}
+
+.field-no-border {
+  border-bottom: none;
+  padding-bottom: 4px;
+}
+
+.ios-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btn-ios-primary {
+  background: var(--confirm-btm);
+  color: var(--text);
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(212, 172, 13, 0.25);
+}
+
+.ios-reserved-info {
+  margin-bottom: 20px;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.txt-status-reserved {
+  color: var(--status-reserved);
+  font-weight: bold;
+}
+
+.ios-vertical-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ios-vertical-actions button {
+  width: 100%;
+  border: none;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+}
+
+.btn-ios-action-change {
+  background: var(--confirm-btm);
+  color: var(--text);
+}
+
+.btn-ios-action-delete {
+  background: var(--delete-btn);
+  color: var(--text);
+}
+
+.btn-ios-action-dismiss {
+  background: var(--return-btn);
+  color: var(--text);
+}
+
+/* --- iOS Color and Font Utility Classes --- */
+.txt-gold-main {
+  color: var(--primary-dark) !important;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.txt-info-umbrella-large {
+  font-size: 16px !important;
+  font-weight: 600;
+}
+
+.txt-gold-sub {
+  color: var(--primary-dark) !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.txt-gold-sub-inline {
+  color: var(--primary-dark) !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.txt-type-small {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.txt-grey-medium {
+  color: #333333 !important; /* Kept fixed for structural iOS contrast */
+  font-weight: 500;
+}
+
+.txt-grey-medium-label {
+  color: #333333 !important;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.txt-grey-bold {
+  color: #333333 !important;
+  font-weight: 700 !important;
+}
+
+.ios-price-value.txt-grey-bold {
+  font-size: 22px;
+  color: #333333 !important;
+}
+
+.ios-input-group input::placeholder {
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* --- iOS Alert/Confirmation Pop-ups --- */
+.modal-ios-alert {
+  background: var(--background);
+  margin: 15% auto;
+  width: 300px;
+  border-radius: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  padding: 0;
+}
+
+.ios-alert-body {
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.ios-alert-body .alert-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.ios-alert-body .alert-text {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.ios-alert-actions {
+  display: flex;
+  border-top: 1px solid var(--primary-light);
+}
+
+.ios-alert-actions button {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 12px 8px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+}
+
+.btn-alert-dismiss {
+  color: #007aff !important; /* Native iOS blue for neutral dismiss action */
+  font-weight: 400;
+  border-right: 1px solid var(--primary-light) !important;
+}
+
+.btn-alert-danger {
+  color: var(--delete-btn) !important;
+  font-weight: 600;
+}
+
+.ios-alert-actions button:active {
+  background-color: rgba(0, 0, 0, 0.05);
+}

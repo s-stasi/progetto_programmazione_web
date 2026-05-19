@@ -1,7 +1,7 @@
 <?php include 'components/header.php'; ?>
 <?php include 'components/sidebar.php'; ?>
 
-<main class="corpo-pagina">
+<main class="page-body">
   <div class="table-header">
     <h2>Gestione clienti</h2>
     <button class="btn-primary" onclick="openAddModal()">+ Aggiungi clienti</button>

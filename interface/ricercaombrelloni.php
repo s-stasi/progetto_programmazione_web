@@ -29,7 +29,7 @@ $sql .= " ORDER BY o.settore, o.numFila, o.numPostoFila";
 $result = $conn->query($sql);
 ?>
 
-<main class="corpo-pagina">
+<main class="page-body">
   <div class="table-header">
       <h2 class="ricerca-titolo">Ricerca Ombrelloni</h2>
   </div>
@@ -93,7 +93,7 @@ $result = $conn->query($sql);
                   <?php endwhile; ?>
               <?php else: ?>
                   <tr>
-                      <td colspan="6" class="testo-centrato">Nessun ombrellone trovato con questi filtri.</td>
+                      <td colspan="6" class="center-text">Nessun ombrellone trovato con questi filtri.</td>
                   </tr>
               <?php endif; ?>
           </tbody>

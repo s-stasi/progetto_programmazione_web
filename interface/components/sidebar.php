@@ -3,7 +3,7 @@
 ?>
 
 <aside class="sidebar">
-  <nav class="navigazione">
+  <nav class="navigation">
     <h2>Dashboard</h2>
     <ul>
       <li><a href="index.php" class="nav-link <?php echo ($currentPage == 'index.php') ? 'active' : ''; ?>">Mappa Lido</a></li>

@@ -1,25 +1,25 @@
 <?php include 'components/header.php'; ?>
 <?php include 'components/sidebar.php'; ?>
 
-<main class="corpo-pagina">
+<main class="page-body">
   <div class="table-header">
       <h2 class="ricerca-titolo">Mappa Spiaggia</h2>
   </div>
 
-  <div class="legenda">
-    <div class="item"><span class="badge libero"></span> Disponibile</div>
-    <div class="item"><span class="badge occupato"></span> Occupato</div>
-    <div class="item"><span class="badge disabile"></span> Disabili</div>
+  <div class="legend">
+    <div class="item"><span class="badge free"></span> Disponibile</div>
+    <div class="item"><span class="badge reserved"></span> Occupato</div>
+    <div class="item"><span class="badge disable"></span> Disabili</div>
   </div>
 
-  <div class="striscia-mare">MARE</div>
-  <div id="griglia-spiaggia"></div>
+  <div class="sea">MARE</div>
+  <div id="grid"></div>
 
-  <div id="modal-libero" class="modal">
+  <div id="modal-free" class="modal">
     <div class="modal-content modal-ios">
       <div class="modal-header ios-header">
         <h3 class="txt-oro-main">PRENOTA</h3>
-        <span class="close-modal" onclick="chiediConfermaChiusura('modal-libero')">&times;</span>
+        <span class="close-modal" onclick="chiediConfermaChiusura('modal-free')">&times;</span>
       </div>
       
       <form id="form-nuova-prenotazione" method="POST" action="../php/inserisci_prenotazione.php">
@@ -82,14 +82,14 @@
     </div>
   </div>
 
-  <div id="modal-occupato" class="modal">
+  <div id="modal-reserved" class="modal">
     <div class="modal-content modal-ios-box-occupato">
       <div class="modal-header ios-header">
         <h3 id="titolo-modal-occupato">Gestione Prenotazione</h3>
         <span class="close-modal" onclick="chiudiModal('modal-occupato')">&times;</span>
       </div>
       
-      <div class="ios-occupato-info">
+      <div class="ios-reserved-info">
         <p><strong>Stato:</strong> <span class="txt-status-occupato">Occupato</span></p>
         <p id="info-prenotazione-corrente">Caricamento dettagli della prenotazione...</p>
       </div>
@@ -139,8 +139,8 @@
   }
 
   async function fetchUmbrellas() {
-    const grid = document.getElementById('griglia-spiaggia');
-    grid.innerHTML = "<p class='testo-centrato' style='grid-column: 1/-1;'>Caricamento in corso...</p>";
+    const grid = document.getElementById('grid');
+    grid.innerHTML = "<p class='center-text' style='grid-column: 1/-1;'>Caricamento in corso...</p>";
     
     try {
       const url = `../php/get_umbrellas.php?inizio=${startDateInput.value}&fine=${endDateInput.value}`;
@@ -149,12 +149,12 @@
       const data = await response.json();
       drawMap(data);
     } catch (e) {
-      grid.innerHTML = `<p class='testo-centrato' style='grid-column: 1/-1; color:red;'>Errore tecnico: ${e.message}</p>`;
+      grid.innerHTML = `<p class='center-text' style='grid-column: 1/-1; color:red;'>Errore tecnico: ${e.message}</p>`;
     }
   }
 
   function drawMap(umbrellas) {
-    const grid = document.getElementById('griglia-spiaggia');
+    const grid = document.getElementById('grid');
     grid.innerHTML = "";
     
     const letters = { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E' };
@@ -168,18 +168,18 @@
     Object.keys(sectors).sort().forEach(sectorId => {
       const letter = letters[sectorId];
       const container = document.createElement('div');
-      container.className = 'settore-container';
-      container.innerHTML = `<div class="settore-header">SETTORE ${letter}</div>`;
+      container.className = 'sector-container';
+      container.innerHTML = `<div class="sector-header">SETTORE ${letter}</div>`;
 
       const beachGrid = document.createElement('div');
-      beachGrid.className = 'spiaggia-grid';
+      beachGrid.className = 'beach';
 
       sectors[sectorId].sort((a, b) => (a.numero_fila || a.numFila) - (b.numero_fila || b.numFila) || (a.numero_ordine || a.numPostoFila) - (b.numero_ordine || b.numPostoFila)).forEach(u => {
         const dot = document.createElement('div');
-        dot.className = 'ombrellone';
+        dot.className = 'umbrella';
         
         if (u.occupato == 1) {
-          dot.classList.add('occupato');
+          dot.classList.add('reserved');
         }
 
         const fila = u.numero_fila || u.numFila || '0';
@@ -192,7 +192,7 @@
                            (letter === 'E' && fila == 10 && posto == 1);
 
         if (isDisabled || (u.tipologia_nome && u.tipologia_nome.includes("Disabile"))) {
-          dot.classList.add('disabile');
+          dot.classList.add('disable');
         }
 
         dot.title = `${letter}.${fila}.${posto}`;
@@ -217,7 +217,7 @@
     const posto = u.numero_ordine || u.numPostoFila || 'N/D';
 
     if (u.occupato == 1) {
-      document.getElementById('titolo-modal-occupato').innerText = `Ombrellone ${letter}.${fila}.${posto}`;
+      document.getElementById('titolo-modal-reserved').innerText = `Ombrellone ${letter}.${fila}.${posto}`;
       document.getElementById('info-prenotazione-corrente').innerHTML = `
         <strong>Cliente:</strong> ${u.cliente_nome ?? 'N/D'}<br>
         <strong>Periodo:</strong> dal ${formattaDataItaliana(startDateInput.value)} al ${formattaDataItaliana(endDateInput.value)}
@@ -252,7 +252,7 @@
       
       pInizio.oninput = aggiornaPrezzo;
       pFine.oninput = aggiornaPrezzo;
-      document.getElementById('modal-libero').style.display = 'block';
+      document.getElementById('modal-free').style.display = 'block';
     }
   }
 
