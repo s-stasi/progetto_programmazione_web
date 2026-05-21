@@ -4,7 +4,7 @@
 
 <aside class="sidebar">
   <nav class="navigation">
-    <h2>Dashboard</h2>
+    <h2 class="ricerca-titolo">Dashboard</h2>
     <ul>
       <li><a href="index.php" class="nav-link <?php echo ($currentPage == 'index.php') ? 'active' : ''; ?>">Mappa Lido</a></li>
       <li><a href="clienti.php" class="nav-link <?php echo ($currentPage == 'clienti.php') ? 'active' : ''; ?>">Gestione Clienti</a></li>
@@ -14,7 +14,7 @@
   </nav>
 
   <div class="sidebar-filters">
-    <h3 style="margin-bottom: 15px; color: #856404;">Filtri</h3>
+    <h2 style="margin-bottom: 15px; color: #856404;">Filtri</h2>
     
     <form action="" method="GET" class="filters-form" <?php echo ($currentPage == 'index.php') ? 'id="form-filtri-mappa"' : ''; ?>>
       <div class="filters-container">

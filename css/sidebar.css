@@ -125,7 +125,7 @@ summary.filter-title {
    2. BUTTONS AND INTERFACE COMPONENTS (UI)
    ========================================================================== */
 .btn-apply {
-  background: var(--primary);
+  background: var(--primary); 
   color: var(--text);
   border: none;
   padding: 10px 15px;
@@ -134,4 +134,9 @@ summary.filter-title {
   font-weight: bold;
   align-self: flex-end;
   margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.btn-apply:hover {
+  background: var(--primary-dark);;
 }
