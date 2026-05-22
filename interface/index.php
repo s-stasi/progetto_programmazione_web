@@ -58,7 +58,7 @@
       }
       await fetchUmbrellas();
       if (isZoomed && zoomedLetter) {
-        grid.classList.remove('sector-zoomed-mode'); 
+        grid.classList.remove('sector-zoomed-mode');
         zoomSector(zoomedLetter);
       }
     });
@@ -129,7 +129,6 @@
       sortedUmbrellas.forEach(u => {
         const dot = document.createElement('div');
         dot.className = 'umbrella';
-
         if (u.occupato == 1) {
           dot.classList.add('reserved');
         }
@@ -137,7 +136,6 @@
         const fila = u.numero_fila || u.numFila || '0';
         const posto = u.numero_ordine || u.numPostoFila || '0';
         const codiceCompleto = `${letter}.${fila}.${posto}`;
-
         dot.style.gridRow = fila;
         dot.style.gridColumn = posto;
 
@@ -146,26 +144,30 @@
           (letter === 'C' && fila == 10 && posto == 20) ||
           (letter === 'D' && fila == 10 && posto == 20) ||
           (letter === 'E' && fila == 10 && posto == 1);
-
-        if (isDisabled || (u.tipologia_nome && u.tipologia_nome.includes("Disabile"))) {
+        if (isDisabled || (!!(u.tipologia_nome && u.tipologia_nome.includes("Disabile")))) {
           dot.classList.add('disable');
         }
-
         dot.title = codiceCompleto;
 
-        dot.addEventListener('click', () => { 
+  
+  const costoOmbrellone = u.prezzo_base || u.prezzo || '0';
+  
+  const isReserved = (u.occupato == 1);
+  
+        dot.addEventListener('click', () => {
           document.querySelectorAll('.umbrella.selected').forEach(el => el.classList.remove('selected'));
           dot.classList.add('selected');
-          
-          const tipologiaOmbrellone = u.tipologia_nome || u.tipologia || 'BASE';
-          const costoOmbrellone = u.prezzo_base || u.prezzo || '0';
-          
-          openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone); 
-        });
 
+          let tipologiaOmbrellone = u.tipologia_nome || u.tipologia || 'BASE';
+          if (isDisabled) {
+            tipologiaOmbrellone = 'Ombrellone Disabili';
+          }
+          const costoOmbrellone = u.prezzo_base || u.prezzo || '0';
+          const isReserved = (u.occupato == 1);
+          openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, u);
+        });
         beachGrid.appendChild(dot);
       });
-
       container.appendChild(beachGrid);
       grid.appendChild(container);
     });
@@ -183,7 +185,6 @@
     const beachGrid = container.querySelector('.beach');
     const maxFila = parseInt(beachGrid.dataset.maxRows);
     const maxPosto = parseInt(beachGrid.dataset.maxCols);
-
     const battleshipWrapper = document.createElement('div');
     battleshipWrapper.className = 'battleship-wrapper';
 
@@ -221,7 +222,6 @@
     document.getElementById('grid').classList.remove('sector-zoomed-mode');
     const container = document.getElementById(`sector-container-${letter}`);
     container.classList.remove('is-zoomed');
-
     const battleshipWrapper = container.querySelector('.battleship-wrapper');
     const beachGrid = container.querySelector('.beach');
 
