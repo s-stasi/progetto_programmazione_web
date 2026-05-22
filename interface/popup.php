@@ -1,0 +1,173 @@
+<?php require_once '../php/config.php'; ?>
+
+<div id="modal-reservation" class="modal">
+  <div class="modal-ios">
+    <div class="ios-header">
+      <div class="ios-umbrella-info">
+        <h2 id="display-umbrella-code" class="txt-oro-main">#00</h2>
+        <span id="display-umbrella-type" class="txt-tipologia-small txt-grigio-medium">TIPOLOGIA</span>
+      </div>
+      <span class="close-modal" onclick="closeReservationModal()">&times;</span>
+    </div>
+
+    <input type="hidden" id="booking-id" name="id_prenotazione">
+
+    <form id="form-new-reservation" onsubmit="saveReservation(event)">
+      <div class="ios-row-container">
+        <div class="ios-date-inputs">
+          <div class="ios-date-field">
+            <label class="txt-oro-sub-inline">DA:</label>
+            <input type="date" name="data_inizio" id="booking-start" value="<?= date('Y-m-d'); ?>" required>
+          </div>
+          <div class="ios-date-field">
+            <label class="txt-oro-sub-inline">A: &nbsp;</label>
+            <input type="date" name="data_fine" id="booking-end" value="<?= date('Y-m-d'); ?>" required>
+          </div>
+        </div>
+        <div class="ios-price-box">
+          <span class="txt-grigio-medium-label">COSTO</span>
+          <div class="ios-price-value txt-oro-main">
+            €<span id="display-total-cost">0</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="ios-divider">
+
+      <h3 class="txt-oro-sub">Dati Cliente</h3>
+      
+      <div class="modal-profile-box">
+        <div class="row-fields ios-input-group">
+          <div class="field-half">
+            <label class="txt-grigio-medium-label">Nome</label>
+            <input type="text" name="nome" id="client-nome" required>
+          </div>
+          <div class="field-half field-left-border">
+            <label class="txt-grigio-medium-label">Cognome</label>
+            <input type="text" name="cognome" id="client-cognome" required>
+          </div>
+        </div>
+
+        <div class="ios-input-group">
+          <label class="txt-grigio-medium-label">Data di Nascita</label>
+          <input type="date" name="data_nascita" id="client-data-nascita">
+        </div>
+
+        <div class="ios-input-group">
+          <label class="txt-grigio-medium-label">Indirizzo casa</label>
+          <input type="text" name="indirizzo" id="client-indirizzo">
+        </div>
+
+        <div class="row-fields ios-input-group field-no-border">
+          <div class="field-half">
+            <label class="txt-grigio-medium-label">Email</label>
+            <input type="email" name="email" id="client-email">
+          </div>
+          <div class="field-half field-left-border">
+            <label class="txt-grigio-medium-label">Cellulare</label>
+            <input type="tel" name="cellulare" id="client-cellulare">
+          </div>
+        </div>
+      </div>
+
+      <div id="wrapper-creation-actions">
+        <button type="submit" class="btn-ios-primary">Conferma Prenotazione</button>
+      </div>
+
+      <div id="wrapper-view-actions" style="display: none; gap: 12px;">
+        <button type="button" class="btn-ios-danger" onclick="deleteReservation()">Elimina Prenotazione</button>
+        <button type="button" class="btn-ios-secondary" onclick="enableModificationMode()">Modifica Dati</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openReservationModal(code, type, baseCost, isReserved = false, reservationData = null) {
+    const modal = document.getElementById('modal-reservation');
+    const form = document.getElementById('form-new-reservation');
+    form.reset();
+    
+    document.getElementById('display-umbrella-code').innerText = 'Ombrellone ' + code;
+    document.getElementById('display-umbrella-type').innerText = type;
+    document.getElementById('display-total-cost').innerText = baseCost;
+
+    const creationActions = document.getElementById('wrapper-creation-actions');
+    const viewActions = document.getElementById('wrapper-view-actions');
+    if (isReserved && reservationData) {
+      creationActions.style.display = 'none';
+      viewActions.style.display = 'flex';
+
+      document.getElementById('booking-id').value = reservationData.id || '';
+      document.getElementById('booking-start').value = reservationData.data_inizio || '';
+      document.getElementById('booking-end').value = reservationData.data_fine || '';
+      document.getElementById('client-nome').value = reservationData.nome || '';
+      document.getElementById('client-cognome').value = reservationData.cognome || '';
+      document.getElementById('client-data-nascita').value = reservationData.data_nascita || '';
+      document.getElementById('client-indirizzo').value = reservationData.indirizzo || '';
+      document.getElementById('client-email').value = reservationData.email || '';
+      document.getElementById('client-cellulare').value = reservationData.cellulare || '';
+
+      toggleFormInputs(true);
+    } else {
+      creationActions.style.display = 'block';
+      viewActions.style.display = 'none';
+      document.getElementById('booking-id').value = '';
+      
+      if(document.getElementById('start-date')) {
+        document.getElementById('booking-start').value = document.getElementById('start-date').value;
+        document.getElementById('booking-end').value = document.getElementById('end-date').value;
+      }
+
+      toggleFormInputs(false);
+    }
+
+    modal.classList.add('show');
+  }
+
+  function toggleFormInputs(isDisabled) {
+    const form = document.getElementById('form-new-reservation');
+    const inputs = form.querySelectorAll('input');
+    inputs.forEach(input => {
+      if (input.id !== 'booking-id') {
+        input.disabled = isDisabled;
+      }
+    });
+  }
+
+  function enableModificationMode() {
+    toggleFormInputs(false);
+    document.getElementById('wrapper-creation-actions').style.display = 'block';
+    document.getElementById('wrapper-creation-actions').querySelector('button').innerText = 'Salva Modifiche';
+    document.getElementById('wrapper-view-actions').style.display = 'none';
+  }
+
+  async function deleteReservation() {
+    const bookingId = document.getElementById('booking-id').value;
+    if (!bookingId) return;
+
+    if (confirm("Sei sicuro di voler eliminare definitivamente questa prenotazione?")) {
+      try {
+        const response = await fetch(`../php/delete_reservation.php?id=${bookingId}`, {
+          method: 'DELETE'
+        });
+        const result = await response.json();
+        
+        if (result.success) {
+          closeReservationModal();
+          if (typeof fetchUmbrellas === "function") fetchUmbrellas(); // Ricarica la mappa aggiornata
+        } else {
+          alert("Errore durante l'eliminazione: " + result.message);
+        }
+      } catch (error) {
+        console.error("Errore di rete:", error);
+        alert("Impossibile connettersi al server per eliminare.");
+      }
+    }
+  }
+
+  function closeReservationModal() {
+    document.getElementById('modal-reservation').classList.remove('show');
+    document.querySelectorAll('.umbrella.selected').forEach(el => el.classList.remove('selected'));
+  }
+</script>

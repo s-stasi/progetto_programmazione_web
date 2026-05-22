@@ -1,5 +1,5 @@
 /* ==========================================================================
-   1. OVERLAY GLOBALE (SFONDO OSCURATO)
+   1. OVERLAY (SFONDO OSCURATO)
    ========================================================================== */
 .modal {
   display: none;
@@ -18,58 +18,11 @@
 }
 
 /* ==========================================================================
-   2. STRUTTURA POPUP CLASSICA (Per Gestione Clienti / Form)
-   ========================================================================== */
-.modal-content {
-  background: #ffffff;
-  margin: 10% auto;
-  padding: 25px;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 8px;
-  border: 1px solid var(--primary-light);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.modal-header h3 {
-  color: var(--ocra);
-  font-size: 1.2em;
-}
-
-.form-group {
-  margin-bottom: 15px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.85em;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: var(--ocra);
-}
-
-.form-group input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: inherit;
-  font-size: 14px;
-}
-
-/* ==========================================================================
-   3. STRUTTURA POPUP RECENTE STILE iOS (Per Info Ombrelloni)
+   2. RECTANGLE CONTAINER (iOS STYLE)
    ========================================================================== */
 .modal-ios {
   width: 100%;
-  max-width: 420px;
+  max-width: 430px;
   background: var(--background);
   border-radius: 20px;
   padding: 24px;
@@ -78,18 +31,7 @@
   height: auto;
   max-height: 90vh;
   overflow-y: auto;
-}
-
-.modal-ios-box-occupato {
-  background: var(--background);
-  margin: 10% auto;
-  padding: 25px;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  border: 1px solid var(--primary-light);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  animation: iosModalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .ios-header {
@@ -99,35 +41,33 @@
   margin-bottom: 15px;
 }
 
-.ios-header h3 {
-  cursor: default;
+.ios-umbrella-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
-.ios-header .close-modal {
-  cursor: pointer;
-  font-size: 22px;
-  color: var(--text);
+.close-modal {
+  font-size: 28px;
   font-weight: 300;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
 }
 
-.ios-info-box {
-  margin-bottom: 18px;
-}
-
-.ios-input-transparent {
-  background: transparent;
-  border: none;
-  padding: 0;
-  width: 100%;
-  outline: none;
+.close-modal:hover {
   color: var(--text);
 }
 
+/* ==========================================================================
+   3. DATE & PRICE LAYOUT
+   ========================================================================== */
 .ios-row-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--background);
+  background: rgba(244, 208, 63, 0.1); 
+  border: 1px solid var(--primary-light);     
   padding: 12px 16px;
   border-radius: 12px;
   margin-bottom: 20px;
@@ -152,34 +92,43 @@
   font-family: inherit;
   outline: none;
   padding: 0;
-  width: auto;
   color: var(--text);
+  cursor: pointer;
 }
 
 .ios-price-box {
   text-align: right;
-  border-left: 1px solid #d1d1d6;
+  border-left: 1px solid var(--primary-light);
   padding-left: 15px;
+}
+
+.ios-price-value {
+  font-size: 28px; 
+  line-height: 1;  
 }
 
 .ios-divider {
   border: 0;
-  border-top: 1px solid var(--primary-light);
+  border-top: 1px solid var(--separator);
   margin: 20px 0;
 }
 
+/* ==========================================================================
+   4. CUSTOMER DATA FIELD GRID
+   ========================================================================== */
 .modal-profile-box {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: var(--background);
+  background: #ffffff;
+  border: 1px solid var(--separator);
   padding: 14px 16px;
   border-radius: 12px;
   margin-bottom: 25px;
 }
 
 .ios-input-group {
-  border-bottom: 1px solid var(--ocra);
+  border-bottom: 1px solid var(--separator);
   padding-bottom: 8px;
 }
 
@@ -189,8 +138,9 @@
   background: transparent;
   font-size: 15px;
   outline: none;
-  padding: 0;
+  padding: 4px 0 0 0;
   color: var(--text);
+  font-family: inherit;
 }
 
 .row-fields {
@@ -203,18 +153,8 @@
 }
 
 .field-left-border {
-  border-left: 1px solid var(--ocra) !important;
+  border-left: 1px solid var(--separator) !important;
   padding-left: 10px !important;
-}
-
-.inline-field {
-  display: flex;
-  align-items: center;
-}
-
-.inline-field input[type="date"] {
-  width: 100%;
-  font-family: inherit;
 }
 
 .field-no-border {
@@ -223,80 +163,122 @@
 }
 
 /* ==========================================================================
-   4. AZIONI E UTILITY BOTTONI POPUP iOS
+   5. iOS CONFIRM BUTTON
    ========================================================================== */
-.ios-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
 .btn-ios-primary {
-  background: var(--primary-dark);
+  background: transparent;
   color: var(--text);
-  border: none;
+  border-color: var(--primary-dark);
   padding: 14px;
   border-radius: 12px;
   font-size: 17px;
   font-weight: 600;
   cursor: pointer;
   width: 100%;
-  box-shadow: 0 4px 12px rgba(212, 172, 13, 0.25);
+  transition: opacity 0.15s, transform 0.15s;
+  margin-top: 20px; 
 }
 
-.ios-occupato-info {
-  margin-bottom: 20px;
-  font-size: 0.95em;
-  line-height: 1.5;
-}
-
-.txt-status-occupato {
-  color: var(--status-reserved);
-  font-weight: bold;
-}
-
-.ios-vertical-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.ios-vertical-actions button {
-  width: 100%;
-  border: none;
-  padding: 12px;
-  border-radius: 12px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-}
-
-.btn-ios-action-change {
+.btn-ios-primary:hover{
   background: var(--primary-dark);
-  color: var(--text);
 }
 
-.btn-ios-action-delete {
-  background: var(--delete-btn);
-  color: white;
-}
-
-.btn-ios-action-dismiss {
-  background: var(--return-btn);
-  color: #000000;
+.btn-ios-primary:active {
+  transform: scale(0.98);
 }
 
 /* ==========================================================================
-   5. UTILITY TIPOGRAFICHE POPUP iOS
+   6. TYPOGRAPHY UTILITIES
    ========================================================================== */
-.txt-oro-main { color: var(--primary-dark) !important; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
-.txt-info-ombrellone-large { font-size: 16px !important; font-weight: 600; }
-.txt-oro-sub { color: var(--primary-dark) !important; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-.txt-oro-sub-inline { color: var(--primary-dark) !important; font-size: 15px; font-weight: 600; }
-.txt-tipologia-small { font-size: 14px !important; font-weight: 400 !important; }
-.txt-grigio-medium { color: #333333 !important; font-weight: 500; }
-.txt-grigio-medium-label { color: #333333 !important; font-size: 14px; font-weight: 500; }
-.txt-grigio-bold { color: #333333 !important; font-weight: 700 !important; }
-.ios-price-value.txt-grigio-bold { font-size: 22px; color: #333333 !important; }
-.ios-input-group input::placeholder { color: #8e8e93; opacity: 0.7; }
+.txt-oro-main {
+  color: var(--ocra) !important;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 2px; 
+}
+
+.txt-oro-sub {
+  color: var(--ocra) !important;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px; 
+  padding-left: 5px;   
+}
+
+.txt-oro-sub-inline {
+  color: var(--ocra) !important;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.txt-tipologia-small {
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;   
+  letter-spacing: 1px;         
+}
+
+.txt-grigio-medium {
+  color: #333333 !important;
+}
+
+.txt-grigio-medium-label {
+  color: var(--text-muted) !important;
+  font-size: 11px;
+  font-weight: 500;
+  margin-bottom: 2px;
+  display: block;
+}
+
+@keyframes iosModalFadeIn {
+  from {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#wrapper-view-actions .btn-ios-danger {
+  background-color: transparent;
+  color: black;
+  border-color: var(--delete-btn);
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 50%;
+  transition: opacity 0.15s;
+}
+
+#wrapper-view-actions .btn-ios-danger:hover {
+  background-color:  var(--delete-btn);
+}
+
+#wrapper-view-actions .btn-ios-secondary{
+  background-color: transparent;
+  color: black;
+  border-color: var(--primary-dark);
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 50%;
+  transition: opacity 0.15s;
+}
+
+#wrapper-view-actions .btn-ios-secondary:hover {
+  background-color: var(--primary-dark);
+}
+
+#wrapper-view-actions .btn-ios-danger:active,
+#wrapper-view-actions .btn-ios-secondary:active {
+  opacity: 0.7;
+}

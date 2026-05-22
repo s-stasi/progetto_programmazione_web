@@ -91,22 +91,6 @@
   background: #c0392b;
 }
 
-.btn-apply {
-  background: #e67e22; /* Arancione pulsante applica filtri */
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  align-self: flex-end;
-  margin-top: 15px;
-  transition: background 0.2s;
-}
-
-.btn-apply:hover {
-  background: #d35400;
-}
 
 /* ==========================================================================
    3. PAGINAZIONE DELLA TABELLA

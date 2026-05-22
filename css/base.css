@@ -61,8 +61,6 @@ body {
   overflow-y: auto;
 }
 
-
-
 .footer {
   grid-area: footer;
   background: var(--primary);

@@ -1,14 +1,12 @@
 /* ==========================================================================
    1. NAVIGATION AND SIDEBAR (INCLUDING FILTERS & ACCORDION)
    ========================================================================== */
-/*.navigation h2,
-.search h2 {
-  font-size: clamp(11px, 1.1vw, 13px);
+.ricerca-titolo {
   color: var(--primary-dark);
   text-transform: uppercase;
   margin-bottom: 15px;
   white-space: nowrap;
-}*/
+}
 
 .navigation ul {
   list-style: none;
@@ -20,23 +18,17 @@
 
 .navigation ul li a {
   text-decoration: none;
-  color: #333; /* Dark grey for link legibility */
-  font-weight: 500;
+  color: var(--text);
+  font-weight: bold;
   display: block;
   padding: 5px 0;
   font-size: clamp(13px, 1.2vw, 15px);
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .navigation ul li a.active {
   color: var(--primary-dark);
-  font-weight: bold;
 }
-
-/*.submenu-reserve {
-  margin-left: 15px;
-  margin-top: 5px;
-}*/
 
 .date-field {
   margin-bottom: 12px;
@@ -55,7 +47,7 @@
   width: 100%;
   font-size: clamp(12px, 1.1vw, 14px);
   padding: 6px;
-  border: 1px solid var(--primary-light);
+  border: 1px solid var(--primary);
   border-radius: 4px;
 }
 
@@ -66,7 +58,7 @@
 .sidebar-filters {
   margin-top: 30px;
   padding-top: 20px;
-  border-top: 2px dashed var(--primary-light);
+  border-top: 2px dashed var(--ocra);
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -85,18 +77,22 @@
 
 details.filter-group {
   margin-bottom: 15px;
-  background: #fff;
-  border: 1px solid var(--primary-light);
+  border: 1px solid var(--primary);
   border-radius: 6px;
   padding: 10px;
 }
 
 summary.filter-title {
   font-weight: bold;
-  color: var(--ocra);
+  color: var(--text);
   cursor: pointer;
   outline: none;
   font-size: clamp(12px, 1.1vw, 14px);
+  transition: color 0.2s ease;
+}
+
+details.filter-group[open] summary.filter-title {
+  color: var(--primary-dark);
 }
 
 .filter-content {
@@ -121,11 +117,16 @@ summary.filter-title {
   font-size: clamp(11px, 1vw, 13px);
 }
 
+.no-filters-msg {
+  font-size: 0.85em;
+  color: #888;
+}
+
 /* ==========================================================================
    2. BUTTONS AND INTERFACE COMPONENTS (UI)
    ========================================================================== */
 .btn-apply {
-  background: var(--primary);
+  background: var(--primary); 
   color: var(--text);
   border: none;
   padding: 10px 15px;
@@ -134,4 +135,9 @@ summary.filter-title {
   font-weight: bold;
   align-self: flex-end;
   margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.btn-apply:hover {
+  background: var(--primary-dark);
 }
