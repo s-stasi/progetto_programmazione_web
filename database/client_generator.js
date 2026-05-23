@@ -1,16 +1,17 @@
-import { faker } from '@faker-js/faker';
-import * as fs from 'fs';
+import { fakerIT as faker } from '@faker-js/faker';import * as fs from 'fs';
 
 faker.seed(123);
 
 // Class to represent a customer matching the DB schema
 class Customer {
-  constructor(code, firstName, lastName, address, birthDate) {
+  constructor(code, firstName, lastName, address, birthDate, email, telefono) {
     this.code = code;
     this.firstName = firstName;
     this.lastName = lastName;
     this.address = address;
     this.birthDate = birthDate;
+    this.email=email;
+    this.telefono=telefono;
   }
 }
 
@@ -33,7 +34,9 @@ for (let i = 0; i < recordsToGenerate; i++) {
     faker.person.firstName(),
     faker.person.lastName(),
     faker.location.streetAddress(),
-    formattedDate
+    formattedDate,
+    faker.internet.email(),
+    faker.phone.number('+39 (0)### ### ###')
   );
   
   // Add to the array

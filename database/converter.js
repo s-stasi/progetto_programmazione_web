@@ -48,8 +48,8 @@ function writeInserts(tableName, columns, dataArray) {
 // 1. Independent entities (Foreign Key level 0)
 console.log('Converting Customers...');
 const customers = loadJson('customers_mock.json');
-writeInserts('Cliente', ['codice', 'nome', 'cognome', 'dataNascita', 'indirizzo'], 
-  customers.map(c => ({ codice: c.code, nome: c.firstName, cognome: c.lastName, dataNascita: c.birthDate, indirizzo: c.address })));
+writeInserts('Cliente', ['codice', 'nome', 'cognome', 'dataNascita', 'indirizzo','email', 'telefono'], 
+  customers.map(c => ({ codice: c.code, nome: c.firstName, cognome: c.lastName, dataNascita: c.birthDate, indirizzo: c.address, email:c.email, telefono:c.telefono })));
 
 // 2. Tipologia (Static data)
 console.log('Converting Types...');
@@ -69,12 +69,12 @@ const umbrellas = loadJson('umbrellas_data.json');
 writeInserts('Ombrellone', ['id', 'settore', 'numFila', 'numPostoFila', 'tipologia'], 
   umbrellas.map(u => ({ id: u.id, settore: u.id_settore, numFila: u.numFila, numPostoFila: u.numPostoFile, tipologia: u.tipologia })));
 
-const tariffs = loadJson('tariffs_2025_2028.json');
-writeInserts('Tariffa', ['codice', 'prezzo', 'dataInizio', 'dataFine', 'tipo', 'numMinGiorni'], tariffs);
+const tariffs = loadJson('tariffs_aggiornate.json');
+writeInserts('Tariffa', ['id', 'prezzo', 'dataInizio', 'dataFine', 'tipo', 'numMinGiorni'], tariffs);
 
 // 4. Relationship tables
 console.log('Converting Relations...');
-const typeTariff = loadJson('tipologia_tariffa_2025_2028.json');
+const typeTariff = loadJson('tipologia_tariffa_aggiornata.json');
 writeInserts('TipologiaTariffa', ['codTipologia', 'codTariffa'], typeTariff);
 
 // 5. Transactional data (FK Level 2+)

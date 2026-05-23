@@ -17,7 +17,9 @@ CREATE TABLE Cliente (
   nome VARCHAR(100) NOT NULL,
   cognome VARCHAR(100) NOT NULL,
   dataNascita DATE,
-  indirizzo VARCHAR(255)
+  indirizzo VARCHAR(255),
+  email VARCHAR(255) NOT NULL,     
+  telefono VARCHAR(20)NOT NULL
 ) ENGINE=InnoDB;
 
 CREATE TABLE Tipologia (
@@ -27,7 +29,7 @@ CREATE TABLE Tipologia (
 ) ENGINE=InnoDB;
 
 CREATE TABLE Tariffa (
-  codice VARCHAR(50) PRIMARY KEY,
+  id INT PRIMARY KEY,
   prezzo DECIMAL(10, 2) NOT NULL,
   dataInizio DATE NOT NULL,
   dataFine DATE NOT NULL,
@@ -36,7 +38,7 @@ CREATE TABLE Tariffa (
   
   -- Constraint exactly as specified in the assignment slides
   CONSTRAINT chk_tariffa_tipo CHECK (
-    (tipo = 'Giornaliera' AND numMinGiorni IS NULL) 
+    (tipo = 'Giornaliera' AND numMinGiorni=1) 
     OR 
     (tipo = 'Abbonamento' AND numMinGiorni IS NOT NULL)
   )
@@ -46,10 +48,10 @@ CREATE TABLE Tariffa (
 
 CREATE TABLE TipologiaTariffa (
   codTipologia VARCHAR(50),
-  codTariffa VARCHAR(50),
+  codTariffa INT,
   PRIMARY KEY (codTipologia, codTariffa),
   CONSTRAINT fk_tiptar_tipologia FOREIGN KEY (codTipologia) REFERENCES Tipologia(codice) ON DELETE CASCADE,
-  CONSTRAINT fk_tiptar_tariffa FOREIGN KEY (codTariffa) REFERENCES Tariffa(codice) ON DELETE CASCADE
+  CONSTRAINT fk_tiptar_tariffa FOREIGN KEY (codTariffa) REFERENCES Tariffa(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
 CREATE TABLE Ombrellone (
