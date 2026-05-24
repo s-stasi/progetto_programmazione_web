@@ -20,6 +20,7 @@ const basePrices = {
 function generateMultiYearTariffsAndRelations(startYear, endYear) {
   const tariffs = [];
   const typeTariffRelations = [];
+  let currentId = 1;
 
   for (let year = startYear; year <= endYear; year++) {
     for (const type of umbrellaTypes) {
@@ -31,55 +32,54 @@ function generateMultiYearTariffsAndRelations(startYear, endYear) {
         const endDate = `${year}-${season.endDay}`;
 
         // 1. TARIFFA GIORNALIERA (Prezzo Pieno, Nessuno Sconto)
-        const dailyCode = `TAR-${type}-${season.name}-${year}-D`;
         tariffs.push({ 
-          codice: dailyCode, 
+          id: currentId, 
           prezzo: Number(finalDailyPrice.toFixed(2)),
           dataInizio: startDate, 
           dataFine: endDate, 
           tipo: 'Giornaliera', 
-          numMinGiorni: 0
+          numMinGiorni: 1
         });
-        typeTariffRelations.push({ codTipologia: type, codTariffa: dailyCode });
-
+        typeTariffRelations.push({ codTipologia: type, codTariffa: currentId });
+        currentId++;
         // 2. ABBONAMENTO 1-7 GIORNI (Sconto 7%)
-        const shortCode = `TAR-${type}-${season.name}-${year}-SHORT`;
         const priceShort = finalDailyPrice * 0.93;
         tariffs.push({ 
-          codice: shortCode, 
+          id: currentId, 
           prezzo: Number(priceShort.toFixed(2)), 
           dataInizio: startDate, 
           dataFine: endDate, 
           tipo: 'Abbonamento', 
           numMinGiorni: 1 
         });
-        typeTariffRelations.push({ codTipologia: type, codTariffa: shortCode });
+        typeTariffRelations.push({ codTipologia: type, codTariffa: currentId });
+        currentId++;
 
         // 3. ABBONAMENTO 8-20 GIORNI (Sconto 10%)
-        const midCode = `TAR-${type}-${season.name}-${year}-MID`;
         const priceMid = finalDailyPrice * 0.90;
         tariffs.push({ 
-          codice: midCode, 
+          id: currentId, 
           prezzo: Number(priceMid.toFixed(2)), 
           dataInizio: startDate, 
           dataFine: endDate, 
           tipo: 'Abbonamento', 
           numMinGiorni: 8 
         });
-        typeTariffRelations.push({ codTipologia: type, codTariffa: midCode });
+        typeTariffRelations.push({ codTipologia: type, codTariffa: currentId });
+        currentId++;
 
         // 4. ABBONAMENTO LUNGO > 20 GIORNI (Sconto 15%)
-        const longCode = `TAR-${type}-${season.name}-${year}-LONG`;
         const priceLong = finalDailyPrice * 0.85;
         tariffs.push({ 
-          codice: longCode, 
+          id: currentId, 
           prezzo: Number(priceLong.toFixed(2)), 
           dataInizio: startDate, 
           dataFine: endDate, 
           tipo: 'Abbonamento', 
           numMinGiorni: 21 
         });
-        typeTariffRelations.push({ codTipologia: type, codTariffa: longCode });
+        typeTariffRelations.push({ codTipologia: type, codTariffa: currentId });
+        currentId++;
       }
     }
   }

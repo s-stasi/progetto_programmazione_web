@@ -40,17 +40,19 @@ function generaDatiMassivi() {
         for (let j = 0; j < quantiOmbrelloni; j++) {
             const idOmbrellone = Math.floor(Math.random() * 1000) + 1; //
             
-            vendite.push({
-                idContratto: i,
-                idOmbrellone: idOmbrellone
-            });
 
             // Popoliamo la tabella giorno_disponibilita per ogni singolo giorno della prenotazione
             let dataCorrente = new Date(dataInizio);
             while (dataCorrente <= dataFine) {
+                const dataStr=dataCorrente.toISOString().split('T')[0];  
                 disponibilita.push({
                     idOmbrellone: idOmbrellone,
-                    data: dataCorrente.toISOString().split('T')[0]
+                    data: dataStr,
+                });
+                vendite.push({
+                    idOmbrellone: idOmbrellone,
+                    data: dataStr,
+                    contratto: i
                 });
                 dataCorrente.setDate(dataCorrente.getDate() + 1);
             }

@@ -28,14 +28,14 @@
           echo "<tr><td colspan='6' style='color:red;'>Database connection failed: " . $conn->connect_error . "</td></tr>";
         } else {
           // Fetch tariffs ordering by date (newest first) and then by minimum days
-          $sql = "SELECT codice, dataInizio, dataFine, numMinGiorni, prezzo FROM Tariffa ORDER BY dataInizio, numMinGiorni ASC LIMIT 50";
+          $sql = "SELECT id, dataInizio, dataFine, numMinGiorni, prezzo FROM Tariffa ORDER BY dataInizio, numMinGiorni ASC LIMIT 50";
           $result = $conn->query($sql);
 
           if ($result && $result->num_rows > 0) {
             while($row = $result->fetch_assoc()) {
               echo "<tr>";
               // Use null coalescing to provide an empty string if null
-              echo "<td>" . htmlspecialchars($row['codice'] ?? '') . "</td>";
+              echo "<td>" . htmlspecialchars($row['id'] ?? '') . "</td>";
               
               // Safely handle potentially null dates
               $start = !empty($row['dataInizio']) ? date('d/m/Y', strtotime($row['dataInizio'])) : '-';
@@ -58,7 +58,7 @@
                       <button class='btn-edit'>
                         <span class='material-symbols-outlined' style='font-size: 18px;'>edit</span>
                       </button>
-                      <button class='btn-delete' onclick='deleteTariff(\"" . htmlspecialchars($row['codice'] ?? '') . "\")'>
+                      <button class='btn-delete' onclick='deleteTariff(\"" . htmlspecialchars($row['id'] ?? '') . "\")'>
                         <span class='material-symbols-outlined' style='font-size: 18px;'>delete</span>
                       </button>
                     </td>";
