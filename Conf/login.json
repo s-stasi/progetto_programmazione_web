@@ -1,0 +1,21 @@
+{
+    "Provider": {
+        "tmdb": ""
+    },
+    "crunchyroll": {
+        "device_id": "",
+        "etp_rt": ""
+    },
+    "tubi": {
+        "email": "",
+        "password": ""
+    },
+    "mediasetinfinity": {
+        "beToken": ""
+    },
+    "discoveryplus": {
+        "st": ""
+    },
+    "primevideo": {
+    }
+}
