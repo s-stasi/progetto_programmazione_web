@@ -65,8 +65,12 @@ $currentPage = basename($_SERVER['PHP_SELF']);
           $nomeFiltro = $_GET['search_nome'] ?? '';
           $isOpen = (!empty($cognomeFiltro) || !empty($nomeFiltro)) ? 'open' : '';
 
-          $data_nascita = $_GET['data_nascita'] ?? '';
+          $annoNascita = $_GET['anno_nascita'] ?? '';
+          $emailFiltro = $_GET['search_email'] ?? '';
+          $telefonoFiltro = $_GET['search_telefono'] ?? '';
           $isOpen = (!empty($data_nascita)) ? 'open' : '';
+          $isAnnoOpen = (!empty($annoNascita)) ? 'open' : '';
+          $isContattiOpen = (!empty($emailFiltro) || !empty($telefonoFiltro)) ? 'open' : '';
           ?>
           <details class="filter-group" <?php echo $isOpen; ?>>
             <summary class="filter-title">Nome</summary>
@@ -81,15 +85,25 @@ $currentPage = basename($_SERVER['PHP_SELF']);
               </label>
             </div>
           </details>
-          <details class="filter-group" <?php echo $isOpen; ?>>
-            <summary class="filter-title">Data di nascita</summary>
+          <details class="filter-group" <?php echo $isAnnoOpen; ?>>
+            <summary class="filter-title">Anno di nascita</summary>
             <div class="filter-content">
-              <label>Data:
-                <input type="date" name="data_nascita" value="<?php echo htmlspecialchars($data_nascita); ?>">
+              <label>Anno:
+                <input type="number" name="anno_nascita" placeholder="es. 1990" value="<?php echo htmlspecialchars($annoNascita); ?>">
               </label>
             </div>
           </details>
-
+<details class="filter-group" <?php echo $isContattiOpen; ?>>
+            <summary class="filter-title">Contatti</summary>
+            <div class="filter-content">
+              <label>Email:
+                <input type="text" name="search_email" placeholder="es. mario@email.it" value="<?php echo htmlspecialchars($emailFiltro); ?>">
+              </label>
+              <label>Telefono:
+                <input type="text" name="search_telefono" placeholder="es. 333123..." value="<?php echo htmlspecialchars($telefonoFiltro); ?>">
+              </label>
+            </div>
+          </details>
         <?php
         } else {
           echo "<p class='no-filters-msg'>No filtri attivi</p>";
@@ -99,6 +113,10 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       </div>
 
       <button type="submit" class="btn-apply">Applica Filti</button>
+      
+      <?php if ($currentPage == 'clienti.php' || $currentPage == 'contratti.php'): ?>
+        <a href="<?php echo $currentPage; ?>" style="text-align: center; margin-top: 15px; display: block; color: var(--text-muted, #888); font-size: 13px; text-decoration: none;">Resetta Filtri</a>
+      <?php endif; ?>
     </form>
   </div>
 </aside>

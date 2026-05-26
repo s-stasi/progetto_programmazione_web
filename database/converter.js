@@ -80,12 +80,25 @@ writeInserts('TipologiaTariffa', ['codTipologia', 'codTariffa'], typeTariff);
 // 5. Transactional data (FK Level 2+)
 console.log('Converting Contracts and Sales...');
 const contracts = loadJson('final_contracts.json');
-writeInserts('Contratto', ['numProgr', 'data', 'importo', 'stipulatoDa'], contracts);
+writeInserts('Contratto', ['numProgr', 'data', 'importo', 'stipulatoDa'], 
+  contracts.map(c => ({ 
+    numProgr: c.id || c.numProgr, 
+    data: c.data||c.dataInizio, 
+    importo: c.importo, 
+    stipulatoDa: c.stipulatoDa||c.idCliente 
+  }))
+);
 
 const availability = loadJson('final_availability.json');
 writeInserts('GiornoDisponibilita', ['idOmbrellone', 'data'], availability);
 
 const sales = loadJson('final_sales.json');
-writeInserts('OmbrelloneVenduto', ['idOmbrellone', 'data', 'contratto'], sales);
+writeInserts('OmbrelloneVenduto', ['idOmbrellone', 'data', 'contratto'], 
+  sales.map(s => ({
+    idOmbrellone: s.idOmbrellone,
+    data: s.data,
+    contratto: s.contratto || s.idContratto
+  }))
+);
 
 console.log(`Done! SQL seeding file generated: ${sqlFile}`);
