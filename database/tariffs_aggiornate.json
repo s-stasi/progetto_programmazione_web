@@ -5,7 +5,7 @@
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 2,
@@ -37,7 +37,7 @@
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 6,
@@ -69,7 +69,7 @@
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 10,
@@ -101,7 +101,7 @@
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 14,
@@ -133,7 +133,7 @@
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 18,
@@ -165,7 +165,7 @@
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 22,
@@ -197,7 +197,7 @@
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 26,
@@ -229,7 +229,7 @@
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 30,
@@ -261,7 +261,7 @@
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 34,
@@ -293,7 +293,7 @@
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 38,
@@ -325,7 +325,7 @@
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 42,
@@ -357,7 +357,7 @@
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 46,
@@ -389,7 +389,7 @@
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 50,
@@ -421,7 +421,7 @@
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 54,
@@ -453,7 +453,7 @@
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 58,
@@ -485,7 +485,7 @@
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 62,
@@ -517,7 +517,7 @@
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 66,
@@ -549,7 +549,7 @@
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 70,
@@ -581,7 +581,7 @@
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 74,
@@ -613,7 +613,7 @@
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 78,
@@ -645,7 +645,7 @@
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 82,
@@ -677,7 +677,7 @@
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 86,
@@ -709,7 +709,7 @@
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 90,
@@ -741,7 +741,7 @@
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 94,
@@ -773,7 +773,7 @@
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 98,
@@ -805,7 +805,7 @@
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 102,
@@ -837,7 +837,7 @@
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 106,
@@ -869,7 +869,7 @@
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 110,
@@ -901,7 +901,7 @@
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 114,
@@ -933,7 +933,7 @@
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 118,
@@ -965,7 +965,7 @@
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 122,
@@ -997,7 +997,7 @@
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 126,
@@ -1029,7 +1029,7 @@
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 130,
@@ -1061,7 +1061,7 @@
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 134,
@@ -1093,7 +1093,7 @@
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 138,
@@ -1125,7 +1125,7 @@
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 142,
@@ -1157,7 +1157,7 @@
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 146,
@@ -1189,7 +1189,7 @@
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 150,
@@ -1221,7 +1221,7 @@
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 154,
@@ -1253,7 +1253,7 @@
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 158,
@@ -1285,7 +1285,7 @@
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 162,
@@ -1317,7 +1317,7 @@
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 166,
@@ -1349,7 +1349,7 @@
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 170,
@@ -1381,7 +1381,7 @@
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 174,
@@ -1413,7 +1413,7 @@
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 178,
@@ -1445,7 +1445,7 @@
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 182,
@@ -1477,7 +1477,7 @@
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 186,
@@ -1509,7 +1509,7 @@
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 190,
@@ -1541,7 +1541,7 @@
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 194,
@@ -1573,7 +1573,7 @@
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 198,
@@ -1605,7 +1605,7 @@
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 202,
@@ -1637,7 +1637,7 @@
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 206,
@@ -1669,7 +1669,7 @@
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 210,
@@ -1701,7 +1701,7 @@
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 214,
@@ -1733,7 +1733,7 @@
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 218,
@@ -1765,7 +1765,7 @@
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 222,
@@ -1797,7 +1797,7 @@
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 226,
@@ -1829,7 +1829,7 @@
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 230,
@@ -1861,7 +1861,7 @@
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 234,
@@ -1893,7 +1893,7 @@
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 238,
@@ -1925,7 +1925,7 @@
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 242,
@@ -1957,7 +1957,7 @@
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 246,
@@ -1989,7 +1989,7 @@
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 250,
@@ -2021,7 +2021,7 @@
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 254,
@@ -2053,7 +2053,7 @@
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 258,
@@ -2085,7 +2085,7 @@
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 262,
@@ -2117,7 +2117,7 @@
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 266,
@@ -2149,7 +2149,7 @@
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 270,
@@ -2181,7 +2181,7 @@
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 274,
@@ -2213,7 +2213,7 @@
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 278,
@@ -2245,7 +2245,7 @@
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 282,
@@ -2277,7 +2277,7 @@
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 286,
@@ -2309,7 +2309,7 @@
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 290,
@@ -2341,7 +2341,7 @@
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 294,
@@ -2373,7 +2373,7 @@
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 298,
@@ -2405,7 +2405,7 @@
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 302,
@@ -2437,7 +2437,7 @@
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 306,
@@ -2469,7 +2469,7 @@
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 310,
@@ -2501,7 +2501,7 @@
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 314,
@@ -2533,7 +2533,7 @@
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Giornaliera",
-    "numMinGiorni": 1
+    "numMinGiorni": null
   },
   {
     "id": 318,

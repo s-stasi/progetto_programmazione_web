@@ -38,7 +38,7 @@ function generateMultiYearTariffsAndRelations(startYear, endYear) {
           dataInizio: startDate, 
           dataFine: endDate, 
           tipo: 'Giornaliera', 
-          numMinGiorni: 1
+          numMinGiorni: null
         });
         typeTariffRelations.push({ codTipologia: type, codTariffa: currentId });
         currentId++;
@@ -49,8 +49,8 @@ function generateMultiYearTariffsAndRelations(startYear, endYear) {
           prezzo: Number(priceShort.toFixed(2)), 
           dataInizio: startDate, 
           dataFine: endDate, 
-          tipo: 'Abbonamento', 
-          numMinGiorni: 1 
+          tipo: 'Abbonamento',
+          numMinGiorni: 1
         });
         typeTariffRelations.push({ codTipologia: type, codTariffa: currentId });
         currentId++;
