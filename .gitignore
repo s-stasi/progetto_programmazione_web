@@ -1,3 +1,17 @@
 .DS_Store
-config.php
 .idea/
+config.php
+
+# Maven target directory
+target/
+
+# Eclipse project files
+.classpath
+.project
+.settings/
+
+# Java build files
+*.class
+*.jar
+*.war
+*.ear
