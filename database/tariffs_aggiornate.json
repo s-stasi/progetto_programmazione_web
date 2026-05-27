@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Giornaliera",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "prezzo": 11.72,
+    "prezzo": 16.74,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "prezzo": 11.34,
+    "prezzo": 16.2,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -25,7 +25,7 @@
   },
   {
     "id": 4,
-    "prezzo": 10.71,
+    "prezzo": 15.3,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -33,7 +33,7 @@
   },
   {
     "id": 5,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Giornaliera",
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "prezzo": 20.09,
+    "prezzo": 18.41,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -49,7 +49,7 @@
   },
   {
     "id": 7,
-    "prezzo": 19.44,
+    "prezzo": 17.82,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -57,7 +57,7 @@
   },
   {
     "id": 8,
-    "prezzo": 18.36,
+    "prezzo": 16.83,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -65,7 +65,7 @@
   },
   {
     "id": 9,
-    "prezzo": 39.6,
+    "prezzo": 23.4,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Giornaliera",
@@ -73,7 +73,7 @@
   },
   {
     "id": 10,
-    "prezzo": 36.83,
+    "prezzo": 21.76,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -81,7 +81,7 @@
   },
   {
     "id": 11,
-    "prezzo": 35.64,
+    "prezzo": 21.06,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -89,7 +89,7 @@
   },
   {
     "id": 12,
-    "prezzo": 33.66,
+    "prezzo": 19.89,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -97,7 +97,7 @@
   },
   {
     "id": 13,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Giornaliera",
@@ -105,7 +105,7 @@
   },
   {
     "id": 14,
-    "prezzo": 20.09,
+    "prezzo": 18.41,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -113,7 +113,7 @@
   },
   {
     "id": 15,
-    "prezzo": 19.44,
+    "prezzo": 17.82,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -121,7 +121,7 @@
   },
   {
     "id": 16,
-    "prezzo": 18.36,
+    "prezzo": 16.83,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -129,7 +129,7 @@
   },
   {
     "id": 17,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Giornaliera",
@@ -137,7 +137,7 @@
   },
   {
     "id": 18,
-    "prezzo": 11.72,
+    "prezzo": 16.74,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -145,7 +145,7 @@
   },
   {
     "id": 19,
-    "prezzo": 11.34,
+    "prezzo": 16.2,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -153,7 +153,7 @@
   },
   {
     "id": 20,
-    "prezzo": 10.71,
+    "prezzo": 15.3,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -161,7 +161,7 @@
   },
   {
     "id": 21,
-    "prezzo": 16.1,
+    "prezzo": 23,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Giornaliera",
@@ -169,7 +169,7 @@
   },
   {
     "id": 22,
-    "prezzo": 14.97,
+    "prezzo": 21.39,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -177,7 +177,7 @@
   },
   {
     "id": 23,
-    "prezzo": 14.49,
+    "prezzo": 20.7,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -185,7 +185,7 @@
   },
   {
     "id": 24,
-    "prezzo": 13.68,
+    "prezzo": 19.55,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -193,7 +193,7 @@
   },
   {
     "id": 25,
-    "prezzo": 27.6,
+    "prezzo": 25.3,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Giornaliera",
@@ -201,7 +201,7 @@
   },
   {
     "id": 26,
-    "prezzo": 25.67,
+    "prezzo": 23.53,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -209,7 +209,7 @@
   },
   {
     "id": 27,
-    "prezzo": 24.84,
+    "prezzo": 22.77,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -217,7 +217,7 @@
   },
   {
     "id": 28,
-    "prezzo": 23.46,
+    "prezzo": 21.5,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -225,7 +225,7 @@
   },
   {
     "id": 29,
-    "prezzo": 50.6,
+    "prezzo": 29.9,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Giornaliera",
@@ -233,7 +233,7 @@
   },
   {
     "id": 30,
-    "prezzo": 47.06,
+    "prezzo": 27.81,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -241,7 +241,7 @@
   },
   {
     "id": 31,
-    "prezzo": 45.54,
+    "prezzo": 26.91,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -249,7 +249,7 @@
   },
   {
     "id": 32,
-    "prezzo": 43.01,
+    "prezzo": 25.42,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -257,7 +257,7 @@
   },
   {
     "id": 33,
-    "prezzo": 27.6,
+    "prezzo": 25.3,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Giornaliera",
@@ -265,7 +265,7 @@
   },
   {
     "id": 34,
-    "prezzo": 25.67,
+    "prezzo": 23.53,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -273,7 +273,7 @@
   },
   {
     "id": 35,
-    "prezzo": 24.84,
+    "prezzo": 22.77,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -281,7 +281,7 @@
   },
   {
     "id": 36,
-    "prezzo": 23.46,
+    "prezzo": 21.5,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -289,7 +289,7 @@
   },
   {
     "id": 37,
-    "prezzo": 16.1,
+    "prezzo": 23,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Giornaliera",
@@ -297,7 +297,7 @@
   },
   {
     "id": 38,
-    "prezzo": 14.97,
+    "prezzo": 21.39,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -305,7 +305,7 @@
   },
   {
     "id": 39,
-    "prezzo": 14.49,
+    "prezzo": 20.7,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -313,7 +313,7 @@
   },
   {
     "id": 40,
-    "prezzo": 13.68,
+    "prezzo": 19.55,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -321,7 +321,7 @@
   },
   {
     "id": 41,
-    "prezzo": 24.5,
+    "prezzo": 35,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Giornaliera",
@@ -329,7 +329,7 @@
   },
   {
     "id": 42,
-    "prezzo": 22.79,
+    "prezzo": 32.55,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -337,7 +337,7 @@
   },
   {
     "id": 43,
-    "prezzo": 22.05,
+    "prezzo": 31.5,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -345,7 +345,7 @@
   },
   {
     "id": 44,
-    "prezzo": 20.82,
+    "prezzo": 29.75,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -353,7 +353,7 @@
   },
   {
     "id": 45,
-    "prezzo": 42,
+    "prezzo": 38.5,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Giornaliera",
@@ -361,7 +361,7 @@
   },
   {
     "id": 46,
-    "prezzo": 39.06,
+    "prezzo": 35.8,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -369,7 +369,7 @@
   },
   {
     "id": 47,
-    "prezzo": 37.8,
+    "prezzo": 34.65,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -377,7 +377,7 @@
   },
   {
     "id": 48,
-    "prezzo": 35.7,
+    "prezzo": 32.73,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -385,7 +385,7 @@
   },
   {
     "id": 49,
-    "prezzo": 77,
+    "prezzo": 45.5,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Giornaliera",
@@ -393,7 +393,7 @@
   },
   {
     "id": 50,
-    "prezzo": 71.61,
+    "prezzo": 42.32,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -401,7 +401,7 @@
   },
   {
     "id": 51,
-    "prezzo": 69.3,
+    "prezzo": 40.95,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -409,7 +409,7 @@
   },
   {
     "id": 52,
-    "prezzo": 65.45,
+    "prezzo": 38.67,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -417,7 +417,7 @@
   },
   {
     "id": 53,
-    "prezzo": 42,
+    "prezzo": 38.5,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Giornaliera",
@@ -425,7 +425,7 @@
   },
   {
     "id": 54,
-    "prezzo": 39.06,
+    "prezzo": 35.8,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -433,7 +433,7 @@
   },
   {
     "id": 55,
-    "prezzo": 37.8,
+    "prezzo": 34.65,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -441,7 +441,7 @@
   },
   {
     "id": 56,
-    "prezzo": 35.7,
+    "prezzo": 32.73,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -449,7 +449,7 @@
   },
   {
     "id": 57,
-    "prezzo": 24.5,
+    "prezzo": 35,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Giornaliera",
@@ -457,7 +457,7 @@
   },
   {
     "id": 58,
-    "prezzo": 22.79,
+    "prezzo": 32.55,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -465,7 +465,7 @@
   },
   {
     "id": 59,
-    "prezzo": 22.05,
+    "prezzo": 31.5,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -473,7 +473,7 @@
   },
   {
     "id": 60,
-    "prezzo": 20.82,
+    "prezzo": 29.75,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -481,7 +481,7 @@
   },
   {
     "id": 61,
-    "prezzo": 14,
+    "prezzo": 20,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Giornaliera",
@@ -489,7 +489,7 @@
   },
   {
     "id": 62,
-    "prezzo": 13.02,
+    "prezzo": 18.6,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -497,7 +497,7 @@
   },
   {
     "id": 63,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -505,7 +505,7 @@
   },
   {
     "id": 64,
-    "prezzo": 11.9,
+    "prezzo": 17,
     "dataInizio": "2025-01-01",
     "dataFine": "2025-03-31",
     "tipo": "Abbonamento",
@@ -513,7 +513,7 @@
   },
   {
     "id": 65,
-    "prezzo": 24,
+    "prezzo": 22,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Giornaliera",
@@ -521,7 +521,7 @@
   },
   {
     "id": 66,
-    "prezzo": 22.32,
+    "prezzo": 20.46,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -529,7 +529,7 @@
   },
   {
     "id": 67,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -537,7 +537,7 @@
   },
   {
     "id": 68,
-    "prezzo": 20.4,
+    "prezzo": 18.7,
     "dataInizio": "2025-04-01",
     "dataFine": "2025-05-31",
     "tipo": "Abbonamento",
@@ -545,7 +545,7 @@
   },
   {
     "id": 69,
-    "prezzo": 44,
+    "prezzo": 26,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Giornaliera",
@@ -553,7 +553,7 @@
   },
   {
     "id": 70,
-    "prezzo": 40.92,
+    "prezzo": 24.18,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -561,7 +561,7 @@
   },
   {
     "id": 71,
-    "prezzo": 39.6,
+    "prezzo": 23.4,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -569,7 +569,7 @@
   },
   {
     "id": 72,
-    "prezzo": 37.4,
+    "prezzo": 22.1,
     "dataInizio": "2025-06-01",
     "dataFine": "2025-09-30",
     "tipo": "Abbonamento",
@@ -577,7 +577,7 @@
   },
   {
     "id": 73,
-    "prezzo": 24,
+    "prezzo": 22,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Giornaliera",
@@ -585,7 +585,7 @@
   },
   {
     "id": 74,
-    "prezzo": 22.32,
+    "prezzo": 20.46,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -593,7 +593,7 @@
   },
   {
     "id": 75,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -601,7 +601,7 @@
   },
   {
     "id": 76,
-    "prezzo": 20.4,
+    "prezzo": 18.7,
     "dataInizio": "2025-10-01",
     "dataFine": "2025-10-31",
     "tipo": "Abbonamento",
@@ -609,7 +609,7 @@
   },
   {
     "id": 77,
-    "prezzo": 14,
+    "prezzo": 20,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Giornaliera",
@@ -617,7 +617,7 @@
   },
   {
     "id": 78,
-    "prezzo": 13.02,
+    "prezzo": 18.6,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -625,7 +625,7 @@
   },
   {
     "id": 79,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -633,7 +633,7 @@
   },
   {
     "id": 80,
-    "prezzo": 11.9,
+    "prezzo": 17,
     "dataInizio": "2025-11-01",
     "dataFine": "2025-12-31",
     "tipo": "Abbonamento",
@@ -641,7 +641,7 @@
   },
   {
     "id": 81,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Giornaliera",
@@ -649,7 +649,7 @@
   },
   {
     "id": 82,
-    "prezzo": 11.72,
+    "prezzo": 16.74,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -657,7 +657,7 @@
   },
   {
     "id": 83,
-    "prezzo": 11.34,
+    "prezzo": 16.2,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -665,7 +665,7 @@
   },
   {
     "id": 84,
-    "prezzo": 10.71,
+    "prezzo": 15.3,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -673,7 +673,7 @@
   },
   {
     "id": 85,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Giornaliera",
@@ -681,7 +681,7 @@
   },
   {
     "id": 86,
-    "prezzo": 20.09,
+    "prezzo": 18.41,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -689,7 +689,7 @@
   },
   {
     "id": 87,
-    "prezzo": 19.44,
+    "prezzo": 17.82,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -697,7 +697,7 @@
   },
   {
     "id": 88,
-    "prezzo": 18.36,
+    "prezzo": 16.83,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -705,7 +705,7 @@
   },
   {
     "id": 89,
-    "prezzo": 39.6,
+    "prezzo": 23.4,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Giornaliera",
@@ -713,7 +713,7 @@
   },
   {
     "id": 90,
-    "prezzo": 36.83,
+    "prezzo": 21.76,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -721,7 +721,7 @@
   },
   {
     "id": 91,
-    "prezzo": 35.64,
+    "prezzo": 21.06,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -729,7 +729,7 @@
   },
   {
     "id": 92,
-    "prezzo": 33.66,
+    "prezzo": 19.89,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -737,7 +737,7 @@
   },
   {
     "id": 93,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Giornaliera",
@@ -745,7 +745,7 @@
   },
   {
     "id": 94,
-    "prezzo": 20.09,
+    "prezzo": 18.41,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -753,7 +753,7 @@
   },
   {
     "id": 95,
-    "prezzo": 19.44,
+    "prezzo": 17.82,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -761,7 +761,7 @@
   },
   {
     "id": 96,
-    "prezzo": 18.36,
+    "prezzo": 16.83,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -769,7 +769,7 @@
   },
   {
     "id": 97,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Giornaliera",
@@ -777,7 +777,7 @@
   },
   {
     "id": 98,
-    "prezzo": 11.72,
+    "prezzo": 16.74,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -785,7 +785,7 @@
   },
   {
     "id": 99,
-    "prezzo": 11.34,
+    "prezzo": 16.2,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -793,7 +793,7 @@
   },
   {
     "id": 100,
-    "prezzo": 10.71,
+    "prezzo": 15.3,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -801,7 +801,7 @@
   },
   {
     "id": 101,
-    "prezzo": 16.1,
+    "prezzo": 23,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Giornaliera",
@@ -809,7 +809,7 @@
   },
   {
     "id": 102,
-    "prezzo": 14.97,
+    "prezzo": 21.39,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -817,7 +817,7 @@
   },
   {
     "id": 103,
-    "prezzo": 14.49,
+    "prezzo": 20.7,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -825,7 +825,7 @@
   },
   {
     "id": 104,
-    "prezzo": 13.68,
+    "prezzo": 19.55,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -833,7 +833,7 @@
   },
   {
     "id": 105,
-    "prezzo": 27.6,
+    "prezzo": 25.3,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Giornaliera",
@@ -841,7 +841,7 @@
   },
   {
     "id": 106,
-    "prezzo": 25.67,
+    "prezzo": 23.53,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -849,7 +849,7 @@
   },
   {
     "id": 107,
-    "prezzo": 24.84,
+    "prezzo": 22.77,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -857,7 +857,7 @@
   },
   {
     "id": 108,
-    "prezzo": 23.46,
+    "prezzo": 21.5,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -865,7 +865,7 @@
   },
   {
     "id": 109,
-    "prezzo": 50.6,
+    "prezzo": 29.9,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Giornaliera",
@@ -873,7 +873,7 @@
   },
   {
     "id": 110,
-    "prezzo": 47.06,
+    "prezzo": 27.81,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -881,7 +881,7 @@
   },
   {
     "id": 111,
-    "prezzo": 45.54,
+    "prezzo": 26.91,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -889,7 +889,7 @@
   },
   {
     "id": 112,
-    "prezzo": 43.01,
+    "prezzo": 25.42,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -897,7 +897,7 @@
   },
   {
     "id": 113,
-    "prezzo": 27.6,
+    "prezzo": 25.3,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Giornaliera",
@@ -905,7 +905,7 @@
   },
   {
     "id": 114,
-    "prezzo": 25.67,
+    "prezzo": 23.53,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -913,7 +913,7 @@
   },
   {
     "id": 115,
-    "prezzo": 24.84,
+    "prezzo": 22.77,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -921,7 +921,7 @@
   },
   {
     "id": 116,
-    "prezzo": 23.46,
+    "prezzo": 21.5,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -929,7 +929,7 @@
   },
   {
     "id": 117,
-    "prezzo": 16.1,
+    "prezzo": 23,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Giornaliera",
@@ -937,7 +937,7 @@
   },
   {
     "id": 118,
-    "prezzo": 14.97,
+    "prezzo": 21.39,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -945,7 +945,7 @@
   },
   {
     "id": 119,
-    "prezzo": 14.49,
+    "prezzo": 20.7,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -953,7 +953,7 @@
   },
   {
     "id": 120,
-    "prezzo": 13.68,
+    "prezzo": 19.55,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -961,7 +961,7 @@
   },
   {
     "id": 121,
-    "prezzo": 24.5,
+    "prezzo": 35,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Giornaliera",
@@ -969,7 +969,7 @@
   },
   {
     "id": 122,
-    "prezzo": 22.79,
+    "prezzo": 32.55,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -977,7 +977,7 @@
   },
   {
     "id": 123,
-    "prezzo": 22.05,
+    "prezzo": 31.5,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -985,7 +985,7 @@
   },
   {
     "id": 124,
-    "prezzo": 20.82,
+    "prezzo": 29.75,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -993,7 +993,7 @@
   },
   {
     "id": 125,
-    "prezzo": 42,
+    "prezzo": 38.5,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Giornaliera",
@@ -1001,7 +1001,7 @@
   },
   {
     "id": 126,
-    "prezzo": 39.06,
+    "prezzo": 35.8,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -1009,7 +1009,7 @@
   },
   {
     "id": 127,
-    "prezzo": 37.8,
+    "prezzo": 34.65,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -1017,7 +1017,7 @@
   },
   {
     "id": 128,
-    "prezzo": 35.7,
+    "prezzo": 32.73,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -1025,7 +1025,7 @@
   },
   {
     "id": 129,
-    "prezzo": 77,
+    "prezzo": 45.5,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Giornaliera",
@@ -1033,7 +1033,7 @@
   },
   {
     "id": 130,
-    "prezzo": 71.61,
+    "prezzo": 42.32,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -1041,7 +1041,7 @@
   },
   {
     "id": 131,
-    "prezzo": 69.3,
+    "prezzo": 40.95,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -1049,7 +1049,7 @@
   },
   {
     "id": 132,
-    "prezzo": 65.45,
+    "prezzo": 38.67,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -1057,7 +1057,7 @@
   },
   {
     "id": 133,
-    "prezzo": 42,
+    "prezzo": 38.5,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Giornaliera",
@@ -1065,7 +1065,7 @@
   },
   {
     "id": 134,
-    "prezzo": 39.06,
+    "prezzo": 35.8,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -1073,7 +1073,7 @@
   },
   {
     "id": 135,
-    "prezzo": 37.8,
+    "prezzo": 34.65,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -1081,7 +1081,7 @@
   },
   {
     "id": 136,
-    "prezzo": 35.7,
+    "prezzo": 32.73,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -1089,7 +1089,7 @@
   },
   {
     "id": 137,
-    "prezzo": 24.5,
+    "prezzo": 35,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Giornaliera",
@@ -1097,7 +1097,7 @@
   },
   {
     "id": 138,
-    "prezzo": 22.79,
+    "prezzo": 32.55,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -1105,7 +1105,7 @@
   },
   {
     "id": 139,
-    "prezzo": 22.05,
+    "prezzo": 31.5,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -1113,7 +1113,7 @@
   },
   {
     "id": 140,
-    "prezzo": 20.82,
+    "prezzo": 29.75,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -1121,7 +1121,7 @@
   },
   {
     "id": 141,
-    "prezzo": 14,
+    "prezzo": 20,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Giornaliera",
@@ -1129,7 +1129,7 @@
   },
   {
     "id": 142,
-    "prezzo": 13.02,
+    "prezzo": 18.6,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -1137,7 +1137,7 @@
   },
   {
     "id": 143,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -1145,7 +1145,7 @@
   },
   {
     "id": 144,
-    "prezzo": 11.9,
+    "prezzo": 17,
     "dataInizio": "2026-01-01",
     "dataFine": "2026-03-31",
     "tipo": "Abbonamento",
@@ -1153,7 +1153,7 @@
   },
   {
     "id": 145,
-    "prezzo": 24,
+    "prezzo": 22,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Giornaliera",
@@ -1161,7 +1161,7 @@
   },
   {
     "id": 146,
-    "prezzo": 22.32,
+    "prezzo": 20.46,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -1169,7 +1169,7 @@
   },
   {
     "id": 147,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -1177,7 +1177,7 @@
   },
   {
     "id": 148,
-    "prezzo": 20.4,
+    "prezzo": 18.7,
     "dataInizio": "2026-04-01",
     "dataFine": "2026-05-31",
     "tipo": "Abbonamento",
@@ -1185,7 +1185,7 @@
   },
   {
     "id": 149,
-    "prezzo": 44,
+    "prezzo": 26,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Giornaliera",
@@ -1193,7 +1193,7 @@
   },
   {
     "id": 150,
-    "prezzo": 40.92,
+    "prezzo": 24.18,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -1201,7 +1201,7 @@
   },
   {
     "id": 151,
-    "prezzo": 39.6,
+    "prezzo": 23.4,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -1209,7 +1209,7 @@
   },
   {
     "id": 152,
-    "prezzo": 37.4,
+    "prezzo": 22.1,
     "dataInizio": "2026-06-01",
     "dataFine": "2026-09-30",
     "tipo": "Abbonamento",
@@ -1217,7 +1217,7 @@
   },
   {
     "id": 153,
-    "prezzo": 24,
+    "prezzo": 22,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Giornaliera",
@@ -1225,7 +1225,7 @@
   },
   {
     "id": 154,
-    "prezzo": 22.32,
+    "prezzo": 20.46,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -1233,7 +1233,7 @@
   },
   {
     "id": 155,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -1241,7 +1241,7 @@
   },
   {
     "id": 156,
-    "prezzo": 20.4,
+    "prezzo": 18.7,
     "dataInizio": "2026-10-01",
     "dataFine": "2026-10-31",
     "tipo": "Abbonamento",
@@ -1249,7 +1249,7 @@
   },
   {
     "id": 157,
-    "prezzo": 14,
+    "prezzo": 20,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Giornaliera",
@@ -1257,7 +1257,7 @@
   },
   {
     "id": 158,
-    "prezzo": 13.02,
+    "prezzo": 18.6,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -1265,7 +1265,7 @@
   },
   {
     "id": 159,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -1273,7 +1273,7 @@
   },
   {
     "id": 160,
-    "prezzo": 11.9,
+    "prezzo": 17,
     "dataInizio": "2026-11-01",
     "dataFine": "2026-12-31",
     "tipo": "Abbonamento",
@@ -1281,7 +1281,7 @@
   },
   {
     "id": 161,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Giornaliera",
@@ -1289,7 +1289,7 @@
   },
   {
     "id": 162,
-    "prezzo": 11.72,
+    "prezzo": 16.74,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1297,7 +1297,7 @@
   },
   {
     "id": 163,
-    "prezzo": 11.34,
+    "prezzo": 16.2,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1305,7 +1305,7 @@
   },
   {
     "id": 164,
-    "prezzo": 10.71,
+    "prezzo": 15.3,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1313,7 +1313,7 @@
   },
   {
     "id": 165,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Giornaliera",
@@ -1321,7 +1321,7 @@
   },
   {
     "id": 166,
-    "prezzo": 20.09,
+    "prezzo": 18.41,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1329,7 +1329,7 @@
   },
   {
     "id": 167,
-    "prezzo": 19.44,
+    "prezzo": 17.82,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1337,7 +1337,7 @@
   },
   {
     "id": 168,
-    "prezzo": 18.36,
+    "prezzo": 16.83,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1345,7 +1345,7 @@
   },
   {
     "id": 169,
-    "prezzo": 39.6,
+    "prezzo": 23.4,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Giornaliera",
@@ -1353,7 +1353,7 @@
   },
   {
     "id": 170,
-    "prezzo": 36.83,
+    "prezzo": 21.76,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1361,7 +1361,7 @@
   },
   {
     "id": 171,
-    "prezzo": 35.64,
+    "prezzo": 21.06,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1369,7 +1369,7 @@
   },
   {
     "id": 172,
-    "prezzo": 33.66,
+    "prezzo": 19.89,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1377,7 +1377,7 @@
   },
   {
     "id": 173,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Giornaliera",
@@ -1385,7 +1385,7 @@
   },
   {
     "id": 174,
-    "prezzo": 20.09,
+    "prezzo": 18.41,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1393,7 +1393,7 @@
   },
   {
     "id": 175,
-    "prezzo": 19.44,
+    "prezzo": 17.82,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1401,7 +1401,7 @@
   },
   {
     "id": 176,
-    "prezzo": 18.36,
+    "prezzo": 16.83,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1409,7 +1409,7 @@
   },
   {
     "id": 177,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Giornaliera",
@@ -1417,7 +1417,7 @@
   },
   {
     "id": 178,
-    "prezzo": 11.72,
+    "prezzo": 16.74,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1425,7 +1425,7 @@
   },
   {
     "id": 179,
-    "prezzo": 11.34,
+    "prezzo": 16.2,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1433,7 +1433,7 @@
   },
   {
     "id": 180,
-    "prezzo": 10.71,
+    "prezzo": 15.3,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1441,7 +1441,7 @@
   },
   {
     "id": 181,
-    "prezzo": 16.1,
+    "prezzo": 23,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Giornaliera",
@@ -1449,7 +1449,7 @@
   },
   {
     "id": 182,
-    "prezzo": 14.97,
+    "prezzo": 21.39,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1457,7 +1457,7 @@
   },
   {
     "id": 183,
-    "prezzo": 14.49,
+    "prezzo": 20.7,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1465,7 +1465,7 @@
   },
   {
     "id": 184,
-    "prezzo": 13.68,
+    "prezzo": 19.55,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1473,7 +1473,7 @@
   },
   {
     "id": 185,
-    "prezzo": 27.6,
+    "prezzo": 25.3,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Giornaliera",
@@ -1481,7 +1481,7 @@
   },
   {
     "id": 186,
-    "prezzo": 25.67,
+    "prezzo": 23.53,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1489,7 +1489,7 @@
   },
   {
     "id": 187,
-    "prezzo": 24.84,
+    "prezzo": 22.77,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1497,7 +1497,7 @@
   },
   {
     "id": 188,
-    "prezzo": 23.46,
+    "prezzo": 21.5,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1505,7 +1505,7 @@
   },
   {
     "id": 189,
-    "prezzo": 50.6,
+    "prezzo": 29.9,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Giornaliera",
@@ -1513,7 +1513,7 @@
   },
   {
     "id": 190,
-    "prezzo": 47.06,
+    "prezzo": 27.81,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1521,7 +1521,7 @@
   },
   {
     "id": 191,
-    "prezzo": 45.54,
+    "prezzo": 26.91,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1529,7 +1529,7 @@
   },
   {
     "id": 192,
-    "prezzo": 43.01,
+    "prezzo": 25.42,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1537,7 +1537,7 @@
   },
   {
     "id": 193,
-    "prezzo": 27.6,
+    "prezzo": 25.3,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Giornaliera",
@@ -1545,7 +1545,7 @@
   },
   {
     "id": 194,
-    "prezzo": 25.67,
+    "prezzo": 23.53,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1553,7 +1553,7 @@
   },
   {
     "id": 195,
-    "prezzo": 24.84,
+    "prezzo": 22.77,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1561,7 +1561,7 @@
   },
   {
     "id": 196,
-    "prezzo": 23.46,
+    "prezzo": 21.5,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1569,7 +1569,7 @@
   },
   {
     "id": 197,
-    "prezzo": 16.1,
+    "prezzo": 23,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Giornaliera",
@@ -1577,7 +1577,7 @@
   },
   {
     "id": 198,
-    "prezzo": 14.97,
+    "prezzo": 21.39,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1585,7 +1585,7 @@
   },
   {
     "id": 199,
-    "prezzo": 14.49,
+    "prezzo": 20.7,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1593,7 +1593,7 @@
   },
   {
     "id": 200,
-    "prezzo": 13.68,
+    "prezzo": 19.55,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1601,7 +1601,7 @@
   },
   {
     "id": 201,
-    "prezzo": 24.5,
+    "prezzo": 35,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Giornaliera",
@@ -1609,7 +1609,7 @@
   },
   {
     "id": 202,
-    "prezzo": 22.79,
+    "prezzo": 32.55,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1617,7 +1617,7 @@
   },
   {
     "id": 203,
-    "prezzo": 22.05,
+    "prezzo": 31.5,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1625,7 +1625,7 @@
   },
   {
     "id": 204,
-    "prezzo": 20.82,
+    "prezzo": 29.75,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1633,7 +1633,7 @@
   },
   {
     "id": 205,
-    "prezzo": 42,
+    "prezzo": 38.5,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Giornaliera",
@@ -1641,7 +1641,7 @@
   },
   {
     "id": 206,
-    "prezzo": 39.06,
+    "prezzo": 35.8,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1649,7 +1649,7 @@
   },
   {
     "id": 207,
-    "prezzo": 37.8,
+    "prezzo": 34.65,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1657,7 +1657,7 @@
   },
   {
     "id": 208,
-    "prezzo": 35.7,
+    "prezzo": 32.73,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1665,7 +1665,7 @@
   },
   {
     "id": 209,
-    "prezzo": 77,
+    "prezzo": 45.5,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Giornaliera",
@@ -1673,7 +1673,7 @@
   },
   {
     "id": 210,
-    "prezzo": 71.61,
+    "prezzo": 42.32,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1681,7 +1681,7 @@
   },
   {
     "id": 211,
-    "prezzo": 69.3,
+    "prezzo": 40.95,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1689,7 +1689,7 @@
   },
   {
     "id": 212,
-    "prezzo": 65.45,
+    "prezzo": 38.67,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1697,7 +1697,7 @@
   },
   {
     "id": 213,
-    "prezzo": 42,
+    "prezzo": 38.5,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Giornaliera",
@@ -1705,7 +1705,7 @@
   },
   {
     "id": 214,
-    "prezzo": 39.06,
+    "prezzo": 35.8,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1713,7 +1713,7 @@
   },
   {
     "id": 215,
-    "prezzo": 37.8,
+    "prezzo": 34.65,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1721,7 +1721,7 @@
   },
   {
     "id": 216,
-    "prezzo": 35.7,
+    "prezzo": 32.73,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1729,7 +1729,7 @@
   },
   {
     "id": 217,
-    "prezzo": 24.5,
+    "prezzo": 35,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Giornaliera",
@@ -1737,7 +1737,7 @@
   },
   {
     "id": 218,
-    "prezzo": 22.79,
+    "prezzo": 32.55,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1745,7 +1745,7 @@
   },
   {
     "id": 219,
-    "prezzo": 22.05,
+    "prezzo": 31.5,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1753,7 +1753,7 @@
   },
   {
     "id": 220,
-    "prezzo": 20.82,
+    "prezzo": 29.75,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1761,7 +1761,7 @@
   },
   {
     "id": 221,
-    "prezzo": 14,
+    "prezzo": 20,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Giornaliera",
@@ -1769,7 +1769,7 @@
   },
   {
     "id": 222,
-    "prezzo": 13.02,
+    "prezzo": 18.6,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1777,7 +1777,7 @@
   },
   {
     "id": 223,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1785,7 +1785,7 @@
   },
   {
     "id": 224,
-    "prezzo": 11.9,
+    "prezzo": 17,
     "dataInizio": "2027-01-01",
     "dataFine": "2027-03-31",
     "tipo": "Abbonamento",
@@ -1793,7 +1793,7 @@
   },
   {
     "id": 225,
-    "prezzo": 24,
+    "prezzo": 22,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Giornaliera",
@@ -1801,7 +1801,7 @@
   },
   {
     "id": 226,
-    "prezzo": 22.32,
+    "prezzo": 20.46,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1809,7 +1809,7 @@
   },
   {
     "id": 227,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1817,7 +1817,7 @@
   },
   {
     "id": 228,
-    "prezzo": 20.4,
+    "prezzo": 18.7,
     "dataInizio": "2027-04-01",
     "dataFine": "2027-05-31",
     "tipo": "Abbonamento",
@@ -1825,7 +1825,7 @@
   },
   {
     "id": 229,
-    "prezzo": 44,
+    "prezzo": 26,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Giornaliera",
@@ -1833,7 +1833,7 @@
   },
   {
     "id": 230,
-    "prezzo": 40.92,
+    "prezzo": 24.18,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1841,7 +1841,7 @@
   },
   {
     "id": 231,
-    "prezzo": 39.6,
+    "prezzo": 23.4,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1849,7 +1849,7 @@
   },
   {
     "id": 232,
-    "prezzo": 37.4,
+    "prezzo": 22.1,
     "dataInizio": "2027-06-01",
     "dataFine": "2027-09-30",
     "tipo": "Abbonamento",
@@ -1857,7 +1857,7 @@
   },
   {
     "id": 233,
-    "prezzo": 24,
+    "prezzo": 22,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Giornaliera",
@@ -1865,7 +1865,7 @@
   },
   {
     "id": 234,
-    "prezzo": 22.32,
+    "prezzo": 20.46,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1873,7 +1873,7 @@
   },
   {
     "id": 235,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1881,7 +1881,7 @@
   },
   {
     "id": 236,
-    "prezzo": 20.4,
+    "prezzo": 18.7,
     "dataInizio": "2027-10-01",
     "dataFine": "2027-10-31",
     "tipo": "Abbonamento",
@@ -1889,7 +1889,7 @@
   },
   {
     "id": 237,
-    "prezzo": 14,
+    "prezzo": 20,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Giornaliera",
@@ -1897,7 +1897,7 @@
   },
   {
     "id": 238,
-    "prezzo": 13.02,
+    "prezzo": 18.6,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1905,7 +1905,7 @@
   },
   {
     "id": 239,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1913,7 +1913,7 @@
   },
   {
     "id": 240,
-    "prezzo": 11.9,
+    "prezzo": 17,
     "dataInizio": "2027-11-01",
     "dataFine": "2027-12-31",
     "tipo": "Abbonamento",
@@ -1921,7 +1921,7 @@
   },
   {
     "id": 241,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Giornaliera",
@@ -1929,7 +1929,7 @@
   },
   {
     "id": 242,
-    "prezzo": 11.72,
+    "prezzo": 16.74,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -1937,7 +1937,7 @@
   },
   {
     "id": 243,
-    "prezzo": 11.34,
+    "prezzo": 16.2,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -1945,7 +1945,7 @@
   },
   {
     "id": 244,
-    "prezzo": 10.71,
+    "prezzo": 15.3,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -1953,7 +1953,7 @@
   },
   {
     "id": 245,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Giornaliera",
@@ -1961,7 +1961,7 @@
   },
   {
     "id": 246,
-    "prezzo": 20.09,
+    "prezzo": 18.41,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -1969,7 +1969,7 @@
   },
   {
     "id": 247,
-    "prezzo": 19.44,
+    "prezzo": 17.82,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -1977,7 +1977,7 @@
   },
   {
     "id": 248,
-    "prezzo": 18.36,
+    "prezzo": 16.83,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -1985,7 +1985,7 @@
   },
   {
     "id": 249,
-    "prezzo": 39.6,
+    "prezzo": 23.4,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Giornaliera",
@@ -1993,7 +1993,7 @@
   },
   {
     "id": 250,
-    "prezzo": 36.83,
+    "prezzo": 21.76,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2001,7 +2001,7 @@
   },
   {
     "id": 251,
-    "prezzo": 35.64,
+    "prezzo": 21.06,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2009,7 +2009,7 @@
   },
   {
     "id": 252,
-    "prezzo": 33.66,
+    "prezzo": 19.89,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2017,7 +2017,7 @@
   },
   {
     "id": 253,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Giornaliera",
@@ -2025,7 +2025,7 @@
   },
   {
     "id": 254,
-    "prezzo": 20.09,
+    "prezzo": 18.41,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2033,7 +2033,7 @@
   },
   {
     "id": 255,
-    "prezzo": 19.44,
+    "prezzo": 17.82,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2041,7 +2041,7 @@
   },
   {
     "id": 256,
-    "prezzo": 18.36,
+    "prezzo": 16.83,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2049,7 +2049,7 @@
   },
   {
     "id": 257,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Giornaliera",
@@ -2057,7 +2057,7 @@
   },
   {
     "id": 258,
-    "prezzo": 11.72,
+    "prezzo": 16.74,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2065,7 +2065,7 @@
   },
   {
     "id": 259,
-    "prezzo": 11.34,
+    "prezzo": 16.2,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2073,7 +2073,7 @@
   },
   {
     "id": 260,
-    "prezzo": 10.71,
+    "prezzo": 15.3,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2081,7 +2081,7 @@
   },
   {
     "id": 261,
-    "prezzo": 16.1,
+    "prezzo": 23,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Giornaliera",
@@ -2089,7 +2089,7 @@
   },
   {
     "id": 262,
-    "prezzo": 14.97,
+    "prezzo": 21.39,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2097,7 +2097,7 @@
   },
   {
     "id": 263,
-    "prezzo": 14.49,
+    "prezzo": 20.7,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2105,7 +2105,7 @@
   },
   {
     "id": 264,
-    "prezzo": 13.68,
+    "prezzo": 19.55,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2113,7 +2113,7 @@
   },
   {
     "id": 265,
-    "prezzo": 27.6,
+    "prezzo": 25.3,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Giornaliera",
@@ -2121,7 +2121,7 @@
   },
   {
     "id": 266,
-    "prezzo": 25.67,
+    "prezzo": 23.53,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2129,7 +2129,7 @@
   },
   {
     "id": 267,
-    "prezzo": 24.84,
+    "prezzo": 22.77,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2137,7 +2137,7 @@
   },
   {
     "id": 268,
-    "prezzo": 23.46,
+    "prezzo": 21.5,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2145,7 +2145,7 @@
   },
   {
     "id": 269,
-    "prezzo": 50.6,
+    "prezzo": 29.9,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Giornaliera",
@@ -2153,7 +2153,7 @@
   },
   {
     "id": 270,
-    "prezzo": 47.06,
+    "prezzo": 27.81,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2161,7 +2161,7 @@
   },
   {
     "id": 271,
-    "prezzo": 45.54,
+    "prezzo": 26.91,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2169,7 +2169,7 @@
   },
   {
     "id": 272,
-    "prezzo": 43.01,
+    "prezzo": 25.42,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2177,7 +2177,7 @@
   },
   {
     "id": 273,
-    "prezzo": 27.6,
+    "prezzo": 25.3,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Giornaliera",
@@ -2185,7 +2185,7 @@
   },
   {
     "id": 274,
-    "prezzo": 25.67,
+    "prezzo": 23.53,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2193,7 +2193,7 @@
   },
   {
     "id": 275,
-    "prezzo": 24.84,
+    "prezzo": 22.77,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2201,7 +2201,7 @@
   },
   {
     "id": 276,
-    "prezzo": 23.46,
+    "prezzo": 21.5,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2209,7 +2209,7 @@
   },
   {
     "id": 277,
-    "prezzo": 16.1,
+    "prezzo": 23,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Giornaliera",
@@ -2217,7 +2217,7 @@
   },
   {
     "id": 278,
-    "prezzo": 14.97,
+    "prezzo": 21.39,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2225,7 +2225,7 @@
   },
   {
     "id": 279,
-    "prezzo": 14.49,
+    "prezzo": 20.7,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2233,7 +2233,7 @@
   },
   {
     "id": 280,
-    "prezzo": 13.68,
+    "prezzo": 19.55,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2241,7 +2241,7 @@
   },
   {
     "id": 281,
-    "prezzo": 24.5,
+    "prezzo": 35,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Giornaliera",
@@ -2249,7 +2249,7 @@
   },
   {
     "id": 282,
-    "prezzo": 22.79,
+    "prezzo": 32.55,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2257,7 +2257,7 @@
   },
   {
     "id": 283,
-    "prezzo": 22.05,
+    "prezzo": 31.5,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2265,7 +2265,7 @@
   },
   {
     "id": 284,
-    "prezzo": 20.82,
+    "prezzo": 29.75,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2273,7 +2273,7 @@
   },
   {
     "id": 285,
-    "prezzo": 42,
+    "prezzo": 38.5,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Giornaliera",
@@ -2281,7 +2281,7 @@
   },
   {
     "id": 286,
-    "prezzo": 39.06,
+    "prezzo": 35.8,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2289,7 +2289,7 @@
   },
   {
     "id": 287,
-    "prezzo": 37.8,
+    "prezzo": 34.65,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2297,7 +2297,7 @@
   },
   {
     "id": 288,
-    "prezzo": 35.7,
+    "prezzo": 32.73,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2305,7 +2305,7 @@
   },
   {
     "id": 289,
-    "prezzo": 77,
+    "prezzo": 45.5,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Giornaliera",
@@ -2313,7 +2313,7 @@
   },
   {
     "id": 290,
-    "prezzo": 71.61,
+    "prezzo": 42.32,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2321,7 +2321,7 @@
   },
   {
     "id": 291,
-    "prezzo": 69.3,
+    "prezzo": 40.95,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2329,7 +2329,7 @@
   },
   {
     "id": 292,
-    "prezzo": 65.45,
+    "prezzo": 38.67,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2337,7 +2337,7 @@
   },
   {
     "id": 293,
-    "prezzo": 42,
+    "prezzo": 38.5,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Giornaliera",
@@ -2345,7 +2345,7 @@
   },
   {
     "id": 294,
-    "prezzo": 39.06,
+    "prezzo": 35.8,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2353,7 +2353,7 @@
   },
   {
     "id": 295,
-    "prezzo": 37.8,
+    "prezzo": 34.65,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2361,7 +2361,7 @@
   },
   {
     "id": 296,
-    "prezzo": 35.7,
+    "prezzo": 32.73,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2369,7 +2369,7 @@
   },
   {
     "id": 297,
-    "prezzo": 24.5,
+    "prezzo": 35,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Giornaliera",
@@ -2377,7 +2377,7 @@
   },
   {
     "id": 298,
-    "prezzo": 22.79,
+    "prezzo": 32.55,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2385,7 +2385,7 @@
   },
   {
     "id": 299,
-    "prezzo": 22.05,
+    "prezzo": 31.5,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2393,7 +2393,7 @@
   },
   {
     "id": 300,
-    "prezzo": 20.82,
+    "prezzo": 29.75,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2401,7 +2401,7 @@
   },
   {
     "id": 301,
-    "prezzo": 14,
+    "prezzo": 20,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Giornaliera",
@@ -2409,7 +2409,7 @@
   },
   {
     "id": 302,
-    "prezzo": 13.02,
+    "prezzo": 18.6,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2417,7 +2417,7 @@
   },
   {
     "id": 303,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2425,7 +2425,7 @@
   },
   {
     "id": 304,
-    "prezzo": 11.9,
+    "prezzo": 17,
     "dataInizio": "2028-01-01",
     "dataFine": "2028-03-31",
     "tipo": "Abbonamento",
@@ -2433,7 +2433,7 @@
   },
   {
     "id": 305,
-    "prezzo": 24,
+    "prezzo": 22,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Giornaliera",
@@ -2441,7 +2441,7 @@
   },
   {
     "id": 306,
-    "prezzo": 22.32,
+    "prezzo": 20.46,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2449,7 +2449,7 @@
   },
   {
     "id": 307,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2457,7 +2457,7 @@
   },
   {
     "id": 308,
-    "prezzo": 20.4,
+    "prezzo": 18.7,
     "dataInizio": "2028-04-01",
     "dataFine": "2028-05-31",
     "tipo": "Abbonamento",
@@ -2465,7 +2465,7 @@
   },
   {
     "id": 309,
-    "prezzo": 44,
+    "prezzo": 26,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Giornaliera",
@@ -2473,7 +2473,7 @@
   },
   {
     "id": 310,
-    "prezzo": 40.92,
+    "prezzo": 24.18,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2481,7 +2481,7 @@
   },
   {
     "id": 311,
-    "prezzo": 39.6,
+    "prezzo": 23.4,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2489,7 +2489,7 @@
   },
   {
     "id": 312,
-    "prezzo": 37.4,
+    "prezzo": 22.1,
     "dataInizio": "2028-06-01",
     "dataFine": "2028-09-30",
     "tipo": "Abbonamento",
@@ -2497,7 +2497,7 @@
   },
   {
     "id": 313,
-    "prezzo": 24,
+    "prezzo": 22,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Giornaliera",
@@ -2505,7 +2505,7 @@
   },
   {
     "id": 314,
-    "prezzo": 22.32,
+    "prezzo": 20.46,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2513,7 +2513,7 @@
   },
   {
     "id": 315,
-    "prezzo": 21.6,
+    "prezzo": 19.8,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2521,7 +2521,7 @@
   },
   {
     "id": 316,
-    "prezzo": 20.4,
+    "prezzo": 18.7,
     "dataInizio": "2028-10-01",
     "dataFine": "2028-10-31",
     "tipo": "Abbonamento",
@@ -2529,7 +2529,7 @@
   },
   {
     "id": 317,
-    "prezzo": 14,
+    "prezzo": 20,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Giornaliera",
@@ -2537,7 +2537,7 @@
   },
   {
     "id": 318,
-    "prezzo": 13.02,
+    "prezzo": 18.6,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2545,7 +2545,7 @@
   },
   {
     "id": 319,
-    "prezzo": 12.6,
+    "prezzo": 18,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",
@@ -2553,7 +2553,7 @@
   },
   {
     "id": 320,
-    "prezzo": 11.9,
+    "prezzo": 17,
     "dataInizio": "2028-11-01",
     "dataFine": "2028-12-31",
     "tipo": "Abbonamento",

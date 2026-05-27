@@ -3,11 +3,11 @@ import * as fs from 'fs';
 const umbrellaTypes = ["Base", "VIP", "Gazebo", "Disabile"];
 
 const seasons = [
-  { name: "Bassa", startDay: "01-01", endDay: "03-31", multiplier: 0.7 },
-  { name: "Media", startDay: "04-01", endDay: "05-31", multiplier: 1.2 },
-  { name: "Alta",  startDay: "06-01", endDay: "09-30", multiplier: 2.2 },
-  { name: "Media", startDay: "10-01", endDay: "10-31", multiplier: 1.2 },
-  { name: "Bassa", startDay: "11-01", endDay: "12-31", multiplier: 0.7 }
+  { name: "Bassa", startDay: "01-01", endDay: "03-31", multiplier: 1 },
+  { name: "Media", startDay: "04-01", endDay: "05-31", multiplier: 1.1 },
+  { name: "Alta",  startDay: "06-01", endDay: "09-30", multiplier: 1.3 },
+  { name: "Media", startDay: "10-01", endDay: "10-31", multiplier: 1.1},
+  { name: "Bassa", startDay: "11-01", endDay: "12-31", multiplier: 1 }
 ];
 
 const basePrices = {
