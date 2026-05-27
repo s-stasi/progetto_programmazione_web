@@ -150,11 +150,11 @@
         dot.title = codiceCompleto;
 
   
-  const costoOmbrellone = u.prezzo_base || u.prezzo || '0';
-  
-  const isReserved = (u.occupato == 1);
-  
-        dot.addEventListener('click', () => {
+        const costoOmbrellone = u.prezzo_base || u.prezzo || '0';
+        
+        const isReserved = (u.occupato == 1);
+        
+        dot.addEventListener('click', async () => {
           document.querySelectorAll('.umbrella.selected').forEach(el => el.classList.remove('selected'));
           dot.classList.add('selected');
 
@@ -162,7 +162,27 @@
           if (isDisabled) {
             tipologiaOmbrellone = 'Ombrellone Disabili';
           }
-          const costoOmbrellone = u.prezzo_base || u.prezzo || '0';
+
+          let costoOmbrellone = '0.00';
+
+          // Fetch the dynamic price from get_price.php based on selected dates and type
+          try {
+            const priceUrl = `../php/get_price.php?tipo=${encodeURIComponent(tipologiaOmbrellone)}&inizio=${startDateInput.value}&fine=${endDateInput.value}`;
+            const priceResponse = await fetch(priceUrl);
+            
+            if (priceResponse.ok) {
+              const priceData = await priceResponse.json();
+              if (!priceData.error) {
+                // Use the total calculated price
+                costoOmbrellone = priceData.totale;
+              } else {
+                console.warn('Price calculation warning:', priceData.error);
+              }
+            }
+          } catch (err) {
+            console.error('Error fetching umbrella price:', err);
+          }
+
           const isReserved = (u.occupato == 1);
           openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, u);
         });

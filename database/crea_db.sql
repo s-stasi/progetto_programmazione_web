@@ -38,7 +38,7 @@ CREATE TABLE Tariffa (
   
   -- Constraint exactly as specified in the assignment slides
   CONSTRAINT chk_tariffa_tipo CHECK (
-    (tipo = 'Giornaliera' AND numMinGiorni=1) 
+    (tipo = 'Giornaliera' AND numMinGiorni=NULL) 
     OR 
     (tipo = 'Abbonamento' AND numMinGiorni IS NOT NULL)
   )

@@ -83,7 +83,12 @@
 </div>
 
 <script>
+  let popupCurrentUmbrella = null;
+  let popupCurrentType = null;
   function openReservationModal(code, type, baseCost, isReserved = false, reservationData = null) {
+    popupCurrentUmbrella = reservationData;
+    popupCurrentType = type;
+
     const modal = document.getElementById('modal-reservation');
     const form = document.getElementById('form-new-reservation');
     form.reset();
@@ -122,7 +127,14 @@
       toggleFormInputs(false);
     }
 
-    modal.classList.add('show');
+    modal.classList.add('show');const popupStartDate = document.getElementById('popup-start-date');
+
+    const popupEndDate = document.getElementById('popup-end-date');
+    
+    if (popupStartDate && popupEndDate) {
+      popupStartDate.value = document.getElementById('start-date').value;
+      popupEndDate.value = document.getElementById('end-date').value;
+    }
   }
 
   function toggleFormInputs(isDisabled) {
@@ -155,7 +167,7 @@
         
         if (result.success) {
           closeReservationModal();
-          if (typeof fetchUmbrellas === "function") fetchUmbrellas(); // Ricarica la mappa aggiornata
+          if (typeof fetchUmbrellas === "function") fetchUmbrellas();
         } else {
           alert("Errore durante l'eliminazione: " + result.message);
         }
@@ -170,4 +182,66 @@
     document.getElementById('modal-reservation').classList.remove('show');
     document.querySelectorAll('.umbrella.selected').forEach(el => el.classList.remove('selected'));
   }
+
+  async function handlePopupDateChange() {
+    if (!popupCurrentUmbrella) return;
+
+    const popupStartDate = document.getElementById('booking-start');
+    const popupEndDate = document.getElementById('booking-end');
+    const priceDisplay = document.getElementById('display-total-cost'); 
+    
+    const btnPrenota = document.querySelector('#wrapper-creation-actions button[type="submit"]');
+
+    const newStart = popupStartDate.value;
+    let newEnd = popupEndDate.value;
+
+    if (newStart > newEnd) {
+      popupEndDate.value = newStart;
+      newEnd = newStart;
+    }
+    
+    priceDisplay.innerText = "Calcolo...";
+
+    try {
+      const availUrl = `../php/get_umbrellas.php?inizio=${newStart}&fine=${newEnd}`;
+      const availResponse = await fetch(availUrl);
+      const allUmbrellas = await availResponse.json();
+      
+      const currentUmbData = allUmbrellas.find(item => item.id_ombrellone === popupCurrentUmbrella.id_ombrellone);
+      
+      if (currentUmbData && currentUmbData.occupato == 1) {
+        if (btnPrenota) btnPrenota.disabled = true;
+        priceDisplay.innerText = "Non Disponibile";
+        priceDisplay.style.color = "#e74c3c";
+        return;
+      } else {
+        if (btnPrenota) btnPrenota.disabled = false;
+        priceDisplay.style.color = "inherit";
+      }
+
+      const priceUrl = `../php/get_price.php?tipo=${encodeURIComponent(popupCurrentType)}&inizio=${newStart}&fine=${newEnd}`;
+      const priceResponse = await fetch(priceUrl);
+      const priceData = await priceResponse.json();
+
+      if (!priceData.error) {
+        priceDisplay.innerText = priceData.totale;
+      } else {
+        priceDisplay.innerText = "Errore tariffa";
+      }
+
+    } catch (err) {
+      console.error('Errore aggiornamento popup:', err);
+      priceDisplay.innerText = "Errore di rete";
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const popupStartDate = document.getElementById('booking-start');
+    const popupEndDate = document.getElementById('booking-end');
+
+    if (popupStartDate && popupEndDate) {
+      popupStartDate.addEventListener('change', handlePopupDateChange);
+      popupEndDate.addEventListener('change', handlePopupDateChange);
+    }
+  });
 </script>

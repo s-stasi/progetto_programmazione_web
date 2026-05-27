@@ -43,14 +43,14 @@ if ($giorni > 20) {
 } else {
     // Esattamente 1 giorno -> Tariffa giornaliera a prezzo pieno
     $tipo_tariffa_db = 'Giornaliera';
-    $scaglione = 0; 
+    $scaglione = null; 
 }
 
 // Costruzione ed esecuzione della query in base allo scaglione trovato
 if ($scaglione === null) {
     $sql = "SELECT t.prezzo 
-            FROM tariffa t
-            JOIN tipologia_tariffa tt ON t.codice = tt.codTariffa
+            FROM Tariffa t
+            JOIN TipologiaTariffa tt ON t.id = tt.codTariffa
             JOIN Tipologia tp ON tt.codTipologia = tp.codice
             WHERE tp.nome = ? 
             AND ? BETWEEN t.dataInizio AND t.dataFine
@@ -61,8 +61,8 @@ if ($scaglione === null) {
     $stmt->bind_param("sss", $tipo, $inizio, $tipo_tariffa_db);
 } else {
     $sql = "SELECT t.prezzo 
-            FROM tariffa t
-            JOIN tipologia_tariffa tt ON t.codice = tt.codTariffa
+            FROM Tariffa t
+            JOIN TipologiaTariffa tt ON t.id = tt.codTariffa
             JOIN Tipologia tp ON tt.codTipologia = tp.codice
             WHERE tp.nome = ? 
             AND ? BETWEEN t.dataInizio AND t.dataFine
