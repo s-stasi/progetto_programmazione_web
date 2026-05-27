@@ -24,8 +24,8 @@
           $prefix = 'add'; 
           include 'components/client_form.php'; 
         ?>
-        <div id="wrapper-creation-actions" style="margin-top: 20px;">
-          <button type="submit" class="btn-ios-primary" style="width:100%">Salva Cliente</button>
+        <div id="wrapper-creation-actions">
+          <button type="submit" class="btn-ios-primary">Aggiungi cliente</button>
         </div>
       </form>
     </div>
@@ -49,15 +49,15 @@
           $prefix = 'edit'; 
           include 'components/client_form.php'; 
         ?>
-        <div id="wrapper-creation-actions" style="margin-top: 20px;">
-          <button type="submit" class="btn-ios-primary" style="width:100%">Conferma Modifica</button>
+        <div id="wrapper-creation-actions">
+          <button type="submit" class="btn-ios-primary">Conferma Modifica</button>
         </div>
       </form>
     </div>
   </div>
 
   <div id="contractsModal" class="modal">
-    <div class="modal-ios" style="max-width: 550px;">
+    <div class="modal-ios">
       <div class="ios-header">
         <div class="ios-umbrella-info">
           <h2 class="txt-oro-main">Contratti</h2>
@@ -66,15 +66,15 @@
         <span class="close-modal" onclick="closeContractsModal()">&times;</span>
       </div>
 
-      <hr class="ios-divider" style="margin-bottom: 15px;">
+      <hr class="ios-divider">
 
       <div>
-        <table class="gestionale-table" style="width: 100%; margin-top: 0;">
+        <table class="gestionale-table">
           <thead>
             <tr>
-              <th style="text-align: left;">Numero</th>
-              <th style="text-align: left;">Data Stipula</th>
-              <th style="text-align: right;">Importo</th>
+              <th class="text-left">Numero</th>
+              <th class="text-left">Data Stipula</th>
+              <th class="text-right">Importo</th>
             </tr>
           </thead>
           <tbody id="contractsTableBody">
@@ -82,9 +82,7 @@
         </table>
       </div>
 
-      <button class="btn-ios-primary" onclick="closeContractsModal()" style="margin-top: 20px; width: 100%;">
-        Chiudi
-      </button>
+      <button type="button" class="btn-ios-primary" onclick="closeContractsModal()">Chiudi</button>
     </div>
   </div>
 
@@ -101,8 +99,8 @@
 
   function getSortIcon($column, $currentSort, $currentDir) {
     if ($currentSort !== $column)
-      return ' <span style="color:#ccc; font-size:0.7em;">&#9660;</span>';
-    return $currentDir === 'ASC' ? ' <span style="font-size:0.7em;">&#9650;</span>' : ' <span style="font-size:0.7em;">&#9660;</span>';
+      return ' <span class="sort-icon-muted">&#9660;</span>';
+    return $currentDir === 'ASC' ? ' <span>&#9650;</span>' : ' <span>&#9660;</span>';
   }
   ?>
 
@@ -111,17 +109,17 @@
       <thead>
         <tr>
           <th>
-            <a href="<?php echo getSortLink('codice', $sortColumn, $sortDirection); ?>" style="color: inherit; text-decoration: none;">
+            <a href="<?php echo getSortLink('codice', $sortColumn, $sortDirection); ?>">
               ID<?php echo getSortIcon('codice', $sortColumn, $sortDirection); ?>
             </a>
           </th>
           <th>
-            <a href="<?php echo getSortLink('nome', $sortColumn, $sortDirection); ?>" style="color: inherit; text-decoration: none;">
+            <a href="<?php echo getSortLink('nome', $sortColumn, $sortDirection); ?>">
               Nome<?php echo getSortIcon('nome', $sortColumn, $sortDirection); ?>
             </a>
           </th>
           <th>
-            <a href="<?php echo getSortLink('cognome', $sortColumn, $sortDirection); ?>" style="color: inherit; text-decoration: none;">
+            <a href="<?php echo getSortLink('cognome', $sortColumn, $sortDirection); ?>">
               Cognome<?php echo getSortIcon('cognome', $sortColumn, $sortDirection); ?>
             </a>
           </th>
@@ -205,25 +203,25 @@
                       <td>{$cognome}</td>
                       <td>{$dataFormattata}</td>
                       <td>
-                        <span style='display: block; font-weight: 500;'>{$email}</span>
-                        <span style='display: block; color: #666; font-size: 0.85rem; margin-top: 2px;'>Tel: {$telefono}</span>
+                        <span class='client-contact-email'>{$email}</span>
+                        <span class='client-contact-phone'>Tel: {$telefono}</span>
                       </td>
                       <td>
-                        <button type='button' style='background-color: #0288d1; color: white; border: none; padding: 5px; border-radius: 4px; cursor: pointer; margin-right: 4px;' onclick='viewContracts({$id})' title='Vedi Contratti'>
-                          <span class='material-symbols-outlined' style='font-size: 18px;'>description</span>
+                        <button type='button' class='btn-info-contracts' onclick='viewContracts({$id})' title='Vedi Contratti'>
+                          <span class='material-symbols-outlined'>description</span>
                         </button>
                       
-                        <button class='btn-edit' onclick='openEditModal({$id}, \"{$nome}\", \"{$cognome}\", \"{$dataNascita}\", \"{$email}\", \"{$telefono}\")'>
-                          <span class='material-symbols-outlined' style='font-size: 18px;'>edit</span>
+                        <button type='button' class='btn-edit' onclick='openEditModal({$id}, \"{$nome}\", \"{$cognome}\", \"{$dataNascita}\", \"{$email}\", \"{$telefono}\")' title='Modifica'>
+                          <span class='material-symbols-outlined'>edit</span>
                         </button>
-                        <button class='btn-delete' onclick='deleteClient({$id})'>
-                          <span class='material-symbols-outlined' style='font-size: 18px;'>delete</span>
+                        <button type='button' class='btn-delete' onclick='deleteClient({$id})' title='Elimina'>
+                          <span class='material-symbols-outlined'>delete</span>
                         </button>
                       </td>
                     </tr>";
             }
           } else {
-            echo "<tr><td colspan='6' style='text-align: center; padding: 20px;'>Nessun cliente trovato.</td></tr>";
+            echo "<tr><td colspan='6' class='text-center' style='padding: 20px;'>Nessun cliente trovato.</td></tr>";
           }
           $conn->close();
         }
@@ -272,7 +270,6 @@
   function openEditModal(id, nome, cognome, dataNascita, email, telefono) {
     document.getElementById('editClientId').value = id;
     
-    // Assegnazione pulita tramite prefisso dei componenti riutilizzabili
     document.getElementById('edit-nome').value = nome;
     document.getElementById('edit-cognome').value = cognome;
     document.getElementById('edit-data-nascita').value = dataNascita;
@@ -312,7 +309,7 @@
 
   async function viewContracts(clientId) {
     const tbody = document.getElementById('contractsTableBody');
-    tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 15px;">Caricamento in corso...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="3" class="text-center" style="padding: 15px;">Caricamento in corso...</td></tr>';
     contractsModal.classList.add('show');
 
     try {
@@ -328,15 +325,15 @@
           const row = `<tr>
             <td><strong>#${c.numProgr}</strong></td>
             <td>${dataFormattata}</td>
-            <td style="font-weight: 600; color: #2e7d32;">${parseFloat(c.importo).toFixed(2)} €</td>
+            <td class="text-right importo-valore">${parseFloat(c.importo).toFixed(2)} €</td>
           </tr>`;
           tbody.innerHTML += row;
         });
       } else {
-        tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 15px; color: #666;">Nessun contratto stipulato da questo cliente.</td></tr>';
+        tbody.innerHTML = '<tr><td colspan="3" class="text-center" style="padding: 15px; color: #666;">Nessun contratto stipulato da questo cliente.</td></tr>';
       }
     } catch (e) {
-      tbody.innerHTML = '<tr><td colspan="3" style="text-align: center; padding: 15px; color: red;">Errore nel caricamento dei dati.</td></tr>';
+      tbody.innerHTML = '<tr><td colspan="3" class="text-center" style="padding: 15px; color: red;">Errore nel caricamento dei dati.</td></tr>';
     }
   }
 </script>
