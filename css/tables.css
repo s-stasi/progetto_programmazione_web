@@ -61,7 +61,7 @@
 }
 
 .btn-edit {
-  background: #3498db; /* Azzurro per modifica */
+  background: var(--primary); 
   color: white;
   border: none;
   padding: 6px 12px;
@@ -72,11 +72,11 @@
 }
 
 .btn-edit:hover {
-  background: #2980b9;
+  background: var(--primary-dark);
 }
 
 .btn-delete {
-  background: var(--delete-btn); /* Rosso dalla palette per eliminazione */
+  background: var(--delete-btn); 
   color: white;
   border: none;
   padding: 6px 12px;
@@ -133,4 +133,67 @@
   background: #eee;
   color: #aaa;
   border-color: #ddd;
+}
+
+/* ==========================================================================
+   4. UTILITY DI ALLINEAMENTO E LINKS (SPOSTATI DA CLIENTI.PHP)
+   ========================================================================== */
+
+.gestionale-table .btn-edit, 
+.gestionale-table .btn-delete,
+.gestionale-table .btn-info-contracts {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: background 0.2s;
+}
+
+.gestionale-table .btn-info-contracts {
+  background-color: #0288d1;
+  color: white;
+  margin-right: 4px;
+}
+.gestionale-table .btn-info-contracts:hover {
+  background-color: #01579b;
+}
+
+.gestionale-table button .material-symbols-outlined {
+  font-size: 18px;
+}
+
+.gestionale-table th a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gestionale-table th a span {
+  font-size: 0.7em;
+}
+
+.sort-icon-muted {
+  color: #ccc;
+}
+
+.client-contact-email {
+  display: block;
+  font-weight: 500;
+}
+
+.client-contact-phone {
+  display: block;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: 2px;
+}
+
+.text-center {
+  text-align: center;
 }

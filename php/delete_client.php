@@ -2,18 +2,18 @@
 header("Content-Type: application/json");
 require_once('config.php');
 
-// Get the ID from the request
+// Recupera l'ID dalla richiesta
 $id = $_GET['id'] ?? null;
 
 if (!$id) {
-  echo json_encode(["success" => false, "message" => "Missing client ID"]);
+  echo json_encode(["success" => false, "message" => "ID cliente mancante."]);
   exit;
 }
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
 if ($conn->connect_error) {
-  echo json_encode(["success" => false, "message" => "Database connection failed"]);
+  echo json_encode(["success" => false, "message" => "Connessione al database fallita."]);
   exit;
 }
 
@@ -23,19 +23,19 @@ try {
   $stmt->execute();
 
   if ($stmt->affected_rows > 0) {
-    echo json_encode(["success" => true, "message" => "Client deleted successfully"]);
+    echo json_encode(["success" => true, "message" => "Cliente eliminato con successo."]);
   } else {
-    echo json_encode(["success" => false, "message" => "Client not found"]);
+    echo json_encode(["success" => false, "message" => "Cliente non trovato."]);
   }
 } catch (mysqli_sql_exception $e) {
-  // Catch error 1451: Cannot delete or update a parent row (Foreign Key constraint)
+  // Errore 1451: Chiave esterna (Foreign Key constraint) se ha contratti attivi
   if ($e->getCode() == 1451) {
     echo json_encode([
       "success" => false, 
-      "message" => "Integrity Error: This client has active contracts and cannot be deleted."
+      "message" => "Errore di integrità: Questo cliente ha dei contratti attivi e non può essere eliminato."
     ]);
   } else {
-    echo json_encode(["success" => false, "message" => "Database error: " . $e->getMessage()]);
+    echo json_encode(["success" => false, "message" => "Errore del database: " . $e->getMessage()]);
   }
 }
 

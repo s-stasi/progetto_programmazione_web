@@ -35,40 +35,10 @@
       <hr class="ios-divider">
 
       <h3 class="txt-oro-sub">Dati Cliente</h3>
-      
-      <div class="modal-profile-box">
-        <div class="row-fields ios-input-group">
-          <div class="field-half">
-            <label class="txt-grigio-medium-label">Nome</label>
-            <input type="text" name="nome" id="client-nome" required>
-          </div>
-          <div class="field-half field-left-border">
-            <label class="txt-grigio-medium-label">Cognome</label>
-            <input type="text" name="cognome" id="client-cognome" required>
-          </div>
-        </div>
-
-        <div class="ios-input-group">
-          <label class="txt-grigio-medium-label">Data di Nascita</label>
-          <input type="date" name="data_nascita" id="client-data-nascita">
-        </div>
-
-        <div class="ios-input-group">
-          <label class="txt-grigio-medium-label">Indirizzo casa</label>
-          <input type="text" name="indirizzo" id="client-indirizzo">
-        </div>
-
-        <div class="row-fields ios-input-group field-no-border">
-          <div class="field-half">
-            <label class="txt-grigio-medium-label">Email</label>
-            <input type="email" name="email" id="client-email">
-          </div>
-          <div class="field-half field-left-border">
-            <label class="txt-grigio-medium-label">Cellulare</label>
-            <input type="tel" name="cellulare" id="client-cellulare">
-          </div>
-        </div>
-      </div>
+      <?php
+      $prefix = 'client';
+      include 'components/client_form.php';
+      ?>
 
       <div id="wrapper-creation-actions">
         <button type="submit" class="btn-ios-primary">Conferma Prenotazione</button>
@@ -92,7 +62,7 @@
     const modal = document.getElementById('modal-reservation');
     const form = document.getElementById('form-new-reservation');
     form.reset();
-    
+
     document.getElementById('display-umbrella-code').innerText = 'Ombrellone ' + code;
     document.getElementById('display-umbrella-type').innerText = type;
     document.getElementById('display-total-cost').innerText = baseCost;
@@ -118,8 +88,8 @@
       creationActions.style.display = 'block';
       viewActions.style.display = 'none';
       document.getElementById('booking-id').value = '';
-      
-      if(document.getElementById('start-date')) {
+
+      if (document.getElementById('start-date')) {
         document.getElementById('booking-start').value = document.getElementById('start-date').value;
         document.getElementById('booking-end').value = document.getElementById('end-date').value;
       }
@@ -164,7 +134,7 @@
           method: 'DELETE'
         });
         const result = await response.json();
-        
+
         if (result.success) {
           closeReservationModal();
           if (typeof fetchUmbrellas === "function") fetchUmbrellas();

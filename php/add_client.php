@@ -2,36 +2,35 @@
 header("Content-Type: application/json");
 require_once('config.php');
 
-// Retrieve POST data from the form
-$firstName = $_POST['firstName'] ?? null;
-$lastName = $_POST['lastName'] ?? null;
-$dob = $_POST['dob'] ?? null;
+// Parametri unificati in italiano provenienti dal form unico
+$nome         = $_POST['nome'] ?? null;
+$cognome      = $_POST['cognome'] ?? null;
+$data_nascita = $_POST['data_nascita'] ?? null;
+$email        = $_POST['email'] ?? null;
+$cellulare    = $_POST['cellulare'] ?? null;
 
-// Basic validation
-if (!$firstName || !$lastName) {
-  echo json_encode(["success" => false, "message" => "First and Last name are mandatory."]);
+if (!$nome || !$cognome) {
+  echo json_encode(["success" => false, "message" => "Nome e Cognome sono obbligatori."]);
   exit;
 }
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-
 if ($conn->connect_error) {
-  echo json_encode(["success" => false, "message" => "Connection failed."]);
+  echo json_encode(["success" => false, "message" => "Connessione fallita."]);
   exit;
 }
 
 try {
-  // Prepared statement to prevent SQL Injection
-  $stmt = $conn->prepare("INSERT INTO Cliente (nome, cognome, dataNascita) VALUES (?, ?, ?)");
-  $stmt->bind_param("sss", $firstName, $lastName, $dob);
+  $stmt = $conn->prepare("INSERT INTO Cliente (nome, cognome, dataNascita, email, telefono) VALUES (?, ?, ?, ?, ?)");
+  $stmt->bind_param("sssss", $nome, $cognome, $data_nascita, $email, $cellulare);
   
   if ($stmt->execute()) {
-    echo json_encode(["success" => true, "message" => "Client registered successfully!"]);
+    echo json_encode(["success" => true, "message" => "Cliente registrato con successo!"]);
   } else {
-    echo json_encode(["success" => false, "message" => "Error executing query."]);
+    echo json_encode(["success" => false, "message" => "Errore durante l'esecuzione della query."]);
   }
 } catch (Exception $e) {
-  echo json_encode(["success" => false, "message" => "DB Error: " . $e->getMessage()]);
+  echo json_encode(["success" => false, "message" => "Errore DB: " . $e->getMessage()]);
 }
 
 $stmt->close();
