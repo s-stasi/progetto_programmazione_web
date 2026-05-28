@@ -259,7 +259,7 @@
     event.preventDefault();
     const formData = new FormData(event.target);
     try {
-      const response = await fetch('../php/add_client.php', { method: 'POST', body: formData });
+      const response = await fetch('../php/client/add_client.php', { method: 'POST', body: formData });
       const result = await response.json();
       if (result.success) { location.reload(); } else { alert("Errore: " + result.message); }
     } catch (e) { alert("Errore tecnico"); }
@@ -289,7 +289,7 @@
     event.preventDefault();
     const formData = new FormData(event.target);
     try {
-      const response = await fetch('../php/update_client.php', { method: 'POST', body: formData });
+      const response = await fetch('../php/client/update_client.php', { method: 'POST', body: formData });
       const result = await response.json();
       if (result.success) { location.reload(); } else { alert("Errore: " + result.message); }
     } catch (e) { alert("Errore tecnico"); }
@@ -298,7 +298,7 @@
   async function deleteClient(id) {
     if (!confirm(`Vuoi eliminare il cliente #${id}?`)) return;
     try {
-      const response = await fetch(`../php/delete_client.php?id=${id}`);
+      const response = await fetch(`../php/client/delete_client.php?id=${id}`);
       const result = await response.json();
       if (result.success) { location.reload(); } else { alert(result.message); }
     } catch (e) { alert("Errore tecnico"); }
@@ -313,7 +313,7 @@
     contractsModal.classList.add('show');
 
     try {
-      const response = await fetch(`../php/get_contratti_cliente.php?id=${clientId}`);
+      const response = await fetch(`../php/get_customer_contracts.php?id=${clientId}`);
       const result = await response.json();
       tbody.innerHTML = '';
 

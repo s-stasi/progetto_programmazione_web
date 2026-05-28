@@ -1,6 +1,6 @@
 <?php
 // php/add_reservation.php
-require_once('config.php');
+require_once('../config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Aligned with the English 'name' attributes from index.php modal form

@@ -130,7 +130,7 @@
 
     if (confirm("Sei sicuro di voler eliminare definitivamente questa prenotazione?")) {
       try {
-        const response = await fetch(`../php/delete_reservation.php?id=${bookingId}`, {
+        const response = await fetch(`../php/reservation/delete_reservation.php?id=${bookingId}`, {
           method: 'DELETE'
         });
         const result = await response.json();
@@ -173,7 +173,7 @@
     priceDisplay.innerText = "Calcolo...";
 
     try {
-      const availUrl = `../php/get_umbrellas.php?inizio=${newStart}&fine=${newEnd}`;
+      const availUrl = `../php/umbrella/get_umbrellas.php?inizio=${newStart}&fine=${newEnd}`;
       const availResponse = await fetch(availUrl);
       const allUmbrellas = await availResponse.json();
       
@@ -189,7 +189,7 @@
         priceDisplay.style.color = "inherit";
       }
 
-      const priceUrl = `../php/get_price.php?tipo=${encodeURIComponent(popupCurrentType)}&inizio=${newStart}&fine=${newEnd}`;
+      const priceUrl = `../php/umbrella/get_price.php?tipo=${encodeURIComponent(popupCurrentType)}&inizio=${newStart}&fine=${newEnd}`;
       const priceResponse = await fetch(priceUrl);
       const priceData = await priceResponse.json();
 

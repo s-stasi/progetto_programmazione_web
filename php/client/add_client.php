@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-require_once('config.php');
+require_once('../config.php');
 
 // Parametri unificati in italiano provenienti dal form unico
 $nome         = $_POST['nome'] ?? null;

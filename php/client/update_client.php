@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-require_once('config.php');
+require_once('../config.php');
 
 $id           = $_POST['clientId'] ?? null;
 $nome         = $_POST['nome'] ?? null;

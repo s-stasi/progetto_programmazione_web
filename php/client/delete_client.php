@@ -1,6 +1,6 @@
 <?php
 header("Content-Type: application/json");
-require_once('config.php');
+require_once('../config.php');
 
 // Recupera l'ID dalla richiesta
 $id = $_GET['id'] ?? null;

@@ -17,7 +17,7 @@ if ($clientId <= 0) {
     exit;
 }
 
-$sql = "SELECT numProgr, data, importo FROM Contratto WHERE stipulatoDa = ? ORDER BY data DESC";
+$sql = "SELECT numProgr, data, importo, stato FROM Contratto WHERE stipulatoDa = ?ORDER BY data DESC";
 $stmt = $conn->prepare($sql);
 
 if ($stmt) {
