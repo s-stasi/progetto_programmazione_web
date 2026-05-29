@@ -20,9 +20,9 @@
       <hr class="ios-divider">
 
       <form id="addClientForm" onsubmit="saveClient(event)">
-        <?php 
-          $prefix = 'add'; 
-          include 'components/client_form.php'; 
+        <?php
+        $prefix = 'add';
+        include 'components/client_form.php';
         ?>
         <div id="wrapper-creation-actions">
           <button type="submit" class="btn-ios-primary">Aggiungi cliente</button>
@@ -45,9 +45,9 @@
 
       <form id="editClientForm" onsubmit="updateClient(event)">
         <input type="hidden" id="editClientId" name="clientId">
-        <?php 
-          $prefix = 'edit'; 
-          include 'components/client_form.php'; 
+        <?php
+        $prefix = 'edit';
+        include 'components/client_form.php';
         ?>
         <div id="wrapper-creation-actions">
           <button type="submit" class="btn-ios-primary">Conferma Modifica</button>
@@ -90,14 +90,16 @@
   $sortColumn = $_GET['sort'] ?? 'codice';
   $sortDirection = isset($_GET['dir']) && strtolower($_GET['dir']) === 'desc' ? 'DESC' : 'ASC';
 
-  function getSortLink($column, $currentSort, $currentDir) {
+  function getSortLink($column, $currentSort, $currentDir)
+  {
     $params = $_GET;
     $params['sort'] = $column;
     $params['dir'] = ($currentSort === $column && $currentDir === 'ASC') ? 'desc' : 'asc';
     return '?' . http_build_query($params);
   }
 
-  function getSortIcon($column, $currentSort, $currentDir) {
+  function getSortIcon($column, $currentSort, $currentDir)
+  {
     if ($currentSort !== $column)
       return ' <span class="sort-icon-muted">&#9660;</span>';
     return $currentDir === 'ASC' ? ' <span>&#9650;</span>' : ' <span>&#9660;</span>';
@@ -136,7 +138,8 @@
         if (!$conn->connect_error) {
           $recordsPerPage = 50;
           $page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int) $_GET['page'] : 1;
-          if ($page < 1) $page = 1;
+          if ($page < 1)
+            $page = 1;
 
           $offset = ($page - 1) * $recordsPerPage;
 
@@ -144,44 +147,47 @@
           $searchCognome = $_GET['search_cognome'] ?? '';
           if (!empty($searchCognome)) {
             $safeSearch = $conn->real_escape_string($searchCognome);
-            $whereClause .= " AND cognome LIKE '%{$safeSearch}%'";
+            $whereClause .= " AND c.cognome LIKE '%{$safeSearch}%'";
           }
 
           $searchNome = $_GET['search_nome'] ?? '';
           if (!empty($searchNome)) {
             $safeSearch = $conn->real_escape_string($searchNome);
-            $whereClause .= " AND nome LIKE '%{$safeSearch}%'";
+            $whereClause .= " AND c.nome LIKE '%{$safeSearch}%'";
           }
 
           $annoNascita = $_GET['anno_nascita'] ?? '';
           if (!empty($annoNascita) && is_numeric($annoNascita)) {
             $safeAnno = $conn->real_escape_string($annoNascita);
-            $whereClause .= " AND YEAR(dataNascita) = '{$safeAnno}'";
+            $whereClause .= " AND YEAR(c.dataNascita) = '{$safeAnno}'";
           }
 
           $searchEmail = $_GET['search_email'] ?? '';
           if (!empty($searchEmail)) {
             $safeEmail = $conn->real_escape_string($searchEmail);
-            $whereClause .= " AND email LIKE '%{$safeEmail}%'";
+            $whereClause .= " AND c.email LIKE '%{$safeEmail}%'";
           }
 
           $searchTelefono = $_GET['search_telefono'] ?? '';
           if (!empty($searchTelefono)) {
             $safeTelefono = $conn->real_escape_string($searchTelefono);
-            $whereClause .= " AND telefono LIKE '%{$safeTelefono}%'";
+            $whereClause .= " AND c.telefono LIKE '%{$safeTelefono}%'";
           }
 
-          $countSql = "SELECT COUNT(*) as total FROM Cliente $whereClause";
+          $countSql = "SELECT COUNT(DISTINCT c.codice) as total FROM Cliente c $whereClause";
           $countResult = $conn->query($countSql);
           $totalRecords = $countResult->fetch_assoc()['total'];
           $totalPages = ceil($totalRecords / $recordsPerPage);
 
           $allowedSortColumns = ['codice', 'nome', 'cognome', 'dataNascita'];
-          $safeSortColumn = in_array($sortColumn, $allowedSortColumns) ? $sortColumn : 'codice';
+          $safeSortColumn = in_array($sortColumn, $allowedSortColumns) ? "c." . $sortColumn : 'c.codice';
 
-          $sql = "SELECT codice, nome, cognome, dataNascita, email, telefono 
-                  FROM Cliente 
+          $sql = "SELECT c.codice, c.nome, c.cognome, c.dataNascita, c.email, c.telefono,
+                         COUNT(con.numProgr) as num_contratti
+                  FROM Cliente c
+                  LEFT JOIN Contratto con ON c.codice = con.stipulatoDa
                   $whereClause 
+                  GROUP BY c.codice
                   ORDER BY $safeSortColumn $sortDirection 
                   LIMIT $recordsPerPage OFFSET $offset";
 
@@ -197,6 +203,10 @@
               $email = htmlspecialchars($row['email'] ?? '-');
               $telefono = htmlspecialchars($row['telefono'] ?? '-');
 
+              // Verifica se nascondere il pulsante blu dei contratti
+              $numContratti = (int)($row['num_contratti'] ?? 0);
+              $stileBottoneContratti = ($numContratti === 0) ? "style='visibility: hidden;'" : "";
+
               echo "<tr>
                       <td>{$id}</td>
                       <td>{$nome}</td>
@@ -207,7 +217,7 @@
                         <span class='client-contact-phone'>Tel: {$telefono}</span>
                       </td>
                       <td>
-                        <button type='button' class='btn-info-contracts' onclick='viewContracts({$id})' title='Vedi Contratti'>
+                        <button type='button' class='btn-info-contracts' onclick='viewContracts({$id})' title='Vedi Contratti' {$stileBottoneContratti}>
                           <span class='material-symbols-outlined'>description</span>
                         </button>
                       
@@ -255,29 +265,46 @@
   function openAddModal() { addModal.classList.add('show'); }
   function closeAddModal() { addModal.classList.remove('show'); }
 
-  async function saveClient(event) {
+  async function saveEditClient(event) {
     event.preventDefault();
-    const formData = new FormData(event.target);
+
+    const form = document.getElementById('editClientForm');
+    const formData = new FormData(form);
+
     try {
-      const response = await fetch('../php/add_client.php', { method: 'POST', body: formData });
+      const response = await fetch('../php/client/update_client.php', {
+        method: 'POST',
+        body: formData
+      });
+
       const result = await response.json();
-      if (result.success) { location.reload(); } else { alert("Errore: " + result.message); }
-    } catch (e) { alert("Errore tecnico"); }
+
+      if (result.success) {
+        alert(result.message);
+        closeEditModal();
+        location.reload();
+      } else {
+        alert("Errore durante la modifica: " + result.message);
+      }
+    } catch (error) {
+      console.error("Errore di rete:", error);
+      alert("Impossibile connettersi al server per salvare le modifiche.");
+    }
   }
 
   const editModal = document.getElementById('edit-modal-client');
 
   function openEditModal(id, nome, cognome, dataNascita, email, telefono) {
     document.getElementById('editClientId').value = id;
-    
+
     document.getElementById('edit-nome').value = nome;
     document.getElementById('edit-cognome').value = cognome;
     document.getElementById('edit-data-nascita').value = dataNascita;
     document.getElementById('edit-email').value = email === '-' ? '' : email;
     document.getElementById('edit-cellulare').value = telefono === '-' ? '' : telefono;
-    
-    if(document.getElementById('edit-indirizzo')) {
-        document.getElementById('edit-indirizzo').value = ''; 
+
+    if (document.getElementById('edit-indirizzo')) {
+      document.getElementById('edit-indirizzo').value = '';
     }
 
     editModal.classList.add('show');
@@ -289,21 +316,36 @@
     event.preventDefault();
     const formData = new FormData(event.target);
     try {
-      const response = await fetch('../php/update_client.php', { method: 'POST', body: formData });
+      const response = await fetch('../php/client/update_client.php', { method: 'POST', body: formData });
       const result = await response.json();
       if (result.success) { location.reload(); } else { alert("Errore: " + result.message); }
     } catch (e) { alert("Errore tecnico"); }
   }
 
-  async function deleteClient(id) {
-    if (!confirm(`Vuoi eliminare il cliente #${id}?`)) return;
+  async function deleteClient(clientId) {
+    if (!confirm("Sei sicuro di voler eliminare definitivamente questo cliente?")) {
+      return;
+    }
+
     try {
-      const response = await fetch(`../php/delete_client.php?id=${id}`);
+      const response = await fetch(`../php/client/delete_client.php?id=${clientId}`, {
+        method: 'GET'
+      });
+
       const result = await response.json();
-      if (result.success) { location.reload(); } else { alert(result.message); }
-    } catch (e) { alert("Errore tecnico"); }
+
+      if (result.success) {
+        alert(result.message);
+        location.reload();
+      } else {
+        alert("Errore durante l'eliminazione: " + result.message);
+      }
+    } catch (error) {
+      console.error("Errore di rete:", error);
+      alert("Impossibile connettersi al server per eliminare il cliente.");
+    }
   }
-  
+
   const contractsModal = document.getElementById('contractsModal');
   function closeContractsModal() { contractsModal.classList.remove('show'); }
 
@@ -313,7 +355,7 @@
     contractsModal.classList.add('show');
 
     try {
-      const response = await fetch(`../php/get_contratti_cliente.php?id=${clientId}`);
+      const response = await fetch(`../php/get_customer_contracts.php?id=${clientId}`);
       const result = await response.json();
       tbody.innerHTML = '';
 

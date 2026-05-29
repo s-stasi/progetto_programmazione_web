@@ -5,7 +5,7 @@ header("Content-Type: application/json; charset=UTF-8");
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once('config.php');
+require_once('../config.php');
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 
@@ -45,7 +45,6 @@ if ($result) {
     while($row = $result->fetch_assoc()) {
         $ombrelloni[] = $row;
     }
-    // Sputa fuori il JSON per l'interfaccia
     echo json_encode($ombrelloni);
 } else {
     http_response_code(500);

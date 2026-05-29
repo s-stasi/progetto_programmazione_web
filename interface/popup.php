@@ -11,6 +11,8 @@
     </div>
 
     <input type="hidden" id="booking-id" name="id_prenotazione">
+    <input type="hidden" id="booking-umbrella-id" name="id_ombrellone">
+    <input type="hidden" id="booking-total-cost-hidden" name="prezzo_totale">
 
     <form id="form-new-reservation" onsubmit="saveReservation(event)">
       <div class="ios-row-container">
@@ -55,10 +57,12 @@
 <script>
   let popupCurrentUmbrella = null;
   let popupCurrentType = null;
-  function openReservationModal(code, type, baseCost, isReserved = false, reservationData = null) {
+
+  function openReservationModal(code, type, baseCost, isReserved, reservationData) {
     popupCurrentUmbrella = reservationData;
     popupCurrentType = type;
-
+    popupBasePrice = baseCost;
+    
     const modal = document.getElementById('modal-reservation');
     const form = document.getElementById('form-new-reservation');
     form.reset();
@@ -89,6 +93,9 @@
       viewActions.style.display = 'none';
       document.getElementById('booking-id').value = '';
 
+      // ---> INSERISCI QUESTA RIGA QUI SOTTO <---
+      document.getElementById('booking-umbrella-id').value = reservationData ? (reservationData.id_ombrellone || reservationData.id) : '';
+
       if (document.getElementById('start-date')) {
         document.getElementById('booking-start').value = document.getElementById('start-date').value;
         document.getElementById('booking-end').value = document.getElementById('end-date').value;
@@ -97,10 +104,10 @@
       toggleFormInputs(false);
     }
 
-    modal.classList.add('show');const popupStartDate = document.getElementById('popup-start-date');
+    modal.classList.add('show'); const popupStartDate = document.getElementById('popup-start-date');
 
     const popupEndDate = document.getElementById('popup-end-date');
-    
+
     if (popupStartDate && popupEndDate) {
       popupStartDate.value = document.getElementById('start-date').value;
       popupEndDate.value = document.getElementById('end-date').value;
@@ -130,7 +137,7 @@
 
     if (confirm("Sei sicuro di voler eliminare definitivamente questa prenotazione?")) {
       try {
-        const response = await fetch(`../php/delete_reservation.php?id=${bookingId}`, {
+        const response = await fetch(`../php/reservation/delete_reservation.php?id=${bookingId}`, {
           method: 'DELETE'
         });
         const result = await response.json();
@@ -158,8 +165,8 @@
 
     const popupStartDate = document.getElementById('booking-start');
     const popupEndDate = document.getElementById('booking-end');
-    const priceDisplay = document.getElementById('display-total-cost'); 
-    
+    const priceDisplay = document.getElementById('display-total-cost');
+
     const btnPrenota = document.querySelector('#wrapper-creation-actions button[type="submit"]');
 
     const newStart = popupStartDate.value;
@@ -169,16 +176,16 @@
       popupEndDate.value = newStart;
       newEnd = newStart;
     }
-    
+
     priceDisplay.innerText = "Calcolo...";
 
     try {
-      const availUrl = `../php/get_umbrellas.php?inizio=${newStart}&fine=${newEnd}`;
+      const availUrl = `../php/umbrella/get_umbrellas.php?inizio=${newStart}&fine=${newEnd}`;
       const availResponse = await fetch(availUrl);
       const allUmbrellas = await availResponse.json();
-      
+
       const currentUmbData = allUmbrellas.find(item => item.id_ombrellone === popupCurrentUmbrella.id_ombrellone);
-      
+
       if (currentUmbData && currentUmbData.occupato == 1) {
         if (btnPrenota) btnPrenota.disabled = true;
         priceDisplay.innerText = "Non Disponibile";
@@ -189,7 +196,7 @@
         priceDisplay.style.color = "inherit";
       }
 
-      const priceUrl = `../php/get_price.php?tipo=${encodeURIComponent(popupCurrentType)}&inizio=${newStart}&fine=${newEnd}`;
+      const priceUrl = `../php/umbrella/get_price.php?tipo=${encodeURIComponent(popupCurrentType)}&inizio=${newStart}&fine=${newEnd}`;
       const priceResponse = await fetch(priceUrl);
       const priceData = await priceResponse.json();
 

@@ -69,7 +69,7 @@
     grid.innerHTML = "<p class='center-text' style='grid-column: 1/-1;'>Caricamento in corso...</p>";
 
     try {
-      const url = `../php/get_umbrellas.php?inizio=${startDateInput.value}&fine=${endDateInput.value}`;
+      const url = `../php/umbrella/get_umbrellas.php?inizio=${startDateInput.value}&fine=${endDateInput.value}`;
       const response = await fetch(url);
       if (!response.ok) throw new Error('Network response was not ok');
       const data = await response.json();
@@ -167,7 +167,7 @@
 
           // Fetch the dynamic price from get_price.php based on selected dates and type
           try {
-            const priceUrl = `../php/get_price.php?tipo=${encodeURIComponent(tipologiaOmbrellone)}&inizio=${startDateInput.value}&fine=${endDateInput.value}`;
+            const priceUrl = `../php/umbrella/get_price.php?tipo=${encodeURIComponent(tipologiaOmbrellone)}&inizio=${startDateInput.value}&fine=${endDateInput.value}`;
             const priceResponse = await fetch(priceUrl);
             
             if (priceResponse.ok) {

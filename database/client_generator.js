@@ -1,4 +1,5 @@
-import { fakerIT as faker } from '@faker-js/faker';import * as fs from 'fs';
+import { fakerIT as faker } from '@faker-js/faker';
+import * as fs from 'fs';
 
 faker.seed(123);
 
@@ -10,8 +11,8 @@ class Customer {
     this.lastName = lastName;
     this.address = address;
     this.birthDate = birthDate;
-    this.email=email;
-    this.telefono=telefono;
+    this.email = email;
+    this.telefono = telefono;
   }
 }
 
@@ -25,26 +26,26 @@ for (let i = 0; i < recordsToGenerate; i++) {
     to: '2004-01-01T00:00:00.000Z' 
   });
   
-  // Format the date to 'YYYY-MM-DD' for SQL compatibility
   const formattedDate = rawDate.toISOString().split('T')[0];
 
-  // Create the new customer instance
+  const firstName = faker.person.firstName();
+  const lastName = faker.person.lastName();
+
+  const email = faker.internet.email({ firstName: firstName, lastName: lastName });
+
   const newCustomer = new Customer(
     i + 1,
-    faker.person.firstName(),
-    faker.person.lastName(),
+    firstName,
+    lastName,
     faker.location.streetAddress(),
     formattedDate,
-    faker.internet.email(),
+    email,
     faker.phone.number('+39 (0)### ### ###')
   );
   
-  // Add to the array
   customersList.push(newCustomer);
 }
 
-// Write the entire array to a JSON file instead of printing to console
-// The '2' parameter adds two-space indentation to the output JSON
 fs.writeFileSync('customers_mock.json', JSON.stringify(customersList, null, 2));
 
 console.log(`Successfully generated ${recordsToGenerate} customers and saved to customers_mock.json`);
