@@ -1,69 +1,69 @@
 <?php
-// php/add_reservation.php
+header("Content-Type: application/json");
 require_once('../config.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Aligned with the English 'name' attributes from index.php modal form
-    $id_umbrella  = $_POST['id_umbrella'] ?? null;
-    $first_name   = trim($_POST['first_name'] ?? '');
-    $last_name    = trim($_POST['last_name'] ?? '');
-    $birth_date   = $_POST['birth_date'] ?? null;
+    // Parametri estratti dal form italiano di popup.php
+    $id_umbrella  = $_POST['id_ombrellone'] ?? null;
+    $first_name   = trim($_POST['nome'] ?? '');
+    $last_name    = trim($_POST['cognome'] ?? '');
+    $birth_date   = $_POST['data_nascita'] ?? null;
     $email        = trim($_POST['email'] ?? '');
-    $phone        = trim($_POST['phone'] ?? '');
-    $home_address = trim($_POST['home_address'] ?? '');
-    $date_start   = $_POST['date_start'] ?? null;
-    $date_end     = $_POST['date_end'] ?? null;
+    $phone        = trim($_POST['cellulare'] ?? '');
+    $home_address = trim($_POST['indirizzo'] ?? '');
+    $date_start   = $_POST['data_inizio'] ?? null;
+    $date_end     = $_POST['data_fine'] ?? null;
+    $prezzo_tot   = $_POST['prezzo_totale'] ?? 30.00;
 
-    if (!$id_umbrella || !$first_name || !$last_name || !$birth_date || !$email || !$phone || !$home_address || !$date_start || !$date_end) {
-        die("Error: All customer details and booking dates are mandatory.");
+    if (!$id_umbrella || !$first_name || !$last_name || !$date_start || !$date_end) {
+        echo json_encode(["success" => false, "message" => "Dati obbligatori mancanti per la prenotazione."]);
+        exit;
     }
 
     $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
+        echo json_encode(["success" => false, "message" => "Connessione fallita."]);
+        exit;
     }
 
     try {
         $conn->begin_transaction();
 
-        // 1. Check if client already exists by email (indirizzo column in DB)
-        $sql_check = "SELECT codice FROM Cliente WHERE indirizzo = ? LIMIT 1"; 
-        $stmt_check = $conn->prepare($sql_check);
-        $stmt_check->bind_param("s", $email);
-        $stmt_check->execute();
-        $result_check = $stmt_check->get_result();
-        $existing_client = $result_check->fetch_assoc();
-        $stmt_check->close();
+        // 1. Controllo se il cliente esiste già per email
+        $id_client = null;
+        if (!empty($email)) {
+            $stmt_check = $conn->prepare("SELECT codice FROM Cliente WHERE email = ? LIMIT 1");
+            $stmt_check->bind_param("s", $email);
+            $stmt_check->execute();
+            $res_check = $stmt_check->get_result()->fetch_assoc();
+            if ($res_check) {
+                $id_client = $res_check['codice'];
+            }
+            $stmt_check->close();
+        }
 
-        if ($existing_client) {
-            $id_client = $existing_client['codice'];
-        } else {
-            // Insert new client if it doesn't exist
-            $sql_insert_cliente = "INSERT INTO Cliente (nome, cognome, dataNascita, indirizzo) VALUES (?, ?, ?, ?)";
-            $stmt_insert = $conn->prepare($sql_insert_cliente);
-            $stmt_insert->bind_param("ssss", $first_name, $last_name, $birth_date, $email);
+        // Se non esiste, lo creiamo al volo
+        if (!$id_client) {
+            $stmt_insert = $conn->prepare("INSERT INTO Cliente (nome, cognome, dataNascita, email, telefono, indirizzo) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt_insert->bind_param("ssssss", $first_name, $last_name, $birth_date, $email, $phone, $home_address);
             $stmt_insert->execute();
             $id_client = $conn->insert_id;
             $stmt_insert->close();
         }
 
-        // 2. Create Contract record
+        // 2. Creazione del Contratto
         $today_date = date('Y-m-d');
-        $fictional_price = 30.00; 
-        
-        $sql_contratto = "INSERT INTO Contratto (data, importo, stipulatoDa) VALUES (?, ?, ?)";
-        $stmt_contratto = $conn->prepare($sql_contratto);
-        $stmt_contratto->bind_param("sdi", $today_date, $fictional_price, $id_client);
+        $stmt_contratto = $conn->prepare("INSERT INTO Contratto (data, importo, stipulatoDa) VALUES (?, ?, ?)");
+        $stmt_contratto->bind_param("sdi", $today_date, $prezzo_tot, $id_client);
         $stmt_contratto->execute();
         $num_contract = $conn->insert_id;
         $stmt_contratto->close();
 
-        // 3. Populate OmbrelloneVenduto row day by day
+        // 3. Occupazione giornaliera dell'ombrellone (OmbrelloneVenduto)
         $current_timestamp = strtotime($date_start);
         $end_timestamp = strtotime($date_end);
 
-        $sql_vendita = "INSERT INTO OmbrelloneVenduto (data, idOmbrellone, idContratto) VALUES (?, ?, ?)";
-        $stmt_vendita = $conn->prepare($sql_vendita);
+        $stmt_vendita = $conn->prepare("INSERT INTO OmbrelloneVenduto (data, idOmbrellone, idContratto) VALUES (?, ?, ?)");
 
         while ($current_timestamp <= $end_timestamp) {
             $day_date = date('Y-m-d', $current_timestamp);
@@ -73,16 +73,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $stmt_vendita->close();
 
+        // COMPROMESSO PER IL TERMINALE: Stampiamo il log della prenotazione avvenuta
+        error_log("=================================================");
+        error_log("SUCCESS: Prenotazione effettuata con successo!");
+        error_log("Ombrellone ID: " . $id_umbrella);
+        error_log("Periodo: Dal " . $date_start . " Al " . $date_end);
+        error_log("Cliente: " . $first_name . " " . $last_name);
+        error_log("=================================================");
+
         $conn->commit();
         $conn->close();
 
-        header("Location: ../interface/index.php?status=success");
-        exit();
+        echo json_encode(["success" => true, "message" => "Prenotazione salvata con successo!"]);
+        exit;
 
     } catch (Exception $e) {
         $conn->rollback();
         $conn->close();
-        die("Error during reservation storage: " . $e->getMessage());
+        echo json_encode(["success" => false, "message" => "Errore DB: " . $e->getMessage()]);
+        exit;
     }
 }
 ?>

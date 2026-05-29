@@ -122,8 +122,8 @@
 
 .pagination span.current-page {
   padding: 8px 12px;
-  background: #e67e22;
-  color: white;
+  background: var(--primary);
+  color: black;
   border-radius: 4px;
   font-weight: bold;
 }

@@ -89,22 +89,25 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <summary class="filter-title">Anno di nascita</summary>
             <div class="filter-content">
               <label>Anno:
-                <input type="number" name="anno_nascita" placeholder="es. 1990" value="<?php echo htmlspecialchars($annoNascita); ?>">
+                <input type="number" name="anno_nascita" placeholder="es. 1990"
+                  value="<?php echo htmlspecialchars($annoNascita); ?>">
               </label>
             </div>
           </details>
-<details class="filter-group" <?php echo $isContattiOpen; ?>>
+          <details class="filter-group" <?php echo $isContattiOpen; ?>>
             <summary class="filter-title">Contatti</summary>
             <div class="filter-content">
               <label>Email:
-                <input type="text" name="search_email" placeholder="es. mario@email.it" value="<?php echo htmlspecialchars($emailFiltro); ?>">
+                <input type="text" name="search_email" placeholder="es. mario@email.it"
+                  value="<?php echo htmlspecialchars($emailFiltro); ?>">
               </label>
               <label>Telefono:
-                <input type="text" name="search_telefono" placeholder="es. 333123..." value="<?php echo htmlspecialchars($telefonoFiltro); ?>">
+                <input type="text" name="search_telefono" placeholder="es. 333123..."
+                  value="<?php echo htmlspecialchars($telefonoFiltro); ?>">
               </label>
             </div>
           </details>
-        <?php
+          <?php
         } else {
           echo "<p class='no-filters-msg'>No filtri attivi</p>";
         }
@@ -112,11 +115,63 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
       </div>
 
-      <button type="submit" class="btn-apply">Applica Filti</button>
-      
-      <?php if ($currentPage == 'clienti.php' || $currentPage == 'contratti.php'): ?>
-        <a href="<?php echo $currentPage; ?>" style="text-align: center; margin-top: 15px; display: block; color: var(--text-muted, #888); font-size: 13px; text-decoration: none;">Resetta Filtri</a>
-      <?php endif; ?>
+      <button type="submit" class="btn-apply">Applica Filtri</button>
+
+      <?php
+      if ($currentPage == 'clienti.php' || $currentPage == 'contratti.php'):
+
+        $chiaviFiltro = ['search_nome', 'search_cognome', 'anno_nascita', 'search_email', 'search_telefono', 'data_da', 'data_a'];
+        $haFiltriAttivi = false;
+
+        foreach ($chiaviFiltro as $chiave) {
+          if (!empty($_GET[$chiave])) {
+            $haFiltriAttivi = true;
+            break;
+          }
+        }
+
+        if ($haFiltriAttivi):
+          ?>
+          <a href="<?php echo $currentPage; ?>"
+            style="text-align: center; margin-top: 15px; display: block; color: var(--text-muted, #888); font-size: 13px; text-decoration: none;">Resetta
+            Filtri</a>
+        <?php
+        endif;
+      endif;
+      ?>
     </form>
   </div>
 </aside>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Controllo per la pagina Contratti (contratti.php)
+  const startContratti = document.getElementById('sidebar-contratti-da');
+  const endContratti = document.getElementById('sidebar-contratti-a');
+
+  if (startContratti && endContratti) {
+    startContratti.addEventListener('input', () => {
+      // Imposta il vincolo 'min' nativo sul calendario del campo di fine
+      endContratti.min = startContratti.value;
+      
+      // Se la data di fine inserita diventa inferiore a quella d'inizio, la allinea automaticamente
+      if (endContratti.value && endContratti.value < startContratti.value) {
+        endContratti.value = startContratti.value;
+      }
+    });
+  }
+
+  // 2. Controllo per la Mappa Lido (index.php)
+  const startMap = document.getElementById('start-date');
+  const endMap = document.getElementById('end-date');
+
+  if (startMap && endMap) {
+    startMap.addEventListener('input', () => {
+      endMap.min = startMap.value;
+      if (endMap.value && endMap.value < startMap.value) {
+        endMap.value = startMap.value;
+      }
+    });
+  }
+});
+</script>

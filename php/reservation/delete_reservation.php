@@ -1,37 +1,44 @@
 <?php
-// php/delete_reservation.php
+header("Content-Type: application/json");
 require_once('../config.php');
 
-$id_umbrella = $_GET['id_umbrella'] ?? null;
-$date_start  = $_GET['start'] ?? null;
-$date_end    = $_GET['end'] ?? null;
+$id_contratto = $_GET['id'] ?? null;
 
-if (!$id_umbrella || !$date_start || !$date_end) {
-    die("Error: Missing parameters required to delete the reservation.");
+if (!$id_contratto) {
+    echo json_encode(["success" => false, "message" => "ID contratto mancante."]);
+    exit;
 }
 
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    echo json_encode(["success" => false, "message" => "Connessione al database fallita."]);
+    exit;
 }
 
 try {
     $conn->begin_transaction();
 
-    $sql_libera = "DELETE FROM OmbrelloneVenduto WHERE idOmbrellone = ? AND data BETWEEN ? AND ?";
-    $stmt_libera = $conn->prepare($sql_libera);
-    $stmt_libera->bind_param("iss", $id_umbrella, $date_start, $date_end);
+    // Rimuove le giornate occupate associate a questo contratto
+    $stmt_libera = $conn->prepare("DELETE FROM OmbrelloneVenduto WHERE idContratto = ?");
+    $stmt_libera->bind_param("i", $id_contratto);
     $stmt_libera->execute();
+    $stmt_libera->close();
 
-    $sql_stato = "UPDATE Contratto SET stato = 'Cancellato' WHERE numProgr = ?";
-    $stmt_stato = $conn->prepare($sql_stato);
-    $stmt_stato->bind_param("i", $id_contratto);
-    $stmt_stato->execute();
+    // Rimuove il contratto (o puoi fare un UPDATE sullo stato se preferisci mantenerlo nello storico)
+    $stmt_contratto = $conn->prepare("DELETE FROM Contratto WHERE numProgr = ?");
+    $stmt_contratto->bind_param("i", $id_contratto);
+    $stmt_contratto->execute();
+    $stmt_contratto->close();
 
     $conn->commit();
-    echo json_encode(["success" => true, "message" => "Prenotazione cancellata loggata nello storico."]);
+    $conn->close();
+    echo json_encode(["success" => true, "message" => "Prenotazione cancellata e ombrellone liberato."]);
+    exit;
+
 } catch (Exception $e) {
     $conn->rollback();
-    echo json_encode(["success" => false, "message" => $e->getMessage()]);
+    $conn->close();
+    echo json_encode(["success" => false, "message" => "Errore DB: " . $e->getMessage()]);
+    exit;
 }
 ?>
