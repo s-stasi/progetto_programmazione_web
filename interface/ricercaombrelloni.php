@@ -101,11 +101,7 @@ $result = $conn->query($sql);
   </div>
 </main>
 
-<script>
-function vediDettagli(id) {
-    window.location.href = "gestione_prenotazione.php?id_ombrellone=" + id;
-}
-</script>
+<script src="javascript/ricercaombrelloni.js"></script>
 
 <?php 
 $conn->close();
