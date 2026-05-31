@@ -1,20 +1,19 @@
 <?php require_once '../php/config.php'; ?>
 
-<div id="modal-reservation" class="modal">
+<div id="modal-contract" class="modal">
   <div class="modal-ios">
     <div class="ios-header">
       <div class="ios-umbrella-info">
-        <h2 id="display-umbrella-code" class="txt-oro-main">#00</h2>
-        <span id="display-umbrella-type" class="txt-tipologia-small txt-grigio-medium">TIPOLOGIA</span>
+        <h2 id="display-contract-code" class="txt-oro-main">#00</h2>
       </div>
-      <span class="close-modal" onclick="closeReservationModal()">&times;</span>
+      <span class="close-modal" onclick="closeContractModal()">&times;</span>
     </div>
 
-    
-    <form id="form-new-reservation" onsubmit="submitNewReservation(event)">
-      <input type="hidden" id="booking-id" name="id_prenotazione">
-      <input type="hidden" id="booking-umbrella-id" name="id_ombrellone">
-      <input type="hidden" id="booking-total-cost-hidden" name="prezzo_totale">
+    <input type="hidden" id="contract-start-date" name="inizio_prenotazione">
+    <input type="hidden" id="contract-id" name="id_ombrellone">
+    <input type="hidden" id="contract-total-cost-hidden" name="prezzo_totale">
+
+    <form id="form-new-reservation" onsubmit="saveReservation(event)">
       <div class="ios-row-container">
         <div class="ios-date-inputs">
           <div class="ios-date-field">
@@ -37,13 +36,21 @@
       <hr class="ios-divider">
 
       <h3 class="txt-oro-sub">Dati Cliente</h3>
-      <?php
-      $prefix = 'client';
-      include 'components/client_form.php';
-      ?>
+      <div class="modal-profile-box">
+        <div class="row-fields ios-input-group">
+          <div class="field-half">
+            <label class="txt-grigio-medium-label">Nome</label>
+            <input type="text" name="nome" id="contract-nome" readonly required style="background-color: #f5f5f5; cursor: not-allowed;">
+          </div>
+          <div class="field-half field-left-border">
+            <label class="txt-grigio-medium-label">Cognome</label>
+            <input type="text" name="cognome" id="contract-cognome" readonly required style="background-color: #f5f5f5; cursor: not-allowed;">
+          </div>
+        </div>
+      </div>
 
       <div id="wrapper-creation-actions">
-        <button type="submit" class="btn-ios-primary">Conferma Prenotazione</button>
+        <button type="submit" class="btn-ios-primary">Conferma</button>
       </div>
 
       <div id="wrapper-view-actions" style="display: none; gap: 12px;">

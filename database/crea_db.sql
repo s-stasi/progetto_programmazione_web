@@ -38,7 +38,7 @@ CREATE TABLE Tariffa (
   
   -- Constraint exactly as specified in the assignment slides
   CONSTRAINT chk_tariffa_tipo CHECK (
-    (tipo = 'Giornaliera' AND numMinGiorni=NULL) 
+    (tipo = 'Giornaliera' AND numMinGiorni IS NULL) 
     OR 
     (tipo = 'Abbonamento' AND numMinGiorni IS NOT NULL)
   )
@@ -64,7 +64,7 @@ CREATE TABLE Ombrellone (
 ) ENGINE=InnoDB;
 
 CREATE TABLE Contratto (
-  numProgr INT PRIMARY KEY,
+  numProgr INT PRIMARY KEY AUTO_INCREMENT,
   data DATE NOT NULL,
   importo DECIMAL(10, 2) NOT NULL,
   stipulatoDa INT NOT NULL,

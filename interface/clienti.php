@@ -260,7 +260,7 @@
   </div>
 </main>
 
-<-- include script ->
+<!-- include script -->
 <script src="javascript/clienti.js"></script>
 
 <?php include 'components/footer.php'; ?>

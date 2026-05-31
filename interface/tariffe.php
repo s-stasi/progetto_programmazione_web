@@ -4,7 +4,6 @@
 <main class="page-body">
   <div class="table-header">
     <h2>Gestione Tariffe</h2>
-    <button class="btn-primary" onclick="alert('Form in arrivo!')">+ Aggiungi Tariffa</button>
   </div>
 
   <div class="table-container">

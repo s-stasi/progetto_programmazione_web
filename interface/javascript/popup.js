@@ -14,6 +14,8 @@ function openReservationModal(code, type, baseCost, isReserved, reservationData)
   document.getElementById('display-umbrella-type').innerText = type;
   document.getElementById('display-total-cost').innerText = baseCost;
 
+  document.getElementById('booking-total-cost-hidden').value = baseCost;
+
   const creationActions = document.getElementById('wrapper-creation-actions');
   const viewActions = document.getElementById('wrapper-view-actions');
   if (isReserved && reservationData) {
@@ -145,6 +147,8 @@ async function handlePopupDateChange() {
 
     if (!priceData.error) {
       priceDisplay.innerText = priceData.totale;
+
+      document.getElementById('booking-total-cost-hidden').value = priceData.totale;
     } else {
       priceDisplay.innerText = "Errore tariffa";
     }
@@ -164,3 +168,51 @@ document.addEventListener('DOMContentLoaded', () => {
     popupEndDate.addEventListener('change', handlePopupDateChange);
   }
 });
+
+// Function to handle the new reservation form submission
+async function submitNewReservation(event) {
+  event.preventDefault();
+
+  const form = document.getElementById('form-new-reservation');
+  const formData = new FormData(form);
+  const btnSubmit = form.querySelector('button[type="submit"]');
+
+  // Disable button to prevent double clicks/submissions
+  const originalText = btnSubmit.innerText;
+  btnSubmit.innerText = "Salvataggio in corso...";
+  btnSubmit.disabled = true;
+
+  try {
+    // Send data to the PHP script you just created
+    const response = await fetch('../php/reservation/add_reservation.php', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      alert("Prenotazione salvata con successo!");
+      
+      // Close the modal
+      const modal = document.getElementById('modal-reservation');
+      if (modal) modal.classList.remove('show');
+      
+      // Refresh the beach map to immediately show the umbrella as red (reserved)
+      if (typeof fetchUmbrellas === 'function') {
+        fetchUmbrellas();
+      }
+      
+      form.reset();
+    } else {
+      alert("Errore: " + result.message);
+    }
+  } catch (err) {
+    console.error("Network error during reservation:", err);
+    alert("Errore di connessione al server.");
+  } finally {
+    // Restore button state
+    btnSubmit.innerText = originalText;
+    btnSubmit.disabled = false;
+  }
+}

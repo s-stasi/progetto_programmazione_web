@@ -26,8 +26,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <?php
         // --- FILTERS FOR INDEX (OPERATIONAL MAP) ---
         if ($currentPage == 'index.php') {
+          $isOpenIndex = 'open';
           ?>
-          <details class="filter-group" open>
+          <details class="filter-group" <?php echo $isOpenIndex; ?>>
             <summary class="filter-title">Intervallo data</summary>
             <div class="filter-content">
               <label>Da:
@@ -44,9 +45,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         } elseif ($currentPage == 'contratti.php') {
           $da = $_GET['data_da'] ?? '';
           $a = $_GET['data_a'] ?? '';
-          $isOpen = (!empty($da) || !empty($a)) ? 'open' : '';
+          $isOpenContratti = (!empty($da) || !empty($a)) ? 'open' : '';
           ?>
-          <details class="filter-group" <?php echo $isOpen; ?>>
+          <details class="filter-group" <?php echo $isOpenContratti; ?>>
             <summary class="filter-title">Intervallo Data</summary>
             <div class="filter-content">
               <label>Da:
@@ -63,16 +64,16 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         } elseif ($currentPage == 'clienti.php') {
           $cognomeFiltro = $_GET['search_cognome'] ?? '';
           $nomeFiltro = $_GET['search_nome'] ?? '';
-          $isOpen = (!empty($cognomeFiltro) || !empty($nomeFiltro)) ? 'open' : '';
+          $isOpenName = (!empty($cognomeFiltro) || !empty($nomeFiltro)) ? 'open' : '';
 
           $annoNascita = $_GET['anno_nascita'] ?? '';
+          $isAnnoOpen = (!empty($annoNascita)) ? 'open' : '';
+
           $emailFiltro = $_GET['search_email'] ?? '';
           $telefonoFiltro = $_GET['search_telefono'] ?? '';
-          $isOpen = (!empty($data_nascita)) ? 'open' : '';
-          $isAnnoOpen = (!empty($annoNascita)) ? 'open' : '';
           $isContattiOpen = (!empty($emailFiltro) || !empty($telefonoFiltro)) ? 'open' : '';
           ?>
-          <details class="filter-group" <?php echo $isOpen; ?>>
+          <details class="filter-group" <?php echo $isOpenName; ?>>
             <summary class="filter-title">Nome</summary>
             <div class="filter-content">
               <label>Nome:

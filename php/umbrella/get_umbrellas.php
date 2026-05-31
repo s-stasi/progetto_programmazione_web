@@ -15,8 +15,10 @@ if ($conn->connect_error) {
 }
 
 // 1. Recupero parametri GET passati dal frontend (con fallback a oggi)
+// Recupero parametri GET
 $inizio = $_GET['inizio'] ?? date('Y-m-d');
 $fine = $_GET['fine'] ?? date('Y-m-d');
+$escludi_contratto = $_GET['escludi_contratto'] ?? 0; // Nuovo parametro!
 
 $sql = "SELECT 
             o.id AS id_ombrellone, 
@@ -30,14 +32,17 @@ $sql = "SELECT
                     FROM OmbrelloneVenduto ov 
                     WHERE ov.idOmbrellone = o.id 
                     AND ov.data BETWEEN ? AND ?
+                    AND ov.contratto != ? -- La magia avviene qui! Ignora il nostro contratto.
                 ) THEN 1 
                 ELSE 0 
             END AS occupato
         FROM Ombrellone o 
         JOIN Tipologia t ON o.tipologia = t.codice";
 
+// Aggiorna il bind per includere il terzo parametro (il contratto da escludere)
 $stmt = $conn->prepare($sql);
-$stmt->bind_param("ss", $inizio, $fine);
+$stmt->bind_param("ssi", $inizio, $fine, $escludi_contratto);
+
 $stmt->execute();
 $result = $stmt->get_result();
 if ($result) {
