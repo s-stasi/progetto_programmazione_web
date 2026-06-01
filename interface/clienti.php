@@ -3,7 +3,7 @@
 
 <main class="page-body">
   <div class="table-header">
-    <h2>Gestione clienti</h2>
+    <h2 class="ricerca-titolo">Gestione clienti</h2>
     <button class="btn-primary" onclick="openAddModal()">+ Aggiungi clienti</button>
   </div>
 

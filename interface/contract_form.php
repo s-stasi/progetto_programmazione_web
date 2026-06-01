@@ -61,4 +61,4 @@
   </div>
 </div>
 
-<script src="javascript/popup.js"></script>
+<script src="javascript/reservation_form.js"></script>

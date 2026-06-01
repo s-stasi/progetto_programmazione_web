@@ -3,7 +3,7 @@
 
 <main class="page-body">
   <div class="table-header">
-    <h2>Gestione Contratti</h2>
+    <h2 class="ricerca-titolo">Gestione Contratti</h2>
   </div>
 
   <div class="table-container">

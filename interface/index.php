@@ -16,7 +16,7 @@
   <div id="grid"></div>
 </main>
 
-<?php include 'popup.php'; ?>
+<?php include 'reservation_form.php'; ?>
 
 <script src="javascript/index.js"></script>
 

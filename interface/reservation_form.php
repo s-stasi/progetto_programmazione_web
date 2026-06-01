@@ -46,12 +46,12 @@
         <button type="submit" class="btn-ios-primary">Conferma Prenotazione</button>
       </div>
 
-      <div id="wrapper-view-actions" style="display: none; gap: 12px;">
+      <div id="wrapper-creation-actions">
         <button type="button" class="btn-ios-danger" onclick="deleteReservation()">Elimina Prenotazione</button>
-        <button type="button" class="btn-ios-secondary" onclick="enableModificationMode()">Modifica Dati</button>
+        <!-- <button type="button" class="btn-ios-secondary" onclick="enableModificationMode()">Modifica Dati</button> -->
       </div>
     </form>
   </div>
 </div>
 
-<script src="javascript/popup.js"></script>
+<script src="javascript/reservation_form.js"></script>
