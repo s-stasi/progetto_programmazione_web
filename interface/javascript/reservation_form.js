@@ -17,7 +17,7 @@ function openReservationModal(code, type, baseCost, isReserved, reservationData)
   document.getElementById('booking-total-cost-hidden').value = baseCost;
 
   const creationActions = document.getElementById('wrapper-creation-actions');
-  const viewActions = document.getElementById('wrapper-creation-actions');
+  const viewActions = document.getElementById('wrapper-view-actions');
   if (isReserved && reservationData) {
     creationActions.style.display = 'none';
     viewActions.style.display = 'flex';

@@ -46,9 +46,8 @@
         <button type="submit" class="btn-ios-primary">Conferma Prenotazione</button>
       </div>
 
-      <div id="wrapper-creation-actions">
+      <div id="wrapper-view-actions">
         <button type="button" class="btn-ios-danger" onclick="deleteReservation()">Elimina Prenotazione</button>
-        <!-- <button type="button" class="btn-ios-secondary" onclick="enableModificationMode()">Modifica Dati</button> -->
       </div>
     </form>
   </div>
