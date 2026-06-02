@@ -63,6 +63,8 @@ function drawMap(umbrellas) {
   const grid = document.getElementById('grid');
   grid.innerHTML = "";
 
+  grid.classList.remove('sector-zoomed-mode');
+
   const letters = { 1: 'A', 2: 'B', 3: 'C', 4: 'D', 5: 'E' };
   const sectors = {};
 
@@ -172,7 +174,7 @@ function drawMap(umbrellas) {
           if (reservationJson.error) {
             console.warn('Reservation data warning:', reservationJson.error);
           }
-          openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, reservationJson);
+          openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, reservationData.success ? reservationJson : {id_ombrellone: u.id_ombrellone});
         } else {
           console.error('Error fetching reservation data:', reservationData.statusText);
           openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, null);
