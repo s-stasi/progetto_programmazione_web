@@ -152,7 +152,6 @@ function drawMap(umbrellas) {
           if (priceResponse.ok) {
             const priceData = await priceResponse.json();
             if (!priceData.error) {
-              // Use the total calculated price
               costoOmbrellone = priceData.totale;
             } else {
               console.warn('Price calculation warning:', priceData.error);
@@ -163,7 +162,21 @@ function drawMap(umbrellas) {
         }
 
         const isReserved = (u.occupato == 1);
-        openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, u);
+
+        // Get reservation data
+        const reservationUrl = `../php/reservation/get_reservation.php?id_ombrellone=${encodeURIComponent(u.id_ombrellone)}&data_inizio=${startDateInput.value}`;
+        const reservationData = await fetch(reservationUrl); 
+
+        if (reservationData.ok) {
+          const reservationJson = await reservationData.json();
+          if (reservationJson.error) {
+            console.warn('Reservation data warning:', reservationJson.error);
+          }
+          openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, reservationJson);
+        } else {
+          console.error('Error fetching reservation data:', reservationData.statusText);
+          openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, null);
+        }
       });
       beachGrid.appendChild(dot);
     });

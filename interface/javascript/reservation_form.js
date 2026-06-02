@@ -13,24 +13,26 @@ function openReservationModal(code, type, baseCost, isReserved, reservationData)
   document.getElementById('display-umbrella-code').innerText = 'Ombrellone ' + code;
   document.getElementById('display-umbrella-type').innerText = type;
   document.getElementById('display-total-cost').innerText = baseCost;
-
+  
   document.getElementById('booking-total-cost-hidden').value = baseCost;
-
+  
   const creationActions = document.getElementById('wrapper-creation-actions');
   const viewActions = document.getElementById('wrapper-view-actions');
   if (isReserved && reservationData) {
     creationActions.style.display = 'none';
     viewActions.style.display = 'flex';
 
-    document.getElementById('booking-id').value = reservationData.id || '';
-    document.getElementById('booking-start').value = reservationData.data_inizio || '';
-    document.getElementById('booking-end').value = reservationData.data_fine || '';
-    document.getElementById('client-nome').value = reservationData.nome || '';
-    document.getElementById('client-cognome').value = reservationData.cognome || '';
-    document.getElementById('client-data-nascita').value = reservationData.data_nascita || '';
-    document.getElementById('client-indirizzo').value = reservationData.indirizzo || '';
-    document.getElementById('client-email').value = reservationData.email || '';
-    document.getElementById('client-cellulare').value = reservationData.cellulare || '';
+    document.getElementById('display-total-cost').innerText = reservationData.data.prezzo_totale;
+
+    document.getElementById('booking-id').value = reservationData.data.id || '';
+    document.getElementById('booking-start').value = reservationData.data.data_inizio || '';
+    document.getElementById('booking-end').value = reservationData.data.data_fine || '';
+    document.getElementById('client-nome').value = reservationData.data.nome || '';
+    document.getElementById('client-cognome').value = reservationData.data.cognome || '';
+    document.getElementById('client-data-nascita').value = reservationData.data.data_nascita || '';
+    document.getElementById('client-indirizzo').value = reservationData.data.indirizzo || '';
+    document.getElementById('client-email').value = reservationData.data.email || '';
+    document.getElementById('client-cellulare').value = reservationData.data.cellulare || '';
 
     toggleFormInputs(true);
   } else {

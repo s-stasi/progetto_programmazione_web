@@ -19,7 +19,7 @@ try {
     $conn->begin_transaction();
 
     // Rimuove le giornate occupate associate a questo contratto
-    $stmt_libera = $conn->prepare("DELETE FROM OmbrelloneVenduto WHERE idContratto = ?");
+    $stmt_libera = $conn->prepare("DELETE FROM OmbrelloneVenduto WHERE contratto = ?");
     $stmt_libera->bind_param("i", $id_contratto);
     $stmt_libera->execute();
     $stmt_libera->close();
