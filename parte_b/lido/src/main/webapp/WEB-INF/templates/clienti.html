@@ -3,22 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Lido Admin - Clienti</title>
-    <link rel="stylesheet" th:href="@{/css/style.css}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-</head>
-<body style="font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px;">
-
-    <h1 th:text="${titoloPagina}" style="color: #2c3e50;">Titolo di Default</h1>
     
-    <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-        <p th:text="${messaggio}" style="color: #27ae60; font-weight: bold;">
-            Messaggio di default (verrà sovrascritto se funziona)
-        </p>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f9; padding: 20px; }
+        h1 { color: #2c3e50; }
+        .table-container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); margin-top: 20px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; color: #333; font-weight: bold; }
+        tr:hover { background-color: #f1f1f1; }
+        .btn-add { margin-top: 20px; padding: 10px 15px; background: #e67e22; color: white; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; display: inline-block; }
+        .btn-add:hover { background: #d35400; }
+        .icon { vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+    <h1 th:text="${titoloPagina}">Gestione Clienti</h1>
+    
+    <div class="table-container">
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Codice</th>
+                    <th>Nome</th>
+                    <th>Cognome</th>
+                    <th>Data di Nascita</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                    <th>Indirizzo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${#lists.isEmpty(clienti)}">
+                    <td colspan="7" style="text-align: center; color: #888;">Nessun cliente trovato nel database.</td>
+                </tr>
+
+                <tr th:each="c : ${clienti}">
+                    <td th:text="${c.codice}">000</td>
+                    <td th:text="${c.nome}">Mario</td>
+                    <td th:text="${c.cognome}">Rossi</td>
+                    <td th:text="${c.dataNascita != null ? c.dataNascita : '-'}">01/01/1980</td>
+                    <td th:text="${c.email}">mario@example.com</td>
+                    <td th:text="${c.telefono}">333 1234567</td>
+                    <td th:text="${c.indirizzo}">Via Roma, 1</td>
+                </tr>
+            </tbody>
+        </table>
+
     </div>
 
-    <button style="margin-top: 20px; padding: 10px 15px; background: #e67e22; color: white; border: none; border-radius: 4px; cursor: pointer;">
-        <span class="material-symbols-outlined" style="vertical-align: middle;">group_add</span> Aggiungi Cliente
-    </button>
+    <a href="#" class="btn-add">
+        <span class="material-symbols-outlined icon">group_add</span> Aggiungi Cliente
+    </a>
 
 </body>
 </html>
