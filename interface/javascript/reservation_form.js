@@ -41,7 +41,7 @@ function openReservationModal(code, type, baseCost, isReserved, reservationData)
     document.getElementById('booking-id').value = '';
 
     // ---> INSERISCI QUESTA RIGA QUI SOTTO <---
-    document.getElementById('booking-umbrella-id').value = reservationData ? (reservationData.id_ombrellone || reservationData.id) : '';
+    document.getElementById('booking-umbrella-id').value = reservationData ? (reservationData.id_ombrellone || reservationData.id || '') : '';
 
     if (document.getElementById('start-date')) {
       document.getElementById('booking-start').value = document.getElementById('start-date').value;
