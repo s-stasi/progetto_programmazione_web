@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<aside th:fragment="sidebar(currentPage)" class="sidebar">
+  <nav class="navigation">
+    <h2 class="ricerca-titolo">Dashboard</h2>
+    <ul>
+      <li><a th:href="@{/}" th:classappend="${currentPage == 'index'} ? 'active' : ''" class="nav-link">Mappa Lido</a></li>
+      <li><a th:href="@{/clienti}" th:classappend="${currentPage == 'clienti'} ? 'active' : ''" class="nav-link">Gestione Clienti</a></li>
+      <li><a th:href="@{/tariffe}" th:classappend="${currentPage == 'tariffe'} ? 'active' : ''" class="nav-link">Listino Tariffe</a></li>
+      <li><a th:href="@{/contratti}" th:classappend="${currentPage == 'contratti'} ? 'active' : ''" class="nav-link">Contratti</a></li>
+    </ul>
+  </nav>
+
+  <div class="sidebar-filters">
+    <h2 class="ricerca-titolo">Filtri</h2>
+
+    <form action="" method="GET" class="filters-form" th:id="${currentPage == 'index'} ? 'form-filtri-mappa' : null">
+      <div class="filters-container">
+
+        <th:block th:if="${currentPage == 'index'}">
+          <details class="filter-group" open>
+            <summary class="filter-title">Intervallo data</summary>
+            <div class="filter-content">
+              <label>Da: <input type="date" id="start-date"></label>
+              <label>A: <input type="date" id="end-date"></label>
+            </div>
+          </details>
+        </th:block>
+
+        <th:block th:if="${currentPage == 'contratti'}">
+          <details class="filter-group" th:open="${param.data_da != null or param.data_a != null}">
+            <summary class="filter-title">Intervallo Data</summary>
+            <div class="filter-content">
+              <label>Da: <input type="date" name="data_da" th:value="${param.data_da}"></label>
+              <label>A: <input type="date" name="data_a" th:value="${param.data_a}"></label>
+            </div>
+          </details>
+        </th:block>
+
+        <th:block th:if="${currentPage == 'clienti'}">
+          <details class="filter-group" th:open="${param.search_nome != null or param.search_cognome != null}">
+            <summary class="filter-title">Nome</summary>
+            <div class="filter-content">
+              <label>Nome: <input type="text" name="search_nome" placeholder="e.g. Mario" th:value="${param.search_nome}"></label>
+              <label>Cognome: <input type="text" name="search_cognome" placeholder="e.g. Rossi" th:value="${param.search_cognome}"></label>
+            </div>
+          </details>
+          
+          <details class="filter-group" th:open="${param.anno_nascita != null}">
+            <summary class="filter-title">Anno di nascita</summary>
+            <div class="filter-content">
+              <label>Anno: <input type="number" name="anno_nascita" placeholder="es. 1990" th:value="${param.anno_nascita}"></label>
+            </div>
+          </details>
+          
+          <details class="filter-group" th:open="${param.search_email != null or param.search_telefono != null}">
+            <summary class="filter-title">Contatti</summary>
+            <div class="filter-content">
+              <label>Email: <input type="text" name="search_email" placeholder="es. mario@email.it" th:value="${param.search_email}"></label>
+              <label>Telefono: <input type="text" name="search_telefono" placeholder="es. 333123..." th:value="${param.search_telefono}"></label>
+            </div>
+          </details>
+        </th:block>
+
+        <th:block th:if="${currentPage != 'index' and currentPage != 'clienti' and currentPage != 'contratti'}">
+          <p class='no-filters-msg'>No filtri attivi</p>
+        </th:block>
+
+      </div>
+
+      <button type="submit" class="btn-apply">Applica Filtri</button>
+
+      <th:block th:if="${currentPage == 'clienti' or currentPage == 'contratti'}">
+        <a th:if="${not #maps.isEmpty(param)}" th:href="@{/{page}(page=${currentPage})}" 
+           style="text-align: center; margin-top: 15px; display: block; color: #888; font-size: 13px; text-decoration: none;">
+           Resetta Filtri
+        </a>
+      </th:block>
+
+    </form>
+  </div>
+</aside>
+
+</body>
+</html>
