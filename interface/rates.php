@@ -10,13 +10,15 @@
 
   <div class="cards-container">
     <?php
-    $tipologie = ['Base', 'VIP', 'Gazebo', 'Disabili'];
+    $tipologie = ['Base', 'VIP', 'Gazebo', 'Disabile'];
     foreach ($tipologie as $tipo) {
+        $labelVisualizzazione = strtoupper($tipo);
+        
         echo "
         <div class='tariffa-card' data-tipo='$tipo'>
           
           <div class='ios-header-card'>
-            <h2 class='txt-oro-main'>$tipo</h2>
+            <h2 class='txt-oro-main'>$labelVisualizzazione</h2>
           </div>
 
           <div class='card-body-ios'>
