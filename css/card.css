@@ -1,0 +1,107 @@
+/* ==========================================================================
+   1. GRIGLIA PRINCIPALE (LAYOUT 2X2 STYLE)
+   ========================================================================== */
+.cards-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 30px;
+  padding: 5px;
+  width: 100%;
+  max-width: 1200px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==========================================================================
+   2. SINGLE CARD CONTAINER (iOS STYLE - GIALLO LIDO)
+   ========================================================================== */
+.tariffa-card {
+  background: var(--primary-light); /* Sfondo giallo principale */
+  border-radius: 20px; /* Angoli arrotondati iOS style */
+  padding: 24px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); /* Ombra morbida ereditata */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation: iosModalFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Intestazione interna alla card */
+.ios-header-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.ios-header-card .txt-oro-main {
+  color: var(--ocra) !important;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   3. BOX PERIODO & PREZZO (REPLICA DI .IOS-ROW-CONTAINER)
+   ========================================================================== */
+.ios-row-container-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 14px 16px;
+  border-radius: 12px;
+}
+
+/* Sezione Sinistra: Date */
+.ios-date-info-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card-date-render {
+  font-size: 15px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.ios-price-box-card {
+  text-align: right;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding-left: 15px;
+}
+
+.ios-price-box-card .prezzo-valore {
+  color: #000000 !important;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* ==========================================================================
+   4. UTILITIES COPIATE DA POPUP.CSS
+   ========================================================================== */
+.txt-grigio-medium-label {
+  color: #444444 !important;
+  font-size: 11px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  display: block;
+  letter-spacing: 0.5px;
+}
+
+.prezzo-valore {
+  transition: opacity 0.15s ease;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}

@@ -40,7 +40,6 @@ function openReservationModal(code, type, baseCost, isReserved, reservationData)
     viewActions.style.display = 'none';
     document.getElementById('booking-id').value = '';
 
-    // ---> INSERISCI QUESTA RIGA QUI SOTTO <---
     document.getElementById('booking-umbrella-id').value = reservationData ? (reservationData.id_ombrellone || reservationData.id) : '';
 
     if (document.getElementById('start-date')) {

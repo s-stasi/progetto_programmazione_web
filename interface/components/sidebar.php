@@ -10,7 +10,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
           Lido</a></li>
       <li><a href="clienti.php" class="nav-link <?php echo ($currentPage == 'clienti.php') ? 'active' : ''; ?>">Gestione
           Clienti</a></li>
-      <li><a href="tariffe.php" class="nav-link <?php echo ($currentPage == 'tariffe.php') ? 'active' : ''; ?>">Listino
+      <li><a href="rates.php" class="nav-link <?php echo ($currentPage == 'rates.php') ? 'active' : ''; ?>">Listino
           Tariffe</a></li>
       <li><a href="contratti.php"
           class="nav-link <?php echo ($currentPage == 'contratti.php') ? 'active' : ''; ?>">Contratti</a></li>
@@ -20,28 +20,43 @@ $currentPage = basename($_SERVER['PHP_SELF']);
   <div class="sidebar-filters">
     <h2 class="ricerca-titolo">Filtri</h2>
 
-    <form action="" method="GET" class="filters-form" <?php echo ($currentPage == 'index.php') ? 'id="form-filtri-mappa"' : ''; ?>>
+    <form action="" method="GET" class="filters-form" id="<?php 
+      if ($currentPage == 'index.php') echo 'form-filtri-mappa';
+      elseif ($currentPage == 'rates.php') echo 'form-filtri-tariffe';
+    ?>">
       <div class="filters-container">
 
         <?php
-        // --- FILTERS FOR INDEX (OPERATIONAL MAP) ---
         if ($currentPage == 'index.php') {
-          $isOpenIndex = 'open';
           ?>
-          <details class="filter-group" <?php echo $isOpenIndex; ?>>
+          <details class="filter-group" open>
             <summary class="filter-title">Intervallo data</summary>
             <div class="filter-content">
               <label>Da:
-                <input type="date" id="start-date">
+                <input type="date" id="start-date" name="inizio" value="<?php echo date('Y-m-d'); ?>">
               </label>
               <label>A:
-                <input type="date" id="end-date">
+                <input type="date" id="end-date" name="fine" value="<?php echo date('Y-m-d'); ?>">
               </label>
             </div>
           </details>
 
-          <?php
-          // --- FILTERS FOR CONTRATTI ---
+        <?php
+        } elseif ($currentPage == 'rates.php') {
+          ?>
+          <details class="filter-group" open>
+            <summary class="filter-title">Periodo di Interesse</summary>
+            <div class="filter-content">
+              <label>Dal:
+                <input type="date" id="filtro-inizio" name="inizio" value="<?php echo date('Y-m-d'); ?>">
+              </label>
+              <label>Al:
+                <input type="date" id="filtro-fine" name="fine" value="<?php echo date('Y-m-d'); ?>">
+              </label>
+            </div>
+          </details>
+
+        <?php
         } elseif ($currentPage == 'contratti.php') {
           $da = $_GET['data_da'] ?? '';
           $a = $_GET['data_a'] ?? '';
@@ -51,16 +66,15 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <summary class="filter-title">Intervallo Data</summary>
             <div class="filter-content">
               <label>Da:
-                <input type="date" name="data_da" value="<?php echo htmlspecialchars($da); ?>">
+                <input type="date" id="sidebar-contratti-da" name="data_da" value="<?php echo htmlspecialchars($da); ?>">
               </label>
               <label>A:
-                <input type="date" name="data_a" value="<?php echo htmlspecialchars($a); ?>">
+                <input type="date" id="sidebar-contratti-a" name="data_a" value="<?php echo htmlspecialchars($a); ?>">
               </label>
             </div>
           </details>
 
-          <?php
-          // --- FILTERS FOR CLIENTI ---
+        <?php
         } elseif ($currentPage == 'clienti.php') {
           $cognomeFiltro = $_GET['search_cognome'] ?? '';
           $nomeFiltro = $_GET['search_nome'] ?? '';
@@ -119,9 +133,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
       <button type="submit" class="btn-apply">Applica Filtri</button>
 
       <?php
-      if ($currentPage == 'clienti.php' || $currentPage == 'contratti.php'):
-
-        $chiaviFiltro = ['search_nome', 'search_cognome', 'anno_nascita', 'search_email', 'search_telefono', 'data_da', 'data_a'];
+      if (in_array($currentPage, ['clienti.php', 'contratti.php', 'rates.php'])):
+        $chiaviFiltro = ['search_nome', 'search_cognome', 'anno_nascita', 'search_email', 'search_telefono', 'data_da', 'data_a', 'inizio', 'fine'];
         $haFiltriAttivi = false;
 
         foreach ($chiaviFiltro as $chiave) {
