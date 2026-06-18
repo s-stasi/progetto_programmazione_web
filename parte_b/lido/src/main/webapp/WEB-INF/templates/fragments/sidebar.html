@@ -16,7 +16,7 @@
   <div class="sidebar-filters">
     <h2 class="ricerca-titolo">Filtri</h2>
 
-    <form action="" method="GET" class="filters-form" th:id="${currentPage == 'index'} ? 'form-filtri-mappa' : null">
+    <form action="" method="GET" class="filters-form" th:id="${currentPage == 'index'} ? 'form-filtri-mappa' : (${currentPage == 'tariffe'} ? 'form-filtri-tariffe' : null)">
       <div class="filters-container">
 
         <th:block th:if="${currentPage == 'index'}">
@@ -30,7 +30,7 @@
         </th:block>
 
         <th:block th:if="${currentPage == 'contratti'}">
-          <details class="filter-group" th:open="${param.data_da != null or param.data_a != null}">
+          <details class="filter-group" th:open="${not #strings.isEmpty(param.data_da) or not #strings.isEmpty(param.data_a)}">
             <summary class="filter-title">Intervallo Data</summary>
             <div class="filter-content">
               <label>Da: <input type="date" name="data_da" th:value="${param.data_da}"></label>
@@ -40,7 +40,7 @@
         </th:block>
 
         <th:block th:if="${currentPage == 'clienti'}">
-          <details class="filter-group" th:open="${param.search_nome != null or param.search_cognome != null}">
+          <details class="filter-group" th:open="${not #strings.isEmpty(param.search_nome) or not #strings.isEmpty(param.search_cognome)}">
             <summary class="filter-title">Nome</summary>
             <div class="filter-content">
               <label>Nome: <input type="text" name="search_nome" placeholder="e.g. Mario" th:value="${param.search_nome}"></label>
@@ -48,14 +48,14 @@
             </div>
           </details>
           
-          <details class="filter-group" th:open="${param.anno_nascita != null}">
+          <details class="filter-group" th:open="${not #strings.isEmpty(param.anno_nascita)}">
             <summary class="filter-title">Anno di nascita</summary>
             <div class="filter-content">
               <label>Anno: <input type="number" name="anno_nascita" placeholder="es. 1990" th:value="${param.anno_nascita}"></label>
             </div>
           </details>
           
-          <details class="filter-group" th:open="${param.search_email != null or param.search_telefono != null}">
+          <details class="filter-group" th:open="${not #strings.isEmpty(param.search_email) or not #strings.isEmpty(param.search_telefono)}">
             <summary class="filter-title">Contatti</summary>
             <div class="filter-content">
               <label>Email: <input type="text" name="search_email" placeholder="es. mario@email.it" th:value="${param.search_email}"></label>
@@ -64,8 +64,14 @@
           </details>
         </th:block>
 
-        <th:block th:if="${currentPage != 'index' and currentPage != 'clienti' and currentPage != 'contratti'}">
-          <p class='no-filters-msg'>No filtri attivi</p>
+        <th:block th:if="${currentPage == 'tariffe'}">
+          <details class="filter-group" open>
+            <summary class="filter-title">Intervallo Date</summary>
+            <div class="filter-content">
+              <label>Da: <input type="date" id="sidebar-tariffe-da" name="data_da" th:value="${param.data_da}"></label>
+              <label>A: <input type="date" id="sidebar-tariffe-a" name="data_a" th:value="${param.data_a}"></label>
+            </div>
+          </details>
         </th:block>
 
       </div>

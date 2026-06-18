@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="client_form(prefix)">
+    
+    <div class="input-group-row">
+        <div class="input-group">
+            <label th:for="${prefix} + 'Nome'">Nome <span class="required">*</span></label>
+            <input type="text" th:id="${prefix} + 'Nome'" th:name="nome" required placeholder="Inserisci il nome">
+        </div>
+        <div class="input-group">
+            <label th:for="${prefix} + 'Cognome'">Cognome <span class="required">*</span></label>
+            <input type="text" th:id="${prefix} + 'Cognome'" th:name="cognome" required placeholder="Inserisci il cognome">
+        </div>
+    </div>
+
+    <div class="input-group">
+        <label th:for="${prefix} + 'DataNascita'">Data di Nascita</label>
+        <input type="date" th:id="${prefix} + 'DataNascita'" th:name="dataNascita">
+    </div>
+
+</div>
+
+</body>
+</html>

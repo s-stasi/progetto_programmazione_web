@@ -1,66 +1,201 @@
 <!DOCTYPE html>
 <html lang="it" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Lido Admin - Clienti</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
-    <!-- CSS -->
-    <link rel="stylesheet" th:href="@{css/base.css}">
-    <link rel="stylesheet" th:href="@{css/lido_grid.css}">
-    <link rel="stylesheet" th:href="@{css/popup.css}">
-    <link rel="stylesheet" th:href="@{css/palette_color.css}">
-    <link rel="stylesheet" th:href="@{css/responsive.css}">
-    <link rel="stylesheet" th:href="@{css/sidebar.css}">
-    <link rel="stylesheet" th:href="@{css/tables.css}">
+<head>
+  <meta charset="UTF-8">
+  <title>Lido Admin - Clienti</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" th:href="@{css/base.css}">
+  <link rel="stylesheet" th:href="@{css/lido_grid.css}">
+  <link rel="stylesheet" th:href="@{css/popup.css}">
+  <link rel="stylesheet" th:href="@{css/palette_color.css}">
+  <link rel="stylesheet" th:href="@{css/responsive.css}">
+  <link rel="stylesheet" th:href="@{css/sidebar.css}">
+  <link rel="stylesheet" th:href="@{css/tables.css}">
 </head>
+
 <body>
-  
+
   <div class="layout-container">
     <div th:replace="~{fragments/header :: header}"></div>
     <div th:replace="~{fragments/sidebar :: sidebar('clienti')}"></div>
-    
+
     <main class="page-body">
-      <h1 th:text="${titoloPagina}">Gestione Clienti</h1>
-      
-      <div class="table-container">
-          
-          <table>
-              <thead>
-                  <tr>
-                      <th>Codice</th>
-                      <th>Nome</th>
-                      <th>Cognome</th>
-                      <th>Data di Nascita</th>
-                      <th>Email</th>
-                      <th>Telefono</th>
-                      <th>Indirizzo</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr th:if="${#lists.isEmpty(clienti)}">
-                      <td colspan="7" style="text-align: center; color: #888;">Nessun cliente trovato nel database.</td>
-                  </tr>
-
-                  <tr th:each="c : ${clienti}">
-                      <td th:text="${c.codice}">000</td>
-                      <td th:text="${c.nome}">Mario</td>
-                      <td th:text="${c.cognome}">Rossi</td>
-                      <td th:text="${c.dataNascita != null ? c.dataNascita : '-'}">01/01/1980</td>
-                      <td th:text="${c.email}">mario@example.com</td>
-                      <td th:text="${c.telefono}">333 1234567</td>
-                      <td th:text="${c.indirizzo}">Via Roma, 1</td>
-                  </tr>
-              </tbody>
-          </table>
-
+      <div class="table-header">
+        <h2 class="ricerca-titolo">Gestione clienti</h2>
+        <button class="btn-primary" onclick="openAddModal()">+ Aggiungi clienti</button>
       </div>
 
-      <a href="#" class="btn-add">
-          <span class="material-symbols-outlined icon">group_add</span> Aggiungi Cliente
-      </a>
+      <div id="addClientModal" class="modal">
+        <div class="modal-ios">
+          <div class="ios-header">
+            <div class="ios-umbrella-info">
+              <h2 class="txt-oro-main">Nuovo Cliente</h2>
+              <span class="txt-tipologia-small txt-grigio-medium">Inserisci i dati anagrafici</span>
+            </div>
+            <span class="close-modal" onclick="closeAddModal()">&times;</span>
+          </div>
 
+          <hr class="ios-divider">
+
+          <form id="addClientForm" onsubmit="saveClient(event)">
+            <div th:replace="~{fragments/client_form :: client_form('add')}"></div>
+            <div id="wrapper-creation-actions">
+              <button type="submit" class="btn-ios-primary">Aggiungi cliente</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="edit-modal-client" class="modal">
+        <div class="modal-ios">
+          <div class="ios-header">
+            <div class="ios-umbrella-info">
+              <h2 class="txt-oro-main">Modifica Cliente</h2>
+              <span class="txt-tipologia-small txt-grigio-medium">Aggiorna i dati del profilo</span>
+            </div>
+            <span class="close-modal" onclick="closeEditModal()">&times;</span>
+          </div>
+
+          <hr class="ios-divider">
+
+          <form id="editClientForm" onsubmit="updateClient(event)">
+            <input type="hidden" id="editClientId" name="clientId">
+            <div th:replace="~{fragments/client_form :: client_form('edit')}"></div>
+            <div id="wrapper-creation-actions">
+              <button type="submit" class="btn-ios-primary">Conferma Modifica</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="contractsModal" class="modal">
+        <div class="modal-ios">
+          <div class="ios-header">
+            <div class="ios-umbrella-info">
+              <h2 class="txt-oro-main">Contratti</h2>
+              <span class="txt-tipologia-small txt-grigio-medium">Storico del cliente</span>
+            </div>
+            <span class="close-modal" onclick="closeContractsModal()">&times;</span>
+          </div>
+
+          <hr class="ios-divider">
+
+          <div>
+            <table class="gestionale-table">
+              <thead>
+                <tr>
+                  <th class="text-left">Numero</th>
+                  <th class="text-left">Data Stipula</th>
+                  <th class="text-right">Importo</th>
+                </tr>
+              </thead>
+              <tbody id="contractsTableBody">
+              </tbody>
+            </table>
+          </div>
+
+          <button type="button" class="btn-ios-primary" onclick="closeContractsModal()">Chiudi</button>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="gestionale-table">
+          <thead>
+            <tr>
+              <th>
+                <a th:href="@{/clienti(
+                                  page=${page}, 
+                                  sort='codice', 
+                                  dir=${sortColumn == 'codice' and sortDirection == 'ASC' ? 'DESC' : 'ASC'},
+                                  search_cognome=${param.search_cognome},
+                                  search_nome=${param.search_nome},
+                                  anno_nascita=${param.anno_nascita},
+                                  search_email=${param.search_email},
+                                  search_telefono=${param.search_telefono}
+                              )}">
+                  ID <span th:class="${sortColumn == 'codice'} ? '' : 'sort-icon-muted'"
+                    th:utext="${sortColumn == 'codice' and sortDirection == 'ASC' ? '&#9650;' : '&#9660;'}"></span>
+                </a>
+              </th>
+              <th>
+                <a
+                  th:href="@{/clienti(page=${page}, sort='nome', dir=${sortColumn == 'nome' and sortDirection == 'ASC' ? 'DESC' : 'ASC'})}">
+                  Nome <span th:class="${sortColumn == 'nome'} ? '' : 'sort-icon-muted'"
+                    th:utext="${sortColumn == 'nome' and sortDirection == 'ASC' ? '&#9650;' : '&#9660;'}"></span>
+                </a>
+              </th>
+              <th>
+                <a
+                  th:href="@{/clienti(page=${page}, sort='cognome', dir=${sortColumn == 'cognome' and sortDirection == 'ASC' ? 'DESC' : 'ASC'})}">
+                  Cognome <span th:class="${sortColumn == 'cognome'} ? '' : 'sort-icon-muted'"
+                    th:utext="${sortColumn == 'cognome' and sortDirection == 'ASC' ? '&#9650;' : '&#9660;'}"></span>
+                </a>
+              </th>
+              <th>Data di Nascita</th>
+              <th>Contatti</th>
+              <th>Azioni</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:if="${#lists.isEmpty(clienti)}">
+              <td colspan="6" class="text-center" style="padding: 20px;">Nessun cliente trovato.</td>
+            </tr>
+
+            <tr th:each="c : ${clienti}">
+              <td th:text="${c.codice}"></td>
+              <td th:text="${c.nome}"></td>
+              <td th:text="${c.cognome}"></td>
+              <td th:text="${c.dataNascita != null ? #temporals.format(c.dataNascita, 'dd/MM/yyyy') : '-'}"></td>
+              <td>
+                <span class="client-contact-email" th:text="${c.email != null ? c.email : '-'}"></span><br />
+                <span class="client-contact-phone"
+                  th:text="${c.telefono != null ? 'Tel: ' + c.telefono : 'Tel: -'}"></span>
+              </td>
+              <td>
+                <button type="button" class="btn-info-contracts" th:data-id="${c.codice}"
+                  onclick="viewContracts(this.getAttribute('data-id'))" title="Vedi Contratti"
+                  th:style="${c.numContratti == 0} ? 'visibility: hidden;' : ''">
+                  <span class="material-symbols-outlined">description</span>
+                </button>
+
+                <button type="button" class="btn-edit" th:data-id="${c.codice}" th:data-nome="${c.nome}"
+                  th:data-cognome="${c.cognome}" th:data-nascita="${c.dataNascita}" th:data-email="${c.email}"
+                  th:data-telefono="${c.telefono}"
+                  onclick="openEditModal(this.getAttribute('data-id'), this.getAttribute('data-nome'), this.getAttribute('data-cognome'), this.getAttribute('data-nascita'), this.getAttribute('data-email'), this.getAttribute('data-telefono'))"
+                  title="Modifica">
+                  <span class="material-symbols-outlined">edit</span>
+                </button>
+
+                <button type="button" class="btn-delete" th:data-id="${c.codice}"
+                  onclick="deleteClient(this.getAttribute('data-id'))" title="Elimina">
+                  <span class="material-symbols-outlined">delete</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination" th:if="${totalPages > 1}">
+          <a th:href="@{/clienti(page=${page - 1})}" th:classappend="${page <= 1} ? 'disabled' : ''">&laquo;
+            Precedente</a>
+
+          <span class="current-page" th:text="'Pagina ' + ${page} + ' di ' + ${totalPages}">Pagina 1 di X</span>
+
+          <a th:href="@{/clienti(page=${page + 1})}" th:classappend="${page >= totalPages} ? 'disabled' : ''">Successiva
+            &raquo;</a>
+        </div>
+      </div>
     </main>
 
+    <script th:src="@{/js/clients.js}"></script>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+
+  </div>
+
 </body>
+
 </html>

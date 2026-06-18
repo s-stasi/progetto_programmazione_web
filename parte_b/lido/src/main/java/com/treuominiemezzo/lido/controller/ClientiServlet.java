@@ -20,41 +20,61 @@ import java.util.List;
 @WebServlet("/clienti")
 public class ClientiServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // Impostiamo il content type per il browser
-        resp.setContentType("text/html;charset=UTF-8");
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    resp.setContentType("text/html;charset=UTF-8");
+    JakartaServletWebApplication application = JakartaServletWebApplication.buildApplication(getServletContext());
+    IWebExchange exchange = application.buildExchange(req, resp);
+    WebContext context = new WebContext(exchange, req.getLocale());
 
-        // 1. Inizializziamo Thymeleaf (usando la nostra classe di configurazione)
-        TemplateEngine engine = ThymeleafConfig.getTemplateEngine(req.getServletContext());
-        
-        // 2. Prepariamo il contesto web (l'equivalente di passare le variabili in PHP)
-        JakartaServletWebApplication application = JakartaServletWebApplication.buildApplication(req.getServletContext());
-        IWebExchange webExchange = application.buildExchange(req, resp);
-        WebContext context = new WebContext(webExchange, webExchange.getLocale());
-
-        // 3. Interroghiamo il database tramite il DAO
-        ClienteDAO clienteDAO = new ClienteDAO();
-        List<Cliente> listaClienti = clienteDAO.getAllClienti();
-
-        System.err.println("DEBUG: Numero di clienti recuperati: " + listaClienti.size());
-
-        // Passiamo la lista al contesto web per Thymeleaf
-        context.setVariable("titoloPagina", "Elenco Clienti Lido Sole & Sabbia");
-        context.setVariable("clienti", listaClienti); // La chiave "clienti" sarà usata nel th:each
-
-        // 4. Diciamo a Thymeleaf di processare il file "clienti.html" e inviarlo al browser
-        // engine.process("clienti", context, resp.getWriter());
-        try {
-            // 4. Diciamo a Thymeleaf di processare il file "clienti.html"
-            engine.process("clienti", context, resp.getWriter());
-        } catch (Exception e) {
-            // Se Thymeleaf esplode, stampiamo tutto in console!
-            System.err.println("!!! ERRORE FATALE DURANTE IL RENDERING DI THYMELEAF !!!");
-            e.printStackTrace();
-            
-            // E mandiamo anche un messaggio chiaro al browser
-            resp.getWriter().println("<h2>Errore di sistema: controlla la console di Tomcat!</h2>");
-        }
+    int recordsPerPage = 50;
+    int page = 1;
+    String pageParam = req.getParameter("page");
+    if (pageParam != null && !pageParam.isEmpty()) {
+      try {
+        page = Integer.parseInt(pageParam);
+        if (page < 1)
+          page = 1;
+      } catch (NumberFormatException e) {
+        page = 1;
+      }
     }
+    int offset = (page - 1) * recordsPerPage;
+
+    String sortColumn = req.getParameter("sort");
+    if (sortColumn == null)
+      sortColumn = "codice";
+
+    String sortDirection = req.getParameter("dir");
+    if (sortDirection == null)
+      sortDirection = "ASC";
+
+    String searchNome = req.getParameter("search_nome");
+    String searchCognome = req.getParameter("search_cognome");
+    String annoNascita = req.getParameter("anno_nascita");
+    String searchEmail = req.getParameter("search_email");
+    String searchTelefono = req.getParameter("search_telefono");
+
+    ClienteDAO dao = new ClienteDAO();
+    List<Cliente> clienti = dao.getClientiFiltered(
+        searchNome, searchCognome, annoNascita, searchEmail, searchTelefono,
+        sortColumn, sortDirection, recordsPerPage, offset);
+
+    int totalRecords = dao.getTotalClientiFiltered(searchNome, searchCognome, annoNascita, searchEmail, searchTelefono);
+    int totalPages = (int) Math.ceil((double) totalRecords / recordsPerPage);
+
+    context.setVariable("clienti", clienti);
+    context.setVariable("page", page);
+    context.setVariable("totalPages", totalPages);
+    context.setVariable("sortColumn", sortColumn);
+    context.setVariable("sortDirection", sortDirection);
+
+    TemplateEngine engine = ThymeleafConfig.getTemplateEngine(getServletContext());
+    try {
+      engine.process("clienti", context, resp.getWriter());
+    } catch (Exception e) {
+      System.err.println("!!! THYMELEAF RENDERING ERROR !!!");
+      e.printStackTrace();
+    }
+  }
 }

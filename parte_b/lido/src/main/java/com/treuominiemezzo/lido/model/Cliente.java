@@ -10,11 +10,12 @@ public class Cliente {
     private String email;
     private String telefono;
     private String indirizzo;
+    
+    private int numContratti;
 
-    // Costruttore vuoto necessario per molti framework
     public Cliente() {}
 
-    public Cliente(int codice, String nome, String cognome, LocalDate dataNascita, String email, String telefono, String indirizzo) {
+    public Cliente(int codice, String nome, String cognome, LocalDate dataNascita, String email, String telefono, String indirizzo, int numContratti) {
         this.codice = codice;
         this.nome = nome;
         this.cognome = cognome;
@@ -22,9 +23,11 @@ public class Cliente {
         this.email = email;
         this.telefono = telefono;
         this.indirizzo = indirizzo;
+        this.numContratti = numContratti;
     }
 
-    // Genera Getter e Setter per tutti i campi (Thymeleaf userà i getter per leggere i dati nell'HTML!)
+    public int getNumContratti() { return numContratti; }
+    public void setNumContratti(int numContratti) { this.numContratti = numContratti; }
     public int getCodice() { return codice; }
     public void setCodice(int codice) { this.codice = codice; }
     public String getNome() { return nome; }
