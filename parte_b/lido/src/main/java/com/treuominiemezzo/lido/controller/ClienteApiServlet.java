@@ -2,8 +2,11 @@ package com.treuominiemezzo.lido.controller;
 
 import com.treuominiemezzo.lido.dao.ClienteDAO;
 import com.treuominiemezzo.lido.model.Cliente;
+import com.treuominiemezzo.lido.dao.ContrattoDAO;
+import com.treuominiemezzo.lido.model.Contratto;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -12,9 +15,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
+import java.util.List;
 
 // Endpoint for the JavaScript fetch API
 @WebServlet("/api/clienti")
+@MultipartConfig
 public class ClienteApiServlet extends HttpServlet {
 
   @Override
@@ -139,5 +144,53 @@ public class ClienteApiServlet extends HttpServlet {
     String safeMessage = message.replace("\"", "\\\"");
     out.print("{\"success\": " + success + ", \"message\": \"" + safeMessage + "\"}");
     out.flush();
+  }
+
+  @Override
+  protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    String action = req.getParameter("action");
+    
+    if ("get_contracts".equals(action)) {
+      handleGetContracts(req, resp);
+    } else {
+      sendJsonResponse(resp, false, "Azione GET non valida.");
+    }
+  }
+
+  // Costruisce il JSON con lo storico dei contratti
+  private void handleGetContracts(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    String idStr = req.getParameter("id");
+    if (idStr == null) {
+      sendJsonResponse(resp, false, "ID cliente mancante.");
+      return;
+    }
+
+    try {
+      int idCliente = Integer.parseInt(idStr);
+      ContrattoDAO dao = new ContrattoDAO();
+      List<Contratto> contratti = dao.getContrattiByCliente(idCliente);
+
+      // Costruzione manuale del JSON atteso dal frontend
+      StringBuilder json = new StringBuilder();
+      json.append("{\"success\": true, \"contracts\": [");
+      for (int i = 0; i < contratti.size(); i++) {
+        Contratto c = contratti.get(i);
+        json.append("{")
+            .append("\"numProgr\":").append(c.getNumProgr()).append(",")
+            .append("\"data\":\"").append(c.getDataStipula().toString()).append("\",")
+            .append("\"importo\":").append(c.getImporto())
+            .append("}");
+        if (i < contratti.size() - 1) json.append(",");
+      }
+      json.append("]}");
+
+      resp.setContentType("application/json");
+      resp.setCharacterEncoding("UTF-8");
+      resp.getWriter().print(json.toString());
+      resp.getWriter().flush();
+
+    } catch (NumberFormatException e) {
+      sendJsonResponse(resp, false, "ID cliente non valido.");
+    }
   }
 }

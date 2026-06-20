@@ -107,4 +107,80 @@ public class ContrattoDAO {
     }
     return total;
   }
+
+  // Recupera tutti i contratti di un singolo cliente (per lo storico)
+  public List<Contratto> getContrattiByCliente(int idCliente) {
+    List<Contratto> contratti = new ArrayList<>();
+    String sql = "SELECT numProgr, data, importo FROM Contratto WHERE stipulatoDa = ? ORDER BY data DESC";
+
+    try (Connection conn = Database.getConnection();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+      
+      stmt.setInt(1, idCliente);
+      ResultSet rs = stmt.executeQuery();
+      
+      while (rs.next()) {
+        Contratto c = new Contratto();
+        c.setNumProgr(rs.getInt("numProgr"));
+        c.setDataStipula(rs.getDate("data").toLocalDate());
+        c.setImporto(rs.getDouble("importo"));
+        contratti.add(c);
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+    }
+    return contratti;
+  }
+
+  // Method to update contract safely using a transaction
+  public boolean updateContratto(int idContratto, int idOmbrellone, LocalDate inizio, LocalDate fine, double prezzoTotale) {
+    Connection conn = null;
+    try {
+      conn = Database.getConnection();
+      conn.setAutoCommit(false);
+
+      try (PreparedStatement stmt = conn.prepareStatement("UPDATE Contratto SET importo = ? WHERE numProgr = ?")) {
+        stmt.setDouble(1, prezzoTotale);
+        stmt.setInt(2, idContratto);
+        stmt.executeUpdate();
+      }
+
+      try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM OmbrelloneVenduto WHERE contratto = ?")) {
+        stmt.setInt(1, idContratto);
+        stmt.executeUpdate();
+      }
+
+      try (PreparedStatement stmtGiorno = conn.prepareStatement("INSERT IGNORE INTO GiornoDisponibilita (idOmbrellone, data) VALUES (?, ?)");
+           PreparedStatement stmtVenduto = conn.prepareStatement("INSERT INTO OmbrelloneVenduto (idOmbrellone, data, contratto) VALUES (?, ?, ?)")) {
+        
+        LocalDate current = inizio;
+        while (!current.isAfter(fine)) {
+          java.sql.Date sqlDate = java.sql.Date.valueOf(current);
+          
+          stmtGiorno.setInt(1, idOmbrellone);
+          stmtGiorno.setDate(2, sqlDate);
+          stmtGiorno.executeUpdate();
+
+          stmtVenduto.setInt(1, idOmbrellone);
+          stmtVenduto.setDate(2, sqlDate);
+          stmtVenduto.setInt(3, idContratto);
+          stmtVenduto.executeUpdate();
+
+          current = current.plusDays(1);
+        }
+      }
+
+      conn.commit();
+      return true;
+    } catch (SQLException e) {
+      if (conn != null) {
+        try { conn.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
+      }
+      return false;
+    } finally {
+      if (conn != null) {
+        try { conn.setAutoCommit(true); conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+      }
+    }
+  }
 }

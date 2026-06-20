@@ -91,7 +91,37 @@ async function deleteClient(clientId) {
   }
 }
 
-// VIEW Contracts (To be implemented later)
+// VIEW Contracts (Fetch from Java API)
 async function viewContracts(clientId) {
-  alert("La Servlet dei contratti è in arrivo!");
+  const tbody = document.getElementById('contractsTableBody');
+  tbody.innerHTML = '<tr><td colspan="3" class="text-center" style="padding: 15px;">Loading...</td></tr>';
+  
+  // Show the modal immediately while fetching
+  contractsModal.classList.add('show');
+
+  try {
+    // Call the new Java Servlet endpoint
+    const response = await fetch(`/lido/api/clienti?action=get_contracts&id=${clientId}`);
+    const result = await response.json();
+    
+    tbody.innerHTML = '';
+
+    if (result.success && result.contracts.length > 0) {
+      result.contracts.forEach(c => {
+        const dateObj = new Date(c.data);
+        const dataFormattata = isNaN(dateObj) ? c.data : dateObj.toLocaleDateString('it-IT');
+
+        const row = `<tr>
+          <td><strong>#${c.numProgr}</strong></td>
+          <td>${dataFormattata}</td>
+          <td class="text-right importo-valore">${parseFloat(c.importo).toFixed(2)} €</td>
+        </tr>`;
+        tbody.innerHTML += row;
+      });
+    } else {
+      tbody.innerHTML = '<tr><td colspan="3" class="text-center" style="padding: 15px; color: #666;">Nessun contratto stipulato da questo cliente.</td></tr>';
+    }
+  } catch (e) {
+    tbody.innerHTML = '<tr><td colspan="3" class="text-center" style="padding: 15px; color: red;">Errore nel caricamento dei dati.</td></tr>';
+  }
 }

@@ -4,6 +4,7 @@ import com.treuominiemezzo.lido.dao.PrenotazioneDAO;
 import com.treuominiemezzo.lido.model.Prenotazione;
 
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +19,7 @@ import java.util.Locale;
 import java.util.Optional;
 
 @WebServlet("/api/prenotazioni")
+@MultipartConfig
 public class PrenotazioneApiServlet extends HttpServlet {
 
   private static final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ISO_LOCAL_DATE;
