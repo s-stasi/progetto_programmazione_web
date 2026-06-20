@@ -4,17 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Lido Admin - Clienti</title>
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-  <!-- CSS -->
-  <link rel="stylesheet" th:href="@{css/base.css}">
-  <link rel="stylesheet" th:href="@{css/lido_grid.css}">
-  <link rel="stylesheet" th:href="@{css/popup.css}">
-  <link rel="stylesheet" th:href="@{css/palette_color.css}">
-  <link rel="stylesheet" th:href="@{css/responsive.css}">
-  <link rel="stylesheet" th:href="@{css/sidebar.css}">
-  <link rel="stylesheet" th:href="@{css/tables.css}">
+  <th:block th:replace="~{fragments/styles :: styles(false)}"></th:block>
 </head>
 
 <body>
