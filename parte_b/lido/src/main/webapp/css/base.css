@@ -75,3 +75,19 @@ body {
 .center-text {
   text-align: center;
 }
+
+/* Flexbox container to align logo and text horizontally */
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.logo-img {
+  height: 50px;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

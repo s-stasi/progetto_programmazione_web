@@ -16,5 +16,8 @@
 <body>
   <div class="layout-container">
     <header class="header">
-      <h1>Lido Sole & Sabbia - Gestione</h1>
+      <div class="logo-container">
+        <img src="../../img/logo.png" alt="Logo Lido" class="logo-img">
+        <h1>Lido Sole &amp; Sabbia - Gestione</h1>
+      </div>
     </header>
