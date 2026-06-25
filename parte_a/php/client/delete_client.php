@@ -28,7 +28,6 @@ try {
     echo json_encode(["success" => false, "message" => "Cliente non trovato."]);
   }
 } catch (mysqli_sql_exception $e) {
-  // Errore 1451: Chiave esterna (Foreign Key constraint) se ha contratti attivi
   if ($e->getCode() == 1451) {
     echo json_encode([
       "success" => false, 

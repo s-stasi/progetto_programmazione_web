@@ -65,7 +65,7 @@ async function handleContractDateChange() {
   priceDisplay.innerText = "Calcolo...";
 
   try {
-    // 1. Controllo disponibilità passando il contratto da escludere
+    // Controllo disponibilità passando il contratto da escludere
     const availUrl = `/php/umbrella/get_umbrellas.php?inizio=${newStart}&fine=${newEnd}&escludi_contratto=${editCurrentContractId}`;
     const availResponse = await fetch(availUrl);
     const allUmbrellas = await availResponse.json();

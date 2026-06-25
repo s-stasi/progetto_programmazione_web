@@ -40,7 +40,6 @@ function openReservationModal(code, type, baseCost, isReserved, reservationData)
     viewActions.style.display = 'none';
     document.getElementById('booking-id').value = '';
 
-    // ---> INSERISCI QUESTA RIGA QUI SOTTO <---
     document.getElementById('booking-umbrella-id').value = reservationData ? (reservationData.id_ombrellone || reservationData.id || '') : '';
 
     if (document.getElementById('start-date')) {
@@ -200,7 +199,7 @@ async function submitNewReservation(event) {
       const modal = document.getElementById('modal-reservation');
       if (modal) modal.classList.remove('show');
       
-      // Refresh the beach map to immediately show the umbrella as red (reserved)
+      // Refresh the beach map to immediately show the umbrella as red
       if (typeof fetchUmbrellas === 'function') {
         fetchUmbrellas();
       }

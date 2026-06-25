@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   try {
     $conn->begin_transaction();
 
-    // 1. Check if client already exists by email (Your smart logic)
+    // Check if client already exists by email
     $id_client = null;
     if (!empty($email)) {
       $stmt_check = $conn->prepare("SELECT codice FROM Cliente WHERE email = ? LIMIT 1");
@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $stmt_insert->close();
     }
 
-    // 2. Create the Contract
+    // Create the Contract
     $today_date = date('Y-m-d');
     $stmt_contract = $conn->prepare("INSERT INTO Contratto (data, importo, stipulatoDa) VALUES (?, ?, ?)");
     $stmt_contract->bind_param("sdi", $today_date, $prezzo_tot, $id_client);
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $num_contract = $conn->insert_id;
     $stmt_contract->close();
 
-    // 3. Generate daily availability and bookings
+    // Generate daily availability and bookings
     $start = new DateTime($date_start);
     $end   = new DateTime($date_end);
     $end->modify('+1 day'); // Include the last day
@@ -74,11 +74,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($period as $dt) {
       $day_date = $dt->format('Y-m-d');
       
-      // A. Ensure day exists to avoid Foreign Key errors
+      // Ensure day exists to avoid Foreign Key errors
       $stmt_day->bind_param("is", $id_umbrella, $day_date);
       $stmt_day->execute();
 
-      // B. Insert the booking (using correct column names)
+      // Insert the booking (using correct column names)
       $stmt_sold->bind_param("isi", $id_umbrella, $day_date, $num_contract);
       $stmt_sold->execute();
     }

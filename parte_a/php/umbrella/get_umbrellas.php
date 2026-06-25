@@ -31,14 +31,14 @@ $sql = "SELECT
                     FROM OmbrelloneVenduto ov 
                     WHERE ov.idOmbrellone = o.id 
                     AND ov.data BETWEEN ? AND ?
-                    AND ov.contratto != ? -- La magia avviene qui! Ignora il nostro contratto.
+                    AND ov.contratto != ?
                 ) THEN 1 
                 ELSE 0 
             END AS occupato
         FROM Ombrellone o 
         JOIN Tipologia t ON o.tipologia = t.codice";
 
-// Aggiorna il bind per includere il terzo parametro (il contratto da escludere)
+// Aggiorna il bind per includere il terzo parametro
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssi", $inizio, $fine, $escludi_contratto);
 

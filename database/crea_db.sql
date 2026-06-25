@@ -85,8 +85,6 @@ CREATE TABLE OmbrelloneVenduto (
   data DATE,
   contratto INT NOT NULL,
   
-  -- THE FIX: Primary key is ONLY idOmbrellone and data.
-  -- This inherently prevents the same umbrella from being booked twice on the same day.
   PRIMARY KEY (idOmbrellone, data),
   
   CONSTRAINT fk_venduto_giorno FOREIGN KEY (idOmbrellone, data) REFERENCES GiornoDisponibilita(idOmbrellone, data) ON DELETE CASCADE,

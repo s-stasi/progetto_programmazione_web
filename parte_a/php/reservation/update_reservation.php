@@ -25,19 +25,19 @@ if ($conn->connect_error) {
 $conn->begin_transaction();
 
 try {
-    // 1. Aggiorna il prezzo totale nella tabella Contratto
+    // Aggiorna il prezzo totale nella tabella Contratto
     $stmt_contratto = $conn->prepare("UPDATE Contratto SET importo = ? WHERE numProgr = ?");
     $stmt_contratto->bind_param("di", $prezzo_totale, $id_contratto);
     $stmt_contratto->execute();
     $stmt_contratto->close();
 
-    // 2. Elimina i vecchi giorni associati a questo contratto in OmbrelloneVenduto
+    // Elimina i vecchi giorni associati a questo contratto in OmbrelloneVenduto
     $stmt_delete = $conn->prepare("DELETE FROM OmbrelloneVenduto WHERE contratto = ?");
     $stmt_delete->bind_param("i", $id_contratto);
     $stmt_delete->execute();
     $stmt_delete->close();
 
-    // 3. Genera l'intervallo di date tra inizio e fine
+    // Genera l'intervallo di date tra inizio e fine
     $start = new DateTime($data_inizio);
     $end = new DateTime($data_fine);
     $end->modify('+1 day'); // Necessario perché DatePeriod esclude l'ultimo giorno per default
@@ -45,15 +45,12 @@ try {
     $interval = new DateInterval('P1D');
     $period = new DatePeriod($start, $interval, $end);
 
-    // Prepariamo gli statement per l'inserimento
-    // Usiamo IGNORE su GiornoDisponibilita per evitare errori se la data esiste già
     $stmt_giorno = $conn->prepare("INSERT IGNORE INTO GiornoDisponibilita (idOmbrellone, data) VALUES (?, ?)");
     $stmt_venduto = $conn->prepare("INSERT INTO OmbrelloneVenduto (idOmbrellone, data, contratto) VALUES (?, ?, ?)");
 
     foreach ($period as $dt) {
         $data_corrente = $dt->format('Y-m-d');
         
-        // Assicuriamoci che l'accoppiata ombrellone-giorno esista nella tabella padre (GiornoDisponibilita)
         $stmt_giorno->bind_param("is", $id_ombrellone, $data_corrente);
         $stmt_giorno->execute();
 

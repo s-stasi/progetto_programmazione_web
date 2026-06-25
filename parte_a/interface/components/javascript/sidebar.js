@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   
-  // 1. Controllo per la pagina Contratti (contratti.php)
   const startContratti = document.getElementById('sidebar-contratti-da');
   const endContratti = document.getElementById('sidebar-contratti-a');
 
@@ -11,13 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
         endContratti.value = startContratti.value;
       }
     };
-    // Sincronizza subito all'avvio con i valori del PHP
     allineaContratti();
     // Sincronizza al cambio manuale
     startContratti.addEventListener('input', allineaContratti);
   }
 
-  // 2. Controllo per la Mappa Lido (index.php)
   const startMap = document.getElementById('start-date');
   const endMap = document.getElementById('end-date');
 
@@ -32,7 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
     startMap.addEventListener('input', allineaMappa);
   }
 
-  // 3. Controllo per il Listino Tariffe (rates.php)
   const startTariffe = document.getElementById('sidebar-tariffe-da');
   const endTariffe = document.getElementById('sidebar-tariffe-a');
 
