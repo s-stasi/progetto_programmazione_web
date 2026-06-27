@@ -174,7 +174,7 @@ function drawMap(umbrellas) {
           if (reservationJson.error) {
             console.warn('Reservation data warning:', reservationJson.error);
           }
-          openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, reservationData.success ? reservationJson : {id_ombrellone: u.id_ombrellone});
+          openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, reservationJson.success ? reservationJson : {id_ombrellone: u.id_ombrellone});
         } else {
           console.error('Error fetching reservation data:', reservationData.statusText);
           openReservationModal(codiceCompleto, tipologiaOmbrellone, costoOmbrellone, isReserved, null);
