@@ -2,11 +2,10 @@ package com.treuominiemezzo.lido.controller;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.templatemode.TemplateMode;
-import org.thymeleaf.templateresolver.WebApplicationTemplateResolver;
-import org.thymeleaf.web.IWebApplication;
-import org.thymeleaf.web.servlet.JakartaServletWebApplication;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
-import jakarta.servlet.ServletContext;
+
+import javax.servlet.ServletContext;
 
 public class ThymeleafConfig {
 
@@ -15,8 +14,7 @@ public class ThymeleafConfig {
   public static TemplateEngine getTemplateEngine(ServletContext servletContext) {
     if (templateEngine == null) {
 
-      IWebApplication webApplication = JakartaServletWebApplication.buildApplication(servletContext);
-      WebApplicationTemplateResolver templateResolver = new WebApplicationTemplateResolver(webApplication);
+     ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(servletContext);
       templateResolver.setPrefix("/WEB-INF/templates/");
       templateResolver.setSuffix(".html");
       templateResolver.setTemplateMode(TemplateMode.HTML);
