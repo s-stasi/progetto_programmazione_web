@@ -14,24 +14,23 @@ import java.util.Optional;
 
 public class PrenotazioneDAO {
 
-  private static final String FIND_QUERY = """
-      SELECT
-          c.numProgr AS id,
-          cl.nome,
-          cl.cognome,
-          cl.dataNascita AS data_nascita,
-          cl.indirizzo,
-          cl.email,
-          cl.telefono AS cellulare,
-          c.importo AS prezzo_totale,
-          (SELECT MIN(data) FROM OmbrelloneVenduto WHERE contratto = c.numProgr) AS data_inizio,
-          (SELECT MAX(data) FROM OmbrelloneVenduto WHERE contratto = c.numProgr) AS data_fine
-      FROM OmbrelloneVenduto ov
-      JOIN Contratto c ON ov.contratto = c.numProgr
-      JOIN Cliente cl ON c.stipulatoDa = cl.codice
-      WHERE ov.idOmbrellone = ? AND ov.data = ?
-      LIMIT 1
-      """;
+  private static final String FIND_QUERY =
+   "SELECT " +
+      "    c.numProgr AS id, " +
+      "    cl.nome, " +
+      "    cl.cognome, " +
+      "    cl.dataNascita AS data_nascita, " +
+      "    cl.indirizzo, " +
+      "    cl.email, " +
+      "    cl.telefono AS cellulare, " +
+      "    c.importo AS prezzo_totale, " +
+      "    (SELECT MIN(data) FROM OmbrelloneVenduto WHERE contratto = c.numProgr) AS data_inizio, " +
+      "    (SELECT MAX(data) FROM OmbrelloneVenduto WHERE contratto = c.numProgr) AS data_fine " +
+      "FROM OmbrelloneVenduto ov " +
+      "JOIN Contratto c ON ov.contratto = c.numProgr " +
+      "JOIN Cliente cl ON c.stipulatoDa = cl.codice " +
+      "WHERE ov.idOmbrellone = ? AND ov.data = ? " +
+      "LIMIT 1";
 
   public Optional<Prenotazione> findByUmbrellaAndDate(int idOmbrellone, LocalDate dataInizio) {
     try (Connection conn = Database.getConnection();
@@ -169,7 +168,7 @@ public class PrenotazioneDAO {
   }
 
   private Integer findClienteByEmail(Connection conn, String email) throws SQLException {
-    if (email == null || email.isBlank()) {
+    if (email == null || email.trim().isEmpty()) {
       return null;
     }
 

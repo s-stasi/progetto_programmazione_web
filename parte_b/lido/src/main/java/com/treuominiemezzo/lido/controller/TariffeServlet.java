@@ -2,14 +2,13 @@ package com.treuominiemezzo.lido.controller;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.web.IWebExchange;
-import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -21,9 +20,7 @@ public class TariffeServlet extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     resp.setContentType("text/html;charset=UTF-8");
     
-    JakartaServletWebApplication application = JakartaServletWebApplication.buildApplication(getServletContext());
-    IWebExchange exchange = application.buildExchange(req, resp);
-    WebContext context = new WebContext(exchange, req.getLocale());
+    WebContext context = new WebContext(req, resp, getServletContext(), req.getLocale());
 
     // Passiamo le tipologie alla View esattamente come facevi in PHP
     List<String> tipologie = Arrays.asList("Base", "VIP", "Gazebo", "Disabile");

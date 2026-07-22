@@ -3,12 +3,12 @@ package com.treuominiemezzo.lido.controller;
 import com.treuominiemezzo.lido.dao.PrenotazioneDAO;
 import com.treuominiemezzo.lido.model.Prenotazione;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.MultipartConfig;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -81,7 +81,7 @@ public class PrenotazioneApiServlet extends HttpServlet {
       LocalDate dataInizio = LocalDate.parse(dataInizioStr);
       LocalDate dataFine = LocalDate.parse(dataFineStr);
       double prezzoTotale = Double.parseDouble(prezzoTotaleStr);
-      LocalDate dataNascita = (dataNascitaStr != null && !dataNascitaStr.isBlank())
+      LocalDate dataNascita = (dataNascitaStr != null && !dataNascitaStr.trim().isEmpty())
           ? LocalDate.parse(dataNascitaStr) : null;
 
       PrenotazioneDAO dao = new PrenotazioneDAO();
@@ -110,7 +110,7 @@ public class PrenotazioneApiServlet extends HttpServlet {
     resp.setCharacterEncoding("UTF-8");
 
     String idStr = req.getParameter("id");
-    if (idStr == null || idStr.isBlank()) {
+    if (idStr == null || idStr.trim().isEmpty()) {
       sendJson(resp, "{\"success\":false,\"message\":\"Missing contract id.\"}");
       return;
     }

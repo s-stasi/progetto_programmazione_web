@@ -3,11 +3,11 @@ package com.treuominiemezzo.lido.controller;
 import com.treuominiemezzo.lido.dao.OmbrelloneDAO;
 import com.treuominiemezzo.lido.model.Ombrellone;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,10 +32,10 @@ public class OmbrelloniApiServlet extends HttpServlet {
       String fineStr = req.getParameter("fine");
       String escludiStr = req.getParameter("escludi_contratto");
 
-      inizio = (inizioStr != null && !inizioStr.isBlank()) ? LocalDate.parse(inizioStr) : LocalDate.now();
-      fine = (fineStr != null && !fineStr.isBlank()) ? LocalDate.parse(fineStr) : LocalDate.now();
+      inizio = (inizioStr != null && !inizioStr.trim().isEmpty()) ? LocalDate.parse(inizioStr) : LocalDate.now();
+      fine = (fineStr != null && !fineStr.trim().isEmpty()) ? LocalDate.parse(fineStr) : LocalDate.now();
 
-      if (escludiStr != null && !escludiStr.isBlank()) {
+      if (escludiStr != null && !escludiStr.trim().isEmpty()) {
         escludiContratto = Integer.parseInt(escludiStr);
       }
     } catch (DateTimeParseException | NumberFormatException e) {
