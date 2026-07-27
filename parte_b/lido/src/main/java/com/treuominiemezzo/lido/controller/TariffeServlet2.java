@@ -27,6 +27,7 @@ public class TariffeServlet2 extends HttpServlet {
     context.setVariable("tipologie", tipologie);
 
     TemplateEngine engine = ThymeleafConfig.getTemplateEngine(getServletContext());
+
     try {
       engine.process("tariffe", context, resp.getWriter());
     } catch (Exception e) {
