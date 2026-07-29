@@ -26,7 +26,7 @@ public class TariffeServlet2 extends HttpServlet {
     List<String> tipologie = Arrays.asList("Base", "VIP", "Gazebo", "Disabile");
     context.setVariable("tipologie", tipologie);
 
-    TemplateEngine engine = ThymeleafConfig.getTemplateEngine(getServletContext());
+    TemplateEngine engine = ThymeleafConfig2.getTemplateEngine(getServletContext());
 
     try {
       engine.process("tariffe", context, resp.getWriter());

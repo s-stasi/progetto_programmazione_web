@@ -7,14 +7,10 @@ import com.treuominiemezzo.lido.dao.ClienteDAO;
 import com.treuominiemezzo.lido.model.Cliente;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.thymeleaf.web.IWebExchange;
-import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
 import java.io.IOException;
 import java.util.List;
@@ -26,9 +22,7 @@ public class ClientiServlet2 extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     resp.setContentType("text/html;charset=UTF-8");
 
-    JakartaServletWebApplication application = JakartaServletWebApplication.buildApplication(getServletContext());
-    IWebExchange exchange = application.buildExchange(req, resp);
-    WebContext context = new WebContext(exchange, req.getLocale());
+    WebContext context = new WebContext(req, resp, getServletContext(), req.getLocale());
 
     int recordsPerPage = 50;
     int page = 1;
@@ -72,7 +66,7 @@ public class ClientiServlet2 extends HttpServlet {
     context.setVariable("sortColumn", sortColumn);
     context.setVariable("sortDirection", sortDirection);
 
-    TemplateEngine engine = ThymeleafConfig.getTemplateEngine(getServletContext());
+    TemplateEngine engine = ThymeleafConfig2.getTemplateEngine(getServletContext());
     try {
       engine.process("clienti", context, resp.getWriter());
     } catch (Exception e) {

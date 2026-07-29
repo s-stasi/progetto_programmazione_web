@@ -2,8 +2,6 @@ package com.treuominiemezzo.lido.controller;
 
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
-import org.thymeleaf.web.IWebExchange;
-import org.thymeleaf.web.servlet.JakartaServletWebApplication;
 
 import com.treuominiemezzo.lido.dao.ContrattoDAO;
 import com.treuominiemezzo.lido.model.Contratto;
@@ -25,9 +23,7 @@ public class ContrattiServlet2 extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     resp.setContentType("text/html;charset=UTF-8");
     
-    JakartaServletWebApplication application = JakartaServletWebApplication.buildApplication(getServletContext());
-    IWebExchange exchange = application.buildExchange(req, resp);
-    WebContext context = new WebContext(exchange, req.getLocale());
+    WebContext context = new WebContext(req, resp, getServletContext(), req.getLocale());
 
     int recordsPerPage = 50;
     int page = 1;
@@ -49,7 +45,7 @@ public class ContrattiServlet2 extends HttpServlet {
     context.setVariable("page", page);
     context.setVariable("totalPages", totalPages);
 
-    TemplateEngine engine = ThymeleafConfig.getTemplateEngine(getServletContext());
+    TemplateEngine engine = ThymeleafConfig2.getTemplateEngine(getServletContext());
     try {
       engine.process("contratti", context, resp.getWriter());
     } catch (Exception e) {

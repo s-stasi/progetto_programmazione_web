@@ -1,6 +1,6 @@
 package com.treuominiemezzo.lido.controller;
 
-import com.treuominiemezzo.lido.dao.OmbrelloneDAO;
+import com.treuominiemezzo.lido.dao.OmbrelloneDAO2;
 import com.treuominiemezzo.lido.model.Ombrellone;
 
 import javax.servlet.ServletException;
@@ -43,7 +43,7 @@ public class OmbrelloniApiServlet2 extends HttpServlet {
       return;
     }
 
-    OmbrelloneDAO dao = new OmbrelloneDAO();
+    OmbrelloneDAO2 dao = new OmbrelloneDAO2();
     List<Ombrellone> ombrelloni = dao.findByDateRange(inizio, fine, escludiContratto);
 
     PrintWriter out = resp.getWriter();

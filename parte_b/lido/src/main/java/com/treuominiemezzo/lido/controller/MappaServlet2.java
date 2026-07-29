@@ -21,7 +21,7 @@ public class MappaServlet2 extends HttpServlet {
 
     WebContext context = new WebContext(req, resp, getServletContext(), req.getLocale());
 
-    TemplateEngine engine = ThymeleafConfig.getTemplateEngine(getServletContext());
+    TemplateEngine engine = ThymeleafConfig2.getTemplateEngine(getServletContext());
     try {
       engine.process("mappa", context, resp.getWriter());
     } catch (Exception e) {

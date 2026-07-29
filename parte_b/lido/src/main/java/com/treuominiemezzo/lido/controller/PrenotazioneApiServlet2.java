@@ -1,6 +1,6 @@
 package com.treuominiemezzo.lido.controller;
 
-import com.treuominiemezzo.lido.dao.PrenotazioneDAO;
+import com.treuominiemezzo.lido.dao.PrenotazioneDAO2;
 import com.treuominiemezzo.lido.model.Prenotazione;
 
 import javax.servlet.ServletException;
@@ -41,7 +41,7 @@ public class PrenotazioneApiServlet2 extends HttpServlet {
       int idOmbrellone = Integer.parseInt(idOmbrelloneStr);
       LocalDate dataInizio = LocalDate.parse(dataInizioStr);
 
-      PrenotazioneDAO dao = new PrenotazioneDAO();
+      PrenotazioneDAO2 dao = new PrenotazioneDAO2();
       Optional<Prenotazione> prenotazione = dao.findByUmbrellaAndDate(idOmbrellone, dataInizio);
 
       if (prenotazione.isPresent()) {
@@ -84,7 +84,7 @@ public class PrenotazioneApiServlet2 extends HttpServlet {
       LocalDate dataNascita = (dataNascitaStr != null && !dataNascitaStr.trim().isEmpty())
           ? LocalDate.parse(dataNascitaStr) : null;
 
-      PrenotazioneDAO dao = new PrenotazioneDAO();
+      PrenotazioneDAO2 dao = new PrenotazioneDAO2();
       String result = dao.createReservation(
           idOmbrellone, nome, cognome, dataNascita, email, telefono, indirizzo,
           dataInizio, dataFine, prezzoTotale);
@@ -117,7 +117,7 @@ public class PrenotazioneApiServlet2 extends HttpServlet {
 
     try {
       int idContratto = Integer.parseInt(idStr);
-      PrenotazioneDAO dao = new PrenotazioneDAO();
+      PrenotazioneDAO2 dao = new PrenotazioneDAO2();
 
       if (dao.deleteReservation(idContratto)) {
         sendJson(resp, "{\"success\":true,\"message\":\"Reservation cancelled and umbrella freed.\"}");
