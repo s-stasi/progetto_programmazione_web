@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="contract_form" id="modal-contract" class="modal">
+  <div class="modal-ios">
+    <div class="ios-header">
+      <div class="ios-umbrella-info">
+        <h2 id="display-contract-code" class="txt-oro-main">#00</h2>
+      </div>
+      <span class="close-modal" onclick="closeContractModal()">&times;</span>
+    </div>
+
+    
+    <form id="form-new-reservation" onsubmit="saveReservation(event)">
+
+      <input type="hidden" id="contract-start-date" name="inizio_prenotazione">
+      <input type="hidden" id="contract-id" name="id_ombrellone">
+      <input type="hidden" id="contract-total-cost-hidden" name="prezzo_totale">
+      
+      <div class="ios-row-container">
+        <div class="ios-date-inputs">
+          <div class="ios-date-field">
+            <label class="txt-oro-sub-inline">DA:</label>
+            <input type="date" name="data_inizio" id="booking-start" required>
+          </div>
+          <div class="ios-date-field">
+            <label class="txt-oro-sub-inline">A: &nbsp;</label>
+            <input type="date" name="data_fine" id="booking-end" required>
+          </div>
+        </div>
+        <div class="ios-price-box">
+          <span class="txt-grigio-medium-label">COSTO</span>
+          <div class="ios-price-value txt-oro-main">
+            €<span id="display-total-cost">0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <hr class="ios-divider">
+
+      <h3 class="txt-oro-sub">Dati Cliente</h3>
+      <div class="modal-profile-box">
+        <div class="row-fields ios-input-group">
+          <div class="field-half">
+            <label class="txt-grigio-medium-label">Nome</label>
+            <input type="text" name="nome" id="contract-nome" readonly required style="background-color: #f5f5f5; cursor: not-allowed;">
+          </div>
+          <div class="field-half field-left-border">
+            <label class="txt-grigio-medium-label">Cognome</label>
+            <input type="text" name="cognome" id="contract-cognome" readonly required style="background-color: #f5f5f5; cursor: not-allowed;">
+          </div>
+        </div>
+      </div>
+
+      <div id="wrapper-creation-actions">
+        <button type="submit" class="btn-ios-primary">Conferma Modifiche</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

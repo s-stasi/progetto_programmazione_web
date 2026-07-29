@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="client_form(prefix)" class="modal-profile-box">
+  <div class="row-fields ios-input-group">
+    <div class="field-half">
+      <label class="txt-grigio-medium-label">Nome</label>
+      <input type="text" name="nome" th:id="${prefix} + '-nome'" required>
+    </div>
+    <div class="field-half field-left-border">
+      <label class="txt-grigio-medium-label">Cognome</label>
+      <input type="text" name="cognome" th:id="${prefix} + '-cognome'" required>
+    </div>
+  </div>
+
+  <div class="ios-input-group">
+    <label class="txt-grigio-medium-label">Data di Nascita</label>
+    <input type="date" name="data_nascita" th:id="${prefix} + '-data-nascita'">
+  </div>
+
+  <div class="ios-input-group">
+    <label class="txt-grigio-medium-label">Indirizzo casa</label>
+    <input type="text" name="indirizzo" th:id="${prefix} + '-indirizzo'">
+  </div>
+
+  <div class="row-fields ios-input-group">
+    <div class="field-half">
+      <label class="txt-grigio-medium-label">Email</label>
+      <input type="email" name="email" th:id="${prefix} + '-email'">
+    </div>
+    <div class="field-half field-left-border">
+      <label class="txt-grigio-medium-label">Cellulare</label>
+      <input type="tel" name="cellulare" th:id="${prefix} + '-cellulare'">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

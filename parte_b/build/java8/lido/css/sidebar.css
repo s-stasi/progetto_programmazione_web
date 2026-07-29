@@ -1,0 +1,143 @@
+/* ==========================================================================
+   1. NAVIGATION AND SIDEBAR (INCLUDING FILTERS & ACCORDION)
+   ========================================================================== */
+.ricerca-titolo {
+  color: var(--primary-dark);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  white-space: nowrap;
+}
+
+.navigation ul {
+  list-style: none;
+}
+
+.navigation ul li {
+  margin-bottom: 10px;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  color: var(--text);
+  font-weight: bold;
+  display: block;
+  padding: 5px 0;
+  font-size: clamp(13px, 1.2vw, 15px);
+  transition: color 0.2s ease;
+}
+
+.navigation ul li a.active {
+  color: var(--primary-dark);
+}
+
+.date-field {
+  margin-bottom: 12px;
+}
+
+.date-field label {
+  display: block;
+  font-size: clamp(10px, 1vw, 12px);
+  color: var(--ocra);
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.date-field input {
+  width: 100%;
+  font-size: clamp(12px, 1.1vw, 14px);
+  padding: 6px;
+  border: 1px solid var(--primary);
+  border-radius: 4px;
+}
+
+.navigation {
+  flex-shrink: 0;
+}
+
+.sidebar-filters {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px dashed var(--ocra);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.filters-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.filters-container {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+details.filter-group {
+  margin-bottom: 15px;
+  border: 1px solid var(--primary);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+summary.filter-title {
+  font-weight: bold;
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+  font-size: clamp(12px, 1.1vw, 14px);
+  transition: color 0.2s ease;
+}
+
+details.filter-group[open] summary.filter-title {
+  color: var(--primary-dark);
+}
+
+.filter-content {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-content label {
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: clamp(11px, 1vw, 13px);
+}
+
+.filter-content input {
+  padding: 6px;
+  border: 1px solid var(--primary-light);
+  border-radius: 4px;
+  font-size: clamp(11px, 1vw, 13px);
+}
+
+.no-filters-msg {
+  font-size: 0.85em;
+  color: #888;
+}
+
+/* ==========================================================================
+   2. BUTTONS AND INTERFACE COMPONENTS (UI)
+   ========================================================================== */
+.btn-apply {
+  background: var(--primary); 
+  color: var(--text);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-top: 15px;
+  transition: background 0.2s;
+}
+
+.btn-apply:hover {
+  background: var(--primary-dark);
+}

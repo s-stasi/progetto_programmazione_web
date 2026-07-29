@@ -1,0 +1,41 @@
+:root{
+  /* Palette Gialla*/
+  --background: #FEF9E7; 
+  --primary: #F4D03F; /*header, footer, free umbrellas*/
+  --primary-dark: #D4AC0D; /*active elements*/
+  --primary-light: #D4C59F;
+  --ocra: #856404;
+  --separator: #F0E6D2;
+  --beach-color: #E0D4B3;
+
+  /*Umbrellas' status*/
+  --status-free: var(--primary);
+  --status-reserved: #e63128; 
+  --status-disable: #85857a; 
+
+  /*Sea*/
+  --sea-color: #5DADE2;
+  --sea-border: #2E86C1;
+
+  /*Text*/
+  --text: black; 
+  --text-muted: grey;
+
+  /*Actions buttons*/
+  --delete-btn: #EB5D4D;
+  --return-btn: #E5E5EA;
+  --confirm-btm: var(--primary-dark);
+}
+
+  .badge-stato {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: inline-block;
+    color: white;
+  }
+  .badge-attivo { background-color: #2ecc71; }
+  .badge-cancellato { background-color: #e74c3c; }
+  .badge-scaduto { background-color: #7f8c8d; }

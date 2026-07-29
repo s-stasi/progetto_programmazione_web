@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<th:block th:fragment="styles(withCards)">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link rel="stylesheet" th:href="@{/css/base.css}">
+  <link rel="stylesheet" th:href="@{/css/lido_grid.css}">
+  <link rel="stylesheet" th:href="@{/css/popup.css}">
+  <link rel="stylesheet" th:href="@{/css/palette_color.css}">
+  <link rel="stylesheet" th:href="@{/css/responsive.css}">
+  <link rel="stylesheet" th:href="@{/css/sidebar.css}">
+  <link rel="stylesheet" th:href="@{/css/tables.css}">
+  <link th:if="${withCards}" rel="stylesheet" th:href="@{/css/card.css}">
+</th:block>
+
+</body>
+</html>

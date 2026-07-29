@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Gestione Contratti - Lido Sole & Sabbia</title>
+  <th:block th:replace="~{fragments/styles :: styles(false)}"></th:block>
+  </head>
+
+<body>
+
+
+  <div class="layout-container">
+    <div th:replace="~{fragments/header :: header}"></div>
+    <div th:replace="~{fragments/sidebar :: sidebar('contratti')}"></div>
+
+    <main class="page-body">
+      <div class="table-header">
+        <h2 class="ricerca-titolo">Gestione Contratti</h2>
+      </div>
+
+      <div class="table-container">
+        <table class="gestionale-table">
+          <thead>
+            <tr>
+              <th>Prog. #</th>
+              <th>Data Stipula</th>
+              <th>Cliente</th>
+              <th>Totale</th>
+              <th>Azioni</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:if="${#lists.isEmpty(contratti)}">
+              <td colspan="5" style="text-align: center; padding: 20px;">Nessun contratto trovato nel database.</td>
+            </tr>
+
+            <tr th:each="c : ${contratti}">
+              <td th:text="'#' + ${c.numProgr}">#1</td>
+              <td th:text="${#temporals.format(c.dataStipula, 'dd/MM/yyyy')}">01/01/2026</td>
+              <td th:text="${c.clienteNomeCognome}">Mario Rossi</td>
+              <td><strong th:text="'€ ' + ${#numbers.formatDecimal(c.importo, 1, 'COMMA', 2, 'POINT')}">€ 0,00</strong>
+              </td>
+
+              <td>
+                <button class="btn-edit" th:data-id="${c.numProgr}" th:data-ombrellone="${c.idOmbrellone}"
+                  th:data-tipo="${c.tipologiaOmbrellone}" th:data-inizio="${c.inizioPrenotazione}"
+                  th:data-fine="${c.finePrenotazione}" th:data-costo="${c.importo}" th:data-nome="${c.getNomeSolo()}"
+                  th:data-cognome="${c.getCognomeSolo()}" onclick="openEditContractModal(this)">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">edit</span>
+                </button>
+
+                <button class="btn-delete" th:onclick="'deleteContract(' + ${c.numProgr} + ')'">
+                  <span class="material-symbols-outlined" style="font-size: 18px;">delete</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="pagination" th:if="${totalPages > 1}">
+          <a th:href="@{/contratti(page=${page - 1}, data_da=${param.data_da}, data_a=${param.data_a})}"
+            th:classappend="${page <= 1} ? 'disabled' : ''">&laquo; Precedente</a>
+
+          <span class="current-page" th:text="'Pagina ' + ${page} + ' di ' + ${totalPages}">Pagina 1 di X</span>
+
+          <a th:href="@{/contratti(page=${page + 1}, data_da=${param.data_da}, data_a=${param.data_a})}"
+            th:classappend="${page >= totalPages} ? 'disabled' : ''">Successiva &raquo;</a>
+        </div>
+      </div>
+    </main>
+
+    <div th:replace="~{fragments/contract_form :: contract_form}"></div>
+    <script th:src="@{/js/contracts.js}"></script>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+  </div>
+
+</body>
+
+</html>

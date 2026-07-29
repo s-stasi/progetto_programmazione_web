@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Listino Tariffe - Lido Sole & Sabbia</title>
+  <th:block th:replace="~{fragments/styles :: styles(true)}"></th:block>
+</head>
+
+<body>
+
+  <div class="layout-container">
+    <div th:replace="~{fragments/header :: header}"></div>
+    <div th:replace="~{fragments/sidebar :: sidebar('tariffe')}"></div>
+
+    <main class="page-body">
+      <div class="table-header">
+        <h2 class="ricerca-titolo">Listino Tariffe</h2>
+      </div>
+
+      <div class="cards-container">
+
+        <div th:each="tipo : ${tipologie}" class="tariffa-card" th:data-tipo="${tipo}">
+
+          <div class="ios-header-card">
+            <h2 class="txt-oro-main" th:text="${#strings.toUpperCase(tipo)}">TIPO</h2>
+          </div>
+
+          <div class="card-body-ios">
+            <div class="ios-row-container-card">
+
+              <div class="ios-date-info-card">
+                <span class="txt-grigio-medium-label">PERIODO D'INTERESSE</span>
+                <div class="card-date-render-wrapper">
+                  <span class="card-date-render"
+                    th:text="'Giorno: ' + ${#dates.format(#dates.createNow(), 'dd/MM/yyyy')}">Giorno: 01/01/2026</span>
+                </div>
+              </div>
+
+              <div class="ios-price-box-card">
+                <span class="txt-grigio-medium-label">PREVENTIVO TOTALE</span>
+                <div class="prezzo-valore txt-oro-main">
+                  €<span class="prezzo-render">0.00</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="card-receipt"></div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <script th:src="@{/js/rates.js}"></script>
+    <div th:replace="~{fragments/footer :: footer}"></div>
+  </div>
+
+</body>
+
+</html>
