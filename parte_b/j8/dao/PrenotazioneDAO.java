@@ -7,7 +7,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.Exception;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -45,7 +45,7 @@ public class PrenotazioneDAO {
           return Optional.of(mapRow(rs));
         }
       }
-    } catch (SQLException e) {
+    } catch (Exception e) {
       System.err.println("Error fetching reservation: " + e.getMessage());
       e.printStackTrace();
     }

@@ -1,47 +1,75 @@
 #!/bin/bash
+# Install script for Mac/Linux environments
+
 echo "==================================================="
 echo "   LIDO SOLE E SABBIA - SCRIPT DI INSTALLAZIONE"
 echo "==================================================="
-echo "ATTENZIONE: Prima di continuare, assicurarsi di aver"
-echo "inserito la porta e le credenziali corrette nel file:"
-echo "lido/src/main/java/com/treuominiemezzo/lido/util/Database.java"
-echo "==================================================="
-read -p "Premere INVIO per continuare o Ctrl+C per annullare..."
 echo ""
 
+# Database configuration prompts
 read -p "Inserire l'utente MySQL (default: root): " db_user
 db_user=${db_user:-root}
 
 read -p "Inserire la porta MySQL (default: 3306): " db_port
 db_port=${db_port:-3306}
 
+# Prompt silenzioso per la password
+read -s -p "Inserire la password MySQL (premere INVIO se vuota): " db_pass
+echo ""
+
 echo ""
 echo "[1/3] Creazione e popolamento del database MySQL..."
-echo "(Verra' richiesta la password per l'utente $db_user)"
-mysql -u $db_user -p -P $db_port -e "CREATE DATABASE IF NOT EXISTS lido_db;"
-mysql -u $db_user -p -P $db_port lido_db < database/crea_db.sql
-mysql -u $db_user -p -P $db_port lido_db < database/seeding_spiaggia.sql
+
+# Execute SQL scripts based on password presence
+if [ -z "$db_pass" ]; then
+  mysql -u "$db_user" -P "$db_port" -e "CREATE DATABASE IF NOT EXISTS lido_db;"
+  mysql -u "$db_user" -P "$db_port" lido_db < database/crea_db.sql
+  mysql -u "$db_user" -P "$db_port" lido_db < database/seeding_spiaggia.sql
+else
+  mysql -u "$db_user" -p"$db_pass" -P "$db_port" -e "CREATE DATABASE IF NOT EXISTS lido_db;"
+  mysql -u "$db_user" -p"$db_pass" -P "$db_port" lido_db < database/crea_db.sql
+  mysql -u "$db_user" -p"$db_pass" -P "$db_port" lido_db < database/seeding_spiaggia.sql
+fi
 echo "-> Database pronto!"
 echo ""
 
-echo "[2/3] Compilazione del progetto con Maven..."
-cd lido
-mvn clean package
-cd ..
-echo "-> Compilazione completata!"
+echo "[2/3] Selezione della versione di Tomcat..."
+echo ""
+echo "Quale versione di Tomcat e' installata sul sistema?"
+echo "1 - Tomcat 9 (Ambiente Java 8)"
+echo "2 - Tomcat 11 (Ambiente Java 21)"
+echo ""
+
+read -p "Digita 1 oppure 2 e premi INVIO: " tomcat_ver
+
+# Prepare target directory
+rm -rf lido_deploy
+mkdir -p lido_deploy/lido
+
+if [ "$tomcat_ver" = "1" ]; then
+  cp -r build/java8/lido/* lido_deploy/lido/
+  echo "-> Preparata l'applicazione per Tomcat 9!"
+else
+  cp -r build/java21/lido/* lido_deploy/lido/
+  echo "-> Preparata l'applicazione per Tomcat 11!"
+fi
+
+echo "Creazione del file di configurazione del database..."
+mkdir -p lido_deploy/lido/WEB-INF/classes
+cat <<EOF > lido_deploy/lido/WEB-INF/classes/db.properties
+db.user=$db_user
+db.pass=$db_pass
+db.port=$db_port
+EOF
+echo "-> Configurazione completata!"
 echo ""
 
 echo "==================================================="
 echo "[3/3] INSTALLAZIONE QUASI TERMINATA!"
 echo ""
-echo "Per avviare il gestionale, trovare la cartella 'webapps' di Tomcat."
-echo "Di default si trova in percorsi simili a:"
-echo "- /usr/local/tomcat/webapps"
-echo "- /opt/tomcat/webapps"
-echo "- /Library/Tomcat/webapps (Mac)"
-echo ""
-echo "1. Copiare il file 'lido/target/lido.war' dentro 'webapps'."
-echo "2. Avviare Tomcat (es. eseguendo ./startup.sh nella cartella 'bin')."
-echo "3. Aprire il browser all'indirizzo: http://localhost:8080/lido/"
+echo "1. Trova la cartella 'webapps' di Tomcat."
+echo "2. Apri la cartella 'lido_deploy' appena creata in questa directory."
+echo "3. Copia la cartella 'lido' contenuta al suo interno dentro 'webapps'."
+echo "4. Avvia Tomcat ed entra all'indirizzo: http://localhost:8080/lido/"
 echo "   (Sostituire 8080 se Tomcat utilizza una porta diversa)."
 echo "==================================================="
