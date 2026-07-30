@@ -6,7 +6,7 @@
 
 ### 1. Obiettivo e Scelta Tecnologica
 
-In conformità con le specifiche richieste, il gruppo ha optato per il **Caso A (Ristrutturazione del 1° Progetto)**. L'applicativo originale, originariamente sviluppato in PHP procedurale, è stato interamente riprogettato utilizzando la tecnologia **Java (Jakarta EE)**, eseguito su server **Apache Tomcat**, con l'integrazione del motore di template **Thymeleaf** per il rendering lato server.
+In conformità con le specifiche richieste, il gruppo ha optato per il **Caso A (Ristrutturazione del 1° Progetto)**. L'applicativo originale, originariamente sviluppato in PHP procedurale, è stato interamente riprogettato utilizzando la tecnologia **Java (Jakarta EE per la versione java21/tomcat11 - javax per la versione java8/tomcat9)**, eseguito su server **Apache Tomcat**, con l'integrazione del motore di template **Thymeleaf** per il rendering lato server.
 
 ### 2. Architettura Software (Pattern MVC)
 
@@ -27,7 +27,3 @@ L'accesso al database MySQL è stato isolato tramite il Data Access Object Patte
 Per modernizzare la User Experience e ridurre i tempi di caricamento, molte funzionalità (come il calcolo dinamico delle tariffe, il controllo di disponibilità e la gestione asincrona dei modali CRUD) non ricaricano l'intera pagina.
 
 Il frontend interroga le Servlet Java tramite chiamate asincrone JavaScript. Per permettere alle Servlet di interpretare correttamente i payload di tipo `multipart/form-data` inviati dal frontend tramite l'oggetto `FormData`, i Controller sono stati decorati con l'annotazione Jakarta `@MultipartConfig`. Le risposte vengono poi restituite e parsate in formato JSON.
-
-### 5. Build Automation e Distribuzione
-
-Per garantire la massima portabilità e la conformità al requisito di un'installazione eseguibile in meno di 5 minuti e da riga di comando, è stato introdotto Apache Maven. Maven gestisce in totale trasparenza le dipendenze esterne come driver JDBC MySQL e librerie Thymeleaf e automatizza la fase di build. Tramite il lifecycle standard, il progetto viene compilato e impacchettato in un singolo artefatto `.war`, pronto per l'immediato rilascio all'interno della directory `webapps` di qualsiasi istanza Tomcat.
