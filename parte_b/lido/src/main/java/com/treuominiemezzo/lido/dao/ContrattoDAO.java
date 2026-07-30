@@ -17,35 +17,37 @@ public class ContrattoDAO {
   public List<Contratto> getContrattiFiltered(String dataDa, String dataA, int limit, int offset) {
     List<Contratto> contratti = new ArrayList<>();
     List<Object> params = new ArrayList<>();
-    
-    StringBuilder sql = new StringBuilder(
-      "SELECT c.numProgr, c.data, c.importo, cl.nome, cl.cognome, " +
-      "o.id AS idOmbrellone, t.nome AS tipologia, " +
-      "MIN(ov.data) AS inizio, MAX(ov.data) AS fine " +
-      "FROM Contratto c " +
-      "JOIN Cliente cl ON c.stipulatoDa = cl.codice " +
-      "LEFT JOIN OmbrelloneVenduto ov ON c.numProgr = ov.contratto " +
-      "LEFT JOIN Ombrellone o ON ov.idOmbrellone = o.id " +
-      "LEFT JOIN Tipologia t ON o.tipologia = t.codice " +
-      "WHERE 1=1 "
-    );
 
+    StringBuilder sql = new StringBuilder(
+        "SELECT c.numProgr, c.data, c.importo, cl.nome, cl.cognome, " +
+            "o.id AS idOmbrellone, t.nome AS tipologia, " +
+            "MIN(ov.data) AS inizio, MAX(ov.data) AS fine " +
+            "FROM Contratto c " +
+            "JOIN Cliente cl ON c.stipulatoDa = cl.codice " +
+            "LEFT JOIN OmbrelloneVenduto ov ON c.numProgr = ov.contratto " +
+            "LEFT JOIN Ombrellone o ON ov.idOmbrellone = o.id " +
+            "LEFT JOIN Tipologia t ON o.tipologia = t.codice " +
+            "WHERE 1=1 " +
+            "GROUP BY c.numProgr, c.data, c.importo, cl.nome, cl.cognome, o.id, t.nome " +
+            "HAVING 1=1 ");
+
+    // Filtriamo sull'intervallo di prenotazione dell'ombrellone anziché sulla data
+    // di creazione del contratto
     if (dataDa != null && !dataDa.isEmpty()) {
-      sql.append("AND c.data >= ? ");
+      sql.append("AND MAX(ov.data) >= ? ");
       params.add(java.sql.Date.valueOf(dataDa));
     }
     if (dataA != null && !dataA.isEmpty()) {
-      sql.append("AND c.data <= ? ");
+      sql.append("AND MIN(ov.data) <= ? ");
       params.add(java.sql.Date.valueOf(dataA));
     }
 
-    sql.append("GROUP BY c.numProgr, c.data, c.importo, cl.nome, cl.cognome, o.id, t.nome ");
     sql.append("ORDER BY c.data DESC, c.numProgr DESC LIMIT ? OFFSET ?");
     params.add(limit);
     params.add(offset);
 
     try (Connection conn = Database.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+        PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
 
       for (int i = 0; i < params.size(); i++) {
         stmt.setObject(i + 1, params.get(i));
@@ -58,15 +60,17 @@ public class ContrattoDAO {
         c.setDataStipula(rs.getDate("data").toLocalDate());
         c.setImporto(rs.getDouble("importo"));
         c.setClienteNomeCognome(rs.getString("nome") + " " + rs.getString("cognome"));
-        
+
         c.setIdOmbrellone(rs.getInt("idOmbrellone"));
         c.setTipologiaOmbrellone(rs.getString("tipologia") != null ? rs.getString("tipologia") : "N/D");
-        
+
         java.sql.Date sqlInizio = rs.getDate("inizio");
-        if (sqlInizio != null) c.setInizioPrenotazione(sqlInizio.toLocalDate());
-        
+        if (sqlInizio != null)
+          c.setInizioPrenotazione(sqlInizio.toLocalDate());
+
         java.sql.Date sqlFine = rs.getDate("fine");
-        if (sqlFine != null) c.setFinePrenotazione(sqlFine.toLocalDate());
+        if (sqlFine != null)
+          c.setFinePrenotazione(sqlFine.toLocalDate());
 
         contratti.add(c);
       }
@@ -80,24 +84,34 @@ public class ContrattoDAO {
   public int getTotalContrattiFiltered(String dataDa, String dataA) {
     int total = 0;
     List<Object> params = new ArrayList<>();
-    StringBuilder sql = new StringBuilder("SELECT COUNT(DISTINCT c.numProgr) AS total FROM Contratto c WHERE 1=1 ");
+
+    StringBuilder sql = new StringBuilder(
+        "SELECT COUNT(*) AS total FROM (" +
+            "  SELECT c.numProgr " +
+            "  FROM Contratto c " +
+            "  LEFT JOIN OmbrelloneVenduto ov ON c.numProgr = ov.contratto " +
+            "  WHERE 1=1 " +
+            "  GROUP BY c.numProgr " +
+            "  HAVING 1=1 ");
 
     if (dataDa != null && !dataDa.isEmpty()) {
-      sql.append("AND c.data >= ? ");
+      sql.append("AND MAX(ov.data) >= ? ");
       params.add(java.sql.Date.valueOf(dataDa));
     }
     if (dataA != null && !dataA.isEmpty()) {
-      sql.append("AND c.data <= ? ");
+      sql.append("AND MIN(ov.data) <= ? ");
       params.add(java.sql.Date.valueOf(dataA));
     }
 
+    sql.append(") AS subquery");
+
     try (Connection conn = Database.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
-         
+        PreparedStatement stmt = conn.prepareStatement(sql.toString())) {
+
       for (int i = 0; i < params.size(); i++) {
         stmt.setObject(i + 1, params.get(i));
       }
-      
+
       ResultSet rs = stmt.executeQuery();
       if (rs.next()) {
         total = rs.getInt("total");
@@ -114,11 +128,11 @@ public class ContrattoDAO {
     String sql = "SELECT numProgr, data, importo FROM Contratto WHERE stipulatoDa = ? ORDER BY data DESC";
 
     try (Connection conn = Database.getConnection();
-         PreparedStatement stmt = conn.prepareStatement(sql)) {
-      
+        PreparedStatement stmt = conn.prepareStatement(sql)) {
+
       stmt.setInt(1, idCliente);
       ResultSet rs = stmt.executeQuery();
-      
+
       while (rs.next()) {
         Contratto c = new Contratto();
         c.setNumProgr(rs.getInt("numProgr"));
@@ -133,7 +147,8 @@ public class ContrattoDAO {
   }
 
   // Method to update contract safely using a transaction
-  public boolean updateContratto(int idContratto, int idOmbrellone, LocalDate inizio, LocalDate fine, double prezzoTotale) {
+  public boolean updateContratto(int idContratto, int idOmbrellone, LocalDate inizio, LocalDate fine,
+      double prezzoTotale) {
     Connection conn = null;
     try {
       conn = Database.getConnection();
@@ -150,13 +165,16 @@ public class ContrattoDAO {
         stmt.executeUpdate();
       }
 
-      try (PreparedStatement stmtGiorno = conn.prepareStatement("INSERT IGNORE INTO GiornoDisponibilita (idOmbrellone, data) VALUES (?, ?)");
-           PreparedStatement stmtVenduto = conn.prepareStatement("INSERT INTO OmbrelloneVenduto (idOmbrellone, data, contratto) VALUES (?, ?, ?)")) {
-        
+      try (
+          PreparedStatement stmtGiorno = conn
+              .prepareStatement("INSERT IGNORE INTO GiornoDisponibilita (idOmbrellone, data) VALUES (?, ?)");
+          PreparedStatement stmtVenduto = conn
+              .prepareStatement("INSERT INTO OmbrelloneVenduto (idOmbrellone, data, contratto) VALUES (?, ?, ?)")) {
+
         LocalDate current = inizio;
         while (!current.isAfter(fine)) {
           java.sql.Date sqlDate = java.sql.Date.valueOf(current);
-          
+
           stmtGiorno.setInt(1, idOmbrellone);
           stmtGiorno.setDate(2, sqlDate);
           stmtGiorno.executeUpdate();
@@ -174,12 +192,21 @@ public class ContrattoDAO {
       return true;
     } catch (SQLException e) {
       if (conn != null) {
-        try { conn.rollback(); } catch (SQLException ex) { ex.printStackTrace(); }
+        try {
+          conn.rollback();
+        } catch (SQLException ex) {
+          ex.printStackTrace();
+        }
       }
       return false;
     } finally {
       if (conn != null) {
-        try { conn.setAutoCommit(true); conn.close(); } catch (SQLException e) { e.printStackTrace(); }
+        try {
+          conn.setAutoCommit(true);
+          conn.close();
+        } catch (SQLException e) {
+          e.printStackTrace();
+        }
       }
     }
   }
